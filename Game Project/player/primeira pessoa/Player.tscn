@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.468374
+height = 2.09096
+
+[node name="Player" type="KinematicBody"]
+
+[node name="target" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.27522, 0 )
+
+[node name="Camera" type="Camera" parent="target"]
+far = 1000.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.53076, 0 )
+shape = SubResource( 1 )

@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="map" type="Spatial"]
+
+[node name="control" type="Spatial" parent="."]
+
+[node name="Timer_1" type="Timer" parent="control"]
+wait_time = 0.57
+one_shot = true
+
+[node name="Timer_reset_atak" type="Timer" parent="control"]
+wait_time = 0.8
+one_shot = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )

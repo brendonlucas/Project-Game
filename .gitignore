@@ -1,0 +1,17 @@
+.import/
+.import
+Nova pasta/
+*.zip
+.zip
+bin/
+*.import
+testes/
+debug.keystore
+jdk-14.0.1_windows-x64_bin.exe
+Godot_v3.2.1-stable_export_templates.tpz
+Godot_v3.2.2-stable_export_templates.tpz
+android/
+Complementos_Adds - Copia/
+Complementos_Adds/
+sword game/
+Lab scape/

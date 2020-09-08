@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.329755
+height = 1.32096
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+emission_enabled = true
+emission = Color( 0.666667, 0.666667, 0.666667, 1 )
+emission_energy = 2.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[node name="Player" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.977185, 0 )
+collision_layer = 2
+
+[node name="CameraPivot" type="Spatial" parent="."]
+
+[node name="CameraBoom" type="SpringArm" parent="CameraPivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+spring_length = 5.0
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.246843, 0, 0, 0, 1, 0, 0, 0, 0.189821, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.246843, 0, 0, 0, 0.223015, 0, 0, 0, 0.189821, -0.00958017, 0.337361, -0.458026 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )

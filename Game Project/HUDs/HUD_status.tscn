@@ -1,0 +1,120 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://HUDs/images/hud_status_v2.png" type="Texture" id=1]
+[ext_resource path="res://HUDs/images/hp_bar_green.png" type="Texture" id=2]
+[ext_resource path="res://HUDs/images/sp_bar_blue.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/New Innerspeaker Reguler.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+use_filter = true
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 39
+use_filter = true
+font_data = ExtResource( 5 )
+
+[node name="HUD_status" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hud_top" type="Control" parent="."]
+anchor_left = 0.021
+anchor_top = 0.025
+anchor_right = 0.316
+anchor_bottom = 0.195
+margin_left = 0.495998
+margin_right = 0.415985
+margin_bottom = -7.62939e-06
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="base_icom" type="TextureRect" parent="hud_top"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_hp_green" type="TextureProgress" parent="hud_top"]
+anchor_left = 0.265
+anchor_top = 0.167
+anchor_right = 0.914
+anchor_bottom = 0.422
+margin_left = -0.0300064
+margin_top = -0.0340004
+margin_right = -0.0280151
+margin_bottom = -0.0440025
+value = 100.0
+texture_progress = ExtResource( 2 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_hp" type="Label" parent="hud_top/bar_hp_green"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 1 )
+text = "100/100"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_sp_blue" type="TextureProgress" parent="hud_top"]
+anchor_left = 0.317881
+anchor_top = 0.431373
+anchor_right = 0.860927
+anchor_bottom = 0.568627
+margin_left = -7.62939e-06
+margin_bottom = -3.8147e-06
+value = 100.0
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_sp" type="Label" parent="hud_top/bar_sp_blue"]
+anchor_right = 1.0
+anchor_bottom = 1.14286
+margin_bottom = -2.0
+custom_fonts/font = SubResource( 2 )
+text = "100/100"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_nivel" type="Label" parent="hud_top"]
+anchor_left = 0.0364238
+anchor_top = 0.0980392
+anchor_right = 0.321192
+anchor_bottom = 0.941176
+custom_fonts/font = SubResource( 3 )
+text = "1"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}

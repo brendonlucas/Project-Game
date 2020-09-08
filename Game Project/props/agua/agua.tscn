@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://props/agua/Area_summon.gd" type="Script" id=1]
+[ext_resource path="res://props/agua/basic_water_material.material" type="Material" id=3]
+
+[sub_resource type="PlaneMesh" id=1]
+material = ExtResource( 3 )
+size = Vector2( 700, 700 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:mesh:material:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 1, 0, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 5.21022, 9.1025, 0.00619761 )
+
+[node name="agua" type="Spatial"]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0 )
+
+[node name="uagua" type="MeshInstance" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="uagua"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 2 )
+
+[node name="Area_summon" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48399, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_summon"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.38043, 0 )
+shape = SubResource( 3 )
