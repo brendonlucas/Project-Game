@@ -117,6 +117,7 @@ func _process(delta):
 		player.block_moviments(true)
 		cam.block_cam(true)
 		Gamestate.in_mine_game = false
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		drop_game_test = 0
 		
 func set_dados_legenda(text_info):

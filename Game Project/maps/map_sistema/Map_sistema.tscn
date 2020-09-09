@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://player/Player_hack/Player_hack.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/Player_hack/target.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player_hack/Player_hack.gd" type="Script" id=3]
+[ext_resource path="res://maps/map_sistema/block.tres" type="MeshLibrary" id=4]
+
+[sub_resource type="ProceduralSky" id=3]
+sky_top_color = Color( 1, 1, 1, 1 )
+sky_horizon_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+ground_bottom_color = Color( 0.32549, 0.32549, 0.32549, 1 )
+ground_horizon_color = Color( 0.627451, 0.627451, 0.627451, 1 )
+
+[sub_resource type="Environment" id=4]
+background_mode = 2
+background_sky = SubResource( 3 )
+background_color = Color( 1, 1, 1, 1 )
+glow_enabled = true
+glow_bloom = 0.1
+glow_blend_mode = 1
+
+[sub_resource type="PlaneMesh" id=10]
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_color = Color( 0.596078, 0.560784, 0.560784, 1 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[node name="Map" type="Spatial"]
+
+[node name="target" parent="." instance=ExtResource( 2 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 34.3412, 0, 0, 0, 1, 0, 0, 0, 34.4924, 0, 0.10477, 0 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 12 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 2.38326, 0, 0, 0, 1, 0, 0, 0, 1.71202, 0, -0.10477, 0 )
+shape = SubResource( 13 )
+
+[node name="Player_hack" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.453756, 0 )
+script = ExtResource( 3 )
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 4 )
+data = {
+"cells": PoolIntArray( 65533, 0, 0, 65533, 1, 0, 65533, 2, 0, 65533, 3, 0, 65533, 4, 0, 3, 5, 0, 65533, 5, 0, 3, 6, 0, 65533, 6, 0, 3, 7, 0, 65533, 7, 0, 3, 8, 0, 65533, 8, 0, 3, 9, 0, 65533, 9, 0, 0, 10, 0, 1, 10, 0, 2, 10, 0, 3, 10, 0, 4, 10, 0, 65533, 10, 0, 65534, 10, 0, 65535, 10, 0, 3, 11, 0, 0, 65523, 0, 1, 65523, 0, 2, 65523, 0, 3, 65523, 0, 4, 65523, 0, 5, 65523, 0, 6, 65523, 0, 7, 65523, 0, 8, 65523, 0, 9, 65523, 536870912, 65534, 65523, 0, 65535, 65523, 0, 8, 65524, 0, 65533, 65524, 0, 65534, 65524, 0, 8, 65525, 0, 65533, 65525, 0, 8, 65526, 0, 65533, 65526, 0, 8, 65527, 0, 65533, 65527, 0, 4, 65528, 0, 8, 65528, 0, 65533, 65528, -1610612736, 4, 65529, 0, 8, 65529, 536870912, 65533, 65529, 0, 4, 65530, 0, 8, 65530, 0, 65533, 65530, 0, 4, 65531, 0, 65533, 65531, 0, 4, 65532, 0, 5, 65532, 0, 65533, 65532, 0, 5, 65533, 0, 65533, 65533, 0, 65533, 65534, 0, 65533, 65535, 0 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}

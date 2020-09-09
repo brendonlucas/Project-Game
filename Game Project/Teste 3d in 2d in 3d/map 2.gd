@@ -13,9 +13,9 @@ onready var viewport_sprite = $Control/ViewportSprite
 var map_control
 
 func _ready():
-	#viewport_sprite.modulate = Color(1, 1,1, 0.01)
+	# viewport_sprite.modulate = Color(1, 1,1, 0.01)
 	get_viewport().connect("size_changed", self, "_root_viewport_size_changed")
-	#viewport_initial_size = viewport.size
+	# viewport_initial_size = viewport.size
 	viewport.set_clear_mode(Viewport.CLEAR_MODE_ONLY_NEXT_FRAME)
 	viewport_sprite.texture = viewport.get_texture()
 
