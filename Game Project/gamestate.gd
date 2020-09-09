@@ -43,6 +43,9 @@ var game1 = preload("res://maps/mine_games/game_map_1.tscn")
 var game2 = preload("res://maps/mine_games/game_map_2.tscn")
 var game3 = preload("res://maps/mine_games/game_map_3.tscn")
 
+var cam_turrent = preload("res://player/nave/turret.tscn")
+var cam_normal = preload("res://player/nave/target.tscn")
+
 var plane_agua = preload("res://props/agua/agua.tscn")
 var drop_game_test = 0
 
@@ -56,8 +59,31 @@ func _ready():
 	legenda = get_tree().get_root().get_node_or_null("Map/legendas")
 	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
-	
 
+var cam_atual = 1
+
+func instance_cams():
+	if cam_atual == 1:
+		var turrent_gun_cam = get_tree().get_root().get_node_or_null("Map/Player_nave/pos_cam")
+		var scenef = get_tree().get_root().get_node_or_null("Map/Player_nave")
+		var outacam = get_tree().get_root().get_node_or_null("Map/target")
+		var clone = cam_turrent.instance()
+		#var scene_root = get_tree().root.get_children()[1]
+		scenef.add_child(clone)
+		clone.global_transform = turrent_gun_cam.global_transform
+		outacam.queue_free()
+		cam_atual=2
+	elif cam_atual == 2:
+		var turrent_gun_cam = get_tree().get_root().get_node_or_null("Map/Player_nave")
+		var scenef = get_tree().get_root().get_node_or_null("Map")
+		var outacam = get_tree().get_root().get_node_or_null("Map/Player_nave/Camera")
+		var clone = cam_normal.instance()
+		#var scene_root = get_tree().root.get_children()[1]
+		scenef.add_child(clone)
+		clone.translation = turrent_gun_cam.translation
+		outacam.queue_free()
+		cam_atual=1
+		
 func _process(delta):
 	if Input.is_action_just_pressed("jump"):
 		legenda.show()
@@ -156,7 +182,6 @@ func instancia_objetos():
 		mini_game = game3
 		
 	var clone = mini_game.instance()
-	print(clone.name)
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(clone)
 	#clone.translation = novo_lugar

@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://maps/map_inicial/gun_1.gd" type="Script" id=1]
+[ext_resource path="res://player/nave/model/model.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/effect_jet.wav" type="AudioStream" id=6]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.76027, 0.158394, 0.649211 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "rotate_d"
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0.300706, 0, 0, 0.953717, 1, 1, 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "rotate_e"
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, -0.300706, 0, 0, 0.953717, 1, 1, 1 )
+
+[node name="Player_nave" type="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 0.992546, -0.121869, 0, 0.121869, 0.992546, 0, 0, 0 )
+
+[node name="pos_cam" type="Spatial" parent="."]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -1.311, 0.301, 0.012 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/rotate_d = SubResource( 2 )
+anims/rotate_e = SubResource( 3 )
+
+[node name="gun_1" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.33676, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="Timer" type="Timer" parent="gun_1"]
+wait_time = 0.1
+one_shot = true
+
+[node name="jato" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+
+[node name="jet_audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0374, -0.0339224, 0.00416513 )
+stream = ExtResource( 6 )
+unit_db = 13.858

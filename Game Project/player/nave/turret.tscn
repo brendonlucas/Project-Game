@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://player/nave/model/turret/turret.tscn" type="PackedScene" id=1]
+[ext_resource path="res://player/nave/gun_turret.gd" type="Script" id=2]
+[ext_resource path="res://player/nave/model/turret/turret.gd" type="Script" id=3]
+
+[node name="Camera" type="Camera"]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -1.3115, 0.30088, 0.0120759 )
+far = 4000.0
+script = ExtResource( 3 )
+
+[node name="turret" type="Spatial" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.62921e-06, 0, 10, 0, 10, 0, -10, 0, -1.62921e-06, 0, -0.299, -0.024 )
+
+[node name="gun_turret" type="Spatial" parent="turret"]
+transform = Transform( 0.1, 0, -5.82077e-11, 0, 0.1, 0, 5.82077e-11, 0, 0.1, 0.0285025, 0.022207, 0.000277073 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="turret/gun_turret"]
+wait_time = 0.1
+one_shot = true
