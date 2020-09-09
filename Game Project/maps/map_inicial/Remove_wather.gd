@@ -19,7 +19,7 @@ func _physics_process(delta):
 	if (dir.dot(hv) > 0):
 		accel = acelerecao
 	hv = hv.linear_interpolate(new_pos, accel * delta)
-	velocity.z = -50
+	#velocity.z = -50
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 
 

@@ -17,13 +17,13 @@ var v_distance
 
 func _ready():
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
-	option_sombra = get_node("Menu_2/sombra/OptionButton")
-	sensibilidade = get_node("Menu_2/Sensibilidade/HSlider")
-	v_distance = get_node("Menu_2/grass_distance/HSlider_v_distance")
+	option_sombra = get_node_or_null("Menu_2/sombra/OptionButton")
+	sensibilidade = get_node_or_null("Menu_2/Sensibilidade/HSlider")
+	v_distance = get_node_or_null("Menu_2/grass_distance/HSlider_v_distance")
 	
-	cam = get_parent().get_node("target")
-	player = get_parent().get_node("Player_v4")
-	var option_sombra = get_node("Menu_2/sombra/OptionButton")
+	cam = get_parent().get_node_or_null("target")
+	player = get_parent().get_node_or_null("Player_v4")
+	var option_sombra = get_node_or_null("Menu_2/sombra/OptionButton")
 	#for button in $Menu_1/buttons.get_children():
 		#button.connect("pressed", self, "_on_Button_pressed", "res://Menu_pausa/teste.tscn")
 func _process(delta):
@@ -33,23 +33,23 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("menu_pause"):
 		if menu_pause_active:
-			
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			menu_pause_active = false
 			menu_2_active = false
 			if !Gamestate.in_mine_game:
-				player.block_moviments(true)
-				cam.block_cam(true)
+				if player != null:
+					player.block_moviments(true)
+					cam.block_cam(true)
 			$Menu_2.hide()
 			hide()
 			
 		elif !menu_pause_active:
-			
 			menu_pause_active = true
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			if !Gamestate.in_mine_game:
-				player.block_moviments(false)
-				cam.block_cam(false)
+				if player != null:
+					player.block_moviments(false)
+					cam.block_cam(false)
 			show()
 		
 func _on_Button_sair_pressed():
@@ -72,8 +72,9 @@ func _on_Button_opcoes_pressed():
 func _on_Button_continuar_pressed():
 	menu_pause_active = false
 	menu_2_active = false
-	player.block_moviments(true)
-	cam.block_cam(true)
+	if player != null:
+		player.block_moviments(true)
+		cam.block_cam(true)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Menu_2.hide()
 	hide()
@@ -99,7 +100,8 @@ func _on_Button_aplicar_pressed():
 	Gamestate.camera_sensibilidade = sensibilidade.value
 	Gamestate.view_distance = v_distance.value
 	sun.set_shadow_mode(option_sombra)
-	terrain_grass.view_distance = Gamestate.view_distance
+	if terrain_grass != null:
+		terrain_grass.view_distance = Gamestate.view_distance
 
 
 func _on_HSlider_value_changed(value):

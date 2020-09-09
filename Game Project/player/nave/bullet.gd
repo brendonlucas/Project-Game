@@ -3,7 +3,7 @@ extends Spatial
 # The speed the bullet travels at
 var BULLET_SPEED = 200
 # The damage the bullet does on whatever it hits
-var BULLET_DAMAGE = 15
+var BULLET_DAMAGE = 100
 # NOTE: for both BULLET_SPEED and BULLET_DAMAGE, we are keeping their
 # names uppercase because we do not want their values to change outside of
 # when they are instanced/spawned.
@@ -28,10 +28,15 @@ func _physics_process(delta):
 
 
 func collided(body):
+	
 	if hit_something == false:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, self.global_transform.origin)
 			
 	hit_something = true
+	if body.is_in_group("enemy"):
+		body.hit_damage(BULLET_DAMAGE)
+		
 	if body.name != "Player_nave":
 		queue_free()
+	
