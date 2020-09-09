@@ -39,6 +39,8 @@ var ultimo_atake
 var atacando
 var luz 
 
+
+	
 func _ready():
 	luz = get_parent().get_node("Sol")
 	timer_1 = get_node("Timer")
@@ -55,7 +57,7 @@ func add_atake():
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
-	
+
 	if Input.is_action_just_pressed("toggle_mouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
@@ -72,16 +74,19 @@ func ataque(delta):
 		
 		if atacks == 0:
 			animation.play("ataque1", 0.2)
+
 			atacks += 1
 			atacando = true
 		elif atacks == 1:
 			animation.play("ataque2", 0.2)
 			atacks += 1
 			atacando = true
+
 		elif atacks == 2:
 			animation.play("ataque3", 0.2)
 			atacks = 0
 			atacando = true
+
 			
 		if atacks == 3:
 			atacks = 0
@@ -97,6 +102,8 @@ func ataque(delta):
 #		animation.play("ataque2")
 #		atacando = true
 		
+
+	
 func movimentos(delta):
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()

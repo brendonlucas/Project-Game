@@ -6,12 +6,12 @@
 [ext_resource path="res://player/player.gd" type="Script" id=4]
 [ext_resource path="res://player/Camera_target.gd" type="Script" id=5]
 [ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=6]
+[ext_resource path="res://props/agua/textura/dirt.png" type="Texture" id=7]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=8]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=14]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=15]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=16]
 [ext_resource path="res://textures/rock/Rock014_2K_Color.jpg" type="Texture" id=17]
-[ext_resource path="res://textures/Rock026_2K-JPG/Rock026_2K_Color.jpg" type="Texture" id=18]
 [ext_resource path="res://textures/Rock026_2K-JPG/Rock026_2K_Normal.jpg" type="Texture" id=19]
 [ext_resource path="res://default_env.tres" type="Environment" id=20]
 [ext_resource path="res://textures/rock 2/Rock030_2K_Normal.jpg" type="Texture" id=21]
@@ -35,19 +35,17 @@ directional_shadow_max_distance = 400.0
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 2 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 873.259, 5.0406, 389.115 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 699.571, 39.0235, 431.266 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 757.343, 2.24006, 442.795 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 698.465, 36.223, 427.377 )
 script = ExtResource( 5 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 8 )
-collision_enabled = true
-ambient_wind = 0.045
+ambient_wind = 0.093
 lod_scale = 2.0
-custom_globalmap_shader = null
 map_scale = Vector3( 1, 3, 1 )
 _terrain_data = ExtResource( 1 )
 chunk_size = 32
@@ -60,7 +58,7 @@ ground/albedo_bump_0 = ExtResource( 16 )
 ground/normal_roughness_0 = ExtResource( 15 )
 ground/albedo_bump_1 = ExtResource( 17 )
 ground/normal_roughness_1 = ExtResource( 22 )
-ground/albedo_bump_2 = ExtResource( 18 )
+ground/albedo_bump_2 = ExtResource( 7 )
 ground/normal_roughness_2 = ExtResource( 19 )
 ground/albedo_bump_3 = ExtResource( 23 )
 ground/normal_roughness_3 = ExtResource( 21 )
