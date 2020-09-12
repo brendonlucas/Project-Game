@@ -50,19 +50,19 @@ func _physics_process(delta):
 	var is_moving = false
 	
 	if Input.is_action_pressed("frente"):
-		dir.z -= 1
-		is_moving = true
-		
-	if Input.is_action_pressed("tras"):
 		dir.z += 1
 		is_moving = true
 		
+	if Input.is_action_pressed("tras"):
+		dir.z -= 1
+		is_moving = true
+		
 	if Input.is_action_pressed("direita") :
-		dir.x += 1
+		dir.x -= 1
 		is_moving = true
 		
 	if Input.is_action_pressed("esquerda"):
-		dir.x -= 1
+		dir.x += 1
 		is_moving = true
 		
 	if Input.is_action_pressed("sprint") and timer_bullet.time_left == 0:
@@ -80,5 +80,6 @@ func _physics_process(delta):
 	hv = hv.linear_interpolate(new_pos, accel * delta)
 	velocity.x = hv.x
 	velocity.z = hv.z
+	velocity.y -= 1
 	velocity = move_and_slide(velocity, Vector3.UP)
 

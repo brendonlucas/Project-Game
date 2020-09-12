@@ -25,25 +25,6 @@ var executando_legenda = false
 var legenda_executando = 0
 
 
-var text_part1 = {'1':'Ano de 3400, este planeta conhecido como Terra, sofreu com guerras pelo poder durante anos, poucos sobreviveram.',
-	'2':'Os que restaram, criaram duas facções tecnológicas..',
-	'3':'RaySpawn… Organização criminosa que fabrica armas militares e androids de combate, com pretensões desconhecidas.',
-	'4':'Gênesis… Organização criada para combater os atos terroristas da RaySpawn.',
-	'5':'E eu? sou Meya, uma andróide super inteligente da facção Gênesis….',
-	'6':'Meya? falando sozinha de novo? Foco na missão!',
-	'7':'Ok!',
-	'8':'Alerta! inimigos próximos, preparar para o combate.',
-}
-
-var text_part2 = {'1':'Alerta!, inimigo forte está se aproximando.',
-}
-
-var text_part3 = {'1':'Alerta! vírus detectado no sistema da nave.',
-	'2':'Funções de navegação indisponível',
-	'3':'Perdendo altitude.',
-	'4':'Preparar para impacto.'
-}
-
 var legenda
 var text_in_execution
 var timer
@@ -57,12 +38,14 @@ var cam_turrent = preload("res://player/nave/turret.tscn")
 var cam_normal = preload("res://player/nave/target.tscn")
 
 var plane_agua = preload("res://props/agua/agua.tscn")
+
 var drop_game_test = 0
 
 var cam
 var player
 var player_nave
 var fade_final
+
 func _ready():
 	fade_final = get_tree().get_root().get_node_or_null("Map/fade_final/AnimationPlayer")
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
@@ -75,6 +58,7 @@ func _ready():
 
 var cam_atual = 1
 
+# teste de mudança de camera do jato ()game parte 1
 func instance_cams():
 	var fade_change = get_tree().get_root().get_node_or_null("Map/fade/AnimationPlayer")
 	if cam_atual == 1:
@@ -101,16 +85,14 @@ func instance_cams():
 		cam_atual=1
 		
 func _process(delta):
-	if executando_legenda:
-		aplly_text()
-	
+	# a ser removido teste de chamada da instancia de minigame
 	if Input.is_action_just_pressed("coisar") and drop_game_test == 0:
 		player.block_moviments(false)
 		cam.block_cam(false)
 		Gamestate.in_mine_game = true
 		instancia_objetos()
 		drop_game_test = 1
-		
+	# a ser removido teste de remoção da instancia de minigame
 	elif Input.is_action_just_pressed("coisar") and drop_game_test == 1:
 		var game_teste = get_node_or_null("map_game")
 		game_teste.queue_free()
@@ -120,36 +102,9 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 		drop_game_test = 0
 		
-func set_dados_legenda(text_info):
-	executando_legenda = true
-	text_atual = 1
-	if text_info == 1:
-		text_in_execution = text_part1
-		legenda_executando = 1
-	elif text_info == 2:
-		text_in_execution = text_part2
-	elif text_info == 3:
-		legenda_executando = 3
-		text_in_execution = text_part3
-		
 
-func aplly_text():
-	legenda.show()
-	if text_atual > text_in_execution.size() and timer.time_left == 0:
-		executando_legenda = false
-		legenda.hide()
-		if legenda_executando == 1:
-			player_nave.ativar_moves(true)
-		elif legenda_executando == 3:
-			fade_final.play("fade_out")
-			player_nave.ativar_moves(false)
-		return
-		
-	if timer.time_left == 0:
-		legenda_label.set_text(text_in_execution[str(text_atual)])
-		text_atual += 1
-		timer.start()
-	
+
+# controle de experiencia optida
 func add_exp(xp_value):
 	#Salvar_BD: nivel/ exp total / exp restante / exp nivel atual
 	if nivel < 10:
@@ -190,7 +145,8 @@ func randomNumber():
 	rng.randomize()
 	var my_random_number = rng.randi_range(1, 3)
 	return my_random_number
-	
+
+#teste instanciar mine game hacker
 func instancia_objetos():
 	var nun = randomNumber()
 	var mini_game
@@ -209,6 +165,7 @@ func instancia_objetos():
 var localizacao_prox_agua = 0
 var delete_agua = 1
 
+# instanciar agua
 func instanciar_agua():
 	var clone = plane_agua.instance()
 	var scene_root = get_tree().root.get_children()[1]

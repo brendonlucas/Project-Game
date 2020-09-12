@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://player/j gonzales/player.tscn" type="PackedScene" id=2]
@@ -8,19 +8,47 @@
 [ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/agua/textura/dirt.png" type="Texture" id=7]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=8]
+[ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://props/ancient-columns/textures/ground_normal_2K.png" type="Texture" id=10]
+[ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_BaseColor_2K.png" type="Texture" id=11]
+[ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=12]
+[ext_resource path="res://props/ancient-columns/colun.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=14]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=15]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=16]
 [ext_resource path="res://textures/rock/Rock014_2K_Color.jpg" type="Texture" id=17]
+[ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_Metallic_2K.png" type="Texture" id=18]
 [ext_resource path="res://textures/Rock026_2K-JPG/Rock026_2K_Normal.jpg" type="Texture" id=19]
 [ext_resource path="res://default_env.tres" type="Environment" id=20]
-[ext_resource path="res://textures/rock 2/Rock030_2K_Normal.jpg" type="Texture" id=21]
+[ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_Roughness_2K.png" type="Texture" id=21]
 [ext_resource path="res://textures/rock/Rock014_2K_Normal.jpg" type="Texture" id=22]
-[ext_resource path="res://textures/rock 2/Rock030_2K_Color.jpg" type="Texture" id=23]
+[ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_Normal_2K.png" type="Texture" id=23]
 [ext_resource path="res://textures/grass.png" type="Texture" id=24]
 [ext_resource path="res://legendas sys/legendas.tscn" type="PackedScene" id=25]
+[ext_resource path="res://props/Rock moss/rock.tscn" type="PackedScene" id=26]
+[ext_resource path="res://props/ancient-columns/colun2.tscn" type="PackedScene" id=27]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 11 )
+metallic_texture = ExtResource( 18 )
+roughness_texture = ExtResource( 21 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 23 )
+uv1_scale = Vector3( 12, 8, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
 [node name="Map" type="Spatial"]
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 468.084, 5.88979, 296.885 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -35,16 +63,19 @@ directional_shadow_max_distance = 400.0
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 2 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 699.571, 4.2834, 431.266 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 413.4, 2.76063, 257.938 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 698.465, 1.4829, 427.377 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 465.336, 3.1385, 277.973 )
 script = ExtResource( 5 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 8 )
+collision_enabled = true
 ambient_wind = 0.093
+lod_scale = 2.0
+custom_globalmap_shader = null
 map_scale = Vector3( 1, 3, 1 )
 _terrain_data = ExtResource( 1 )
 chunk_size = 32
@@ -59,11 +90,14 @@ ground/albedo_bump_1 = ExtResource( 17 )
 ground/normal_roughness_1 = ExtResource( 22 )
 ground/albedo_bump_2 = ExtResource( 7 )
 ground/normal_roughness_2 = ExtResource( 19 )
-ground/albedo_bump_3 = ExtResource( 23 )
-ground/normal_roughness_3 = ExtResource( 21 )
+ground/albedo_bump_3 = ExtResource( 11 )
+ground/normal_roughness_3 = ExtResource( 10 )
 
 [node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
 script = ExtResource( 14 )
+__meta__ = {
+"_editor_icon": ExtResource( 12 )
+}
 layer_index = 0
 texture = ExtResource( 24 )
 view_distance = 100.0
@@ -79,3 +113,111 @@ visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 20 )
+
+[node name="colun" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 386.48, -0.0211457, 302.492 )
+
+[node name="colun6" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 386.48, -0.0211457, 280.034 )
+
+[node name="colun2" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 394.066, -0.0211457, 302.492 )
+
+[node name="colun5" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 394.066, -0.0211457, 280.023 )
+
+[node name="colun3" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 402.642, -0.0211457, 302.492 )
+
+[node name="colun4" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 402.642, -0.0211457, 280.018 )
+
+[node name="colun7" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 457.926, -0.0211457, 302.492 )
+
+[node name="colun8" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, -1.19193, -29.9763, 0, 29.9763, -1.19193, 457.926, 0.949445, 279.91 )
+
+[node name="colun9" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 465.512, -0.0211457, 302.492 )
+
+[node name="colun10" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 465.512, -0.0211457, 280.023 )
+
+[node name="colun11" parent="." instance=ExtResource( 13 )]
+transform = Transform( 23.3483, -18.8377, 0, 18.8377, 23.3483, 0, 0, 0, 30, 471.575, 0.390248, 302.492 )
+
+[node name="colun12" parent="." instance=ExtResource( 13 )]
+transform = Transform( 30, 0, 0, 0, 30, 0, 0, 0, 30, 474.088, -0.0211457, 280.018 )
+
+[node name="colun13" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 441.821, -0.0211457, 340.924 )
+
+[node name="colun14" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 419.364, -0.0211457, 341.077 )
+
+[node name="colun15" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 441.769, -0.0211457, 333.338 )
+
+[node name="colun16" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.180075, -14.3961, 26.3196, -0.0984943, 26.3202, 14.3958, -29.9993, 0, -0.205251, 419.301, 0.22624, 333.492 )
+
+[node name="colun17" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 441.71, -0.0211457, 324.762 )
+
+[node name="colun18" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 419.237, -0.0211457, 324.916 )
+
+[node name="colun19" parent="." instance=ExtResource( 27 )]
+transform = Transform( 17.2657, -24.3428, -3.05357, 1.76657, -2.49069, 29.8442, -24.4699, -17.3558, -1.22552e-06, 441.332, 0.891977, 269.43 )
+
+[node name="colun20" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 418.875, -0.0211457, 269.633 )
+
+[node name="colun21" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 441.28, -0.0211457, 261.893 )
+
+[node name="colun29" parent="." instance=ExtResource( 27 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 419.04, -0.0211457, 261.917 )
+
+[node name="colun23" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 441.221, -0.0211457, 253.317 )
+
+[node name="colun24" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 418.748, -0.0211457, 253.471 )
+
+[node name="colun25" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 413.992, 0.829714, 274.364 )
+
+[node name="colun26" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 413.842, 0.829714, 307.762 )
+
+[node name="colun27" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 448.134, 0.829714, 274.364 )
+
+[node name="colun28" parent="." instance=ExtResource( 13 )]
+transform = Transform( -0.205251, 0, 29.9993, 0, 30, 0, -29.9993, 0, -0.205251, 448.033, 0.829714, 307.71 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 431.047, -0.14738, 290.821 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 3 )
+
+[node name="rock" parent="." instance=ExtResource( 26 )]
+transform = Transform( 6.54472, -0.653168, 2.39584, -2.34115, 0.629083, 6.56683, -0.828061, -6.94101, 0.369715, 403.836, 2.88507, 260.9 )
+
+[node name="rock2" parent="." instance=ExtResource( 26 )]
+transform = Transform( -4.78237, 0.298727, -5.10291, 5.04413, -0.856233, -4.77741, -0.828061, -6.94101, 0.369715, 412.515, 3.66809, 332.919 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 0.826884, 0.562372, 0, -0.562372, 0.826884, 0, 0, 0, 1, 451.663, 0.425, 290.82 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0.00750732, 1.52588e-05, 0 )
+shape = SubResource( 4 )

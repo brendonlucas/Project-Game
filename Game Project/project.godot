@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game Project"
-run/main_scene="res://maps/map_sistema/Map_sistema.tscn"
+run/main_scene="res://maps/Map_limpo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -102,6 +102,11 @@ menu_pause={
 coisar={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
+ ]
+}
+caminhando={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"unicode":0,"echo":false,"script":null)
  ]
 }
 

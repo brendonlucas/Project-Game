@@ -147,11 +147,11 @@ func movimentos(delta):
 		cc = 0
 		
 	if is_moving and !correndo and resetado and !caminhando:
-		
 		$AnimationPlayer.play("run1",cc)
 		parando = true
 	elif is_moving and !correndo and resetado and caminhando:
 		$AnimationPlayer.play("walk",cc)
+		print("sda")
 	elif !is_moving and !correndo and !atacando and !caminhando:
 		pass
 		animation.play("idle", 0.2)

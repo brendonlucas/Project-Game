@@ -59,9 +59,12 @@ func _physics_process(delta):
 		is_moving = true
 		rotation_degrees.x = -20
 		
-	if Input.is_action_just_pressed("sprint") and timer_gun_bullet.time_left == 0:
+	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0:
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
+		$gun_2.fire_weapon()
+		
+	if Input.is_action_just_pressed("sprint"):
 		Gamestate.instance_cams()
 		
 	dir = dir.normalized()

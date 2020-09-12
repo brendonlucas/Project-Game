@@ -1,23 +1,25 @@
 [gd_scene load_steps=4 format=2]
 
-[sub_resource type="CubeMesh" id=1]
+[sub_resource type="CubeMesh" id=3]
 
-[sub_resource type="SpatialMaterial" id=3]
+[sub_resource type="SpatialMaterial" id=4]
+metallic = 1.0
+roughness = 0.0
 emission_enabled = true
-emission = Color( 0.819608, 0.819608, 0.819608, 1 )
+emission = Color( 0.854902, 0.854902, 0.854902, 1 )
 emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 
 [node name="tiles" type="Spatial"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+[node name="wall_block" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="wall_block"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-shape = SubResource( 2 )
+[node name="CollisionShape" type="CollisionShape" parent="wall_block/StaticBody"]
+shape = SubResource( 1 )
