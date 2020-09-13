@@ -19,12 +19,12 @@ func _ready():
 func _on_Area_body_entered(body):
 	print(body.name)
 	if body.name == "Player_v4":
-		var mesh = get_tree().get_root().get_node_or_null("Map/Player_v4/Armature/Mesh")
+		var mesh = get_tree().get_root().get_node_or_null("Map/Player_v4/Armature")
 		mesh.hide()
 
 
 func _on_Area_body_exited(body):
 	print("saiu")
 	if body.name == "Player_v4":
-		var mesh = get_tree().get_root().get_node_or_null("Map/Player_v4/Armature/Mesh")
+		var mesh = get_tree().get_root().get_node_or_null("Map/Player_v4/Armature")
 		mesh.show()

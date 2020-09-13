@@ -1,6 +1,7 @@
 extends KinematicBody
 
-export var speed = 100
+export var speed = 1.5
+
 var space_state
 var target
 
@@ -19,14 +20,16 @@ func _process(delta):
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
 		if target.is_in_group("Player_v4"):
 			var olhar = target.global_transform.origin
+			
 			#olhar.y = 1
 			#look_at_from_position(translation, olhar, Vector3.UP)
 			look_at(olhar, Vector3.UP)
-			set_color_red()
 			if !target_attack:
 				move_to_target(delta)
-		else:
-			set_color_green()
+				$AnimationPlayer.play("walk")
+	elif !target:
+		pass
+		$AnimationPlayer.play("idle", 0.2)
 			
 	var velocity = Vector3()
 	velocity.y -= 0.98
@@ -40,8 +43,10 @@ func _process(delta):
 
 			
 func atacar():
-	print("atacou e animou ")
-	$gun_enemy.fire_weapon()
+	pass
+	#print("atacou e animou ")
+	$AnimationPlayer.play("attack")
+
 		
 func _on_Area_attack_body_entered(body):
 	if body.is_in_group("Player_v4"):
@@ -51,29 +56,21 @@ func _on_Area_attack_body_entered(body):
 func _on_Area_attack_body_exited(body):
 	if body.is_in_group("Player_v4"):
 		target_attack = null
-		print("saiu da area de ataque")
+		#print("saiu da area de ataque")
 
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player_v4"):
 		target = body
-		print(body.name + " entered")
-		set_color_red()
+		#print(body.name + " entered")
+
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("Player_v4"):
 		target = null
-		print(body.name + " exited")
-		set_color_green()
+		#print(body.name + " exited")
+
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
+	move_and_slide(direction * speed, Vector3.UP)
 	
-	move_and_slide(direction * speed * delta, Vector3.UP)
-	
-func set_color_red():
-	$MeshInstance.get_surface_material(0).set_albedo(Color(1, 0, 0))
-
-func set_color_green():
-	$MeshInstance.get_surface_material(0).set_albedo(Color(0, 1, 0))
-
-
