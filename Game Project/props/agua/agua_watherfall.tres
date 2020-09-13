@@ -6,21 +6,16 @@
 [resource]
 flags_transparent = true
 params_cull_mode = 2
-albedo_color = Color( 0, 0.972549, 1, 0.121569 )
+albedo_color = Color( 0.623529, 0.811765, 0.811765, 0.192157 )
 albedo_texture = ExtResource( 2 )
 roughness = 0.0
 normal_enabled = true
-normal_scale = -1.0
+normal_scale = 1.0
 normal_texture = ExtResource( 1 )
-ao_enabled = true
-ao_light_affect = 0.0
-ao_on_uv2 = false
-ao_texture_channel = 0
 refraction_enabled = true
-refraction_scale = 0.05
-refraction_texture = ExtResource( 2 )
+refraction_scale = 0.0
 refraction_texture_channel = 0
-uv1_scale = Vector3( 60, 400, 1 )
-uv1_offset = Vector3( 0, -0.890306, 0 )
+uv1_scale = Vector3( 10, 10, 1 )
+uv1_offset = Vector3( 0, -0.367563, 0 )
 proximity_fade_enable = true
-proximity_fade_distance = 0.5
+proximity_fade_distance = 1.0

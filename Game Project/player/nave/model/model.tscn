@@ -762,7 +762,7 @@ surfaces/0 = {
 background_mode = 2
 background_sky = SubResource( 48 )
 
-[sub_resource type="SpatialMaterial" id=53]
+[sub_resource type="SpatialMaterial" id=50]
 flags_unshaded = true
 params_blend_mode = 1
 albedo_texture = ExtResource( 3 )
@@ -777,13 +777,13 @@ scale = 0.3
 
 [sub_resource type="PlaneMesh" id=52]
 
-[sub_resource type="SpatialMaterial" id=54]
+[sub_resource type="SpatialMaterial" id=53]
 flags_transparent = true
 flags_unshaded = true
 params_blend_mode = 1
 albedo_texture = ExtResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=55]
+[sub_resource type="ParticlesMaterial" id=54]
 emission_shape = 3
 emission_point_count = 1
 direction = Vector3( 0, 1, 0 )
@@ -791,7 +791,7 @@ spread = 40.94
 gravity = Vector3( 0, -3, 0 )
 scale = 0.3
 
-[sub_resource type="PlaneMesh" id=56]
+[sub_resource type="PlaneMesh" id=55]
 
 [node name="jato" type="Spatial"]
 
@@ -1040,7 +1040,7 @@ environment = SubResource( 49 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.00301908, 0.999995, 0, -0.999995, -0.00301908, 0, -0.0246094, -1.68256 )
-material_override = SubResource( 53 )
+material_override = SubResource( 50 )
 amount = 9
 speed_scale = 4.66
 visibility_aabb = AABB( -0.209158, -0.17157, -0.214201, 0.418317, 2.28455, 0.428401 )
@@ -1049,9 +1049,9 @@ draw_pass_1 = SubResource( 52 )
 
 [node name="Particles2" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -0.158164, -1.92736 )
-material_override = SubResource( 54 )
+material_override = SubResource( 53 )
 amount = 9
 speed_scale = 4.66
 visibility_aabb = AABB( -0.426963, -4, -0.429692, 0.853925, 8, 0.859385 )
-process_material = SubResource( 55 )
-draw_pass_1 = SubResource( 56 )
+process_material = SubResource( 54 )
+draw_pass_1 = SubResource( 55 )
