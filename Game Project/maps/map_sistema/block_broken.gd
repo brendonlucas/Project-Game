@@ -14,4 +14,3 @@ func _process(delta):
 		
 func hit_damage(damage):
 	life -= damage
-	print("bateuuu")

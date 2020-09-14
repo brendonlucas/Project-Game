@@ -13,7 +13,6 @@ var timer_bullet
 var parando
 var correndo = false
 
-
 onready var cursor = $Cursor
 var ray_origin =Vector3()
 var ray_target =Vector3()
@@ -24,9 +23,6 @@ func _ready():
 	timer_bullet = get_node("gun/Timer")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
-func _input(event):
-	if event is InputEventMouseMotion:
-		pass
 		
 func look_at_cursor():
 	var camera = get_parent().get_node("target/Camera")

@@ -26,6 +26,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("emitir sinal"):
 		map_control = get_tree().root.get_node("map_teste")
 		map_control.printar()
+	if Input.is_action_just_pressed("jump"):
+		pass
+		
 		
 func _root_viewport_size_changed():
 	pass

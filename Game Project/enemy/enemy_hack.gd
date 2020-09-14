@@ -28,13 +28,11 @@ func _process(delta):
 				atacar()
 				$gun/Timer.start()
 				
-			
 	var velocity = Vector3()
 	velocity.y -= 1
 	rotation_degrees.x = 0
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 	
-
 			
 func atacar():
 	$gun.fire_weapon()
@@ -42,14 +40,12 @@ func atacar():
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player_hack"):
 		target = body
-		print(body.name + " entered")
-
+		#print(body.name + " entered")
 
 func _on_Area_body_exited(body):
 	if body.is_in_group("Player_hack"):
 		target = null
-		print(body.name + " exited")
-
+		#print(body.name + " exited")
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
