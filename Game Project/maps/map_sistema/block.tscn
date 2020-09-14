@@ -1,11 +1,42 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://maps/map_sistema/mesh_block_2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://maps/map_sistema/mesh_block_1.obj" type="ArrayMesh" id=2]
 [ext_resource path="res://maps/map_sistema/mesh_block_4.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://maps/map_sistema/mesh_block_3.obj" type="ArrayMesh" id=4]
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 10, 40, 10 )
+
+[sub_resource type="SpatialMaterial" id=15]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+points = PoolVector3Array( -5, 20, 5, 5, 20, -5, 5, 20, 5, -5, 20, -5, -5, -20, 5, 5, -20, -5, 5, -20, 5, -5, -20, -5, 5, 20, 5, -5, 20, -5, 5, 20, -5, -5, 20, 5, 5, -20, 5, -5, -20, -5, 5, -20, -5, -5, -20, 5, 5, 20, 5, -5, -20, 5, -5, 20, 5, 5, -20, 5, 5, 20, -5, -5, -20, -5, -5, 20, -5, 5, -20, -5 )
+
+[sub_resource type="SpatialMaterial" id=16]
+flags_transparent = true
+
+[sub_resource type="ConvexPolygonShape" id=11]
+points = PoolVector3Array( -5, 20, 5, -5, -20, 5, -5, 20, -5, -5, -20, -5, -5, 20, -5, -5, -20, -5, -2e-06, 20, 7e-06, -2e-06, -20, 7e-06, 5, 20, 5, 5, -20, 5, 5, 20, 5, 5, -20, 5, -5, 20, 5, -5, -20, 5, -2e-06, -20, 7e-06, -5, -20, -5, 5, -20, 5, -5, -20, 5, -5, 20, -5, -2e-06, 20, 7e-06, -5, 20, 5, 5, 20, 5 )
+
+[sub_resource type="SpatialMaterial" id=17]
+
+[sub_resource type="ConvexPolygonShape" id=12]
+points = PoolVector3Array( -5, 20, -5, -5, -20, -5, 5, 20, -5, 5, -20, -5, 5, 20, -5, 5, -20, -5, -7e-06, 20, -2e-06, -7e-06, -20, -2e-06, -5, 20, 5, -5, -20, 5, -5, 20, 5, -5, -20, 5, -5, 20, -5, -5, -20, -5, -7e-06, -20, -2e-06, 5, -20, -5, -5, -20, 5, -5, -20, -5, 5, 20, -5, -7e-06, 20, -2e-06, -5, 20, -5, -5, 20, 5 )
+
+[sub_resource type="SpatialMaterial" id=18]
+
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( 5, 20, -5, 5, -20, -5, 5, 20, 5, 5, -20, 5, 5, 20, 5, 5, -20, 5, 2e-06, 20, -7e-06, 2e-06, -20, -7e-06, -5, 20, -5, -5, -20, -5, -5, 20, -5, -5, -20, -5, 5, 20, -5, 5, -20, -5, 2e-06, -20, -7e-06, 5, -20, 5, -5, -20, -5, 5, -20, -5, 5, 20, 5, 2e-06, 20, -7e-06, 5, 20, -5, -5, 20, -5 )
+
+[sub_resource type="SpatialMaterial" id=19]
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( 5, 20, 5, 5, -20, 5, -5, 20, 5, -5, -20, 5, -5, 20, 5, -5, -20, 5, 7e-06, 20, 2e-06, 7e-06, -20, 2e-06, 5, 20, -5, 5, -20, -5, 5, 20, -5, 5, -20, -5, 5, 20, 5, 5, -20, 5, 7e-06, -20, 2e-06, -5, -20, 5, 5, -20, -5, 5, -20, 5, -5, 20, 5, 7e-06, 20, 2e-06, 5, 20, 5, 5, 20, -5 )
+
+[sub_resource type="CubeMesh" id=1]
 
 [sub_resource type="SpatialMaterial" id=2]
 metallic = 1.0
@@ -18,10 +49,14 @@ emission_on_uv2 = false
 
 [sub_resource type="BoxShape" id=3]
 
-[sub_resource type="CubeMesh" id=7]
-size = Vector3( 10, 40, 10 )
-
 [sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+albedo_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="SpatialMaterial" id=8]
@@ -30,16 +65,60 @@ albedo_color = Color( 0, 0, 0, 1 )
 [sub_resource type="SpatialMaterial" id=9]
 albedo_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=10]
-albedo_color = Color( 0, 0, 0, 1 )
-
-[sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0, 0, 0, 1 )
-
 [node name="tiles" type="Spatial"]
 
+[node name="quadrado_colision" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.142, 0, 0, 0, 1, 0, 21.0682, 21.9258 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 15 )
+
+[node name="StaticBody" type="StaticBody" parent="quadrado_colision"]
+
+[node name="CollisionShape" type="CollisionShape" parent="quadrado_colision/StaticBody"]
+shape = SubResource( 10 )
+
+[node name="colision_block_1" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.142, 0, 0, 0, 1, 12.615, 21.0682, 21.8938 )
+mesh = ExtResource( 2 )
+material/0 = SubResource( 16 )
+
+[node name="StaticBody" type="StaticBody" parent="colision_block_1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="colision_block_1/StaticBody"]
+shape = SubResource( 11 )
+
+[node name="colision_block_2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.142, 0, 0, 0, 1, 25.212, 21.0682, 21.8118 )
+mesh = ExtResource( 1 )
+material/0 = SubResource( 17 )
+
+[node name="StaticBody" type="StaticBody" parent="colision_block_2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="colision_block_2/StaticBody"]
+shape = SubResource( 12 )
+
+[node name="colision_block_3" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.142, 0, 0, 0, 1, -11.661, 21.0682, 21.9148 )
+mesh = ExtResource( 4 )
+material/0 = SubResource( 18 )
+
+[node name="StaticBody" type="StaticBody" parent="colision_block_3"]
+
+[node name="CollisionShape" type="CollisionShape" parent="colision_block_3/StaticBody"]
+shape = SubResource( 13 )
+
+[node name="colision_block_4" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.142, 0, 0, 0, 1, -22.399, 21.0682, 21.8148 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 19 )
+
+[node name="StaticBody" type="StaticBody" parent="colision_block_4"]
+
+[node name="CollisionShape" type="CollisionShape" parent="colision_block_4/StaticBody"]
+shape = SubResource( 14 )
+
 [node name="wall_block" type="MeshInstance" parent="."]
-mesh = SubResource( 6 )
+mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
 
 [node name="StaticBody" type="StaticBody" parent="wall_block"]
@@ -49,25 +128,25 @@ shape = SubResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0682, 7.264 )
-mesh = SubResource( 7 )
+mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
 [node name="mesh_block_1" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.615, 21.0682, 7.232 )
 mesh = ExtResource( 2 )
-material/0 = SubResource( 8 )
+material/0 = SubResource( 6 )
 
 [node name="mesh_block_2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.212, 21.0682, 7.15 )
 mesh = ExtResource( 1 )
-material/0 = SubResource( 9 )
+material/0 = SubResource( 7 )
 
 [node name="mesh_block_3" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.661, 21.0682, 7.253 )
 mesh = ExtResource( 4 )
-material/0 = SubResource( 10 )
+material/0 = SubResource( 8 )
 
 [node name="mesh_block_4" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.399, 21.0682, 7.153 )
 mesh = ExtResource( 3 )
-material/0 = SubResource( 11 )
+material/0 = SubResource( 9 )

@@ -1,18 +1,34 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player_hack/Player_hack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player_hack/target.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/Player_hack/Player_hack.gd" type="Script" id=3]
 [ext_resource path="res://maps/map_sistema/blocks_maps.tres" type="MeshLibrary" id=4]
+[ext_resource path="res://props/blocks/block_gray.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemy/enemy_hack.tscn" type="PackedScene" id=6]
+[ext_resource path="res://enemy/enemy_hack_stop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://maps/map_sistema/Control_map.gd" type="Script" id=8]
+[ext_resource path="res://maps/map_sistema/UI.gd" type="Script" id=9]
+[ext_resource path="res://Fonts/jd_code.ttf" type="DynamicFontData" id=10]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 158.845, 0.00113748, 146.112 )
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="SpatialMaterial" id=5]
+emission_enabled = true
+emission = Color( 0.992157, 1, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="ConvexPolygonShape" id=6]
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
 [sub_resource type="ProceduralSky" id=2]
 sky_top_color = Color( 1, 1, 1, 1 )
 sky_horizon_color = Color( 0.380392, 0.380392, 0.380392, 1 )
-ground_bottom_color = Color( 0.305882, 0.305882, 0.305882, 1 )
+ground_bottom_color = Color( 0.192157, 0.192157, 0.192157, 1 )
 ground_horizon_color = Color( 0.380392, 0.380392, 0.380392, 1 )
+ground_energy = 2.0
 
 [sub_resource type="Environment" id=3]
 background_mode = 2
@@ -22,10 +38,307 @@ glow_strength = 0.87
 glow_bloom = 0.43
 glow_blend_mode = 1
 
-[node name="game" type="Spatial"]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 212.55, 0.00113748, 170.169 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 70
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 10 )
+
+[node name="Map" type="Spatial"]
+
+[node name="Control_map" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="porta_1" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04075, 22.0039, 51.6199 )
+
+[node name="MeshInstance" type="MeshInstance" parent="porta_1"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="porta_1"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="porta_2" type="StaticBody" parent="."]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 117.732, 22.004, 94.991 )
+
+[node name="MeshInstance" type="MeshInstance" parent="porta_2"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="porta_2"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="porta_3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 281.058, 22.0583, 25.6775 )
+
+[node name="MeshInstance" type="MeshInstance" parent="porta_3"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="porta_3"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="porta_4" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 281.058, 22.0583, 40.269 )
+
+[node name="MeshInstance" type="MeshInstance" parent="porta_4"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="porta_4"]
+transform = Transform( 4.978, 0, 0, 0, 1, 0, 0, 0, 0.221, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="blocks_gray" type="Spatial" parent="."]
+
+[node name="block_gray" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.93888, 21.8777, 55.7219 )
+
+[node name="block_gray2" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.99153, 21.8777, 55.7219 )
+
+[node name="block_gray3" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.05592, 21.8777, 55.7219 )
+
+[node name="block_gray4" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.938357, 21.8777, 55.7219 )
+
+[node name="block_gray5" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.9209, 21.8777, 55.7219 )
+
+[node name="block_gray6" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.93888, 21.8777, 64.1884 )
+
+[node name="block_gray7" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.99153, 21.8777, 64.1884 )
+
+[node name="block_gray8" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.05592, 21.8777, 64.1884 )
+
+[node name="block_gray9" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.938357, 21.8777, 64.1884 )
+
+[node name="block_gray10" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.9209, 21.8777, 64.1884 )
+
+[node name="block_gray11" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.93888, 21.8777, 72.3291 )
+
+[node name="block_gray12" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.99153, 21.8777, 72.3291 )
+
+[node name="block_gray13" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.05592, 21.8777, 72.3291 )
+
+[node name="block_gray14" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.938357, 21.8777, 72.3291 )
+
+[node name="block_gray15" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -2.9209, 21.8777, 72.3291 )
+
+[node name="block_gray16" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 170.199, 21.8777, 63.0115 )
+
+[node name="block_gray17" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 170.199, 21.8777, 65.0227 )
+
+[node name="block_gray18" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 170.199, 21.8777, 66.9995 )
+
+[node name="block_gray19" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 170.199, 21.8777, 68.998 )
+
+[node name="block_gray20" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 170.199, 21.8777, 70.9709 )
+
+[node name="block_gray21" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 172.687, 21.8777, 63.0115 )
+
+[node name="block_gray22" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 172.687, 21.8777, 65.0227 )
+
+[node name="block_gray23" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 172.687, 21.8777, 66.9995 )
+
+[node name="block_gray24" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 172.687, 21.8777, 68.998 )
+
+[node name="block_gray25" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 172.687, 21.8777, 70.9709 )
+
+[node name="block_gray26" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 175.302, 21.8777, 63.0115 )
+
+[node name="block_gray27" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 175.302, 21.8777, 65.0227 )
+
+[node name="block_gray28" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 175.302, 21.8777, 66.9995 )
+
+[node name="block_gray29" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 175.302, 21.8777, 68.998 )
+
+[node name="block_gray30" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 175.302, 21.8777, 70.9709 )
+
+[node name="block_gray31" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.853, 21.8777, 63.0115 )
+
+[node name="block_gray32" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.853, 21.8777, 65.0227 )
+
+[node name="block_gray33" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.853, 21.8777, 66.9995 )
+
+[node name="block_gray34" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.853, 21.8777, 68.998 )
+
+[node name="block_gray35" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.853, 21.8777, 70.9709 )
+
+[node name="block_gray36" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.531, 21.8777, 63.0115 )
+
+[node name="block_gray37" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.531, 21.8777, 65.0227 )
+
+[node name="block_gray38" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.531, 21.8777, 66.9995 )
+
+[node name="block_gray39" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.531, 21.8777, 68.998 )
+
+[node name="block_gray40" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.531, 21.8777, 70.9709 )
+
+[node name="block_gray41" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.156, 21.8777, 1.03982 )
+
+[node name="block_gray42" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.156, 21.8777, 3.05103 )
+
+[node name="block_gray43" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.156, 21.8777, 5.02779 )
+
+[node name="block_gray44" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.156, 21.8777, 7.02626 )
+
+[node name="block_gray45" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.156, 21.8777, 8.99924 )
+
+[node name="block_gray46" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -128.931 )
+
+[node name="block_gray47" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -126.92 )
+
+[node name="block_gray48" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -124.943 )
+
+[node name="block_gray49" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -122.944 )
+
+[node name="block_gray50" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -120.972 )
+
+[node name="block_gray51" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -119.034 )
+
+[node name="block_gray52" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -117.023 )
+
+[node name="block_gray53" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -115.046 )
+
+[node name="block_gray54" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -113.048 )
+
+[node name="block_gray55" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 180.641, 21.8777, -111.075 )
+
+[node name="block_gray56" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -128.931 )
+
+[node name="block_gray57" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -126.92 )
+
+[node name="block_gray58" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -124.943 )
+
+[node name="block_gray59" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -122.944 )
+
+[node name="block_gray60" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -120.972 )
+
+[node name="block_gray61" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -119.034 )
+
+[node name="block_gray62" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -117.023 )
+
+[node name="block_gray63" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -115.046 )
+
+[node name="block_gray64" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -113.048 )
+
+[node name="block_gray65" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 183.511, 21.8777, -111.075 )
+
+[node name="block_gray66" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -128.931 )
+
+[node name="block_gray67" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -126.92 )
+
+[node name="block_gray68" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -124.943 )
+
+[node name="block_gray69" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -122.944 )
+
+[node name="block_gray70" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -120.972 )
+
+[node name="block_gray71" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -119.034 )
+
+[node name="block_gray72" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -117.023 )
+
+[node name="block_gray73" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -115.046 )
+
+[node name="block_gray74" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -113.048 )
+
+[node name="block_gray75" parent="blocks_gray" instance=ExtResource( 5 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 177.835, 21.8777, -111.075 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )
 
 [node name="floor and ceiling" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 109.172, 20.9331, -16.664 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 149.335, 20.9331, -0.0751801 )
 
 [node name="CollisionShape" type="CollisionShape" parent="floor and ceiling"]
 shape = SubResource( 1 )
@@ -35,21 +348,117 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03505, 0 )
 shape = SubResource( 1 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, -1, 0, 21.2595, 0 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 21.2595, 0 )
 
 [node name="Player_hack" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.2269, 0 )
 script = ExtResource( 3 )
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 3 )
-
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 4 )
 data = {
-"cells": PoolIntArray( 0, 2, 538312705, 55, 2, 538312705, 60, 2, 538312705, 65, 2, 538312705, 70, 2, 538312705, 75, 2, 538312705, 80, 2, 538312705, 85, 2, 538312705, 90, 2, 538312705, 95, 2, -1609170943, 100, 2, 1441793, 0, 7, 538312705, 5, 7, 538312705, 10, 7, 538312709, 80, 7, 538312705, 105, 7, 538312705, 65526, 7, 538312708, 65531, 7, 538312705, 0, 12, 538312705, 5, 12, 538312705, 10, 12, 538312705, 80, 12, 538312705, 65526, 12, 538312705, 65531, 12, 538312705, 0, 17, 538312705, 5, 17, 538312705, 10, 17, 538312705, 80, 17, -1609170943, 65526, 17, 538312705, 65531, 17, 538312705, 0, 22, 538312705, 5, 22, 538312705, 10, 22, 538312706, 80, 22, 538312705, 65526, 22, 538312707, 65531, 22, 538312705, 0, 27, 538312705, 80, 27, 538312705, 95, 28, 1441796, 100, 28, 538312705, 105, 28, 538312705, 110, 28, 538312705, 115, 28, -1609170939, 0, 32, 538312705, 80, 32, 538312705, 85, 33, 538312705, 90, 33, 538312705, 95, 33, 538312705, 100, 33, 538312705, 105, 33, 538312705, 110, 33, 538312705, 115, 33, 538312705, 0, 37, 538312705, 25, 37, 538312708, 30, 37, 1441793, 35, 37, 538312705, 40, 37, 538312705, 45, 37, 538312705, 50, 37, 538312705, 55, 37, -1609170939, 80, 37, 538312705, 95, 38, 538312707, 100, 38, 538312705, 105, 38, 538312705, 110, 38, 538312705, 115, 38, 538312706, 0, 42, 538312705, 25, 42, 538312705, 30, 42, -1609170943, 35, 42, 538312706, 45, 42, 538312707, 50, 42, 538312705, 55, 42, 538312705, 80, 42, 538312705, 0, 47, 538312705, 5, 47, 538312705, 10, 47, 538312705, 15, 47, 538312705, 20, 47, 538312705, 25, 47, -1609170943, 30, 47, 538312705, 50, 47, 1441793, 55, 47, 538312705, 60, 47, 538312705, 65, 47, 538312705, 70, 47, -1609170943, 75, 47, 538312705, 80, 47, 1441793, 25, 52, 538312705, 30, 52, 538312705, 35, 52, 538312709, 45, 52, 538312708, 50, 52, 538312705, 55, 52, -1609170943, 25, 57, 538312707, 30, 57, 538312705, 35, 57, 538312705, 40, 57, 538312705, 45, 57, 538312705, 50, 57, 538312705, 55, 57, -1609170942, 105, 65463, -1609170940, 110, 65463, 538312705, 115, 65463, 538312705, 120, 65463, 538312709, 105, 65468, -1609170943, 110, 65468, 538312705, 115, 65468, 538312705, 120, 65468, -1609170943, 25, 65473, 538312705, 30, 65473, 538312705, 35, 65473, 538312705, 75, 65473, 538312705, 80, 65473, -1609170943, 85, 65473, -1609170943, 90, 65473, 538312705, 95, 65473, 538312705, 100, 65473, 538312705, 105, 65473, 538312705, 110, 65473, 538312705, 115, 65473, -1609170943, 120, 65473, 538312705, 25, 65478, 538312705, 30, 65478, 538312705, 35, 65478, 1441793, 75, 65478, 538312705, 80, 65478, 538312705, 85, 65478, -1609170943, 90, 65478, 538312705, 95, 65478, -1609170943, 100, 65478, -1609170943, 105, 65478, 538312705, 110, 65478, 538312705, 115, 65478, -1609170943, 120, 65478, 538312705, 30, 65483, -1609170943, 35, 65483, -1609170943, 75, 65483, 538312705, 80, 65483, 538312705, 105, 65483, 538312705, 110, 65483, 538312705, 115, 65483, 538312705, 120, 65483, 1441793, 30, 65488, 538312705, 35, 65488, -1609170943, 75, 65488, 1441793, 80, 65488, 538312705, 105, 65488, 538312707, 110, 65488, 538312705, 115, 65488, 538312705, 120, 65488, -1609170942, 30, 65493, 538312705, 35, 65493, 538312705, 75, 65493, 538312705, 80, 65493, 538312705, 30, 65498, 538312705, 35, 65498, -1609170943, 40, 65498, 538312709, 70, 65498, 538312708, 75, 65498, -1609170943, 80, 65498, 538312705, 30, 65503, 538312707, 35, 65503, 538312705, 40, 65503, 1441793, 45, 65503, 538312709, 65, 65503, -1609170940, 70, 65503, 538312705, 75, 65503, 538312705, 80, 65503, 538312706, 35, 65508, 538312707, 40, 65508, 538312705, 45, 65508, 538312705, 50, 65508, -1609170943, 55, 65508, 538312705, 60, 65508, 1441793, 65, 65508, 538312705, 70, 65508, 538312705, 75, 65508, 538312706, 0, 65513, 538312705, 40, 65513, -1609170941, 45, 65513, 1441793, 50, 65513, 538312705, 55, 65513, 538312705, 60, 65513, -1609170943, 65, 65513, 538312705, 70, 65513, 538312706, 0, 65518, 538312705, 45, 65518, 538312707, 50, 65518, -1609170943, 55, 65518, 538312705, 60, 65518, -1609170943, 65, 65518, 538312706, 0, 65523, 538312705, 55, 65523, 538312705, 0, 65528, 538312705, 55, 65528, 538312705, 0, 65533, 538312705, 55, 65533, 538312705, 105, 65533, 538312705 )
+"cells": PoolIntArray( 0, 2, 1441793, 55, 2, 1441793, 60, 2, 1441793, 65, 2, 1441793, 70, 2, 1441793, 75, 2, 538312705, 80, 2, 538312705, 85, 2, 538312705, 90, 2, 538312705, 95, 2, 538312705, 100, 2, 538312705, 105, 2, 1441793, 110, 2, 538312705, 115, 2, 538312705, 120, 2, 1441793, 125, 2, 538312705, 130, 2, 1441793, 135, 2, 538312705, 140, 2, 1441793, 65541, 2, 538312710, 65586, 2, 538312710, 65681, 2, 1441798, 131067, 2, 538312710, 0, 7, 538312705, 5, 7, 538312705, 10, 7, 538312709, 80, 7, 1441793, 100, 7, 538312707, 105, 7, 538312705, 110, 7, 538312705, 115, 7, 538312705, 120, 7, 538312706, 140, 7, 1441793, 65526, 7, 1441796, 65531, 7, 538312705, 65591, 7, 538312710, 65596, 7, 538312710, 65601, 7, 1441798, 65606, 7, 538312710, 65611, 7, 538312710, 65621, 7, 538312710, 65626, 7, 538312710, 65631, 7, 1441798, 65661, 7, 538312710, 65666, 7, 538312710, 65671, 7, 538312710, 65681, 7, 538312710, 0, 12, 1441793, 5, 12, 538312705, 10, 12, 1441793, 80, 12, 538312705, 140, 12, 1441793, 65526, 12, 538312705, 65531, 12, 538312705, 65551, 12, 538312710, 65611, 12, 538312710, 65621, 12, 538312710, 65641, 12, 538312710, 65646, 12, 538312710, 65651, 12, 538312710, 65671, 12, 538312710, 65681, 12, 538312710, 131057, 12, 1441798, 65621, 15, 538312710, 0, 17, 538312705, 5, 17, 538312705, 10, 17, 538312705, 80, 17, 538312705, 140, 17, 538312705, 65526, 17, 538312705, 65531, 17, 1441793, 65551, 17, 538312710, 65611, 17, 538312710, 65671, 17, 538312710, 65681, 17, 538312710, 131057, 17, 538312710, 65621, 19, 538312710, 0, 22, 538312705, 5, 22, 1441793, 10, 22, 538312706, 80, 22, 538312705, 140, 22, 538312705, 65526, 22, 538312707, 65531, 22, 538312705, 65611, 22, 538312710, 65671, 22, 538312710, 65681, 22, 538312710, 65621, 23, 538312710, 65636, 23, 538312710, 65641, 23, 1441798, 65646, 23, 538312710, 0, 27, 538312705, 80, 27, 538312705, 140, 27, 538312705, 65541, 27, 538312710, 65611, 27, 538312710, 65671, 27, 538312710, 65681, 27, 538312710, 131067, 27, 538312710, 95, 28, 538312708, 100, 28, 538312705, 105, 28, 538312705, 110, 28, 538312705, 115, 28, 1441797, 65621, 28, 538312710, 65626, 28, 538312710, 0, 32, 538312705, 80, 32, 538312705, 140, 32, 1441793, 65541, 32, 538312710, 65566, 32, 538312710, 65571, 32, 538312710, 65576, 32, 538312710, 65581, 32, 538312710, 65586, 32, 1441798, 65611, 32, 538312710, 65671, 32, 1441798, 65681, 32, 538312710, 131067, 32, 1441798, 85, 33, 1441793, 90, 33, 538312705, 95, 33, 1441793, 100, 33, 538312705, 105, 33, 1441793, 110, 33, 538312705, 115, 33, 538312705, 65656, 33, 1441798, 0, 37, 1441793, 25, 37, 1441796, 30, 37, 1441793, 35, 37, 1441793, 40, 37, 1441793, 45, 37, 1441793, 50, 37, 1441793, 55, 37, 1441797, 80, 37, 1441793, 140, 37, 1441793, 65541, 37, 1441798, 65611, 37, 1441798, 65671, 37, 1441798, 65681, 37, 1441798, 131067, 37, 1441798, 95, 38, 1441795, 100, 38, 1441793, 105, 38, 1441793, 110, 38, 1441793, 115, 38, 1441794, 65621, 38, 1441798, 65626, 38, 1441798, 0, 42, 1441793, 25, 42, 1441793, 30, 42, 1441793, 35, 42, 1441794, 45, 42, 1441795, 50, 42, 1441793, 55, 42, 1441793, 80, 42, 1441793, 140, 42, 1441793, 65541, 42, 1441798, 65546, 42, 1441798, 65551, 42, 1441798, 65556, 42, 1441798, 65576, 42, 1441798, 65596, 42, 1441798, 65601, 42, 1441798, 65606, 42, 1441798, 65611, 42, 1441798, 65671, 42, 1441798, 65681, 42, 1441798, 131067, 42, 1441798, 65621, 43, 1441798, 65636, 43, 1441798, 65641, 43, 1441798, 65646, 43, 1441798, 0, 47, 1441793, 5, 47, 1441793, 10, 47, 1441793, 15, 47, 1441793, 20, 47, 1441793, 25, 47, 1441793, 30, 47, 1441793, 50, 47, 1441793, 55, 47, 1441793, 60, 47, 1441793, 65, 47, 1441793, 70, 47, 1441793, 75, 47, 1441793, 80, 47, 1441793, 140, 47, 1441793, 65571, 47, 1441798, 65581, 47, 1441798, 65671, 47, 1441798, 65681, 47, 1441798, 131067, 47, 1441798, 65621, 48, 1441798, 25, 52, 1441793, 30, 52, 1441793, 35, 52, 1441797, 45, 52, 1441796, 50, 52, 1441793, 55, 52, 1441793, 135, 52, 1441796, 140, 52, 1441793, 145, 52, 1441797, 65536, 52, 1441798, 65541, 52, 1441798, 65546, 52, 1441798, 65551, 52, 1441798, 65556, 52, 1441798, 65576, 52, 1441798, 65596, 52, 1441798, 65601, 52, 1441798, 65606, 52, 1441798, 65611, 52, 1441798, 65616, 52, 1441798, 65666, 52, 1441798, 65686, 52, 1441798, 25, 57, 1441795, 30, 57, 1441793, 35, 57, 1441793, 40, 57, 1441793, 45, 57, 1441793, 50, 57, 1441793, 55, 57, 1441794, 125, 57, 1441796, 130, 57, 1441793, 135, 57, 1441793, 140, 57, 1441793, 145, 57, 1441793, 150, 57, 1441793, 155, 57, 1441797, 65651, 57, 1441798, 65656, 57, 1441798, 65696, 57, 1441798, 65701, 57, 1441798, 115, 62, 1441793, 120, 62, 1441793, 125, 62, 1441793, 130, 62, 1441793, 135, 62, 1441793, 140, 62, 1441793, 145, 62, 1441793, 150, 62, 1441793, 155, 62, 1441793, 160, 62, 538312705, 165, 62, -1609170943, 65566, 62, 1441798, 65571, 62, 1441798, 65576, 62, 1441798, 65581, 62, -1609170938, 65586, 62, 1441798, 65646, 62, -1609170938, 65706, 62, 1441798, 115, 67, 1441793, 120, 67, 538312705, 125, 67, 538312705, 130, 67, 538312705, 135, 67, 1441793, 140, 67, 1441793, 145, 67, 1441793, 150, 67, 538312705, 155, 67, 1441793, 160, 67, 1441793, 165, 67, 1441793, 65646, 67, 1441798, 65706, 67, 1441798, 115, 72, 1075183617, 120, 72, 538312705, 125, 72, 1441793, 130, 72, 1441793, 135, 72, 1441793, 140, 72, 1441793, 145, 72, 1441793, 150, 72, 538312705, 155, 72, 538312705, 160, 72, 538312705, 165, 72, 1441793, 65646, 72, 1441798, 65706, 72, 1441798, 65651, 77, 1441798, 65656, 77, 1441798, 65661, 77, 538312710, 65666, 77, 1441798, 65671, 77, 1441798, 65676, 77, 1441798, 65681, 77, 1441798, 65686, 77, 1441798, 65691, 77, 1441798, 65696, 77, 1441798, 65701, 77, 1441798, 65646, 65458, 1441798, 65651, 65458, 1441798, 105, 65463, 1441796, 110, 65463, 1441793, 115, 65463, 1441793, 120, 65463, 1441797, 105, 65468, 1441793, 110, 65468, 1441793, 115, 65468, 1441793, 120, 65468, 1441793, 65561, 65468, 1441798, 65566, 65468, 1441798, 65571, 65468, 1441798, 65611, 65468, 1441798, 65616, 65468, 1441798, 65621, 65468, 1441798, 65626, 65468, 1441798, 65631, 65468, 1441798, 65636, 65468, 1441798, 65661, 65468, 1441798, 25, 65473, 1441793, 30, 65473, 1441793, 35, 65473, 1441793, 75, 65473, 1441793, 80, 65473, 1441793, 85, 65473, 1441793, 90, 65473, 1441793, 95, 65473, 1441793, 100, 65473, 1441793, 105, 65473, 1441793, 110, 65473, 1441793, 115, 65473, 1441793, 120, 65473, 1441793, 65556, 65473, 1441798, 65576, 65473, 1441798, 65606, 65473, 1441798, 65661, 65473, 1441798, 25, 65478, 1441793, 30, 65478, 1441793, 35, 65478, 1441793, 75, 65478, 1441793, 80, 65478, 1441793, 85, 65478, 1441793, 90, 65478, 1441793, 95, 65478, 1441793, 100, 65478, 1441793, 105, 65478, 1441793, 110, 65478, 1441793, 115, 65478, 1441793, 120, 65478, 1441793, 65556, 65478, 1441798, 65576, 65478, 1441798, 65606, 65478, 1441798, 65661, 65478, 1441798, 30, 65483, 1441793, 35, 65483, 1441793, 75, 65483, 1441793, 80, 65483, 1441793, 105, 65483, 1441793, 110, 65483, 1441793, 115, 65483, 1441793, 120, 65483, 1441793, 65561, 65483, 1441798, 65576, 65483, 1441798, 65606, 65483, 1441798, 65621, 65483, 1441798, 65626, 65483, 1441798, 65631, 65483, 1441798, 65636, 65483, 1441798, 65661, 65483, 1441798, 30, 65488, 1441793, 35, 65488, 1441793, 75, 65488, 1441793, 80, 65488, 1441793, 105, 65488, 1441795, 110, 65488, 1441793, 115, 65488, 1441793, 120, 65488, 1441794, 65561, 65488, 1441798, 65576, 65488, 1441798, 65606, 65488, 1441798, 65621, 65488, 1441798, 30, 65493, 1441793, 35, 65493, 1441793, 75, 65493, 1441793, 80, 65493, 1441793, 65536, 65493, 1441798, 65561, 65493, 1441798, 65576, 65493, 1441798, 65606, 65493, 1441798, 65621, 65493, 1441798, 65646, 65493, 1441798, 65651, 65493, 1441798, 0, 65498, 1441793, 5, 65498, 1441797, 30, 65498, 1441793, 35, 65498, 1441793, 40, 65498, 1441797, 70, 65498, 1441796, 75, 65498, 1441793, 80, 65498, 1441793, 65531, 65498, 1441796, 65561, 65498, 1441798, 65621, 65498, 1441798, 0, 65503, 538312705, 5, 65503, 1441793, 30, 65503, 1441795, 35, 65503, 538312705, 40, 65503, 1441793, 45, 65503, 1441797, 65, 65503, 1441796, 70, 65503, 1441793, 75, 65503, 1441793, 80, 65503, 1441794, 65531, 65503, 1441793, 65546, 65503, 1441798, 65586, 65503, 1441798, 65591, 65503, 1441798, 65596, 65503, 1441798, 131062, 65503, 1441798, 0, 65508, 1441793, 5, 65508, 1441793, 35, 65508, 1441795, 40, 65508, 1441793, 45, 65508, 1441793, 50, 65508, 538312705, 55, 65508, 1441793, 60, 65508, 1441793, 65, 65508, 1441793, 70, 65508, 1441793, 75, 65508, 1441794, 65531, 65508, 1441793, 65546, 65508, 1441798, 131062, 65508, 1441798, 0, 65513, 1441793, 5, 65513, 538312706, 40, 65513, 1441795, 45, 65513, 1441793, 50, 65513, 1441793, 55, 65513, 1441793, 60, 65513, 1441793, 65, 65513, 1441793, 70, 65513, 1441794, 65531, 65513, 1441795, 0, 65518, 1441793, 45, 65518, 1441795, 50, 65518, 538312705, 55, 65518, 1441793, 60, 65518, 538312705, 65, 65518, 538312706, 65541, 65518, 538312710, 131067, 65518, 538312710, 0, 65523, 1441793, 55, 65523, -1609170943, 65541, 65523, 1441798, 65586, 65523, -1609170938, 65596, 65523, 538312710, 131067, 65523, 538312710, 0, 65528, 1441793, 55, 65528, 1441793, 65541, 65528, 1441798, 65586, 65528, 1441798, 65596, 65528, 1441798, 65641, 65528, 1441798, 65646, 65528, 1441798, 65651, 65528, -1609170938, 131067, 65528, 1441798, 0, 65533, 1441793, 55, 65533, 1441793, 100, 65533, 1441796, 105, 65533, 1441793, 110, 65533, 1075183617, 115, 65533, 1441793, 120, 65533, 1441797, 65541, 65533, 1441798, 65586, 65533, 1441798, 65596, 65533, 538312710, 65601, 65533, 1441798, 65606, 65533, 1441798, 65611, 65533, 538312710, 65616, 65533, 1441798, 65621, 65533, 538312710, 65626, 65533, 538312710, 65631, 65533, 1075183622, 65661, 65533, 1441798, 65666, 65533, 1441798, 65671, 65533, 1441798, 65676, 65533, 1441798, 131067, 65533, 1441798 )
 }
 __meta__ = {
 "_editor_clip_": 0,
-"_editor_floor_": Vector3( 0, 0, 0 )
+"_editor_floor_": Vector3( 0, 1, 0 )
 }
+
+[node name="enemy_hack" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.4058, 21.2596, 29.6706 )
+
+[node name="enemy_hack2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1996, 21.2596, 29.6706 )
+
+[node name="enemy_hack_stop2" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 1.66324, 21.69, 28.7245 )
+
+[node name="enemy_hack3" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1158, 21.2596, 74.7592 )
+
+[node name="enemy_hack4" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 80.1158, 21.2596, 114.826 )
+
+[node name="enemy_hack_stop4" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 104.721, 21.69, 107.895 )
+
+[node name="enemy_hack_stop3" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 104.721, 21.69, 81.7179 )
+
+[node name="enemy_hack_stop6" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 58.8207, 21.69, 107.895 )
+
+[node name="enemy_hack_stop5" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 58.8207, 21.69, 81.7179 )
+
+[node name="enemy_hack5" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 219.529, 21.2596, -3.58684 )
+
+[node name="enemy_hack6" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 219.529, 21.2596, 13.3326 )
+
+[node name="enemy_hack7" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 62.5775, 21.2596, -119.249 )
+
+[node name="enemy_hack8" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 223.902, 21.2596, -135.288 )
+
+[node name="enemy_hack9" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 223.902, 21.2596, -104.289 )
+
+[node name="enemy_hack_stop7" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 226.342, 21.69, -108.098 )
+
+[node name="enemy_hack_stop8" parent="." instance=ExtResource( 7 )]
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 226.342, 21.69, -133.263 )
+
+[node name="enemy_hack10" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 216.157, 21.2596, 66.7195 )
+
+[node name="Sol" type="DirectionalLight" parent="."]
+
+[node name="UI" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchor_left = 0.725
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.400024
+color = Color( 0.45098, 0.45098, 0.45098, 0.443137 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_reset" type="Button" parent="UI/ColorRect"]
+anchor_top = 0.673
+anchor_right = 1.0
+anchor_bottom = 0.748
+margin_left = 34.0
+margin_top = 0.199982
+margin_right = -24.0
+margin_bottom = 0.199982
+custom_fonts/font = SubResource( 8 )
+text = "Hack"
+
+[node name="Label" type="Label" parent="UI/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.283
+anchor_right = 0.5
+anchor_bottom = 0.283
+margin_left = -97.5
+margin_top = -66.3
+margin_right = 97.5
+margin_bottom = 66.7
+custom_fonts/font = SubResource( 7 )
+text = "Hacking Failure"
+align = 1
+valign = 1
+autowrap = true
+[connection signal="pressed" from="UI/ColorRect/Button_reset" to="UI" method="_on_Button_reset_pressed"]

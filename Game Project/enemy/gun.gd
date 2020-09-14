@@ -8,7 +8,7 @@ func _ready():
 
 func fire_weapon():
 	var clone = bullet_scene.instance()
-	var scene_root = get_parent().get_parent().get_node(".")
+	var scene_root = get_tree().root.get_children()[1]
 	scene_root.add_child(clone)
 	# Set the bullet's global_transform to that of the pistol spawn point (which is this node).
 	clone.global_transform = self.global_transform

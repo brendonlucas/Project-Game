@@ -1,5 +1,7 @@
 extends KinematicBody
 
+var life = 3
+
 var MOVE_SPEED = 20
 var acelerecao = 3
 var desaceleracao = 9
@@ -14,8 +16,8 @@ var parando
 var correndo = false
 
 onready var cursor = $Cursor
-var ray_origin =Vector3()
-var ray_target =Vector3()
+var ray_origin = Vector3()
+var ray_target = Vector3()
 
 func _ready():
 	player = get_node(".")
@@ -40,6 +42,9 @@ func look_at_cursor():
 	
 
 func _physics_process(delta):
+	if life <= 0:
+		queue_free()
+		
 	look_at_cursor()
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()
@@ -79,3 +84,5 @@ func _physics_process(delta):
 	velocity.y -= 1
 	velocity = move_and_slide(velocity, Vector3.UP)
 
+func hit_damage(damage):
+	life -= 1

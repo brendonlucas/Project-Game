@@ -26,8 +26,8 @@ func collided(body):
 			body.bullet_hit(BULLET_DAMAGE, self.global_transform.origin)
 			
 	hit_something = true
-	if body.is_in_group("Player_v4"):
-		#body.hit_damage(BULLET_DAMAGE)
+	if body.is_in_group("Player_v4") or body.is_in_group("Player_hack"):
+		body.hit_damage(BULLET_DAMAGE)
 		print("bateu doido")
 		queue_free()
 		
