@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://props/ancient-columns/textures/ground_normal_2K.png" type="Texture" id=10]
 [ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_BaseColor_2K.png" type="Texture" id=11]
+[ext_resource path="res://audio/gb_2.ogg" type="AudioStream" id=12]
 [ext_resource path="res://props/ancient-columns/colun.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=14]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=15]
@@ -28,6 +29,7 @@
 [ext_resource path="res://props/ancient-columns/colun2.tscn" type="PackedScene" id=27]
 [ext_resource path="res://player/Meya/player.gd" type="Script" id=28]
 [ext_resource path="res://props/agua/agua_watherfall.tres" type="Material" id=29]
+[ext_resource path="res://audio/ambiente.ogg" type="AudioStream" id=30]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -46,7 +48,7 @@ points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1,
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 resource_name = "move"
 length = 0.4
 loop = true
@@ -63,7 +65,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=8]
+[sub_resource type="PlaneMesh" id=6]
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -266,16 +268,25 @@ material/0 = ExtResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="watherfall"]
 autoplay = "move"
-anims/move = SubResource( 9 )
+anims/move = SubResource( 5 )
 
 [node name="agua" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 849.323, -2.228, 504.639 )
 
 [node name="MeshInstance" type="MeshInstance" parent="agua"]
 transform = Transform( 77.0032, 0, 32.2661, 0, 0.01, 0, -4.97957, 0, 498.958, 0, 0, 0 )
-mesh = SubResource( 8 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
 autoplay = "move"
 anims/move = SubResource( 7 )
+
+[node name="ambiente" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 30 )
+autoplay = true
+
+[node name="bg_map" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -5.0
+autoplay = true

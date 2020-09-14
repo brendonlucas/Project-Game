@@ -39,7 +39,7 @@ var ultimo_atake
 var atacando
 var luz 
 
-
+var jumped = false
 	
 func _ready():
 	luz = get_parent().get_node("Sol")
@@ -57,13 +57,11 @@ func add_atake():
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
-
 	if Input.is_action_just_pressed("toggle_mouse"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func ataque(delta):
 	if timer_reset_atak.time_left == 0 and !resetado:
-			print("demorou")
 			resetado = true
 			atacks = 0
 			
@@ -71,23 +69,18 @@ func ataque(delta):
 		timer_reset_atak.start()
 		timer_1.start()
 		resetado = false
-		
 		if atacks == 0:
-			animation.play("attack1", 0.2)
-
+			animation.play("attack1", 0.1)
 			atacks += 1
 			atacando = true
 		elif atacks == 1:
-			animation.play("attack2", 0.2)
+			animation.play("attack2", 0.1)
 			atacks += 1
 			atacando = true
-
 		elif atacks == 2:
-			animation.play("attack3", 0.2)
+			animation.play("attack3", 0.1)
 			atacks = 0
 			atacando = true
-
-			
 		if atacks == 3:
 			atacks = 0
 			
@@ -95,15 +88,7 @@ func ataque(delta):
 		animation.play("attack_charge_1", 0.2)
 		atacks = 0
 		atacando = true
-#	if Input.is_action_just_pressed("ataque_normal"):
-#		animation.play("ataque1", 0.2)
-#		atacando = true
-#	if Input.is_action_just_pressed("ataque_pesado"):
-#		animation.play("ataque2")
-#		atacando = true
-		
 
-	
 func movimentos(delta):
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()
@@ -112,6 +97,7 @@ func movimentos(delta):
 	caminhando = false
 	GRAVITY = 9.8
 	MOVE_SPEED = 5
+	var grounded = is_on_floor()
 	
 	if Input.is_action_pressed("frente") and moviments_active and !atacando:
 		dir += -cam.basis[2]
@@ -133,29 +119,21 @@ func movimentos(delta):
 		caminhando = true
 		MOVE_SPEED = 2
 		atacando = false
-		
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !atacando:
-		#velocity.y += jump_power
-		#print(luz.get_shadow_mode())
-		#luz.set_shadow_mode(2)
-		pass
-		
-		
+	
 	if cc == 0 and !is_moving:
 		cc = 0.1
 	elif is_moving:
 		cc = 0
 		
 	if is_moving and !correndo and resetado and !caminhando:
-		$AnimationPlayer.play("run1",cc)
+		$AnimationPlayer.play("run1", 0.1)
 		parando = true
 	elif is_moving and !correndo and resetado and caminhando:
-		$AnimationPlayer.play("walk",cc)
-		print("sda")
+		$AnimationPlayer.play("walk",0.1)
 	elif !is_moving and !correndo and !atacando and !caminhando:
-		pass
 		animation.play("idle", 0.2)
-	elif correndo and resetado :
+
+	elif correndo and resetado and is_moving:
 		var ii
 		if parando == true:
 			ii = 0.1
@@ -163,7 +141,6 @@ func movimentos(delta):
 			ii = 0
 		animation.play("run2", ii)
 		parando = false
-	var grounded = is_on_floor()
 	
 	dir.y = 0
 	dir = dir.normalized()

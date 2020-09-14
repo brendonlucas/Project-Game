@@ -134,7 +134,8 @@ func movimentos(delta):
 		MOVE_SPEED = 2
 		atacando = false
 		
-	if Input.is_action_just_pressed("jump") and is_on_floor() and !atacando:
+	if Input.is_action_pressed("jump") and is_on_floor() and !atacando and is_moving:
+		MOVE_SPEED = 100
 		#velocity.y += jump_power
 		#print(luz.get_shadow_mode())
 		#luz.set_shadow_mode(2)
