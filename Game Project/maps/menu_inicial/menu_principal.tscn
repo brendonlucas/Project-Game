@@ -1,0 +1,356 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://maps/menu_inicial/map_ht/data.hterrain" type="Resource" id=1]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
+[ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=3]
+[ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=4]
+[ext_resource path="res://props/agua/agua_3.tres" type="Material" id=5]
+[ext_resource path="res://textures/Water_001_SD/Water_001_COLOR.jpg" type="Texture" id=6]
+[ext_resource path="res://textures/rock_3/Rock038_2K_Color.jpg" type="Texture" id=7]
+[ext_resource path="res://textures/rock_3/Rock038_2K_Normal.jpg" type="Texture" id=8]
+[ext_resource path="res://textures/rock 2/Rock030_2K_Normal.jpg" type="Texture" id=9]
+[ext_resource path="res://textures/rock 2/Rock030_2K_Color.jpg" type="Texture" id=10]
+[ext_resource path="res://textures/Water_001_SD/Water_001_DISP.png" type="Texture" id=11]
+[ext_resource path="res://default_env.tres" type="Environment" id=12]
+[ext_resource path="res://audio/lake.ogg" type="AudioStream" id=13]
+[ext_resource path="res://addons/SIsilicon.vfx.godrays/GodRays.gd" type="Script" id=14]
+[ext_resource path="res://audio/gb_2.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=16]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "move"
+length = 30.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -1, 1, 0 ) ]
+}
+
+[sub_resource type="SphereMesh" id=3]
+flip_faces = true
+
+[sub_resource type="SpatialMaterial" id=4]
+params_cull_mode = 2
+albedo_color = Color( 0, 0, 0, 1 )
+albedo_texture = ExtResource( 6 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 3.0
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 11 )
+refraction_enabled = true
+refraction_scale = 1.0
+refraction_texture_channel = 0
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
+
+[sub_resource type="DynamicFont" id=6]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=8]
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=9]
+font_data = ExtResource( 16 )
+
+[node name="Map" type="Spatial"]
+
+[node name="Sol" type="DirectionalLight" parent="."]
+transform = Transform( 0.663785, 0.207018, 0.718703, -0.263884, -0.83431, 0.484038, 0.699825, -0.510951, -0.499173, 0, 11.3142, 0 )
+light_color = Color( 0.729412, 0.729412, 0.729412, 1 )
+shadow_enabled = true
+
+[node name="GodRays" type="Spatial" parent="Sol"]
+visible = false
+script = ExtResource( 14 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -65 )
+script = ExtResource( 2 )
+collision_enabled = true
+ambient_wind = 0.2
+lod_scale = 2.0
+custom_globalmap_shader = null
+map_scale = Vector3( 1, 1, 1 )
+_terrain_data = ExtResource( 1 )
+chunk_size = 32
+shader_type = "Classic4Lite"
+custom_shader = null
+shader_params/u_ground_uv_scale = 10.0
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+ground/albedo_bump_0 = ExtResource( 4 )
+ground/normal_roughness_0 = ExtResource( 3 )
+ground/albedo_bump_1 = ExtResource( 10 )
+ground/normal_roughness_1 = ExtResource( 9 )
+ground/albedo_bump_2 = null
+ground/normal_roughness_2 = null
+ground/albedo_bump_3 = ExtResource( 7 )
+ground/normal_roughness_3 = ExtResource( 8 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.116, 2.755, 14.352 )
+far = 300.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 60, 0, 0, 0, 1, 0, 0, 0, 70, 0, 1.099, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance"]
+autoplay = "move"
+anims/move = SubResource( 2 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 6.90299, 0, 1.16136, 0, 7, 0, -1.16136, 0, 6.90299, 15.3976, 4.6263, -35.1389 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( 94.7276, 0, 32.0419, 0, 100, 0, -32.0419, 0, 94.7276, 3.36542, 48.4357, -7.51939 )
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 12 )
+
+[node name="lake" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -5.0
+autoplay = true
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -10.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu_1" type="Control" parent="Control"]
+anchor_right = 0.296
+anchor_bottom = 1.0
+margin_right = -0.104004
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu_1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = 44.0
+margin_right = -25.0
+margin_bottom = -68.0
+color = Color( 0.34902, 0.34902, 0.34902, 0.356863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grup_button" type="Control" parent="Control/Menu_1/ColorRect"]
+anchor_left = 0.139
+anchor_top = 0.037
+anchor_right = 0.87
+anchor_bottom = 0.629
+margin_left = 0.0879974
+margin_top = -0.167
+margin_right = 0.0399933
+margin_bottom = 0.161011
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+anchor_left = 0.412086
+anchor_right = 1.0
+anchor_bottom = 0.11
+margin_right = -1.28098
+margin_bottom = -0.0100021
+custom_fonts/font = SubResource( 6 )
+text = "Start"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button2" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+anchor_left = 0.153
+anchor_top = 0.164948
+anchor_right = 0.845304
+anchor_bottom = 0.275
+margin_left = 0.0400066
+margin_bottom = -0.0250015
+custom_fonts/font = SubResource( 7 )
+text = "Options"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button3" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+anchor_left = -0.0422652
+anchor_top = 0.333333
+anchor_right = 0.518
+anchor_bottom = 0.443
+margin_right = -0.0475616
+margin_bottom = 0.0869904
+custom_fonts/font = SubResource( 5 )
+text = "Exit"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Menu_2" type="Control" parent="Control"]
+anchor_left = 0.316
+anchor_right = 0.71
+anchor_bottom = 1.0
+margin_left = 0.415985
+margin_right = -0.0400391
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control/Menu_2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = 44.0
+margin_right = -25.0
+margin_bottom = -68.0
+color = Color( 0.34902, 0.34902, 0.34902, 0.356863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sensibilidade" type="Control" parent="Control/Menu_2/ColorRect"]
+anchor_top = 0.037
+anchor_right = 1.0
+anchor_bottom = 0.129
+margin_top = -0.0559998
+margin_bottom = 0.0479965
+
+[node name="Label" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+anchor_left = 0.015
+anchor_right = 0.359
+anchor_bottom = 0.5
+margin_left = 0.317302
+margin_right = 0.109291
+margin_bottom = 0.5
+custom_fonts/font = SubResource( 8 )
+text = "Sensibilidade"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+anchor_left = 0.042
+anchor_top = 0.47
+anchor_right = 0.175
+anchor_bottom = 0.958
+margin_left = 0.0559988
+margin_top = -0.0019989
+margin_right = -0.100002
+margin_bottom = -0.0140038
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+anchor_left = 0.187
+anchor_top = 0.378
+anchor_right = 0.961
+anchor_bottom = 1.0
+margin_left = -0.0840034
+margin_top = -0.0100002
+margin_right = -0.052002
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sensibilidade2" type="Control" parent="Control/Menu_2/ColorRect"]
+anchor_top = 0.152
+anchor_right = 1.0
+anchor_bottom = 0.244
+margin_top = -0.176003
+margin_bottom = -0.0720062
+
+[node name="Label" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+anchor_left = 0.015
+anchor_right = 0.359
+anchor_bottom = 0.5
+margin_left = 0.317302
+margin_right = 0.109291
+margin_bottom = 0.5
+custom_fonts/font = SubResource( 8 )
+text = "Sensibilidade"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+anchor_left = 0.042
+anchor_top = 0.47
+anchor_right = 0.175
+anchor_bottom = 0.958
+margin_left = 0.0559988
+margin_top = -0.0019989
+margin_right = -0.100002
+margin_bottom = -0.0140038
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+anchor_left = 0.187
+anchor_top = 0.378
+anchor_right = 0.961
+anchor_bottom = 1.0
+margin_left = -0.0840034
+margin_top = -0.0100002
+margin_right = -0.052002
+margin_bottom = -1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

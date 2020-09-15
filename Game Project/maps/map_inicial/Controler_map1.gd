@@ -55,8 +55,43 @@ func _ready():
 	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
+var drop_game_test = 0
+var cam_turrent = preload("res://player/nave/turret.tscn")
+var cam_normal = preload("res://player/nave/target.tscn")
+var cam_atual = 1
 
+func instance_cams():
+	var fade_change = get_parent().get_node("fade/AnimationPlayer")
+	
+	if cam_atual == 1:
+		fade_change.play("fade_in")
+		var pos_cam_turrent = get_parent().get_node_or_null("Player_nave/pos_cam")
+		var scene_root = get_parent().get_node_or_null("Player_nave")
+		var target_cam_back = get_parent().get_node_or_null("target")
+		var clone = cam_turrent.instance()
+		#var scene_root = get_tree().root.get_children()[1]
+		scene_root.add_child(clone)
+		clone.global_transform = pos_cam_turrent.global_transform
+		target_cam_back.queue_free()
+		cam_atual = 2
+		
+	elif cam_atual == 2:
+		fade_change.play("fade_in")
+		var pos_new_cam = get_parent().get_node_or_null("Player_nave")
+		var scene_root = get_parent().get_node_or_null(".")
+		var turrent_cam = get_parent().get_node_or_null("Player_nave/Camera")
+		var clone = cam_normal.instance()
+		#var scene_root = get_tree().root.get_children()[1]
+		scene_root.add_child(clone)
+		clone.translation = pos_new_cam.translation
+		turrent_cam.queue_free()
+		cam_atual = 1
+		
 func _process(delta):
+	
+	if Input.is_action_just_pressed("sprint"):
+		instance_cams()
+		
 	if executando_legenda:
 		aplly_text()
 	

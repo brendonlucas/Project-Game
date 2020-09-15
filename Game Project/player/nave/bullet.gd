@@ -1,12 +1,12 @@
 extends Spatial
 
 # The speed the bullet travels at
-var BULLET_SPEED = 100
+var BULLET_SPEED = 150
 
 # The damage the bullet does on whatever it hits
 var BULLET_DAMAGE = 100
 
-const KILL_TIMER = 10
+const KILL_TIMER = 4
 var timer = 0
 var hit_something = false
 
@@ -16,6 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	var forward_dir = global_transform.basis.x.normalized()
+	
 	global_translate(forward_dir * BULLET_SPEED * delta)
 	
 	timer += delta
@@ -24,7 +25,6 @@ func _physics_process(delta):
 
 
 func collided(body):
-	print(body.name)
 	if hit_something == false:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, self.global_transform.origin)

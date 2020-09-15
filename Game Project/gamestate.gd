@@ -5,8 +5,6 @@ var deletar = 0
 var in_mine_game = false
 
 var dado :int = 0
-var players = {}
-var players_ready = []
 var camera_sensibilidade :float = 0.3
 var type_shadow_mode = 0
 var view_distance = 100
@@ -59,31 +57,7 @@ func _ready():
 var cam_atual = 1
 
 # teste de mudança de camera do jato ()game parte 1
-func instance_cams():
-	var fade_change = get_tree().get_root().get_node_or_null("Map/fade/AnimationPlayer")
-	if cam_atual == 1:
-		fade_change.play("fade_in")
-		var turrent_gun_cam = get_tree().get_root().get_node_or_null("Map/Player_nave/pos_cam")
-		var scenef = get_tree().get_root().get_node_or_null("Map/Player_nave")
-		var outacam = get_tree().get_root().get_node_or_null("Map/target")
-		var clone = cam_turrent.instance()
-		#var scene_root = get_tree().root.get_children()[1]
-		scenef.add_child(clone)
-		clone.global_transform = turrent_gun_cam.global_transform
-		outacam.queue_free()
-		cam_atual=2
-	elif cam_atual == 2:
-		fade_change.play("fade_in")
-		var turrent_gun_cam = get_tree().get_root().get_node_or_null("Map/Player_nave")
-		var scenef = get_tree().get_root().get_node_or_null("Map")
-		var outacam = get_tree().get_root().get_node_or_null("Map/Player_nave/Camera")
-		var clone = cam_normal.instance()
-		#var scene_root = get_tree().root.get_children()[1]
-		scenef.add_child(clone)
-		clone.translation = turrent_gun_cam.translation
-		outacam.queue_free()
-		cam_atual=1
-		
+
 func _process(delta):
 	# a ser removido teste de chamada da instancia de minigame
 	if Input.is_action_just_pressed("coisar") and drop_game_test == 0:

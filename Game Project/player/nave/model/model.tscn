@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://player/nave/model/blinn1.material" type="Material" id=1]
 [ext_resource path="res://player/nave/model/blinn2.material" type="Material" id=2]
@@ -756,12 +756,6 @@ surfaces/0 = {
 "vertex_count": 162
 }
 
-[sub_resource type="ProceduralSky" id=48]
-
-[sub_resource type="Environment" id=49]
-background_mode = 2
-background_sky = SubResource( 48 )
-
 [sub_resource type="SpatialMaterial" id=50]
 flags_unshaded = true
 params_blend_mode = 1
@@ -1034,9 +1028,6 @@ material/0 = null
 transform = Transform( 200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 49 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.00301908, 0.999995, 0, -0.999995, -0.00301908, 0, -0.0246094, -1.68256 )

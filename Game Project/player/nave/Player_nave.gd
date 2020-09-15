@@ -36,7 +36,7 @@ func _physics_process(delta):
 	var dir = Vector3()
 	var is_moving = false
 	parando = false
-	rotation_degrees.x = 0
+	rotation_degrees.z = 0
 	
 	if play_som_jet and !$jet_audio.playing and ativado:
 		$jet_audio.play()
@@ -52,20 +52,19 @@ func _physics_process(delta):
 	if Input.is_action_pressed("direita") and ativado:
 		dir.x += 1
 		is_moving = true
-		rotation_degrees.x = 20
+		rotation_degrees.z = -20
 		
 	if Input.is_action_pressed("esquerda")  and ativado:
 		dir.x -= 1
 		is_moving = true
-		rotation_degrees.x = -20
+		rotation_degrees.z = 20
 		
 	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0:
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
 		
-	if Input.is_action_just_pressed("sprint"):
-		Gamestate.instance_cams()
+	
 		
 	dir = dir.normalized()
 	var hv = velocity

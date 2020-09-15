@@ -93,7 +93,7 @@ script = ExtResource( 5 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 774.179, 6.35326, 132.661 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 428.01, 2.12755, 287.237 )
 script = ExtResource( 28 )
 
 [node name="Node" type="Node" parent="."]
@@ -131,7 +131,7 @@ ground/normal_roughness_3 = ExtResource( 10 )
 
 [node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
 script = ExtResource( 14 )
-layer_index = 0
+layer_index = 1
 texture = ExtResource( 24 )
 view_distance = 100.0
 custom_shader = null

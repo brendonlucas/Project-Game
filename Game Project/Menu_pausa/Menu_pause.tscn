@@ -119,7 +119,6 @@ __meta__ = {
 }
 
 [node name="Menu_2" type="Control" parent="."]
-visible = false
 anchor_left = 0.49
 anchor_right = 0.999
 anchor_bottom = 1.0
@@ -273,7 +272,6 @@ margin_right = 0.496033
 margin_bottom = 0.00483322
 min_value = 100.0
 max_value = 500.0
-step = 1.0
 value = 100.0
 __meta__ = {
 "_edit_use_anchors_": false
