@@ -8,6 +8,7 @@ var dado :int = 0
 var camera_sensibilidade :float = 0.3
 var type_shadow_mode = 0
 var view_distance = 100
+var grass_dencidade = 1
 
 # exp variaveis
 var nivel : int

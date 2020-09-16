@@ -1,16 +1,16 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://maps/menu_inicial/map_ht/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=3]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=4]
 [ext_resource path="res://props/agua/agua_3.tres" type="Material" id=5]
-[ext_resource path="res://textures/Water_001_SD/Water_001_COLOR.jpg" type="Texture" id=6]
+[ext_resource path="res://maps/menu_inicial/sky.tres" type="Material" id=6]
 [ext_resource path="res://textures/rock_3/Rock038_2K_Color.jpg" type="Texture" id=7]
 [ext_resource path="res://textures/rock_3/Rock038_2K_Normal.jpg" type="Texture" id=8]
 [ext_resource path="res://textures/rock 2/Rock030_2K_Normal.jpg" type="Texture" id=9]
 [ext_resource path="res://textures/rock 2/Rock030_2K_Color.jpg" type="Texture" id=10]
-[ext_resource path="res://textures/Water_001_SD/Water_001_DISP.png" type="Texture" id=11]
+[ext_resource path="res://maps/menu_inicial/MeshInstance3.gd" type="Script" id=11]
 [ext_resource path="res://default_env.tres" type="Environment" id=12]
 [ext_resource path="res://audio/lake.ogg" type="AudioStream" id=13]
 [ext_resource path="res://maps/menu_inicial/Menu_principal.gd" type="Script" id=14]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://Menu_pausa/FadeIn.tscn" type="PackedScene" id=17]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=18]
+[ext_resource path="res://textures/grass.png" type="Texture" id=19]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -41,21 +42,7 @@ tracks/0/keys = {
 [sub_resource type="SphereMesh" id=3]
 flip_faces = true
 
-[sub_resource type="SpatialMaterial" id=4]
-params_cull_mode = 2
-albedo_color = Color( 0, 0, 0, 1 )
-albedo_texture = ExtResource( 6 )
-emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
-emission_energy = 3.0
-emission_operator = 0
-emission_on_uv2 = false
-emission_texture = ExtResource( 11 )
-refraction_enabled = true
-refraction_scale = 1.0
-refraction_texture_channel = 0
-proximity_fade_enable = true
-proximity_fade_distance = 1.0
+[sub_resource type="SphereMesh" id=13]
 
 [sub_resource type="DynamicFont" id=6]
 size = 20
@@ -127,10 +114,10 @@ ground/normal_roughness_3 = ExtResource( 8 )
 [node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
 script = ExtResource( 18 )
 layer_index = 0
-texture = null
+texture = ExtResource( 19 )
 view_distance = 100.0
 custom_shader = null
-density = 4.0
+density = 1.0
 instance_mesh = null
 shader_params/u_globalmap_tint_bottom = null
 shader_params/u_globalmap_tint_top = null
@@ -152,12 +139,13 @@ anims/move = SubResource( 2 )
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( 6.90299, 0, 1.16136, 0, 7, 0, -1.16136, 0, 6.90299, 15.3976, 4.6263, -35.1389 )
 mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+material/0 = ExtResource( 6 )
 
 [node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( 94.7276, 0, 32.0419, 0, 100, 0, -32.0419, 0, 94.7276, 3.36542, 48.4357, -7.51939 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 4 )
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 3.36542, 48.4357, -7.51939 )
+mesh = SubResource( 13 )
+material/0 = ExtResource( 6 )
+script = ExtResource( 11 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 12 )
@@ -488,7 +476,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider" type="HSlider" parent="Menu_principal/Menu_2/ColorRect/Densidade_grama"]
+[node name="HSlider_d_grass" type="HSlider" parent="Menu_principal/Menu_2/ColorRect/Densidade_grama"]
 anchor_left = 0.187
 anchor_top = 0.378
 anchor_right = 0.961
@@ -497,6 +485,10 @@ margin_left = -0.0840034
 margin_top = -0.0100002
 margin_right = -0.052002
 margin_bottom = -1.0
+min_value = 0.5
+max_value = 10.0
+step = 0.5
+value = 0.5
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -559,5 +551,6 @@ __meta__ = {
 [connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_sair" to="Menu_principal" method="_on_Button_sair_pressed"]
 [connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Sensibilidade/HSlider" to="Menu_principal" method="_on_HSlider_value_changed"]
 [connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Distancia/HSlider_v_distance" to="Menu_principal" method="_on_HSlider_v_distance_value_changed"]
+[connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Densidade_grama/HSlider_d_grass" to="Menu_principal" method="_on_HSlider_d_grass_value_changed"]
 [connection signal="pressed" from="Menu_principal/Menu_2/ColorRect/Button_aplicar" to="Menu_principal" method="_on_Button_aplicar_pressed"]
 [connection signal="fade_finished" from="Menu_principal/FadeIn" to="Menu_principal" method="_on_FadeIn_fade_finished"]
