@@ -21,6 +21,6 @@ refraction_scale = -1.0
 refraction_texture = ExtResource( 1 )
 refraction_texture_channel = 0
 uv1_scale = Vector3( 10, 10, 1 )
-uv1_offset = Vector3( -0.0122381, 0.0122381, 0 )
+uv1_offset = Vector3( -0.738027, 0.738027, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0

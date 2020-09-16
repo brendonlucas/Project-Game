@@ -99,6 +99,7 @@ func _on_Button_aplicar_pressed():
 	Gamestate.type_shadow_mode = option_sombra
 	Gamestate.camera_sensibilidade = sensibilidade.value
 	Gamestate.view_distance = v_distance.value
+	print(v_distance.value)
 	sun.set_shadow_mode(option_sombra)
 	if terrain_grass != null:
 		terrain_grass.view_distance = Gamestate.view_distance

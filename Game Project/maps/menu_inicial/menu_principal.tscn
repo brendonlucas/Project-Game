@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://maps/menu_inicial/map_ht/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -13,9 +13,11 @@
 [ext_resource path="res://textures/Water_001_SD/Water_001_DISP.png" type="Texture" id=11]
 [ext_resource path="res://default_env.tres" type="Environment" id=12]
 [ext_resource path="res://audio/lake.ogg" type="AudioStream" id=13]
-[ext_resource path="res://addons/SIsilicon.vfx.godrays/GodRays.gd" type="Script" id=14]
+[ext_resource path="res://maps/menu_inicial/Menu_principal.gd" type="Script" id=14]
 [ext_resource path="res://audio/gb_2.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Menu_pausa/FadeIn.tscn" type="PackedScene" id=17]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=18]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -72,9 +74,23 @@ use_filter = true
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=8]
+use_filter = true
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=9]
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 13
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 16 )
 
 [node name="Map" type="Spatial"]
@@ -83,10 +99,6 @@ font_data = ExtResource( 16 )
 transform = Transform( 0.663785, 0.207018, 0.718703, -0.263884, -0.83431, 0.484038, 0.699825, -0.510951, -0.499173, 0, 11.3142, 0 )
 light_color = Color( 0.729412, 0.729412, 0.729412, 1 )
 shadow_enabled = true
-
-[node name="GodRays" type="Spatial" parent="Sol"]
-visible = false
-script = ExtResource( 14 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -65, 0, -65 )
@@ -111,6 +123,18 @@ ground/albedo_bump_2 = null
 ground/normal_roughness_2 = null
 ground/albedo_bump_3 = ExtResource( 7 )
 ground/normal_roughness_3 = ExtResource( 8 )
+
+[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
+script = ExtResource( 18 )
+layer_index = 0
+texture = null
+view_distance = 100.0
+custom_shader = null
+density = 4.0
+instance_mesh = null
+shader_params/u_globalmap_tint_bottom = null
+shader_params/u_globalmap_tint_top = null
+shader_params/u_bottom_ao = null
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.116, 2.755, 14.352 )
@@ -148,14 +172,15 @@ stream = ExtResource( 15 )
 volume_db = -10.0
 autoplay = true
 
-[node name="Control" type="Control" parent="."]
+[node name="Menu_principal" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Menu_1" type="Control" parent="Control"]
+[node name="Menu_1" type="Control" parent="Menu_principal"]
 anchor_right = 0.296
 anchor_bottom = 1.0
 margin_right = -0.104004
@@ -163,7 +188,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control/Menu_1"]
+[node name="ColorRect" type="ColorRect" parent="Menu_principal/Menu_1"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 46.0
@@ -175,7 +200,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Grup_button" type="Control" parent="Control/Menu_1/ColorRect"]
+[node name="Grup_button" type="Control" parent="Menu_principal/Menu_1/ColorRect"]
 anchor_left = 0.139
 anchor_top = 0.037
 anchor_right = 0.87
@@ -188,7 +213,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+[node name="Button_start" type="Button" parent="Menu_principal/Menu_1/ColorRect/Grup_button"]
 anchor_left = 0.412086
 anchor_right = 1.0
 anchor_bottom = 0.11
@@ -201,7 +226,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button2" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+[node name="Button_opcoes" type="Button" parent="Menu_principal/Menu_1/ColorRect/Grup_button"]
 anchor_left = 0.153
 anchor_top = 0.164948
 anchor_right = 0.845304
@@ -215,7 +240,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button3" type="Button" parent="Control/Menu_1/ColorRect/Grup_button"]
+[node name="Button_sair" type="Button" parent="Menu_principal/Menu_1/ColorRect/Grup_button"]
 anchor_left = -0.0422652
 anchor_top = 0.333333
 anchor_right = 0.518
@@ -229,7 +254,8 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Menu_2" type="Control" parent="Control"]
+[node name="Menu_2" type="Control" parent="Menu_principal"]
+visible = false
 anchor_left = 0.316
 anchor_right = 0.71
 anchor_bottom = 1.0
@@ -239,7 +265,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Control/Menu_2"]
+[node name="ColorRect" type="ColorRect" parent="Menu_principal/Menu_2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 46.0
@@ -251,14 +277,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sensibilidade" type="Control" parent="Control/Menu_2/ColorRect"]
+[node name="Sensibilidade" type="Control" parent="Menu_principal/Menu_2/ColorRect"]
 anchor_top = 0.037
 anchor_right = 1.0
 anchor_bottom = 0.129
 margin_top = -0.0559998
 margin_bottom = 0.0479965
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect/Sensibilidade"]
 anchor_left = 0.015
 anchor_right = 0.359
 anchor_bottom = 0.5
@@ -267,13 +296,12 @@ margin_right = 0.109291
 margin_bottom = 0.5
 custom_fonts/font = SubResource( 8 )
 text = "Sensibilidade"
-align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+[node name="Label_sensi" type="Label" parent="Menu_principal/Menu_2/ColorRect/Sensibilidade"]
 anchor_left = 0.042
 anchor_top = 0.47
 anchor_right = 0.175
@@ -290,7 +318,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider" type="HSlider" parent="Control/Menu_2/ColorRect/Sensibilidade"]
+[node name="HSlider" type="HSlider" parent="Menu_principal/Menu_2/ColorRect/Sensibilidade"]
 anchor_left = 0.187
 anchor_top = 0.378
 anchor_right = 0.961
@@ -299,18 +327,80 @@ margin_left = -0.0840034
 margin_top = -0.0100002
 margin_right = -0.052002
 margin_bottom = -1.0
+min_value = 0.1
+max_value = 3.0
+step = 0.1
+value = 0.1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sensibilidade2" type="Control" parent="Control/Menu_2/ColorRect"]
-anchor_top = 0.152
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_left = 0.06
+anchor_top = 0.221
+anchor_right = 0.955
+anchor_bottom = 0.275
+margin_left = 0.0799999
+margin_top = 0.151993
+margin_right = -0.0600281
+margin_bottom = -0.199997
+custom_fonts/font = SubResource( 11 )
+text = "Graficos"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sombra" type="Control" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_top = 0.287
 anchor_right = 1.0
-anchor_bottom = 0.244
-margin_top = -0.176003
-margin_bottom = -0.0720062
+anchor_bottom = 0.387
+margin_top = -0.0559998
+margin_bottom = 0.143982
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect/Sombra"]
+anchor_left = 0.0150602
+anchor_top = 0.0204082
+anchor_right = 0.237952
+anchor_bottom = 0.44898
+custom_fonts/font = SubResource( 8 )
+text = "Sombra"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptionButton" type="OptionButton" parent="Menu_principal/Menu_2/ColorRect/Sombra"]
+anchor_left = 0.187
+anchor_top = 0.422
+anchor_right = 0.958
+anchor_bottom = 0.933
+margin_left = -0.0840034
+margin_top = 0.00999832
+margin_right = -0.0560303
+margin_bottom = 0.0149994
+custom_fonts/font = SubResource( 10 )
+text = "Low"
+items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Distancia" type="Control" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_top = 0.395
+anchor_right = 1.0
+anchor_bottom = 0.488
+margin_top = 0.23999
+margin_bottom = -0.144012
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect/Distancia"]
 anchor_left = 0.015
 anchor_right = 0.359
 anchor_bottom = 0.5
@@ -318,14 +408,13 @@ margin_left = 0.317302
 margin_right = 0.109291
 margin_bottom = 0.5
 custom_fonts/font = SubResource( 8 )
-text = "Sensibilidade"
-align = 1
+text = "Distancia de visao"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+[node name="Label_v_distance" type="Label" parent="Menu_principal/Menu_2/ColorRect/Distancia"]
 anchor_left = 0.042
 anchor_top = 0.47
 anchor_right = 0.175
@@ -342,7 +431,64 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HSlider" type="HSlider" parent="Control/Menu_2/ColorRect/Sensibilidade2"]
+[node name="HSlider_v_distance" type="HSlider" parent="Menu_principal/Menu_2/ColorRect/Distancia"]
+anchor_left = 0.187
+anchor_top = 0.378
+anchor_right = 0.961
+anchor_bottom = 1.0
+margin_left = -0.0840034
+margin_top = -0.0100002
+margin_right = -0.052002
+margin_bottom = -1.0
+min_value = 100.0
+max_value = 500.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Densidade_grama" type="Control" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_top = 0.496
+anchor_right = 1.0
+anchor_bottom = 0.588
+margin_top = -0.0480042
+margin_bottom = 0.0559998
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect/Densidade_grama"]
+anchor_left = 0.015
+anchor_right = 0.359
+anchor_bottom = 0.5
+margin_left = 0.317302
+margin_right = 0.109291
+margin_bottom = 0.5
+custom_fonts/font = SubResource( 8 )
+text = "Densidade da grama"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Menu_principal/Menu_2/ColorRect/Densidade_grama"]
+anchor_left = 0.042
+anchor_top = 0.47
+anchor_right = 0.175
+anchor_bottom = 0.958
+margin_left = 0.0559988
+margin_top = -0.0019989
+margin_right = -0.100002
+margin_bottom = -0.0140038
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="Menu_principal/Menu_2/ColorRect/Densidade_grama"]
 anchor_left = 0.187
 anchor_top = 0.378
 anchor_right = 0.961
@@ -354,3 +500,64 @@ margin_bottom = -1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ss_reflexao" type="Control" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_top = 0.6
+anchor_right = 1.0
+anchor_bottom = 0.701
+margin_top = 0.199982
+margin_bottom = -0.0880127
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Menu_principal/Menu_2/ColorRect/ss_reflexao"]
+anchor_left = 0.0150602
+anchor_top = 0.0204082
+anchor_right = 0.237952
+anchor_bottom = 0.44898
+custom_fonts/font = SubResource( 8 )
+text = "SS Reflexao"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptionButton" type="OptionButton" parent="Menu_principal/Menu_2/ColorRect/ss_reflexao"]
+anchor_left = 0.187
+anchor_top = 0.422
+anchor_right = 0.958
+anchor_bottom = 0.933
+margin_left = -0.0840034
+margin_top = 0.00999832
+margin_right = -0.0560303
+margin_bottom = 0.0149994
+custom_fonts/font = SubResource( 10 )
+text = "Yes"
+items = [ "Yes", null, false, 0, null, "No", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button_aplicar" type="Button" parent="Menu_principal/Menu_2/ColorRect"]
+anchor_left = 0.346
+anchor_top = 0.887
+anchor_right = 0.654
+anchor_bottom = 1.0
+margin_left = 0.127998
+margin_top = 0.143982
+margin_right = -0.128021
+margin_bottom = -25.0
+custom_fonts/font = SubResource( 12 )
+text = "Aplicar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" parent="Menu_principal" instance=ExtResource( 17 )]
+[connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_opcoes" to="Menu_principal" method="_on_Button_opcoes_pressed"]
+[connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_sair" to="Menu_principal" method="_on_Button_sair_pressed"]
+[connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Sensibilidade/HSlider" to="Menu_principal" method="_on_HSlider_value_changed"]
+[connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Distancia/HSlider_v_distance" to="Menu_principal" method="_on_HSlider_v_distance_value_changed"]
+[connection signal="pressed" from="Menu_principal/Menu_2/ColorRect/Button_aplicar" to="Menu_principal" method="_on_Button_aplicar_pressed"]
+[connection signal="fade_finished" from="Menu_principal/FadeIn" to="Menu_principal" method="_on_FadeIn_fade_finished"]
