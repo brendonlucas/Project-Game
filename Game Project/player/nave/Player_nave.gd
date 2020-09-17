@@ -16,7 +16,7 @@ onready var weapon_gun = get_parent().get_node("Player_nave/gun_1")
 var timer_gun_bullet
 
 var ativado = false
-
+var move_atual = 1
 
 func _ready():
 	player = get_node(".")
@@ -24,6 +24,8 @@ func _ready():
 	
 	#rotation_degrees.y = -180
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func change_moves(option):
+	move_atual = option
 	
 func ativar_moves(option):
 	if option == true:
@@ -32,6 +34,12 @@ func ativar_moves(option):
 		ativado = false
 		
 func _physics_process(delta):
+	if move_atual == 1:
+		moves_normal(delta)
+	elif move_atual == 2:
+		movements_topdown(delta)
+	
+func moves_normal(delta):
 	#cam = get_node("Camera").global_transform
 	var dir = Vector3()
 	var is_moving = false
@@ -78,5 +86,47 @@ func _physics_process(delta):
 	#velocity.z = -50
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 
-
+func movements_topdown(delta):
+	var dir = Vector3()
+	var is_moving = false
+	parando = false
+	rotation_degrees.z = 0
+		
+	if Input.is_action_pressed("frente") and ativado :
+		dir.z -= 1
+		is_moving = true
+		
+	if Input.is_action_pressed("tras") and ativado:
+		dir.z += 1
+		is_moving = true
+		
+	if Input.is_action_pressed("direita") and ativado:
+		dir.x += 1
+		is_moving = true
+		rotation_degrees.z = -20
+		
+	if Input.is_action_pressed("esquerda")  and ativado:
+		dir.x -= 1
+		is_moving = true
+		rotation_degrees.z = 20
+		
+	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0:
+		timer_gun_bullet.start()
+		weapon_gun.fire_weapon()
+		$gun_2.fire_weapon()
+		
+	
+		
+	dir = dir.normalized()
+	var hv = velocity
+	var new_pos = dir * MOVE_SPEED
+	var accel = desaceleracao
+	if (dir.dot(hv) > 0):
+		accel = acelerecao
+	hv = hv.linear_interpolate(new_pos, accel * delta)
+	velocity.z = hv.z
+	velocity.x = hv.x
+	velocity.y = 0
+	#velocity.z = -50
+	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 

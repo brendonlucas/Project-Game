@@ -25,6 +25,7 @@ func _physics_process(delta):
 
 
 func collided(body):
+	print(body.name)
 	if hit_something == false:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, self.global_transform.origin)
@@ -33,6 +34,6 @@ func collided(body):
 	if body.is_in_group("enemy"):
 		body.hit_damage(BULLET_DAMAGE)
 		
-	if body.name != "Player_nave":
+	if body.name != "Player_nave" and body.name != "limite":
 		queue_free()
 	

@@ -40,7 +40,7 @@ gravity = Vector3( 0, 0, 1 )
 size = Vector3( 0.1, 0.1, 0.1 )
 
 [node name="Player_nave" type="KinematicBody"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 10, 0, 0, 0 )
 
 [node name="jet_audio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121736, 0.722502 )
@@ -64,7 +64,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="pos_cam" type="Spatial" parent="."]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.00537496, 0.658822, 0.667833 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 0.00537496, 0.691544, 0.667833 )
 
 [node name="drone_R2" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0 )

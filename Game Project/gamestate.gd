@@ -1,7 +1,8 @@
 extends Node
 
-var deletar = 0
+var name_scene_change
 
+var deletar = 0
 var in_mine_game = false
 
 var dado :int = 0

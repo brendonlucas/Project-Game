@@ -53,7 +53,8 @@ func _input(event):
 			show()
 		
 func _on_Button_sair_pressed():
-	scene_change = "res://Menu_pausa/teste.tscn"
+	#Gamestate.name_scene_change = "res://maps/menu_inicial/menu_principal.tscn"
+	#scene_change = "res://maps/menu_inicial/menu_principal.tscn"
 	$FadeIn.show()
 	$FadeIn.fade_in()
 	
@@ -81,7 +82,8 @@ func _on_Button_continuar_pressed():
 
 
 func _on_FadeIn_fade_finished():
-	get_tree().change_scene(scene_change)
+	BackgroundLoad.load_scene("res://maps/menu_inicial/menu_principal.tscn")
+	#get_tree().change_scene(scene_change)
 
 
 func update_options():

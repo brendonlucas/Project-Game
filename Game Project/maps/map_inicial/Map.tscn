@@ -1,30 +1,32 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://props/agua/agua.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/drones/Enemy_drone_3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/nave/Player_nave.gd" type="Script" id=3]
 [ext_resource path="res://player/nave/target.tscn" type="PackedScene" id=4]
 [ext_resource path="res://maps/map_inicial/Remove_wather.tscn" type="PackedScene" id=5]
+[ext_resource path="res://enemy/drones/Enemy_drone_2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://legendas sys/legendas.tscn" type="PackedScene" id=7]
 [ext_resource path="res://maps/map_inicial/Controler_map1.gd" type="Script" id=8]
-[ext_resource path="res://enemy/Enemy_nave.tscn" type="PackedScene" id=9]
+[ext_resource path="res://enemy/drones/Enemy_drone_4.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Fonts/jd_code.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://audio/music_bg/bg_1.ogg" type="AudioStream" id=12]
 [ext_resource path="res://player/nave/Nave_player.tscn" type="PackedScene" id=13]
 
-[sub_resource type="BoxShape" id=2]
+[sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381219, 21.2058, 46.4236 )
 
-[sub_resource type="BoxShape" id=3]
-extents = Vector3( 34.5708, 0.492576, 54.0237 )
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 42.118, 0.492576, 54.0237 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 20
 outline_size = 1
 outline_color = Color( 0.101961, 0.607843, 0.0705882, 1 )
 font_data = ExtResource( 11 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 35.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -53,7 +55,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -68,7 +70,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -83,7 +85,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -108,12 +110,17 @@ tracks/1/keys = {
 "values": [  ]
 }
 
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 34.968, 21.7246, 0.207039 )
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map1" type="Node" parent="."]
 script = ExtResource( 8 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer_last_kill" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="target" parent="." instance=ExtResource( 4 )]
 transform = Transform( -5.57221e-08, 1.53095e-07, 1, 0.939692, 0.34202, 0, -0.34202, 0.939692, -1.62921e-07, 0, 7.64697, 0 )
@@ -140,20 +147,28 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7000 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33927, -38.0275 )
 
 [node name="CollisionShape" type="CollisionShape" parent="limite"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2227, 21.565, 42.6795 )
-shape = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35.0749, 21.565, 42.6795 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="limite"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.3096, 21.565, 42.6795 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="limite"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.42414, 21.565, 57.1966 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="limite"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.42414, 21.3866, 18.7748 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="limite"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.9801 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="limite"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.85346, 39.576, 41.9801 )
-shape = SubResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916233, 39.576, 41.9801 )
+shape = SubResource( 2 )
 
 [node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
@@ -171,7 +186,7 @@ margin_left = -20.0
 margin_top = -9.5
 margin_right = 20.0
 margin_bottom = 9.5
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "+"
 align = 1
 valign = 1
@@ -180,7 +195,6 @@ __meta__ = {
 }
 
 [node name="fade_inicio" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -189,7 +203,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_inicio"]
 autoplay = "fade_out"
-anims/fade_out = SubResource( 5 )
+anims/fade_out = SubResource( 4 )
 
 [node name="legendas" parent="." instance=ExtResource( 7 )]
 
@@ -202,42 +216,11 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade"]
-anims/fade_in = SubResource( 6 )
-anims/fade_out = SubResource( 7 )
+anims/fade_in = SubResource( 5 )
+anims/fade_out = SubResource( 6 )
 next/fade_in = "fade_out"
 
-[node name="Enemy_nave" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.7869, 16.4163, 21.7543 )
-
-[node name="Enemy_nave2" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0385, 34.9633, 62.6598 )
-
-[node name="Enemy_nave3" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.516916, 16.4163, 60.6442 )
-
-[node name="Enemy_nave4" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.9997, 10.5951, 22.9896 )
-
-[node name="Enemy_nave5" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6313, 10.5951, -12.0667 )
-
-[node name="Enemy_nave6" parent="." groups=[
-"enemy",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.3184, 19.6584, -13.9083 )
-
 [node name="fade_final" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 0 )
@@ -246,7 +229,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_final"]
-anims/fade_out = SubResource( 8 )
+anims/fade_out = SubResource( 7 )
 
 [node name="Menu_pause" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -257,3 +240,21 @@ visible = false
 stream = ExtResource( 12 )
 volume_db = -30.0
 autoplay = true
+
+[node name="drone_M" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 1.18022, 11.9084, -319.794 )
+
+[node name="drone_L" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -0.899157, 8.53641, 13.9281 )
+
+[node name="drone_H" parent="." instance=ExtResource( 9 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 3.51666, 8.5506, 14.2565 )
+
+[node name="Area_STOP" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.0923, 13.5924 )
+visible = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_STOP"]
+shape = SubResource( 8 )
+
+[editable path="target"]
