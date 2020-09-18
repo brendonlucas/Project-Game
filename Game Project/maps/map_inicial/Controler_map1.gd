@@ -85,6 +85,7 @@ func add_turrent():
 	var scene_root = get_parent().get_node_or_null("Player_nave")
 	var target_cam_back = get_parent().get_node_or_null("target")
 	var clone = cam_turrent.instance()
+	scene_root.active_gun(false)
 	#var scene_root = get_tree().root.get_children()[1]
 	scene_root.add_child(clone)
 	clone.global_transform = pos_cam_turrent.global_transform
@@ -145,6 +146,7 @@ func aplly_text():
 			get_parent().get_node_or_null("target").turn_position()
 			$Timer_start_waves.start()
 			wave1 = true
+			player_nave.active_gun(true)
 			
 		elif legenda_executando == 2:
 			fade_change.play("fade_in")

@@ -17,6 +17,7 @@ var timer_gun_bullet
 
 var ativado = false
 var move_atual = 1
+var active_gun = false
 
 func _ready():
 	player = get_node(".")
@@ -34,6 +35,7 @@ func ativar_moves(option):
 		ativado = false
 		
 func _physics_process(delta):
+	
 	if move_atual == 1:
 		moves_normal(delta)
 	elif move_atual == 2:
@@ -45,7 +47,6 @@ func moves_normal(delta):
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-	
 	if play_som_jet and !$jet_audio.playing and ativado:
 		$jet_audio.play()
 		
@@ -67,7 +68,7 @@ func moves_normal(delta):
 		is_moving = true
 		rotation_degrees.z = 20
 		
-	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0:
+	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0 and active_gun:
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
@@ -91,7 +92,8 @@ func movements_topdown(delta):
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-		
+	if play_som_jet and !$jet_audio.playing and ativado:
+		$jet_audio.play()
 	if Input.is_action_pressed("frente") and ativado :
 		dir.z -= 1
 		is_moving = true
@@ -110,7 +112,7 @@ func movements_topdown(delta):
 		is_moving = true
 		rotation_degrees.z = 20
 		
-	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0:
+	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0 and active_gun:
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
@@ -130,3 +132,5 @@ func movements_topdown(delta):
 	#velocity.z = -50
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 
+func active_gun(option):
+	active_gun = option
