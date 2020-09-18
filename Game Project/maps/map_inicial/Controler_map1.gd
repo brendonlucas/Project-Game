@@ -91,17 +91,12 @@ func add_turrent():
 	target_cam_back.queue_free()
 	#cam_atual = 2
 		
-		
+var wave1
 func _process(delta):
-	if Input.is_action_just_pressed("jumph"):
-		var cam = get_parent().get_node_or_null("target").turn_position()
-	if Input.is_action_just_pressed("interacth"):
-		get_parent().get_node("Player_nave").translation = Vector3(0,8,0)
-		#instance_cams()
-		
-	if Input.is_action_just_pressed("sprint"):
-		pass
-		#instance_cams()
+	if $Timer_start_waves.time_left == 0 and wave1:
+		get_parent().get_node("wave1").active_wave()
+		get_parent().get_node("wave1").show()
+		wave1 = false
 		
 	if executando_legenda:
 		aplly_text()
@@ -119,7 +114,6 @@ func _process(delta):
 		set_enemys_kill()
 		
 	
-		
 func instance_enemy():
 	pass
 	
@@ -149,6 +143,9 @@ func aplly_text():
 		if legenda_executando == 1:
 			player_nave.ativar_moves(true)
 			get_parent().get_node_or_null("target").turn_position()
+			$Timer_start_waves.start()
+			wave1 = true
+			
 		elif legenda_executando == 2:
 			fade_change.play("fade_in")
 			player_nave.ativar_moves(false)
@@ -182,3 +179,6 @@ func start_legenda2():
 	
 func start_legenda3():
 	set_dados_legenda(3, 3, true)
+
+func InstanceWaves():
+	print()

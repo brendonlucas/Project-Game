@@ -24,7 +24,7 @@ points = PoolVector3Array( 0, -0.701218, 0.553056, -0.0397734, -0.668182, 0.5432
 [node name="drone_H" type="KinematicBody" groups=[
 "enemy",
 ]]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+transform = Transform( -3.25841e-07, 0, 2, 0, 2, 0, -2, 0, -3.25841e-07, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="drone_H2" type="MeshInstance" parent="."]
@@ -35,3 +35,5 @@ material/0 = null
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( -1.62921e-07, 1, 0, 1.62921e-07, 2.65431e-14, 1, 1, 1.62921e-07, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 2 )
+
+[node name="gun" type="Spatial" parent="."]

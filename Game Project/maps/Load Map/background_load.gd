@@ -4,11 +4,7 @@ const SIMULATED_DELAY_SEC = 0.1
 
 var thread = null
 
-var progress
-
-func _ready():
-	progress = get_node("Progress")
-	
+onready var progress = $Progress
 	
 func _thread_load(path):
 	var ril = ResourceLoader.load_interactive(path)
@@ -62,7 +58,6 @@ func _thread_done(resource):
 	progress.visible = false
 
 func load_scene(path):
-	progress = get_node("Progress")
 	thread = Thread.new()
 	thread.start( self, "_thread_load", path)
 	raise() # Show on top.

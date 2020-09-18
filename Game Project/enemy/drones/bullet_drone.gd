@@ -1,9 +1,6 @@
 extends Spatial
 
-# The speed the bullet travels at
-var BULLET_SPEED = 150
-
-# The damage the bullet does on whatever it hits
+var BULLET_SPEED = 10
 var BULLET_DAMAGE = 100
 
 const KILL_TIMER = 4
@@ -15,8 +12,7 @@ func _ready():
 	
 
 func _physics_process(delta):
-	var forward_dir = global_transform.basis.x.normalized()
-	
+	var forward_dir = -global_transform.basis.z.normalized()
 	global_translate(forward_dir * BULLET_SPEED * delta)
 	
 	timer += delta
@@ -25,18 +21,19 @@ func _physics_process(delta):
 
 
 func collided(body):
-	print(body.name)
 	if hit_something == false:
 		if body.has_method("bullet_hit"):
 			body.bullet_hit(BULLET_DAMAGE, self.global_transform.origin)
 			
 	hit_something = true
-	if body.is_in_group("enemy") and body.name != "bullet_enemy":
+	if body.is_in_group("Player_v4") or body.is_in_group("Player_hack"):
 		body.hit_damage(BULLET_DAMAGE)
-		
-	if body.name != "Player_nave" and body.name != "limite":
+		print("bateu doido")
 		queue_free()
-	
-	if body.name == "bullet_enemy":
-		body.get_parent().remove()
-		print("municao")
+		
+	elif !body.is_in_group("enemy") and body.name != "limite":
+		#print("apaga")
+		queue_free()
+
+func remove():
+	queue_free()
