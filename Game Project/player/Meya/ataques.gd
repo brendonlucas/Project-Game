@@ -9,7 +9,7 @@ func _process(delta):
 		pass
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name in ["attack1", "attack2", "attack3","attack_charge_1"]:
+	if anim_name in ["attack1", "attack2", "attack3","attack_charge_1", "dying"]:
 		player.active_moves_ataque(false)
 	elif anim_name == "attack1":
 		player.change_ataque(2)

@@ -142,6 +142,7 @@ shader_params/u_globalmap_tint_top = null
 shader_params/u_bottom_ao = null
 
 [node name="Menu_pause" parent="." instance=ExtResource( 6 )]
+pause_mode = 2
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

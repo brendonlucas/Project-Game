@@ -10,7 +10,6 @@ ground_curve = 0.01
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
-fog_enabled = true
 tonemap_exposure = 1.5
 ssao_quality = 0
 dof_blur_far_distance = 6.15

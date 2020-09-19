@@ -55,10 +55,10 @@ func add_atake():
 	atacks += 1
 	
 func _physics_process(delta):
+	#$Armature.translation = translation
 	movimentos(delta)
 	ataque(delta)
-	if Input.is_action_just_pressed("toggle_mouse"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
 	
 func ataque(delta):
 	if timer_reset_atak.time_left == 0 and !resetado:
@@ -85,6 +85,7 @@ func ataque(delta):
 			atacks = 0
 			
 	if Input.is_action_just_pressed("ataque_pesado") and moviments_active:
+		#animation.play("dying", 0.2)
 		animation.play("attack_charge_1", 0.2)
 		atacks = 0
 		atacando = true

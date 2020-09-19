@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://props/agua/agua.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/drones/Enemy_drone_3.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://maps/map_inicial/waves/wave3.gd" type="Script" id=14]
 [ext_resource path="res://maps/map_inicial/waves/wave4.gd" type="Script" id=15]
 [ext_resource path="res://maps/map_inicial/waves/wave5.gd" type="Script" id=16]
+[ext_resource path="res://enemy/drones/Enemy_drone_4.tscn" type="PackedScene" id=17]
+[ext_resource path="res://enemy/drones/Enemy_drone_4.gd" type="Script" id=18]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381219, 21.2058, 46.4236 )
@@ -113,10 +115,8 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="CubeMesh" id=8]
-
 [sub_resource type="Animation" id=9]
-resource_name = "wave1"
+resource_name = "wave"
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
 tracks/0/interp = 1
@@ -153,6 +153,291 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 20.0313, 8.15383, -35.8732, 0, 0, 0, 1, 2, 2, 2, 1, 1, 20.0313, 8.15383, -7.29709, 0, 0, 0, 1, 2, 2, 2 )
 
+[sub_resource type="Animation" id=10]
+resource_name = "wave"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -59.0442, 0, 1.65445, 0, 0, 0, 1, 2, 2, 2, 1, 1, -22.8731, 0, 1.65445, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, -49.9547, 0, -1.90918, 0, 0, 0, 1, 2, 2, 2, 1, 1, -13.7837, 0, -1.90918, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0, 0, -29.0968, 0, 0, 0, 1, 2, 2, 2, 1, 1, 0, 0, -2.76981, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 52.4709, 0, 0, 0, 0, 0, 1, 2, 2, 2, 1, 1, 19.2759, 0, 0, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 57.3754, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2, 1, 1, 24.1805, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2 )
+
+[sub_resource type="Animation" id=11]
+resource_name = "wave"
+length = 3.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -48.181, 0, 31.8973, 0, 0, 0, 1, 2, 2, 2, 1, 1, -23.4563, 0, -11.8288, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 50.3869, 0, -30.6668, 0, 0, 0, 1, 2, 2, 2, 1, 1, 27.9515, 0, -11.8943, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 50.466, 0, 30.3773, 0, 0, 0, 1, 2, 2, 2, 1, 1, 14.1504, 0, -14.4831, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, -44.7973, 0, -33.4229, 0, 0, 0, 1, 2, 2, 2, 1, 1, -13.0211, 0, -14.464, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 2.1, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 3, 1, -1.317, 0, -10.481, 0, 0, 0, 1, 2, 2, 2 )
+
+[sub_resource type="Animation" id=12]
+resource_name = "wave"
+length = 3.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -45.3539, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 1, 1, -18.857, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 3, 1, 31.9779, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, -54.8897, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 1, 1, -28.3927, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 3, 1, 22.4422, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 50.3868, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 1, 1, 22.516, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 3, 1, -29.6928, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 58.7819, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 1, 1, 30.911, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 3, 1, -21.2978, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 0.142351, 0, -32.4422, 0, 0, 0, 1, 2, 2, 2, 3, 1, 0.142351, 0, 1.66735, 0, 0, 0, 1, 2, 2, 2 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "wave (copy)"
+length = 8.0
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 31.9779, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 4.1, 1, -18.857, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 8, 1, 31.9779, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 22.4422, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 4.1, 1, -28.3927, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2, 8, 1, 22.4422, 0, -2.60883, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, -29.6928, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 4.1, 1, 22.516, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 8, 1, -29.6928, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, -21.2978, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 4.1, 1, 30.911, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2, 8, 1, -21.2978, 0, 5.65891, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray(  )
+
+[sub_resource type="Animation" id=14]
+resource_name = "wave-2"
+
+[sub_resource type="Animation" id=13]
+resource_name = "wave"
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -7.84062, 0, -31.5337, 0, 0, 0, 1, 2, 2, 2, 1, 1, -7.84062, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 8.17253, 0, -31.5337, 0, 0, 0, 1, 2, 2, 2, 1, 1, 8.17253, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0.0475998, 0, -25.9992, 0, 0, 0, 1, 2, 2, 2, 1, 1, 0.0475998, 0, 5.14835, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, -53.5429, 0, 5.66319, 0, 0, 0, 1, 2, 2, 2, 1, 1, -28.7564, 0, 5.66319, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 52.4968, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 1, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
+
+[sub_resource type="Animation" id=16]
+resource_name = "wave (copy)"
+length = 4.0
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_L1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, -7.84062, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2, 2, 1, -29.8416, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2, 4, 1, -7.84062, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("drone_L2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 8.17253, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2, 2, 1, 30.8099, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2, 4, 1, 8.17253, 0, -0.386128, 0, 0, 0, 1, 2, 2, 2 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("drone_L3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 0.0475998, 0, 5.14835, 0, 0, 0, 1, 2, 2, 2, 4, 1, 0.0475998, 0, 5.14835, 0, 0, 0, 1, 2, 2, 2 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("drone_L4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, -28.7564, 0, 5.66319, 0, 0, 0, 1, 2, 2, 2, 2, 1, -8.10141, 0, 5.66319, 0, 0, 0, 1, 2, 2, 2, 4, 1, -28.7564, 0, 5.66319, 0, 0, 0, 1, 2, 2, 2 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("drone_L5")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 2, 1, 8.27678, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 4, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
+
+[sub_resource type="Animation" id=18]
+resource_name = "kill"
+length = 4.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_H")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 0, 0, 0, 0, 0, 1, 10, 10, 10, 4, 1, 0, -31.6922, 48.0128, 0, 0, 0, 1, 10, 10, 10 )
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "move_frente"
+length = 3.0
+tracks/0/type = "transform"
+tracks/0/path = NodePath("drone_H")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 0, 44.7326, 140.038, 0, 0, 0, 1, 10, 10, 10, 1.3, 1, 0, 11.2794, 84.023, 0, 0, 0, 1, 10, 10, 10, 2.5, 1, 0, 1.99049, 14.8276, 0, 0, 0, 1, 10, 10, 10, 3, 1, 0, 0, 0, 0, 0, 0, 1, 10, 10, 10 )
+tracks/1/type = "value"
+tracks/1/path = NodePath("drone_H:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map1" type="Node" parent="."]
@@ -170,7 +455,7 @@ one_shot = true
 transform = Transform( -5.57221e-08, 1.53095e-07, 1, 0.939692, 0.34202, 0, -0.34202, 0.939692, -1.62921e-07, 0, 7.64697, 0 )
 
 [node name="Player_nave" parent="." instance=ExtResource( 13 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 7.9005, 0 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8, 0 )
 script = ExtResource( 3 )
 
 [node name="Remove_wather" parent="." instance=ExtResource( 5 )]
@@ -179,8 +464,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.85, 7080.65 )
 [node name="Sol" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -0.742877, 0.669429, 0, -0.669429, -0.742877, 0, 1.20419, 0 )
 shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="agua" parent="." instance=ExtResource( 1 )]
 
@@ -207,11 +490,11 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -7.4241
 shape = SubResource( 1 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="limite"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 41.9801 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.08363, 38.6801 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="limite"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916233, 39.576, 41.9801 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916, 32.6579, 38.2459 )
 shape = SubResource( 2 )
 
 [node name="HUD" type="Control" parent="."]
@@ -286,113 +569,135 @@ stream = ExtResource( 12 )
 volume_db = -30.0
 autoplay = true
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 116.024, -34.676, -2.04404, 0 )
-mesh = SubResource( 8 )
-material/0 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 116.024, 36.334, -2.04404, 0 )
-mesh = SubResource( 8 )
-material/0 = null
-
-[node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( -1.62921e-07, 0, 116.024, 0, 1, 0, -1, 0, -1.89026e-05, 36.334, -2.04404, -18.638 )
-mesh = SubResource( 8 )
-material/0 = null
-
-[node name="MeshInstance4" type="MeshInstance" parent="."]
-transform = Transform( -1.62921e-07, 0, 116.024, 0, 1, 0, -1, 0, -1.89026e-05, 36.334, -2.04404, 21.4 )
-mesh = SubResource( 8 )
-material/0 = null
-
 [node name="wave1" type="Spatial" parent="."]
+visible = false
 script = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave1"]
-anims/wave1 = SubResource( 9 )
+anims/wave = SubResource( 9 )
 
 [node name="drone_L1" parent="wave1" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8.15383, -15.4654 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8.154, -35.873 )
 
 [node name="drone_L2" parent="wave1" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.82248, 8.15383, -12.3837 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 9.82248, 8.15383, -35.8732 )
 
 [node name="drone_L3" parent="wave1" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -11.2226, 8.15383, -12.0256 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -11.2226, 8.15383, -35.8732 )
 
 [node name="drone_L4" parent="wave1" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -20.6816, 8.15383, -7.31695 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -20.6816, 8.15383, -35.8732 )
 
 [node name="drone_L5" parent="wave1" instance=ExtResource( 2 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 20.0313, 8.15383, -7.29709 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 20.0313, 8.15383, -35.8732 )
 
 [node name="wave2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8839, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.154, -10.915 )
 visible = false
 script = ExtResource( 6 )
 
 [node name="drone_L1" parent="wave2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -59.0442, 0, 1.65445 )
 
 [node name="drone_L2" parent="wave2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -49.9547, 0, -1.90918 )
 
 [node name="drone_L3" parent="wave2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -29.0968 )
 
 [node name="drone_L4" parent="wave2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4709, 0, 0 )
 
 [node name="drone_L5" parent="wave2" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 57.3754, 0, 4.58527 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave2"]
+anims/wave = SubResource( 10 )
 
 [node name="wave3" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8839, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.169, 8.154, 0 )
 visible = false
 script = ExtResource( 14 )
 
 [node name="drone_L1" parent="wave3" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -48.181, 0, 31.8973 )
 
 [node name="drone_L2" parent="wave3" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 50.3869, 0, -30.6668 )
 
 [node name="drone_L3" parent="wave3" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 50.466, 0, 30.3773 )
 
 [node name="drone_L4" parent="wave3" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -44.7973, 0, -33.4229 )
 
 [node name="drone_L5" parent="wave3" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1.317, 69.222, -10.481 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave3"]
+anims/wave = SubResource( 11 )
 
 [node name="wave4" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8839, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.079, 8.154, -12.409 )
 visible = false
 script = ExtResource( 15 )
 
 [node name="drone_L1" parent="wave4" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -45.3539, 0, -2.60883 )
 
 [node name="drone_L2" parent="wave4" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -54.8897, 0, -2.60883 )
 
 [node name="drone_L3" parent="wave4" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 50.3868, 0, 5.65891 )
 
 [node name="drone_L4" parent="wave4" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 58.7819, 0, 5.65891 )
 
 [node name="drone_L5" parent="wave4" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.142351, 0, -32.4422 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave4"]
+anims/wave = SubResource( 12 )
+"anims/wave (copy)" = SubResource( 15 )
+anims/wave-2 = SubResource( 14 )
+next/wave = "wave (copy)"
 
 [node name="wave5" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.8839, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.826, -14.8143 )
 visible = false
 script = ExtResource( 16 )
 
 [node name="drone_L1" parent="wave5" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -7.84062, 0, -31.5337 )
 
 [node name="drone_L2" parent="wave5" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 8.17253, 0, -31.5337 )
 
 [node name="drone_L3" parent="wave5" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0475998, 0, -25.9992 )
 
 [node name="drone_L4" parent="wave5" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -53.5429, 0, 5.66319 )
 
 [node name="drone_L5" parent="wave5" instance=ExtResource( 2 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4968, 0, 5.25339 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave5"]
+anims/wave = SubResource( 13 )
+"anims/wave (copy)" = SubResource( 16 )
+next/wave = "wave (copy)"
+
+[node name="boss" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.3016, 36.0053 )
+
+[node name="drone_H" parent="boss" instance=ExtResource( 17 )]
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+script = ExtResource( 18 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="boss"]
+anims/kill = SubResource( 18 )
+anims/move_frente = SubResource( 17 )
+[connection signal="animation_finished" from="fade_final/AnimationPlayer" to="Controler_map1" method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="target"]

@@ -106,9 +106,11 @@ func _process(delta):
 		start_legenda2()
 		executou = true
 		
-	if enemy_kill == 6 and !executou2 and timer_last_kill.time_left == 0:
+	if enemy_kill >= 6 and !executou2 and timer_last_kill.time_left == 0:
 		executou2 = true
 		start_legenda3()
+		get_parent().get_node("bg_music").stop()
+		get_parent().get_node("Player_nave").stop_audio()
 		add_cam_normal()
 		
 	if Input.is_action_just_pressed("ataque_pesado"):
@@ -153,6 +155,7 @@ func aplly_text():
 			player_nave.ativar_moves(false)
 			get_parent().get_node("Player_nave").translation = Vector3(0,8,0)
 			add_turrent()
+			get_parent().get_node("boss/AnimationPlayer").play("move_frente")
 		elif legenda_executando == 3:
 			fade_final.play("fade_out")
 			player_nave.ativar_moves(false)
@@ -184,3 +187,35 @@ func start_legenda3():
 
 func InstanceWaves():
 	print()
+	
+	
+var current_wave = 1
+func active_new_wave():
+	current_wave += 1
+	if current_wave == 2:
+		get_parent().get_node("wave2").active_wave()
+		get_parent().get_node("wave2").show()
+		set_enemys_kill()
+	if current_wave == 3:
+		get_parent().get_node("wave3").active_wave()
+		get_parent().get_node("wave3").show()
+		set_enemys_kill()
+	if current_wave == 4:
+		get_parent().get_node("wave4").active_wave()
+		get_parent().get_node("wave4").show()
+		set_enemys_kill()
+	if current_wave == 5:
+		get_parent().get_node("wave5").active_wave()
+		get_parent().get_node("wave5").show()
+		set_enemys_kill()
+	
+	
+	
+	
+	
+	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "fade_out":
+		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")

@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://props/Scifi_wall/source/mat_nonwalls.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+surfaces/0 = {
+"aabb": AABB( -0.0202203, 7.64132e-10, -0.0299832, 0.04001, 1e-05, 0.06 ),
+"array_data": PoolByteArray( 246, 8, 162, 60, 253, 10, 82, 48, 88, 159, 245, 188, 0, 127, 0, 0, 0, 0, 127, 129, 104, 32, 192, 55, 30, 165, 165, 188, 253, 10, 82, 48, 88, 159, 245, 188, 0, 127, 0, 0, 0, 0, 127, 129, 107, 32, 126, 57, 30, 165, 165, 188, 253, 10, 82, 48, 198, 229, 245, 60, 0, 127, 0, 0, 0, 0, 127, 129, 253, 52, 126, 57, 246, 8, 162, 60, 253, 10, 82, 48, 198, 229, 245, 60, 0, 127, 0, 0, 0, 0, 127, 129, 253, 52, 192, 55 ),
+"array_index_data": PoolByteArray( 3, 0, 2, 0, 1, 0, 3, 0, 1, 0, 0, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "Mesh.010",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[node name="Ceiling_6x5" type="MeshInstance"]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null

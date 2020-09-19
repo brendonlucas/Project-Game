@@ -30,7 +30,8 @@ func move_to_target(delta):
 		move_and_slide(direction * speed, Vector3.UP)
 	
 func hit_damage(BULLET_DAMAGE):
-	life -= BULLET_DAMAGE
+	if ativo:
+		life -= BULLET_DAMAGE
 	#print(life)
 
 func movimente():

@@ -41,6 +41,7 @@ func _input(event):
 					player.block_moviments(true)
 					cam.block_cam(true)
 			$Menu_2.hide()
+			get_tree().paused = false
 			hide()
 			
 		elif !menu_pause_active:
@@ -50,6 +51,7 @@ func _input(event):
 				if player != null:
 					player.block_moviments(false)
 					cam.block_cam(false)
+			get_tree().paused = true
 			show()
 		
 func _on_Button_sair_pressed():
@@ -102,7 +104,13 @@ func _on_Button_aplicar_pressed():
 	Gamestate.camera_sensibilidade = sensibilidade.value
 	Gamestate.view_distance = v_distance.value
 	print(v_distance.value)
+	
 	sun.set_shadow_mode(option_sombra)
+	if option_sombra == 0:
+		sun.directional_shadow_normal_bias = 3
+	else:
+		sun.directional_shadow_normal_bias = 0.8
+	
 	if terrain_grass != null:
 		terrain_grass.view_distance = Gamestate.view_distance
 

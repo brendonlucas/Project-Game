@@ -19,6 +19,7 @@ var ativado = false
 var move_atual = 1
 var active_gun = false
 
+var active_audio = false
 func _ready():
 	player = get_node(".")
 	timer_gun_bullet = get_node("gun_1/Timer")
@@ -31,11 +32,16 @@ func change_moves(option):
 func ativar_moves(option):
 	if option == true:
 		ativado = true
+		active_audio = true
 	elif option == false:
 		ativado = false
 		
 func _physics_process(delta):
-	
+	translation.y = 7.9
+
+	if play_som_jet and !$jet_audio.playing and active_audio:
+		$jet_audio.play()
+		
 	if move_atual == 1:
 		moves_normal(delta)
 	elif move_atual == 2:
@@ -47,8 +53,9 @@ func moves_normal(delta):
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-	if play_som_jet and !$jet_audio.playing and ativado:
-		$jet_audio.play()
+	
+	#if play_som_jet and !$jet_audio.playing and ativado:
+		#$jet_audio.play()
 		
 	if Input.is_action_pressed("frente") and ativado :
 		dir.y += 1
@@ -92,8 +99,8 @@ func movements_topdown(delta):
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-	if play_som_jet and !$jet_audio.playing and ativado:
-		$jet_audio.play()
+	
+		
 	if Input.is_action_pressed("frente") and ativado :
 		dir.z -= 1
 		is_moving = true
@@ -134,3 +141,6 @@ func movements_topdown(delta):
 
 func active_gun(option):
 	active_gun = option
+
+func stop_audio():
+	active_audio = false

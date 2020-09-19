@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://props/Scifi_wall/source/mat_nonwalls.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=1]
+surfaces/0 = {
+"aabb": AABB( -0.0202194, 1.38021e-08, -0.0299565, 0.04001, 1e-05, 0.06 ),
+"array_data": PoolByteArray( 246, 10, 162, 60, 116, 30, 109, 50, 65, 103, 245, 188, 0, 127, 0, 0, 0, 0, 127, 129, 29, 53, 189, 55, 30, 163, 165, 188, 116, 30, 109, 50, 65, 103, 245, 188, 0, 127, 0, 0, 0, 0, 127, 129, 29, 53, 124, 57, 30, 163, 165, 188, 116, 30, 109, 50, 221, 29, 246, 60, 0, 127, 0, 0, 0, 0, 127, 129, 251, 56, 124, 57, 246, 10, 162, 60, 116, 30, 109, 50, 221, 29, 246, 60, 0, 127, 0, 0, 0, 0, 127, 129, 251, 56, 189, 55 ),
+"array_index_data": PoolByteArray( 3, 0, 2, 0, 1, 0, 3, 0, 1, 0, 0, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"name": "Mesh.007",
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0201081, 0.001, 0.0300546 )
+
+[node name="Floor_6x6" type="MeshInstance"]
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 0.271, 0, 0, 0, 1, -0.000190132, 0, 0 )
+shape = SubResource( 2 )

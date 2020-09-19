@@ -17,12 +17,12 @@ func active_wave():
 	drone3.set_ativo()
 	drone4.set_ativo()
 	drone5.set_ativo()
-	$AnimationPlayer.play("wave1")
+	$AnimationPlayer.play("wave")
 	
 func _process(delta):
 	if mortes >= 5:
+		get_parent().get_node("Controler_map1").active_new_wave()
 		queue_free()
 
 func mortes():
-	print("add morte")
 	mortes += 1
