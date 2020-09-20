@@ -18,7 +18,7 @@ surfaces/0 = {
 }
 
 [node name="Stairway_Joiner" type="Spatial"]
-transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 54.1, 8.5962, 24.798 )
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0 )
 
 [node name="Mesh 8" type="MeshInstance" parent="."]
 transform = Transform( 1.78814e-05, 100, -1.49012e-05, -2.98023e-06, -1.19209e-05, -100, -100, 1.49012e-05, 5.96046e-06, -1.45889, 0.581751, -0.26413 )

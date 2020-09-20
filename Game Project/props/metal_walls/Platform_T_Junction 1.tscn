@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://mapas aleatorios/top-down-scifi-industrial-platforms/source/Unity2Skfb/Set1.material" type="Material" id=1]
+[ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/source/Unity2Skfb/Set1.material" type="Material" id=1]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh 18"
