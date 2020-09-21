@@ -21,7 +21,7 @@ surfaces/0 = {
 extents = Vector3( 0.0300742, 0.001, 0.0300545 )
 
 [node name="Ceiling_6x7" type="MeshInstance"]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
+transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
 
