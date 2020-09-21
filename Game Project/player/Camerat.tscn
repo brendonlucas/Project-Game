@@ -11,6 +11,7 @@ extents = Vector3( 0.155783, 0.145515, 0.0942701 )
 [node name="target" type="Spatial"]
 
 [node name="CameraBoom" type="SpringArm" parent="."]
+collision_mask = 33
 shape = SubResource( 1 )
 spring_length = 3.0
 

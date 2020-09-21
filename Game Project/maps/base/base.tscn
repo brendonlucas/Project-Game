@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -28,20 +28,10 @@
 [ext_resource path="res://props/metal_walls/Platform_T_Junction.tscn" type="PackedScene" id=26]
 [ext_resource path="res://props/Scifi_wall/parts/Ceiling_6x7.tscn" type="PackedScene" id=27]
 [ext_resource path="res://props/metal_walls/Platform_Extension_Short.tscn" type="PackedScene" id=28]
-
-[sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0, 0, 0, 1 )
-sky_horizon_color = Color( 0, 0, 0, 1 )
-ground_bottom_color = Color( 0, 0, 0, 1 )
-ground_horizon_color = Color( 0, 0, 0, 1 )
-sun_energy = 0.0
-
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-tonemap_exposure = 1.5
-glow_bloom = 0.3
-glow_blend_mode = 1
+[ext_resource path="res://props/metal_walls/Tunnel_corner_.tscn" type="PackedScene" id=29]
+[ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/textures/10092_Plane_8_8_DefaultMaterial_AlbedoTransparency.jpeg" type="Texture" id=30]
+[ext_resource path="res://props/metal_walls/Platform_Bend.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=32]
 
 [sub_resource type="Animation" id=3]
 resource_name = "active_down"
@@ -66,6 +56,37 @@ tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -2.35525, 0, 0.130251, 0, 0, 0, 1, 1, 1, 1, 6, 1, -2.355, -14, 0.13, 0, 0, 0, 1, 1, 1, 1 )
 
 [sub_resource type="PlaneMesh" id=5]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 2.1089, 1.98393, 0.0719231 )
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0, 0, 0, 1 )
+sky_horizon_color = Color( 0, 0, 0, 1 )
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0, 0, 0, 1 )
+sun_energy = 0.0
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+tonemap_exposure = 1.5
+glow_enabled = true
+glow_bloom = 0.1
+glow_blend_mode = 1
+
+[sub_resource type="CubeMesh" id=9]
+
+[sub_resource type="SpatialMaterial" id=10]
+params_cull_mode = 2
+albedo_texture = ExtResource( 30 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 0.01
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 30 )
+uv1_scale = Vector3( 10, 5, 0 )
 
 [node name="Map" type="Spatial"]
 
@@ -198,15 +219,12 @@ transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, 21.5
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -106.031, 0, -1.72745e-05, 21.5614, 0, -26.0693 )
 
 [node name="Player_v4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 7.52154, -26.9214, -4.02013 )
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -85.622, -27.7021, 53.1212 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.3216, 1.2442, -2.57851 )
 script = ExtResource( 5 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 2 )
 
 [node name="Spatial3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0321, 0, 0 )
@@ -1569,5 +1587,67 @@ transform = Transform( -0.987, 0, -3.89414e-07, 0, 1, 0, 3.84352e-07, 0, -1, -2.
 
 [node name="Tunnel Variant4" parent="." instance=ExtResource( 19 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -14.167, -33.621, -14.477 )
+
+[node name="limbo" type="Spatial" parent="."]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -67.2351, -28.118, 9.841 )
+
+[node name="Platform_Long" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.192, 0, -3.25841e-07, 0, 1, 0, 3.88403e-07, 0, -1, 18.458, -0.595, -27.399 )
+
+[node name="Platform_Long2" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.192, 0, -3.25841e-07, 0, 1, 0, 3.88403e-07, 0, -1, 18.458, -0.595, -35.4 )
+
+[node name="Platform_Long3" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.192, 0, -3.25841e-07, 0, 1, 0, 3.88403e-07, 0, -1, 18.458, -0.595, -43.401 )
+
+[node name="Platform_Long4" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 30.02, -0.595, -54.96 )
+
+[node name="Platform_Long5" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 38.015, -0.596, -54.96 )
+
+[node name="Tunnel Variant5" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18113, 2.46596, 0 )
+
+[node name="Tunnel Variant6" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.427, 2.466, 0 )
+
+[node name="Tunnel Variant7" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.327, 2.466, 0 )
+
+[node name="Tunnel Variant8" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.462, 2.466, -6.527 )
+
+[node name="Tunnel Variant9" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.462, 2.466, -13.281 )
+
+[node name="Tunnel Variant10" parent="limbo" instance=ExtResource( 19 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.462, 2.466, -20.032 )
+
+[node name="curva" parent="limbo" instance=ExtResource( 29 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 13.082, 2.466, 0 )
+
+[node name="StaticBody" type="StaticBody" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4985, 2.04686, -23.2659 )
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape" type="CollisionShape" parent="limbo/StaticBody"]
+shape = SubResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="limbo"]
+environment = SubResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="limbo"]
+transform = Transform( 40, 0, 0, 0, 20, 0, 0, 0, 40, 36.408, 0, -63.427 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
+
+[node name="Platform_Bend" parent="limbo" instance=ExtResource( 31 )]
+transform = Transform( 1.192, 0, 0, 0, 1, 0, 0, 0, 1.192, 26.021, -1.83, -47.395 )
+
+[node name="Menu_pause" parent="." instance=ExtResource( 32 )]
+pause_mode = 2
+visible = false
 
 [editable path="builds_2/porta2/door2"]
