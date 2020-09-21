@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -32,8 +32,10 @@
 [ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/textures/10092_Plane_8_8_DefaultMaterial_AlbedoTransparency.jpeg" type="Texture" id=30]
 [ext_resource path="res://props/metal_walls/Platform_Bend.tscn" type="PackedScene" id=31]
 [ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=32]
+[ext_resource path="res://maps/base/capsula_elevator.gd" type="Script" id=33]
+[ext_resource path="res://props/Scifi_wall/parts/door_elevator.tscn" type="PackedScene" id=34]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 resource_name = "active_down"
 length = 6.0
 tracks/0/type = "transform"
@@ -44,7 +46,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -2.35525, 0, 0.130251, 0, 0, 0, 1, 1, 1, 1, 6, 1, -2.355, -14, 0.13, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "active_down"
 length = 6.0
 tracks/0/type = "transform"
@@ -55,38 +57,32 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -2.35525, 0, 0.130251, 0, 0, 0, 1, 1, 1, 1, 6, 1, -2.355, -14, 0.13, 0, 0, 0, 1, 1, 1, 1 )
 
-[sub_resource type="PlaneMesh" id=5]
+[sub_resource type="PlaneMesh" id=3]
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 2.1089, 1.98393, 0.0719231 )
 
-[sub_resource type="ProceduralSky" id=1]
-sky_top_color = Color( 0, 0, 0, 1 )
-sky_horizon_color = Color( 0, 0, 0, 1 )
-ground_bottom_color = Color( 0, 0, 0, 1 )
-ground_horizon_color = Color( 0, 0, 0, 1 )
-sun_energy = 0.0
+[sub_resource type="CubeMesh" id=5]
 
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-tonemap_exposure = 1.5
-glow_enabled = true
-glow_bloom = 0.1
-glow_blend_mode = 1
-
-[sub_resource type="CubeMesh" id=9]
-
-[sub_resource type="SpatialMaterial" id=10]
+[sub_resource type="SpatialMaterial" id=6]
 params_cull_mode = 2
 albedo_texture = ExtResource( 30 )
 emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
-emission_energy = 0.01
+emission = Color( 1, 1, 1, 1 )
+emission_energy = 0.89
 emission_operator = 0
 emission_on_uv2 = false
 emission_texture = ExtResource( 30 )
 uv1_scale = Vector3( 10, 5, 0 )
+
+[sub_resource type="Environment" id=7]
+background_energy = 0.0
+ambient_light_color = Color( 1, 1, 1, 1 )
+fog_enabled = true
+tonemap_exposure = 1.5
+glow_enabled = true
+glow_bloom = 0.1
+glow_blend_mode = 1
 
 [node name="Map" type="Spatial"]
 
@@ -219,7 +215,7 @@ transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, 21.5
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -106.031, 0, -1.72745e-05, 21.5614, 0, -26.0693 )
 
 [node name="Player_v4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -85.622, -27.7021, 53.1212 )
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 60.0369, 2.57058, -3.40927 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
@@ -583,15 +579,6 @@ transform = Transform( -70, 0, -2.28089e-05, 0, 70, 0, 2.28089e-05, 0, -70, -1.4
 [node name="door2" parent="builds_2/porta2" instance=ExtResource( 14 )]
 transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, -0.00641251, 0, 0.00829124 )
 
-[node name="door1" parent="builds_2/porta2/door2" index="2"]
-transform = Transform( 1, -4.03897e-28, 0, 4.03897e-28, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="door2" parent="builds_2/porta2/door2" index="3"]
-transform = Transform( 1, -4.03897e-28, 0, 4.03897e-28, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="CollisionShape" parent="builds_2/porta2/door2/Area_open" index="0"]
-disabled = true
-
 [node name="Wall_Corner_out11" parent="builds_2/porta2" instance=ExtResource( 12 )]
 transform = Transform( -70, 0, -2.28089e-05, 0, 70, 0, 2.28089e-05, 0, -70, 4.294, 0, 3.236 )
 
@@ -629,7 +616,8 @@ transform = Transform( 1.71391, 0, 69.979, 0, 70, 0, -69.979, 0, 1.71391, -29.82
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.616, 0, 7.632 )
 
 [node name="capsula" type="Spatial" parent="builds_2/elevador"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.355, -14, 0.13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35525, 0, 0.130251 )
+script = ExtResource( 33 )
 
 [node name="Wall_Door8" parent="builds_2/elevador/capsula" instance=ExtResource( 8 )]
 transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 0.385175, 0, -1.57834 )
@@ -637,8 +625,8 @@ transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 0.3851
 [node name="Wall_Door9" parent="builds_2/elevador/capsula" instance=ExtResource( 6 )]
 transform = Transform( -70, 0, -2.28089e-05, 0, 70, 0, 2.28089e-05, 0, -70, 0.906175, 0, 1.31666 )
 
-[node name="door2" parent="builds_2/elevador/capsula" instance=ExtResource( 14 )]
-transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 2.34884, 0, -0.121959 )
+[node name="door_elevator" parent="builds_2/elevador/capsula" instance=ExtResource( 34 )]
+transform = Transform( 70, 1.581e-20, 4.56178e-05, -1.77877e-19, 70, 2.4869e-13, -4.56178e-05, -2.4869e-13, 70, 2.34884, 0, -0.121959 )
 
 [node name="Wall_Corner_in4" parent="builds_2/elevador/capsula" instance=ExtResource( 3 )]
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, -2.05175, 0, 1.26475 )
@@ -649,8 +637,11 @@ transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, -1.97275, 0, -1.60225 )
 [node name="Floor_6x9" parent="builds_2/elevador/capsula" instance=ExtResource( 7 )]
 transform = Transform( 85.868, 0, 0, 0, 70, 0, 0, 0, 71.394, 0.0387039, 0, -0.230146 )
 
+[node name="Floor_6x10" parent="builds_2/elevador/capsula" instance=ExtResource( 7 )]
+transform = Transform( 85.868, 0, 0, 0, 70, 0, 0, 0, 72.5935, -0.469669, 4.18218, -0.255468 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="builds_2/elevador"]
-anims/active_down = SubResource( 3 )
+anims/active_down = SubResource( 1 )
 
 [node name="central_1" type="Spatial" parent="builds_2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.0476, 0, -9.5722 )
@@ -976,7 +967,8 @@ transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 12.8213, 0, -19.8398 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 22.0404, 0, -0.212 )
 
 [node name="capsula" type="Spatial" parent="builds_3/elevador2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.355, -14, 0.13 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35525, 0, 0.130251 )
+script = ExtResource( 33 )
 
 [node name="Wall_Door8" parent="builds_3/elevador2/capsula" instance=ExtResource( 8 )]
 transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 0.385174, 0, -1.57834 )
@@ -984,8 +976,8 @@ transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 0.3851
 [node name="Wall_Door9" parent="builds_3/elevador2/capsula" instance=ExtResource( 6 )]
 transform = Transform( -70, 0, -2.28089e-05, 0, 70, 0, 2.28089e-05, 0, -70, 0.906174, 0, 1.31666 )
 
-[node name="door2" parent="builds_3/elevador2/capsula" instance=ExtResource( 14 )]
-transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 2.34884, 0, -0.121959 )
+[node name="door_elevator" parent="builds_3/elevador2/capsula" instance=ExtResource( 34 )]
+transform = Transform( 70, 1.581e-20, 4.56178e-05, -1.77877e-19, 70, 2.4869e-13, -4.56178e-05, -2.4869e-13, 70, 2.34884, 0, -0.121959 )
 
 [node name="Wall_Corner_in4" parent="builds_3/elevador2/capsula" instance=ExtResource( 3 )]
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, -2.05175, 0, 1.26475 )
@@ -997,7 +989,7 @@ transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, -1.97275, 0, -1.60225 )
 transform = Transform( 86.5913, 0, 5.40611e-06, 0, 70, 0, 5.40611e-06, 0, 70, 0.0991592, 0, -0.212751 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="builds_3/elevador2"]
-anims/active_down = SubResource( 4 )
+anims/active_down = SubResource( 2 )
 
 [node name="Tunnel Variant" parent="." instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.237, -25.653, -3.72 )
@@ -1010,17 +1002,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.757, -25.653, -3.72 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( -5.98422e-08, -1, 0, 0.367308, -1.62921e-07, 0, 0, 0, 2.42722, 41.5203, -24.3207, -3.82762 )
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="MeshInstance2" type="MeshInstance" parent="."]
 transform = Transform( -5.53865e-08, -1, -7.92472e-08, 0.24797, -1.90466e-07, 0.486416, -0.270973, 3.01008e-08, 0.445125, 41.4963, -24.7331, -5.3044 )
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="MeshInstance3" type="MeshInstance" parent="."]
 transform = Transform( -5.98421e-08, -1, 0, 0.250504, -1.11112e-07, -0.482215, 0.268632, -1.19153e-07, 0.449673, 41.4963, -24.8151, -2.07338 )
-mesh = SubResource( 5 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="galpao" type="Spatial" parent="."]
@@ -1606,6 +1598,15 @@ transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 30.
 [node name="Platform_Long5" parent="limbo" instance=ExtResource( 25 )]
 transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 38.015, -0.596, -54.96 )
 
+[node name="Platform_Long7" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 46.012, -0.596, -54.96 )
+
+[node name="Platform_Long8" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 54.012, -0.596, -54.96 )
+
+[node name="Platform_Long6" parent="limbo" instance=ExtResource( 25 )]
+transform = Transform( -1.94201e-07, 0, 1, 0, 1, 0, -1.192, 0, -1.62921e-07, 61.8951, -0.596001, -54.96 )
+
 [node name="Tunnel Variant5" parent="limbo" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.18113, 2.46596, 0 )
 
@@ -1624,6 +1625,12 @@ transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.462,
 [node name="Tunnel Variant10" parent="limbo" instance=ExtResource( 19 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 18.462, 2.466, -20.032 )
 
+[node name="OmniLight" type="OmniLight" parent="limbo/Tunnel Variant10"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5453, 0, 0 )
+light_energy = 16.0
+light_specular = 0.0
+omni_range = 3.4627
+
 [node name="curva" parent="limbo" instance=ExtResource( 29 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 13.082, 2.466, 0 )
 
@@ -1633,21 +1640,178 @@ collision_layer = 32
 collision_mask = 32
 
 [node name="CollisionShape" type="CollisionShape" parent="limbo/StaticBody"]
-shape = SubResource( 8 )
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="limbo"]
-environment = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="limbo"]
-transform = Transform( 40, 0, 0, 0, 20, 0, 0, 0, 40, 36.408, 0, -63.427 )
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+transform = Transform( 98.8315, 0, 0, 0, 20, 0, 0, 0, 40, 83.864, 0, -63.427 )
+visible = false
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="Platform_Bend" parent="limbo" instance=ExtResource( 31 )]
 transform = Transform( 1.192, 0, 0, 0, 1, 0, 0, 0, 1.192, 26.021, -1.83, -47.395 )
+
+[node name="OmniLight" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 28.6532, 5.05238, -44.8582 )
+omni_range = 30.1866
+
+[node name="OmniLight6" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5675, 5.05238, -58.8201 )
+omni_range = 30.1866
+
+[node name="OmniLight3" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.6586, 5.41925, -48.6054 )
+omni_range = 30.1866
+
+[node name="OmniLight5" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.5398, 5.41925, -60.7545 )
+omni_range = 30.1866
+
+[node name="OmniLight4" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 74.0053, 4.93236, -55.232 )
+omni_range = 30.1866
+
+[node name="OmniLight9" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.538, 1.63317, -28.9882 )
+omni_range = 72.1724
+
+[node name="OmniLight10" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.701, 1.63317, -80.7958 )
+omni_range = 72.1724
+
+[node name="OmniLight11" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8596, 1.63317, -82.4299 )
+omni_range = 72.1724
+
+[node name="OmniLight12" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.1613, 1.63317, -29.197 )
+omni_range = 72.1724
+
+[node name="OmniLight2" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.9075, 3.01086, -28.4701 )
+omni_range = 21.1982
+
+[node name="OmniLight7" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2408, 3.01086, -28.8003 )
+omni_range = 22.8468
+
+[node name="OmniLight8" type="OmniLight" parent="limbo"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0024, 3.01086, -41.4374 )
+omni_range = 22.8468
+
+[node name="Plane17" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 91.6661, -7.733, -54.949 )
+
+[node name="Plane19" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 91.6661, -7.733, -70.949 )
+
+[node name="Plane18" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 91.6661, -7.733, -38.951 )
+
+[node name="Plane20" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 107.64, -7.733, -54.949 )
+
+[node name="Plane21" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 107.64, -7.733, -70.949 )
+
+[node name="Plane22" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 107.64, -7.733, -38.951 )
+
+[node name="Plane23" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 123.616, -7.733, -54.949 )
+
+[node name="Plane24" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 123.617, -7.733, -70.949 )
+
+[node name="Plane25" parent="limbo" instance=ExtResource( 21 )]
+transform = Transform( -2, 0, 6.51682e-07, 0, 1, 0, -6.51682e-07, 0, -2, 123.616, -7.733, -38.951 )
+
+[node name="Stairway_Joiner5" parent="limbo" instance=ExtResource( 24 )]
+transform = Transform( -1.94201e-07, 0, -1, 0, 1, 0, 1.192, 0, -1.62921e-07, 69.9901, -1.526, -53.204 )
+
+[node name="Stairway_Joiner6" parent="limbo" instance=ExtResource( 24 )]
+transform = Transform( -1.94201e-07, 0, -1, 0, 1, 0, 1.192, 0, -1.62921e-07, 79.0421, -5.532, -53.204 )
+
+[node name="Wall_Long54" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 74.789, -7.99346, -54.818 )
+
+[node name="Wall_Long55" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 74.789, -15.9592, -54.818 )
+
+[node name="Wall_Long62" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 2.65431e-14, 2.32651e-07, -1.167, 1, -2.32651e-07, 0, -1.62921e-07, -1.428, -1.90128e-07, 78.8015, -8.23991, -54.818 )
+
+[node name="Wall_Long60" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 70.8448, -7.835, -54.818 )
+
+[node name="Wall_Long61" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 70.8448, -15.8007, -54.818 )
+
+[node name="Wall_Long56" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 72.984, -7.84005, -57.1911 )
+
+[node name="Wall_Long57" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 72.984, -15.8058, -57.1911 )
+
+[node name="Wall_Long58" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 72.8771, -7.85631, -52.7188 )
+
+[node name="Wall_Long59" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 72.8771, -15.822, -52.7188 )
+
+[node name="Wall_Long63" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 23.305, -5.93579, -53.132 )
+
+[node name="Wall_Long64" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 23.305, -13.9015, -53.132 )
+
+[node name="Wall_Long65" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 19.3609, -5.77733, -53.1321 )
+
+[node name="Wall_Long66" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 19.3609, -13.743, -53.1321 )
+
+[node name="Wall_Long67" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 21.5, -5.7098, -55.4214 )
+
+[node name="Wall_Long68" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 21.5, -13.6755, -55.4214 )
+
+[node name="Wall_Long69" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -5.7098, -51.2122 )
+
+[node name="Wall_Long70" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -13.6755, -51.2122 )
+
+[node name="Wall_Long71" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 23.305, -21.801, -53.132 )
+
+[node name="Wall_Long72" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 23.305, -29.7667, -53.132 )
+
+[node name="Wall_Long73" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 19.3609, -21.6425, -53.1321 )
+
+[node name="Wall_Long74" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.83448e-08, 1, 0, -1.106, -4.37114e-08, 19.3609, -29.6082, -53.1321 )
+
+[node name="Wall_Long75" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 21.5, -21.575, -55.4214 )
+
+[node name="Wall_Long76" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.106, -4.37114e-08, 0, -4.83448e-08, 1, -1, 1.8019e-07, 7.12149e-15, 21.5, -29.5407, -55.4214 )
+
+[node name="Wall_Long77" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -21.575, -51.2122 )
+
+[node name="Wall_Long78" parent="limbo" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -29.5407, -51.2122 )
 
 [node name="Menu_pause" parent="." instance=ExtResource( 32 )]
 pause_mode = 2
 visible = false
 
-[editable path="builds_2/porta2/door2"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 7 )
+[connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
