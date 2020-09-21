@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/source/Unity2Skfb/Set1.material" type="Material" id=1]
 
-
-[sub_resource type="ArrayMesh" id=37]
+[sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh 29"
 surfaces/0 = {
 "aabb": AABB( -0.0386959, -0.0468729, -0.0193498, 0.0867449, 0.083453, 0.0323135 ),
@@ -18,10 +17,43 @@ surfaces/0 = {
 "vertex_count": 4197
 }
 
-[node name="Platform_Corner" type="Spatial"]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 3.99802, 0.0457383, 1.6661 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1.69542, 0.046, 2.17356 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.163445, 1.59654, 2.18503 )
+
+[node name="Platform_Corner" type="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.397, 15.0098, 5.7995 )
 
 [node name="Mesh 29" type="MeshInstance" parent="."]
 transform = Transform( 100, 0, 0, 0, -1.19209e-05, -99.9999, 0, 99.9999, -1.19209e-05, 0.584284, -1.23873, -0.307472 )
-mesh = SubResource( 37 )
+mesh = SubResource( 1 )
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.378, -0.572001, 1.016 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.958212, -0.572001, -2.82272 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.896162, -0.952724, -2.83625 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.785, -2.77411, -0.952724, -1.09923 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, 0, 1.84, 0, 1, 0, -1, 0, -2.99774e-07, 1.35762, -0.952724, 2.8409 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( -1.62921e-07, 0, 0.995, 0, 1, 0, -1, 0, -1.62106e-07, 3.209, -0.953, -0.815 )
+shape = SubResource( 4 )

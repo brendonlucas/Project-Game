@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/source/Unity2Skfb/Set1.material" type="Material" id=1]
+[ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/textures/10092_Plane_8_8_DefaultMaterial_AlbedoTransparency.jpeg" type="Texture" id=2]
 
 [sub_resource type="ArrayMesh" id=1]
 resource_name = "Mesh 8"
@@ -17,10 +18,75 @@ surfaces/0 = {
 "vertex_count": 3641
 }
 
-[node name="Stairway_Joiner" type="Spatial"]
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.902781, 0.0119259, 1 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 1, 0.0071588, 0.0223467 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 0.235933, 1, 4.87824 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.168849, 0.775596, 0.300993 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.0890929, 0.341677, 4.35875 )
+
+[node name="Stairway_Joiner" type="StaticBody"]
 transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0 )
 
 [node name="Mesh 8" type="MeshInstance" parent="."]
 transform = Transform( 1.78814e-05, 100, -1.49012e-05, -2.98023e-06, -1.19209e-05, -100, -100, 1.49012e-05, 5.96046e-06, -1.45889, 0.581751, -0.26413 )
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.8334, 0, 0, 0, 0.912663, 2.08054, 0, -0.408713, 4.6459, -1.48596, -0.422127, -0.617982 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1.8334, 0, 0, 0, 0.912663, 2.08054, 0, -0.408713, 4.6459, -1.486, -0.386729, -0.798813 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="."]
+transform = Transform( 1.8334, 0, 0, 0, 0.941299, 0, 0, 0, 5.66092, -1.486, 1.708, 3.966 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.914755, 0.404008, 0, -0.404008, 0.914755, 0.430974, -0.69153, -0.0479392 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.914755, 0.404008, 0, -0.404008, 0.914755, -3.382, -0.692, -0.048 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.376175, 2.54103, 3.80429 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32031, 2.54103, 3.80429 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.32031, -1.41529, -4.66158 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.367896, -1.41529, -4.66158 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.912663, 0.408713, 0, -0.408713, 0.912663, 0.392353, 0.620111, -0.354445 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.912663, 0.408713, 0, -0.408713, 0.912663, -3.29333, 0.620111, -0.354445 )
+shape = SubResource( 8 )

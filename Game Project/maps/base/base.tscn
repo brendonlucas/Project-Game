@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -27,8 +27,13 @@
 [ext_resource path="res://props/metal_walls/Platform_Long.tscn" type="PackedScene" id=25]
 [ext_resource path="res://props/metal_walls/Platform_T_Junction.tscn" type="PackedScene" id=26]
 [ext_resource path="res://props/Scifi_wall/parts/Ceiling_6x7.tscn" type="PackedScene" id=27]
+[ext_resource path="res://props/metal_walls/Platform_Extension_Short.tscn" type="PackedScene" id=28]
 
 [sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0, 0, 0, 1 )
+sky_horizon_color = Color( 0, 0, 0, 1 )
+ground_bottom_color = Color( 0, 0, 0, 1 )
+ground_horizon_color = Color( 0, 0, 0, 1 )
 sun_energy = 0.0
 
 [sub_resource type="Environment" id=2]
@@ -193,7 +198,7 @@ transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, 21.5
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -106.031, 0, -1.72745e-05, 21.5614, 0, -26.0693 )
 
 [node name="Player_v4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 23.8885, 1.43826, -3.60062 )
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 7.52154, -26.9214, -4.02013 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
@@ -953,7 +958,7 @@ transform = Transform( 70, 0, 0, 0, 70, 0, 0, 0, 70, 12.8213, 0, -19.8398 )
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 22.0404, 0, -0.212 )
 
 [node name="capsula" type="Spatial" parent="builds_3/elevador2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35525, 0, 0.130251 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.355, -14, 0.13 )
 
 [node name="Wall_Door8" parent="builds_3/elevador2/capsula" instance=ExtResource( 8 )]
 transform = Transform( 70, 0, 4.56178e-05, 0, 70, 0, -4.56178e-05, 0, 70, 0.385174, 0, -1.57834 )
@@ -976,371 +981,44 @@ transform = Transform( 86.5913, 0, 5.40611e-06, 0, 70, 0, 5.40611e-06, 0, 70, 0.
 [node name="AnimationPlayer" type="AnimationPlayer" parent="builds_3/elevador2"]
 anims/active_down = SubResource( 4 )
 
+[node name="Tunnel Variant" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.237, -25.653, -3.72 )
+
+[node name="Tunnel Variant2" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 31.508, -25.653, -3.72 )
+
+[node name="Tunnel Variant3" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.757, -25.653, -3.72 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( -5.98422e-08, -1, 0, 0.367308, -1.62921e-07, 0, 0, 0, 2.42722, 41.5203, -24.3207, -3.82762 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( -5.53865e-08, -1, -7.92472e-08, 0.24797, -1.90466e-07, 0.486416, -0.270973, 3.01008e-08, 0.445125, 41.4963, -24.7331, -5.3044 )
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="MeshInstance3" type="MeshInstance" parent="."]
+transform = Transform( -5.98421e-08, -1, 0, 0.250504, -1.11112e-07, -0.482215, 0.268632, -1.19153e-07, 0.449673, 41.4963, -24.8151, -2.07338 )
+mesh = SubResource( 5 )
+material/0 = null
+
 [node name="galpao" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.237, -28, -6.53 )
-
-[node name="MeshInstance" type="MeshInstance" parent="galpao"]
-transform = Transform( -5.98422e-08, -1, 0, 0.367308, -1.62921e-07, 0, 0, 0, 2.42722, 3.28326, 3.77852, 2.70238 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="MeshInstance2" type="MeshInstance" parent="galpao"]
-transform = Transform( -5.53865e-08, -1, -7.92472e-08, 0.24797, -1.90466e-07, 0.486416, -0.270973, 3.01008e-08, 0.445125, 3.25926, 3.36613, 1.2256 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="MeshInstance3" type="MeshInstance" parent="galpao"]
-transform = Transform( -5.98421e-08, -1, 0, 0.250504, -1.11112e-07, -0.482215, 0.268632, -1.19153e-07, 0.449673, 3.25926, 3.28421, 4.45662 )
-mesh = SubResource( 5 )
-material/0 = null
-
-[node name="Tunnel Variant" parent="galpao" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.347, 2.81 )
-
-[node name="Tunnel Variant2" parent="galpao" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.729, 2.347, 2.81 )
-
-[node name="wall_pices2" type="Spatial" parent="galpao"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.48, 2.347, 2.81 )
-
-[node name="Tunnel Variant3" parent="galpao/wall_pices2" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Wall_Long" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 7.99 )
-
-[node name="Wall_Long3" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 7.99 )
-
-[node name="Wall_Long2" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -7.988 )
-
-[node name="Wall_Long4" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, -7.988 )
-
-[node name="Wall_Long6" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -7.988 )
-
-[node name="Wall_Long9" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, -15.9665 )
-
-[node name="Wall_Long10" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, -15.9665 )
-
-[node name="Wall_Long11" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, -15.9665 )
-
-[node name="Wall_Long12" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, 15.9693 )
-
-[node name="Wall_Long13" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, 15.9693 )
-
-[node name="Wall_Long14" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, 15.9693 )
-
-[node name="Wall_Long15" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 23.9683 )
-
-[node name="Wall_Long16" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 23.9683 )
-
-[node name="Wall_Long17" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 23.9683 )
-
-[node name="Wall_Long7" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -0.00900006 )
-
-[node name="Wall_Long8" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 7.985 )
-
-[node name="Wall_Long5" parent="galpao/wall_pices2" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, 0.00699997 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.242, -35.966, 1.464 )
 
 [node name="drones" type="Spatial" parent="galpao"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8279, 0, 2.78136 )
 
 [node name="drone_H" parent="galpao/drones" instance=ExtResource( 18 )]
-transform = Transform( 4, 0, 0, 0, 3.77865, 1.31217, 0, -1.31217, 3.77865, -1.15257, 1.98112, 23.1944 )
-
-[node name="Wall_Long15" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 1.834, -13.1565 )
-
-[node name="Wall_Long16" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 5.828, -13.1565 )
-
-[node name="Wall_Long17" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 9.8, -13.1565 )
-
-[node name="Wall_Long18" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 1.834, -13.1565 )
-
-[node name="Wall_Long19" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 5.828, -13.1565 )
-
-[node name="Wall_Long20" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 9.8, -13.1565 )
-
-[node name="Wall_Long21" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 1.834, -13.1565 )
-
-[node name="Wall_Long22" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 5.828, -13.1565 )
-
-[node name="Wall_Long23" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 9.8, -13.1565 )
-
-[node name="Wall_Long24" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 1.834, -13.1565 )
-
-[node name="Wall_Long25" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 5.828, -13.1565 )
-
-[node name="Wall_Long26" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 9.8, -13.1565 )
-
-[node name="Wall_Long27" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 1.834, -13.1565 )
-
-[node name="Wall_Long28" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 5.828, -13.1565 )
-
-[node name="Wall_Long36" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -52.3992, 5.828, -13.1565 )
-
-[node name="Wall_Long29" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 9.8, -13.1565 )
-
-[node name="Wall_Long37" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -52.3986, 9.8, -13.1565 )
-
-[node name="Wall_Long30" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 1.834, -13.1565 )
-
-[node name="Wall_Long31" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 5.828, -13.1565 )
-
-[node name="Wall_Long32" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 9.8, -13.1565 )
-
-[node name="Wall_Long33" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 1.834, -13.1565 )
-
-[node name="Wall_Long34" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 5.828, -13.1565 )
-
-[node name="Wall_Long35" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 9.8, -13.1565 )
-
-[node name="Wall_Long38" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 1.834, -13.1565 )
-
-[node name="Wall_Long39" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 5.828, -13.1565 )
-
-[node name="Wall_Long40" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 9.8, -13.1565 )
-
-[node name="Wall_Long41" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 1.834, 29.8853 )
-
-[node name="Wall_Long42" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 5.828, 29.8853 )
-
-[node name="Wall_Long43" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 9.8, 29.8853 )
-
-[node name="Wall_Long44" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 1.834, 29.8853 )
-
-[node name="Wall_Long45" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 5.828, 29.8853 )
-
-[node name="Wall_Long46" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 9.8, 29.8853 )
-
-[node name="Wall_Long47" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 1.834, 29.8853 )
-
-[node name="Wall_Long48" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 5.828, 29.8853 )
-
-[node name="Wall_Long49" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 9.8, 29.8853 )
-
-[node name="Wall_Long50" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 1.834, 29.8853 )
-
-[node name="Wall_Long67" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.9794, 1.834, 29.8853 )
-
-[node name="Wall_Long51" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 5.828, 29.8853 )
-
-[node name="Wall_Long52" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 9.8, 29.8853 )
-
-[node name="Wall_Long53" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 1.834, 29.8853 )
-
-[node name="Wall_Long54" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 5.828, 29.8853 )
-
-[node name="Wall_Long55" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.95, 5.828, 29.8853 )
-
-[node name="Wall_Long56" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 9.8, 29.8853 )
-
-[node name="Wall_Long57" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.9494, 9.8, 29.8853 )
-
-[node name="Wall_Long58" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 1.834, 29.8853 )
-
-[node name="Wall_Long59" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 5.828, 29.8853 )
-
-[node name="Wall_Long60" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 9.8, 29.8853 )
-
-[node name="Wall_Long61" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 1.834, 29.8853 )
-
-[node name="Wall_Long62" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 5.828, 29.8853 )
-
-[node name="Wall_Long63" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 9.8, 29.8853 )
-
-[node name="Wall_Long64" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 1.834, 29.8853 )
-
-[node name="Wall_Long65" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 5.828, 29.8853 )
-
-[node name="Wall_Long66" parent="galpao" instance=ExtResource( 20 )]
-transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 9.8, 29.8853 )
-
-[node name="wall_pices" type="Spatial" parent="galpao"]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -91.541, 2.347, 8.377 )
-
-[node name="Tunnel Variant4" parent="galpao/wall_pices" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.967, 0 )
-
-[node name="Wall_Long27" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 7.99 )
-
-[node name="Wall_Long28" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 7.99 )
-
-[node name="Wall_Long29" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -7.988 )
-
-[node name="Wall_Long30" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, -7.988 )
-
-[node name="Wall_Long31" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -7.988 )
-
-[node name="Wall_Long32" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, -15.9665 )
-
-[node name="Wall_Long33" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, -15.9665 )
-
-[node name="Wall_Long34" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, -15.9665 )
-
-[node name="Wall_Long41" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -23.9543 )
-
-[node name="Wall_Long42" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, -23.9543 )
-
-[node name="Wall_Long43" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -23.9543 )
-
-[node name="Wall_Long35" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, 15.9693 )
-
-[node name="Wall_Long36" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, 15.9693 )
-
-[node name="Wall_Long37" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, 15.9693 )
-
-[node name="Wall_Long44" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 23.9603 )
-
-[node name="Wall_Long45" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 23.9603 )
-
-[node name="Wall_Long46" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 23.9603 )
-
-[node name="Wall_Long38" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.514999, 0 )
-
-[node name="Wall_Long39" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 7.985 )
-
-[node name="Wall_Long40" parent="galpao/wall_pices" instance=ExtResource( 20 )]
-transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.452, 0.007 )
-
-[node name="Plane" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, -7.22188 )
-
-[node name="Plane2" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, 8.77706 )
-
-[node name="Plane3" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, -7.22188 )
-
-[node name="Plane4" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, 8.77706 )
-
-[node name="Plane5" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, -7.22188 )
-
-[node name="Plane6" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, 8.77706 )
-
-[node name="Plane16" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 9.2, 0, 0, 0, -1.285, 1.78528e-06, 0, -4.18706e-07, -5.479, -52.8473, 11.96, 8.32796 )
-
-[node name="Plane7" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8419, 0.0499992, -7.22224 )
-
-[node name="Plane8" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8422, 0.0499992, 8.77706 )
-
-[node name="Plane9" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, 24.7668 )
-
-[node name="Plane10" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, 24.7668 )
-
-[node name="Plane11" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, 24.7668 )
-
-[node name="Plane12" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8422, 0.0499992, 24.7668 )
-
-[node name="Plane13" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.837, 0.0499992, -7.22224 )
-
-[node name="Plane14" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.8373, 0.0499992, 8.77706 )
-
-[node name="Plane15" parent="galpao" instance=ExtResource( 21 )]
-transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.8373, 0.0499992, 24.7668 )
+transform = Transform( -4, 4.27559e-07, -1.23124e-06, 0, 3.77865, 1.31217, 1.30337e-06, 1.31217, -3.77865, -38.92, 2.65329, -4.10077 )
 
 [node name="Generator" parent="galpao" instance=ExtResource( 22 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -38.7347, 0.0915775, 24.7491 )
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -84.5135, 0.0915756, 13.8454 )
 
 [node name="Generator2" parent="galpao" instance=ExtResource( 22 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -22.7271, 0.0915775, -8.43627 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -30.9367, 0.0915756, -8.51287 )
 
 [node name="SpotLight3" type="SpotLight" parent="galpao"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -53.5533, 10.9505, 11.8667 )
@@ -1348,37 +1026,548 @@ visible = false
 spot_range = 36.0636
 spot_angle = 67.8997
 
-[node name="escada" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.18471, -45.953, -20.98, 1.845 )
+[node name="chao" type="Spatial" parent="galpao"]
 
-[node name="Stairway_Joiner" parent="escada" instance=ExtResource( 24 )]
+[node name="Plane" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, -7.22188 )
+
+[node name="Plane2" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, 8.77706 )
+
+[node name="Plane3" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, -7.22188 )
+
+[node name="Plane4" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, 8.77706 )
+
+[node name="Plane5" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, -7.22188 )
+
+[node name="Plane6" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, 8.77706 )
+
+[node name="Plane16" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 9.2, 0, 0, 0, -1.285, 1.78528e-06, 0, -4.18706e-07, -5.479, -52.847, 15.795, 8.328 )
+
+[node name="Plane7" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8419, 0.0499992, -7.22224 )
+
+[node name="Plane8" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8422, 0.0499992, 8.77706 )
+
+[node name="Plane9" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -20.8829, 0.0499992, 24.7668 )
+
+[node name="Plane10" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -36.8778, 0.0499992, 24.7668 )
+
+[node name="Plane11" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -52.8473, 0.0499992, 24.7668 )
+
+[node name="Plane12" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -68.8422, 0.0499992, 24.7668 )
+
+[node name="Plane13" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.837, 0.0499992, -7.22224 )
+
+[node name="Plane14" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.8373, 0.0499992, 8.77706 )
+
+[node name="Plane15" parent="galpao/chao" instance=ExtResource( 21 )]
+transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, -84.8373, 0.0499992, 24.7668 )
+
+[node name="paredes" type="Spatial" parent="galpao"]
+
+[node name="Wall_Long15" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 1.834, -13.1565 )
+
+[node name="Wall_Long16" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 5.828, -13.1565 )
+
+[node name="Wall_Long17" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 9.8, -13.1565 )
+
+[node name="Wall_Long18" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 1.834, -13.1565 )
+
+[node name="Wall_Long19" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 5.828, -13.1565 )
+
+[node name="Wall_Long20" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 9.8, -13.1565 )
+
+[node name="Wall_Long21" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 1.834, -13.1565 )
+
+[node name="Wall_Long22" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 5.828, -13.1565 )
+
+[node name="Wall_Long23" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 9.8, -13.1565 )
+
+[node name="Wall_Long24" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 1.834, -13.1565 )
+
+[node name="Wall_Long25" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 5.828, -13.1565 )
+
+[node name="Wall_Long26" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 9.8, -13.1565 )
+
+[node name="Wall_Long27" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 1.834, -13.1565 )
+
+[node name="Wall_Long28" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 5.828, -13.1565 )
+
+[node name="Wall_Long36" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -52.3992, 5.828, -13.1565 )
+
+[node name="Wall_Long29" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 9.8, -13.1565 )
+
+[node name="Wall_Long37" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -52.3986, 9.8, -13.1565 )
+
+[node name="Wall_Long30" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 1.834, -13.1565 )
+
+[node name="Wall_Long31" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 5.828, -13.1565 )
+
+[node name="Wall_Long32" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 9.8, -13.1565 )
+
+[node name="Wall_Long33" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 1.834, -13.1565 )
+
+[node name="Wall_Long34" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 5.828, -13.1565 )
+
+[node name="Wall_Long35" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 9.8, -13.1565 )
+
+[node name="Wall_Long38" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 1.834, -13.1565 )
+
+[node name="Wall_Long39" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 5.828, -13.1565 )
+
+[node name="Wall_Long40" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 9.8, -13.1565 )
+
+[node name="Wall_Long68" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -20.4613, 13.6986, -13.1565 )
+
+[node name="Wall_Long69" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -28.4562, 13.6986, -13.1565 )
+
+[node name="Wall_Long70" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -36.4529, 13.6986, -13.1565 )
+
+[node name="Wall_Long71" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -44.4304, 13.6986, -13.1565 )
+
+[node name="Wall_Long72" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -60.3385, 13.6986, -13.1565 )
+
+[node name="Wall_Long73" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -52.3986, 13.6986, -13.1565 )
+
+[node name="Wall_Long74" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -68.3352, 13.6986, -13.1565 )
+
+[node name="Wall_Long75" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -76.6123, 13.6986, -13.1565 )
+
+[node name="Wall_Long76" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -85.166, 13.6986, -13.1565 )
+
+[node name="Wall_Long41" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 1.834, 29.8853 )
+
+[node name="Wall_Long42" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 5.828, 29.8853 )
+
+[node name="Wall_Long43" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 9.8, 29.8853 )
+
+[node name="Wall_Long44" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 1.834, 29.8853 )
+
+[node name="Wall_Long45" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 5.828, 29.8853 )
+
+[node name="Wall_Long46" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 9.8, 29.8853 )
+
+[node name="Wall_Long47" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 1.834, 29.8853 )
+
+[node name="Wall_Long48" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 5.828, 29.8853 )
+
+[node name="Wall_Long49" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 9.8, 29.8853 )
+
+[node name="Wall_Long50" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 1.834, 29.8853 )
+
+[node name="Wall_Long67" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.9794, 1.834, 29.8853 )
+
+[node name="Wall_Long51" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 5.828, 29.8853 )
+
+[node name="Wall_Long52" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 9.8, 29.8853 )
+
+[node name="Wall_Long53" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 1.834, 29.8853 )
+
+[node name="Wall_Long54" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 5.828, 29.8853 )
+
+[node name="Wall_Long55" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.95, 5.828, 29.8853 )
+
+[node name="Wall_Long56" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 9.8, 29.8853 )
+
+[node name="Wall_Long57" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.9494, 9.8, 29.8853 )
+
+[node name="Wall_Long58" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 1.834, 29.8853 )
+
+[node name="Wall_Long59" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 5.828, 29.8853 )
+
+[node name="Wall_Long60" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 9.8, 29.8853 )
+
+[node name="Wall_Long61" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 1.834, 29.8853 )
+
+[node name="Wall_Long62" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 5.828, 29.8853 )
+
+[node name="Wall_Long63" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 9.8, 29.8853 )
+
+[node name="Wall_Long64" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 1.834, 29.8853 )
+
+[node name="Wall_Long65" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 5.828, 29.8853 )
+
+[node name="Wall_Long66" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 9.8, 29.8853 )
+
+[node name="Wall_Long77" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -19.0121, 13.6495, 29.8853 )
+
+[node name="Wall_Long78" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -27.007, 13.6495, 29.8853 )
+
+[node name="Wall_Long79" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -35.0037, 13.6495, 29.8853 )
+
+[node name="Wall_Long80" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -42.9812, 13.6495, 29.8853 )
+
+[node name="Wall_Long81" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -58.8893, 13.6495, 29.8853 )
+
+[node name="Wall_Long82" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -50.9494, 13.6495, 29.8853 )
+
+[node name="Wall_Long83" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -66.886, 13.6495, 29.8853 )
+
+[node name="Wall_Long84" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, 1.071, 0, 1, 0, -1, 0, -1.74488e-07, -75.1631, 13.6495, 29.8853 )
+
+[node name="Wall_Long85" parent="galpao/paredes" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 0, -1.071, 0, 1, 0, 1, 0, -1.74488e-07, -83.7167, 13.6495, 29.8853 )
+
+[node name="wall_pices2" type="Spatial" parent="galpao/paredes"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.48, 2.347, 2.81 )
+
+[node name="Wall_Long" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 7.99 )
+
+[node name="Wall_Long3" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 7.99 )
+
+[node name="Wall_Long2" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -7.988 )
+
+[node name="Wall_Long4" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.435, -7.988 )
+
+[node name="Wall_Long6" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, 0.00445652 )
+
+[node name="Wall_Long9" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, -15.9665 )
+
+[node name="Wall_Long10" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, -15.9665 )
+
+[node name="Wall_Long11" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, -15.9665 )
+
+[node name="Wall_Long7" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.4189, -7.988 )
+
+[node name="Wall_Long22" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.419, 0.004 )
+
+[node name="Wall_Long21" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 11.4189, -15.9665 )
+
+[node name="Wall_Long12" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, 15.9693 )
+
+[node name="Wall_Long13" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, 15.9693 )
+
+[node name="Wall_Long14" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, 15.9693 )
+
+[node name="Wall_Long15" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 23.9683 )
+
+[node name="Wall_Long16" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 23.9683 )
+
+[node name="Wall_Long17" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 23.9683 )
+
+[node name="Wall_Long19" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.4208, 15.9693 )
+
+[node name="Wall_Long20" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 11.4208, 23.9683 )
+
+[node name="Wall_Long8" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 7.985 )
+
+[node name="Wall_Long18" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 11.4235, 7.985 )
+
+[node name="Wall_Long5" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.452, 0.007 )
+
+[node name="Wall_Long23" parent="galpao/paredes/wall_pices2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.521423, 0.00699997 )
+
+[node name="wall_pices" type="Spatial" parent="galpao/paredes"]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -91.541, 2.347, 8.377 )
+
+[node name="Tunnel Variant4" parent="galpao/paredes/wall_pices" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.967, 0 )
+
+[node name="Wall_Long27" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 7.99 )
+
+[node name="Wall_Long28" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 7.99 )
+
+[node name="Wall_Long29" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -7.988 )
+
+[node name="Wall_Long30" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, -7.988 )
+
+[node name="Wall_Long31" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -7.988 )
+
+[node name="Wall_Long32" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, -15.9665 )
+
+[node name="Wall_Long33" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, -15.9665 )
+
+[node name="Wall_Long34" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, -15.9665 )
+
+[node name="Wall_Long41" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, -23.9543 )
+
+[node name="Wall_Long42" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, -23.9543 )
+
+[node name="Wall_Long43" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, -23.9543 )
+
+[node name="Wall_Long35" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, -0.513, 15.9693 )
+
+[node name="Wall_Long36" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 3.481, 15.9693 )
+
+[node name="Wall_Long37" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 7.453, 15.9693 )
+
+[node name="Wall_Long44" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.513, 23.9603 )
+
+[node name="Wall_Long45" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.481, 23.9603 )
+
+[node name="Wall_Long46" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 23.9603 )
+
+[node name="Wall_Long38" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, -0.514999, 0 )
+
+[node name="Wall_Long39" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 7.453, 7.985 )
+
+[node name="Wall_Long47" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.3492, -7.988 )
+
+[node name="Wall_Long53" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.349, 0.005 )
+
+[node name="Wall_Long48" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.78798, 11.3492, -15.9665 )
+
+[node name="Wall_Long49" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.3492, -23.9543 )
+
+[node name="Wall_Long50" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.788, 11.3492, 15.9693 )
+
+[node name="Wall_Long51" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 11.3492, 23.9603 )
+
+[node name="Wall_Long52" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 11.3492, 7.985 )
+
+[node name="Wall_Long40" parent="galpao/paredes/wall_pices" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -2.788, 3.452, 0.007 )
+
+[node name="escada" type="Spatial" parent="galpao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.18471, -84.19, 7.02, 8.375 )
+
+[node name="Stairway_Joiner" parent="galpao/escada" instance=ExtResource( 24 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.84409, 0, -1.3752e-07, 15.762, -0.698, -14.8163 )
 
-[node name="Stairway_Joiner2" parent="escada" instance=ExtResource( 24 )]
+[node name="Stairway_Joiner2" parent="galpao/escada" instance=ExtResource( 24 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.84409, 0, -1.3752e-07, 24.797, -4.7, -14.8163 )
 
-[node name="Stairway_Joiner3" parent="escada" instance=ExtResource( 24 )]
+[node name="Stairway_Joiner3" parent="galpao/escada" instance=ExtResource( 24 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.84409, 0, -1.3752e-07, 16.1, -0.698, 17.0531 )
 
-[node name="Stairway_Joiner4" parent="escada" instance=ExtResource( 24 )]
+[node name="Stairway_Joiner4" parent="galpao/escada" instance=ExtResource( 24 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.84409, 0, -1.3752e-07, 25.154, -4.721, 17.054 )
 
-[node name="Platform_Corner" parent="escada" instance=ExtResource( 23 )]
+[node name="Platform_Corner" parent="galpao/escada" instance=ExtResource( 23 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 0.84409, 0, -1.3752e-07, 6.692, 1.535, -15.2814 )
 
-[node name="Platform_Corner2" parent="escada" instance=ExtResource( 23 )]
+[node name="Platform_Corner2" parent="galpao/escada" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.84409, 6.627, 1.537, 14.9615 )
 
-[node name="Platform_Long" parent="escada" instance=ExtResource( 25 )]
+[node name="Platform_Long" parent="galpao/escada" instance=ExtResource( 25 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 2.75039e-07, 0, -0.84409, 5.687, 0.233, -7.37228 )
 
-[node name="Platform_Long2" parent="escada" instance=ExtResource( 25 )]
+[node name="Platform_Long2" parent="galpao/escada" instance=ExtResource( 25 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 2.75039e-07, 0, -0.84409, 5.687, 0.234001, 7.37481 )
 
-[node name="Platform_T_Junction" parent="escada" instance=ExtResource( 26 )]
+[node name="Platform_T_Junction" parent="galpao/escada" instance=ExtResource( 26 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
+[node name="Wall_Long54" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 0.84409, 0, -1, -3.68963e-08, 7.13338, -3.74774, -4.76837e-06 )
+
+[node name="Wall_Long57" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1, 1.49939e-07, 5.5706e-15, 0, -4.34054e-08, 0.844, 1.50996e-07, 0.993, 3.68924e-08, 3.856, -3.748, -0.110998 )
+
+[node name="Wall_Long55" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1, -3.68963e-08, 0, -4.37114e-08, 0.84409, -1, 1.62921e-07, 6.01118e-15, 5.54033, -3.74774, -1.69276 )
+
+[node name="Wall_Long56" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 3.68963e-08, 0, -4.37114e-08, 0.84409, 1, 1.62921e-07, 6.01118e-15, 5.447, -3.748, 1.589 )
+
+[node name="Wall_Long58" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, 1.35655 )
+
+[node name="Wall_Long59" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, 8.04977 )
+
+[node name="Wall_Long61" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, -11.9714 )
+
+[node name="Wall_Long63" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, -18.71 )
+
+[node name="Wall_Long62" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, -5.27817 )
+
+[node name="Wall_Long64" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( 2.65431e-14, -1.62921e-07, -1.03281, -1, -1.62921e-07, 0, -1.62921e-07, 1, -1.68266e-07, -0.324596, -0.778997, -0.199536 )
+
+[node name="Wall_Long60" parent="galpao/escada" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0, 0.84409, 5.483, -0.778999, 14.7365 )
+
+[node name="escadas2" type="Spatial" parent="galpao"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.124, 0, -5.75 )
+
+[node name="Platform_Corner" parent="galpao/escadas2" instance=ExtResource( 23 )]
+transform = Transform( -1.94527e-07, 0, -1, 0, 1, 0, 1.194, 0, -1.62921e-07, -1.727, 8.554, 1.684 )
+
+[node name="Stairway_Joiner" parent="galpao/escadas2" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -4.204, 6.32, 12.185 )
+
+[node name="Stairway_Joiner2" parent="galpao/escadas2" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -4.204, 2.322, 21.236 )
+
+[node name="Wall_Long24" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53828, 3.82697, 2.19978 )
+
+[node name="Wall_Long32" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.528, 1.798, 9.157 )
+
+[node name="Wall_Long33" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -0.919, 1.798, 9.157 )
+
+[node name="Wall_Long29" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1, -1.62921e-07, 0, -1.62921e-07, 1, -1, 1.62921e-07, 2.65431e-14, -2.869, 2.137, 6.031 )
+
+[node name="Wall_Long30" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1, 3.25841e-07, 5.30863e-14, 0, -1.62921e-07, 1, 3.25841e-07, 1, 1.62921e-07, -0.934, 2.137, 4.355 )
+
+[node name="Wall_Long31" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1, -1.62921e-07, 0, -1.62921e-07, 1, -1, 1.62921e-07, 2.65431e-14, 1.815, 2.137, 2.765 )
+
+[node name="Wall_Long25" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.53828, -0.101624, 2.19978 )
+
+[node name="Wall_Long26" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.53422, 3.82697, -5.78321 )
+
+[node name="Wall_Long28" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( 2.65431e-14, 2.15399e-07, 1, 1, -2.15399e-07, 0, 1.62921e-07, 1.32211, -1.62921e-07, -0.42926, 5.46073, -4.56946 )
+
+[node name="Wall_Long27" parent="galpao/escadas2" instance=ExtResource( 20 )]
+transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -4.53422, -0.101624, -5.78321 )
+
+[node name="Platform_Extension_Short" parent="galpao/escadas2" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.624, 3.295, 15.154 )
+
+[node name="Platform_Extension_Short4" parent="galpao/escadas2" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1.07706, 0, 0, 0, 1.51499, -2.605, 5.37137, 9.06193 )
+
+[node name="Platform_Extension_Short2" parent="galpao/escadas2" instance=ExtResource( 28 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.624, 1.30083, 15.154 )
+
+[node name="Platform_Extension_Short3" parent="galpao/escadas2" instance=ExtResource( 28 )]
+transform = Transform( -0.987, 0, -3.89414e-07, 0, 1, 0, 3.84352e-07, 0, -1, -2.806, 1.301, 19.1268 )
+
 [node name="Tunnel Variant4" parent="." instance=ExtResource( 19 )]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -14.1672, -25.653, -22.472 )
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -14.167, -33.621, -14.477 )
 
 [editable path="builds_2/porta2/door2"]
