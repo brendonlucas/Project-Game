@@ -60,11 +60,23 @@ func done_game():
 		gerador_2 = true
 	if solicitante_minigame == "elevador_1":
 		elevador_1 = true
+		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").queue_free()
+		get_tree().get_root().get_node("Map/builds_2/elevador/capsula").set_active()
+		
 	if solicitante_minigame == "elevador_2":
 		elevador_2 = true
+		get_tree().get_root().get_node("Map/builds_3/central_2/Area_active_elevador").queue_free()
+		get_tree().get_root().get_node("Map/builds_3/elevador2/capsula").set_active()
+	
+	var game = get_node_or_null("map_game")
+	game.queue_free()
+	player.block_moviments(true)
+	cam.block_cam(true)
+	Gamestate.in_mine_game = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	drop_game_test = 0
 		
 func _ready():
-	
 	fade_final = get_tree().get_root().get_node_or_null("Map/fade_final/AnimationPlayer")
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	player_nave = get_tree().get_root().get_node_or_null("Map/Player_nave")
@@ -104,6 +116,9 @@ func drop_game():
 		get_tree().get_root().get_node("Map/galpao/Generator/Area").set_active(false)
 	elif solicitante_minigame == "gerador_2":
 		get_tree().get_root().get_node("Map/galpao/Generator2/Area").set_active(false)
+	elif solicitante_minigame == "elevador_1":
+		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").set_active(false)
+	
 	
 # controle de experiencia optida
 func add_exp(xp_value):

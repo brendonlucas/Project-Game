@@ -10,11 +10,11 @@ func get_interactable_text():
 	return "Usar"
 	
 func interact():
-	if open:
+	if open and get_parent().get_node(".").get_active():
 		dor.play("close")
 		open = false
 			
-	elif !open :
+	elif !open and get_parent().get_node(".").get_active():
 		dor.play("open")
 		open = true
 		
