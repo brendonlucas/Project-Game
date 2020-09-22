@@ -131,11 +131,11 @@ ground/normal_roughness_3 = ExtResource( 10 )
 
 [node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
 script = ExtResource( 14 )
-layer_index = 1
+layer_index = 0
 texture = ExtResource( 24 )
 view_distance = 100.0
 custom_shader = null
-density = 0.5
+density = 1.0
 instance_mesh = null
 shader_params/u_globalmap_tint_bottom = null
 shader_params/u_globalmap_tint_top = null

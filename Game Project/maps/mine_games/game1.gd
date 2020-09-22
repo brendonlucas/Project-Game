@@ -18,4 +18,4 @@ func _process(delta):
 
 func done_game():
 	Gamestate.done_game()
-	Gamestate.drop_game()
+	# Gamestate.drop_game()

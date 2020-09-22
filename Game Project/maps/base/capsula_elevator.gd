@@ -12,3 +12,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func set_active(option):
 	active = option
+

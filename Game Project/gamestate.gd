@@ -53,20 +53,29 @@ var gerador_1 = false
 var gerador_2 = false
 var solicitante_minigame = ""
 
+func boss_kill():
+	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
+	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
+	
+	
 func done_game():
 	if solicitante_minigame == "gerador_1":
 		gerador_1 = true
+		get_tree().get_root().get_node("Map/galpao/Generator/Area").queue_free()
+		get_tree().get_root().get_node("Map/galpao/Light_refletor").show()
 	if solicitante_minigame == "gerador_2":
 		gerador_2 = true
+		get_tree().get_root().get_node("Map/galpao/Generator2/Area").queue_free()
+		get_tree().get_root().get_node("Map/galpao/Light_refletor2").show()
 	if solicitante_minigame == "elevador_1":
 		elevador_1 = true
 		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").queue_free()
-		get_tree().get_root().get_node("Map/builds_2/elevador/capsula").set_active()
+		get_tree().get_root().get_node("Map/builds_2/elevador/capsula/door_elevator").set_active(true)
 		
 	if solicitante_minigame == "elevador_2":
 		elevador_2 = true
-		get_tree().get_root().get_node("Map/builds_3/central_2/Area_active_elevador").queue_free()
-		get_tree().get_root().get_node("Map/builds_3/elevador2/capsula").set_active()
+		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").queue_free()
+		get_tree().get_root().get_node("Map/builds_3/elevador2/capsula/door_elevator").set_active(true)
 	
 	var game = get_node_or_null("map_game")
 	game.queue_free()
@@ -88,12 +97,10 @@ func _ready():
 
 var cam_atual = 1
 
-# teste de mudança de camera do jato ()game parte 1
-
 func _process(delta):
-	pass
-	# a ser removido teste de chamada da instancia de minigame
-	#print(solicitante_minigame)
+	if Input.is_action_just_pressed("jump"):
+		boss_kill()
+	
 		
 func instancia_game(solicitante):
 	player.block_moviments(false)
@@ -118,6 +125,9 @@ func drop_game():
 		get_tree().get_root().get_node("Map/galpao/Generator2/Area").set_active(false)
 	elif solicitante_minigame == "elevador_1":
 		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").set_active(false)
+	elif solicitante_minigame == "elevador_2":
+		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").set_active(false)
+	
 	
 	
 # controle de experiencia optida

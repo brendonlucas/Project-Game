@@ -62,6 +62,9 @@ func _process(delta):
 	player = get_tree().root.get_node("Map/Player_v4")
 	translation = player.translation
 	translation.y = player.translation.y + 1.8
+
+	
+	
 	
 
 
