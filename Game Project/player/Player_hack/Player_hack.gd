@@ -44,6 +44,7 @@ func look_at_cursor():
 
 func _physics_process(delta):
 	if life <= 0:
+		pass
 		queue_free()
 		
 	look_at_cursor()

@@ -46,7 +46,25 @@ var player
 var player_nave
 var fade_final
 
+
+var elevador_1 = false
+var elevador_2 = false
+var gerador_1 = false
+var gerador_2 = false
+var solicitante_minigame = ""
+
+func done_game():
+	if solicitante_minigame == "gerador_1":
+		gerador_1 = true
+	if solicitante_minigame == "gerador_2":
+		gerador_2 = true
+	if solicitante_minigame == "elevador_1":
+		elevador_1 = true
+	if solicitante_minigame == "elevador_2":
+		elevador_2 = true
+		
 func _ready():
+	
 	fade_final = get_tree().get_root().get_node_or_null("Map/fade_final/AnimationPlayer")
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	player_nave = get_tree().get_root().get_node_or_null("Map/Player_nave")
@@ -61,25 +79,32 @@ var cam_atual = 1
 # teste de mudança de camera do jato ()game parte 1
 
 func _process(delta):
+	pass
 	# a ser removido teste de chamada da instancia de minigame
-	if Input.is_action_just_pressed("coisar") and drop_game_test == 0:
-		player.block_moviments(false)
-		cam.block_cam(false)
-		Gamestate.in_mine_game = true
-		instancia_objetos()
-		drop_game_test = 1
-	# a ser removido teste de remoção da instancia de minigame
-	elif Input.is_action_just_pressed("coisar") and drop_game_test == 1:
-		var game_teste = get_node_or_null("map_game")
-		game_teste.queue_free()
-		player.block_moviments(true)
-		cam.block_cam(true)
-		Gamestate.in_mine_game = false
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		drop_game_test = 0
+	#print(solicitante_minigame)
 		
-
-
+func instancia_game(solicitante):
+	player.block_moviments(false)
+	cam.block_cam(false)
+	Gamestate.in_mine_game = true
+	instancia_objetos()
+	drop_game_test = 1
+	solicitante_minigame = solicitante
+	
+func drop_game():
+	var game_teste = get_node_or_null("map_game")
+	game_teste.queue_free()
+	player.block_moviments(true)
+	cam.block_cam(true)
+	Gamestate.in_mine_game = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	drop_game_test = 0
+	
+	if solicitante_minigame == "gerador_1":
+		get_tree().get_root().get_node("Map/galpao/Generator/Area").set_active(false)
+	elif solicitante_minigame == "gerador_2":
+		get_tree().get_root().get_node("Map/galpao/Generator2/Area").set_active(false)
+	
 # controle de experiencia optida
 func add_exp(xp_value):
 	#Salvar_BD: nivel/ exp total / exp restante / exp nivel atual
@@ -124,7 +149,7 @@ func randomNumber():
 
 #teste instanciar mine game hacker
 func instancia_objetos():
-	var nun = randomNumber()
+	var nun = 1 #randomNumber()
 	var mini_game
 	if nun == 1:
 		mini_game = game1

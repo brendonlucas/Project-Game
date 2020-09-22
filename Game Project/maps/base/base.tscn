@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -37,6 +37,10 @@
 [ext_resource path="res://props/metal_walls/Tunnel_corner_T.tscn" type="PackedScene" id=35]
 [ext_resource path="res://props/metal_walls/door_metal.tscn" type="PackedScene" id=36]
 [ext_resource path="res://props/metal_walls/door_metal.gd" type="Script" id=37]
+[ext_resource path="res://props/npc/shin.tscn" type="PackedScene" id=38]
+[ext_resource path="res://maps/base/scripts/Area_close_door.gd" type="Script" id=39]
+[ext_resource path="res://maps/base/scripts/Area_activate_generator.gd" type="Script" id=40]
+[ext_resource path="res://maps/base/scripts/gerador_2.gd" type="Script" id=41]
 
 [sub_resource type="Animation" id=1]
 resource_name = "active_down"
@@ -60,7 +64,16 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = PoolRealArray( 0, 1, -2.35525, 0, 0.130251, 0, 0, 0, 1, 1, 1, 1, 6, 1, -2.355, -14, 0.13, 0, 0, 0, 1, 1, 1, 1 )
 
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.188178, 1, 1 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.20758, 1, 1 )
+
 [sub_resource type="PlaneMesh" id=3]
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 2.02331, 0.880378, 0.0875342 )
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 2.1089, 1.98393, 0.0719231 )
@@ -78,10 +91,18 @@ emission_on_uv2 = false
 emission_texture = ExtResource( 30 )
 uv1_scale = Vector3( 10, 5, 0 )
 
-[sub_resource type="Environment" id=7]
+[sub_resource type="CubeMesh" id=10]
+
+[sub_resource type="SpatialMaterial" id=11]
+emission_enabled = true
+emission = Color( 0.435294, 0.94902, 1, 1 )
+emission_energy = 1.5
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="Environment" id=9]
 background_energy = 0.0
 ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.01
 fog_enabled = true
 tonemap_exposure = 1.5
 glow_enabled = true
@@ -219,7 +240,7 @@ transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -70, 0, -1.14044e-05, 21.5
 transform = Transform( -1.14044e-05, 0, 70, 0, 70, 0, -106.031, 0, -1.72745e-05, 21.5614, 0, -26.0693 )
 
 [node name="Player_v4" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 60.0369, 1.37338, -3.40927 )
+transform = Transform( 1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -15.1538, -35.6197, -0.31741 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
@@ -1197,13 +1218,32 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 38.242, -35.966, 1.464 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8279, 0, 2.78136 )
 
 [node name="drone_H" parent="galpao/drones" instance=ExtResource( 18 )]
-transform = Transform( -4, 4.27559e-07, -1.23124e-06, 0, 3.77865, 1.31217, 1.30337e-06, 1.31217, -3.77865, -38.92, 2.65329, -4.10077 )
+transform = Transform( -6.13666e-07, 1.34621, -3.76666, 2.19326e-07, 3.76666, 1.34621, 4, 0, -6.51682e-07, -61.2541, 1.97271, -7.50789 )
+
+[node name="drone_H2" parent="galpao/drones" instance=ExtResource( 18 )]
+transform = Transform( -2, 2.62117e-07, -7.33395e-07, 0, 1.88333, 0.673106, 7.78829e-07, 0.673106, -1.88333, -20.5676, 1.0661, -12.8001 )
 
 [node name="Generator" parent="galpao" instance=ExtResource( 22 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, -84.5135, 0.0915756, 13.8454 )
 
+[node name="Area" type="Area" parent="galpao/Generator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.04247, 1.89411, 0.196143 )
+collision_layer = 3
+script = ExtResource( 41 )
+
+[node name="CollisionShape" type="CollisionShape" parent="galpao/Generator/Area"]
+shape = SubResource( 14 )
+
 [node name="Generator2" parent="galpao" instance=ExtResource( 22 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -30.9367, 0.0915756, -8.51287 )
+
+[node name="Area" type="Area" parent="galpao/Generator2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11408, 1.68305, 3.33786e-06 )
+collision_layer = 3
+script = ExtResource( 40 )
+
+[node name="CollisionShape" type="CollisionShape" parent="galpao/Generator2/Area"]
+shape = SubResource( 13 )
 
 [node name="SpotLight3" type="SpotLight" parent="galpao"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, -53.5533, 10.9505, 11.8667 )
@@ -1830,6 +1870,13 @@ omni_range = 3.4627
 [node name="curva" parent="limbo" instance=ExtResource( 29 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 13.082, 2.466, 0 )
 
+[node name="Area_close_door" type="Area" parent="limbo/curva"]
+script = ExtResource( 39 )
+
+[node name="CollisionShape" type="CollisionShape" parent="limbo/curva/Area_close_door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.748823, 0 )
+shape = SubResource( 12 )
+
 [node name="StaticBody" type="StaticBody" parent="limbo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.4985, 2.04686, -23.2659 )
 collision_layer = 32
@@ -2002,15 +2049,25 @@ transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 
 [node name="Wall_Long78" parent="limbo" instance=ExtResource( 20 )]
 transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -29.5407, -51.2122 )
 
+[node name="door_metal" parent="limbo" instance=ExtResource( 36 )]
+transform = Transform( 1.16814e-07, -0.5, -2.81936e-07, -0.717, -8.14603e-08, 0, -4.54891e-14, 1.94707e-07, -0.724, -16.414, 0.17, 0.009 )
+script = ExtResource( 37 )
+
 [node name="Menu_pause" parent="." instance=ExtResource( 32 )]
 pause_mode = 2
 visible = false
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 7 )
-
 [node name="saida" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4026, -36.0265, -24.7657 )
+
+[node name="Wall_Long" parent="saida" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 0.916865, -0.399197, 0, 0.399197, 0.916865, -34.4965, 21.8636, -69.1791 )
+
+[node name="Wall_Long2" parent="saida" instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 0.916865, -0.399197, 0, 0.399197, 0.916865, -29.3435, 21.8636, -69.1791 )
+
+[node name="Wall_Long3" parent="saida" instance=ExtResource( 20 )]
+transform = Transform( -1.62921e-07, -1.65132, 0, 0.965081, -2.59639e-07, -0.261953, 0.261953, -7.04743e-08, 0.96508, -31.104, 23.5472, -68.2949 )
 
 [node name="Tunnel Variant4" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0.235573, 2.40548, 10.2887 )
@@ -2033,6 +2090,44 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.048, 2.405, -15.338 )
 [node name="Tunnel Variant10" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.803, 2.405, -15.338 )
 
+[node name="Tunnel Variant12" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 3.648, -28.099 )
+
+[node name="Tunnel Variant13" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 6.38542, -34.2473 )
+
+[node name="Tunnel Variant14" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 9.13195, -40.4162 )
+
+[node name="Tunnel Variant15" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 11.8708, -46.5676 )
+
+[node name="Tunnel Variant16" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 14.6186, -52.7394 )
+
+[node name="Tunnel Variant17" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 17.3567, -58.8892 )
+
+[node name="Tunnel Variant18" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.48835e-07, -6.62658e-08, -1, -0.406737, 0.913545, 0, 0.913545, 0.406737, -1.62921e-07, -31.927, 20.0879, -65.0236 )
+
+[node name="Tunnel Variant19" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -31.929, 22.348, -73.849 )
+
+[node name="Tunnel Variant20" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -31.929, 22.348, -80.601 )
+
+[node name="Tunnel Variant21" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.799, 22.347, -87.134 )
+
+[node name="Tunnel Variant22" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0539, 22.347, -87.134 )
+
+[node name="MeshInstance" type="MeshInstance" parent="saida/Tunnel Variant22"]
+transform = Transform( 0.144789, 0, 0, 0, 2.12789, 0, 0, 0, 2.03891, 2.29574, -0.342951, 0 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
+
 [node name="Tunnel Variant8" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.775, 2.405, -15.338 )
 
@@ -2042,14 +2137,51 @@ transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.235, 
 [node name="curva2" parent="saida" instance=ExtResource( 35 )]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -26.558, 2.405, -15.338 )
 
+[node name="curva3" parent="saida" instance=ExtResource( 35 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -26.55, 22.348, -87.133 )
+
 [node name="door_metal" parent="saida" instance=ExtResource( 36 )]
 transform = Transform( 1.16814e-07, -0.5, -2.78042e-07, -0.717, -8.14603e-08, -3.45589e-21, -4.54891e-14, 1.94707e-07, -0.714, 9.75915, 0.0890007, -15.338 )
 
 [node name="door_metal2" parent="saida" instance=ExtResource( 36 )]
 transform = Transform( 1.90314e-14, -8.14603e-08, 0.714, -0.717, -8.14603e-08, 0, 1.16814e-07, -0.5, -1.16325e-07, -31.9488, 0.0889931, -12.5705 )
 
+[node name="door_metal4" parent="saida" instance=ExtResource( 36 )]
+transform = Transform( 1.90314e-14, -8.14603e-08, -0.714, -0.717, -8.14603e-08, 0, -1.16814e-07, 0.5, -1.16325e-07, -31.9302, 20.0434, -89.7071 )
+
 [node name="door_metal3" parent="saida" instance=ExtResource( 36 )]
 transform = Transform( 1.90314e-14, -8.14603e-08, -0.714, -0.717, -8.14603e-08, 0, -1.16814e-07, 0.5, -1.16325e-07, 0.243811, 0.0889969, 12.7869 )
 script = ExtResource( 37 )
+
+[node name="Stairway_Joiner" parent="saida" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -33.4196, 2.264, -30.218 )
+
+[node name="Stairway_Joiner2" parent="saida" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -33.42, 6.289, -39.274 )
+
+[node name="Stairway_Joiner3" parent="saida" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -33.42, 10.295, -48.331 )
+
+[node name="Stairway_Joiner4" parent="saida" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -33.42, 14.342, -57.38 )
+
+[node name="Stairway_Joiner5" parent="saida" instance=ExtResource( 24 )]
+transform = Transform( -1, 0, 0, 0, 1, 0, 0, 0, -1, -33.42, 18.358, -66.429 )
+
+[node name="shin" parent="saida" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.9452, 20.1011, -85.4105 )
+
+[node name="shin4" parent="saida" instance=ExtResource( 38 )]
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -18.0962, 20.1011, -86.8538 )
+
+[node name="shin2" parent="saida" instance=ExtResource( 38 )]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -31.7949, 0.099556, -15.5678 )
+
+[node name="shin3" parent="saida" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0883236, 0.099556, -14.9022 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 9 )
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="limbo/curva/Area_close_door" to="limbo/curva/Area_close_door" method="_on_Area_close_door_body_entered"]

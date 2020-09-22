@@ -43,6 +43,7 @@ BackgroundLoad="*res://maps/Load Map/background_load.tscn"
 
 [display]
 
+window/size/fullscreen=true
 window/vsync/use_vsync=false
 
 [editor_plugins]
