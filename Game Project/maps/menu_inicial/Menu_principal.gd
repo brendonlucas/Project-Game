@@ -16,6 +16,7 @@ var d_grass
 
 
 func _ready():
+	get_tree().paused = false
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	option_sombra = get_node_or_null("Menu_2/ColorRect/Sombra/OptionButton")
 	sensibilidade = get_node_or_null("Menu_2/ColorRect/Sensibilidade/HSlider")
@@ -52,15 +53,14 @@ func _on_Button_opcoes_pressed():
 
 
 func _on_Button_start_pressed():
-	print("start")
-	# hide()
+	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
 
 
 
 
 func update_options():
 	pass
-	option_sombra.select(sun.directional_shadow_mode)
+	option_sombra.select(Gamestate.type_shadow_mode)
 	$Menu_2/ColorRect/Sensibilidade/HSlider.value = Gamestate.camera_sensibilidade
 	$Menu_2/ColorRect/Sensibilidade/Label_sensi.set_text(str(Gamestate.camera_sensibilidade))
 	$Menu_2/ColorRect/Distancia/HSlider_v_distance.value = Gamestate.view_distance

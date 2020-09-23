@@ -24,8 +24,13 @@ func _ready():
 	cam = get_parent().get_node_or_null("target")
 	player = get_parent().get_node_or_null("Player_v4")
 	var option_sombra = get_node_or_null("Menu_2/sombra/OptionButton")
-	#for button in $Menu_1/buttons.get_children():
-		#button.connect("pressed", self, "_on_Button_pressed", "res://Menu_pausa/teste.tscn")
+	update_options()
+	
+func dados_iniciais():
+	var sun = get_tree().get_root().get_node_or_null("Map/Sol")
+	# var env = get_tree().get_root().get_node_or_null("Map/WorldEnvironment")
+	var terrain_grass = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")
+	
 func _process(delta):
 	pass
 		
@@ -89,7 +94,7 @@ func _on_FadeIn_fade_finished():
 
 
 func update_options():
-	option_sombra.select(sun.directional_shadow_mode)
+	option_sombra.select(Gamestate.type_shadow_mode)
 	$Menu_2/Sensibilidade/HSlider.value = Gamestate.camera_sensibilidade
 	$Menu_2/Sensibilidade/Label_sensi.set_text(str(Gamestate.camera_sensibilidade))
 	$Menu_2/grass_distance/HSlider_v_distance.value = Gamestate.view_distance

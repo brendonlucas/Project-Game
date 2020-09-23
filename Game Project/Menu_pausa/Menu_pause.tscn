@@ -119,6 +119,7 @@ __meta__ = {
 }
 
 [node name="Menu_2" type="Control" parent="."]
+visible = false
 anchor_left = 0.49
 anchor_right = 0.999
 anchor_bottom = 1.0

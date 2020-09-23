@@ -46,6 +46,15 @@ flip_faces = true
 
 [sub_resource type="SphereMesh" id=4]
 
+[sub_resource type="SpatialMaterial" id=13]
+flags_transparent = true
+flags_unshaded = true
+albedo_color = Color( 0.572549, 0.607843, 0.607843, 0.435294 )
+
+[sub_resource type="CubeMesh" id=14]
+material = SubResource( 13 )
+size = Vector3( 0.02, 0.5, 0.02 )
+
 [sub_resource type="DynamicFont" id=5]
 size = 20
 use_filter = true
@@ -81,15 +90,6 @@ font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=12]
 font_data = ExtResource( 16 )
-
-[sub_resource type="SpatialMaterial" id=13]
-flags_transparent = true
-flags_unshaded = true
-albedo_color = Color( 0.572549, 0.607843, 0.607843, 0.435294 )
-
-[sub_resource type="CubeMesh" id=14]
-material = SubResource( 13 )
-size = Vector3( 0.02, 0.5, 0.02 )
 
 [node name="Map" type="Spatial"]
 
@@ -171,6 +171,23 @@ autoplay = true
 stream = ExtResource( 15 )
 volume_db = -10.0
 autoplay = true
+
+[node name="CPUParticles" type="CPUParticles" parent="."]
+transform = Transform( 0.937507, 0.347967, 0, -0.347967, 0.937507, 0, 0, 0, 1, 0, 25.8819, 4.94616 )
+amount = 200
+mesh = SubResource( 14 )
+emission_shape = 2
+emission_box_extents = Vector3( 20, 0, 20 )
+gravity = Vector3( 0, -50, 0 )
+
+[node name="Treemedium2" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -11.9437, 9.69569, -11.0174 )
+
+[node name="Treemedium3" parent="." instance=ExtResource( 21 )]
+transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -5.17664, 10.0504, -40.4448 )
+
+[node name="treelarge2" parent="." instance=ExtResource( 20 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61173, 9.99138, -5.00577 )
 
 [node name="Menu_principal" type="Control" parent="."]
 anchor_right = 1.0
@@ -559,23 +576,7 @@ __meta__ = {
 }
 
 [node name="FadeIn" parent="Menu_principal" instance=ExtResource( 17 )]
-
-[node name="CPUParticles" type="CPUParticles" parent="."]
-transform = Transform( 0.937507, 0.347967, 0, -0.347967, 0.937507, 0, 0, 0, 1, 0, 25.8819, 4.94616 )
-amount = 200
-mesh = SubResource( 14 )
-emission_shape = 2
-emission_box_extents = Vector3( 20, 0, 20 )
-gravity = Vector3( 0, -50, 0 )
-
-[node name="Treemedium2" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -11.9437, 9.69569, -11.0174 )
-
-[node name="Treemedium3" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -5.17664, 10.0504, -40.4448 )
-
-[node name="treelarge2" parent="." instance=ExtResource( 20 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61173, 9.99138, -5.00577 )
+[connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_start" to="Menu_principal" method="_on_Button_start_pressed"]
 [connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_opcoes" to="Menu_principal" method="_on_Button_opcoes_pressed"]
 [connection signal="pressed" from="Menu_principal/Menu_1/ColorRect/Grup_button/Button_sair" to="Menu_principal" method="_on_Button_sair_pressed"]
 [connection signal="value_changed" from="Menu_principal/Menu_2/ColorRect/Sensibilidade/HSlider" to="Menu_principal" method="_on_HSlider_value_changed"]

@@ -98,8 +98,9 @@ func _ready():
 var cam_atual = 1
 
 func _process(delta):
-	if Input.is_action_just_pressed("jump"):
-		boss_kill()
+	pass
+#	if Input.is_action_just_pressed("jump"):
+#		boss_kill()
 	
 		
 func instancia_game(solicitante):

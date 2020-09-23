@@ -115,7 +115,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "wave"
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
@@ -153,7 +153,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 20.0313, 8.15383, -35.8732, 0, 0, 0, 1, 2, 2, 2, 1, 1, 20.0313, 8.15383, -7.29709, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 resource_name = "wave"
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
@@ -191,7 +191,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 57.3754, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2, 1, 1, 24.1805, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 resource_name = "wave"
 length = 3.0
 tracks/0/type = "transform"
@@ -230,7 +230,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 2.1, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 3, 1, -1.317, 0, -10.481, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 resource_name = "wave"
 length = 3.0
 tracks/0/type = "transform"
@@ -269,7 +269,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 0.142351, 0, -32.4422, 0, 0, 0, 1, 2, 2, 2, 3, 1, 0.142351, 0, 1.66735, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=12]
 resource_name = "wave (copy)"
 length = 8.0
 loop = true
@@ -309,11 +309,10 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray(  )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=13]
 resource_name = "wave-2"
 
-[sub_resource type="Animation" id=13]
-resource_name = "wave"
+[sub_resource type="Animation" id=14]
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
 tracks/0/interp = 1
@@ -350,7 +349,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 52.4968, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 1, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=15]
 resource_name = "wave (copy)"
 length = 4.0
 loop = true
@@ -390,7 +389,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 2, 1, 8.27678, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 4, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=16]
 resource_name = "kill"
 length = 4.0
 tracks/0/type = "transform"
@@ -560,6 +559,7 @@ __meta__ = {
 anims/fade_out = SubResource( 7 )
 
 [node name="Menu_pause" parent="." instance=ExtResource( 10 )]
+pause_mode = 2
 visible = false
 
 [node name="som_vozes" type="AudioStreamPlayer" parent="."]
@@ -574,7 +574,7 @@ visible = false
 script = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave1"]
-anims/wave = SubResource( 9 )
+anims/wave = SubResource( 8 )
 
 [node name="drone_L1" parent="wave1" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8.154, -35.873 )
@@ -612,7 +612,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4709, 0, 0 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 57.3754, 0, 4.58527 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave2"]
-anims/wave = SubResource( 10 )
+anims/wave = SubResource( 9 )
 
 [node name="wave3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.169, 8.154, 0 )
@@ -635,7 +635,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -44.7973, 0, -33.4229 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1.317, 69.222, -10.481 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave3"]
-anims/wave = SubResource( 11 )
+anims/wave = SubResource( 10 )
 
 [node name="wave4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.079, 8.154, -12.409 )
@@ -658,9 +658,9 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 58.7819, 0, 5.65891 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.142351, 0, -32.4422 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave4"]
-anims/wave = SubResource( 12 )
-"anims/wave (copy)" = SubResource( 15 )
-anims/wave-2 = SubResource( 14 )
+anims/wave = SubResource( 11 )
+"anims/wave (copy)" = SubResource( 12 )
+anims/wave-2 = SubResource( 13 )
 next/wave = "wave (copy)"
 
 [node name="wave5" type="Spatial" parent="."]
@@ -684,8 +684,8 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -53.5429, 0, 5.66319 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4968, 0, 5.25339 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave5"]
-anims/wave = SubResource( 13 )
-"anims/wave (copy)" = SubResource( 16 )
+anims/wave = SubResource( 14 )
+"anims/wave (copy)" = SubResource( 15 )
 next/wave = "wave (copy)"
 
 [node name="boss" type="Spatial" parent="."]
@@ -696,7 +696,7 @@ transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss"]
-anims/kill = SubResource( 18 )
+anims/kill = SubResource( 16 )
 anims/move_frente = SubResource( 17 )
 [connection signal="animation_finished" from="fade_final/AnimationPlayer" to="Controler_map1" method="_on_AnimationPlayer_animation_finished"]
 
