@@ -2522,10 +2522,6 @@ transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 
 [node name="Wall_Long78" parent="limbo" instance=ExtResource( 20 )]
 transform = Transform( -1.62921e-07, 1.106, 4.37114e-08, 0, -4.83448e-08, 1, 1, 1.8019e-07, 7.12149e-15, 21.3932, -29.5407, -51.2122 )
 
-[node name="Menu_pause" parent="." instance=ExtResource( 32 )]
-pause_mode = 2
-visible = false
-
 [node name="saida" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4026, -36.0265, -24.7657 )
 
@@ -2661,6 +2657,10 @@ environment = SubResource( 15 )
 
 [node name="HUD_UI" parent="." instance=ExtResource( 45 )]
 script = ExtResource( 48 )
+
+[node name="Menu_pause" parent="." instance=ExtResource( 32 )]
+pause_mode = 2
+visible = false
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="limbo/curva/Area_close_door" to="limbo/curva/Area_close_door" method="_on_Area_close_door_body_entered"]
