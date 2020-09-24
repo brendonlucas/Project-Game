@@ -46,49 +46,49 @@ flip_faces = true
 
 [sub_resource type="SphereMesh" id=4]
 
-[sub_resource type="SpatialMaterial" id=13]
+[sub_resource type="SpatialMaterial" id=5]
 flags_transparent = true
 flags_unshaded = true
 albedo_color = Color( 0.572549, 0.607843, 0.607843, 0.435294 )
 
-[sub_resource type="CubeMesh" id=14]
-material = SubResource( 13 )
+[sub_resource type="CubeMesh" id=6]
+material = SubResource( 5 )
 size = Vector3( 0.02, 0.5, 0.02 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 20
-use_filter = true
-font_data = ExtResource( 16 )
-
-[sub_resource type="DynamicFont" id=6]
-size = 20
-use_filter = true
-font_data = ExtResource( 16 )
-
 [sub_resource type="DynamicFont" id=7]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=9]
 size = 20
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 16 )
 
-[sub_resource type="DynamicFont" id=8]
-use_filter = true
-font_data = ExtResource( 16 )
-
-[sub_resource type="DynamicFont" id=9]
-use_filter = true
-font_data = ExtResource( 16 )
-
 [sub_resource type="DynamicFont" id=10]
-size = 20
 use_filter = true
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=11]
-size = 13
+use_filter = true
 font_data = ExtResource( 16 )
 
 [sub_resource type="DynamicFont" id=12]
+size = 20
+use_filter = true
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 13
+font_data = ExtResource( 16 )
+
+[sub_resource type="DynamicFont" id=14]
 font_data = ExtResource( 16 )
 
 [node name="Map" type="Spatial"]
@@ -175,7 +175,7 @@ autoplay = true
 [node name="CPUParticles" type="CPUParticles" parent="."]
 transform = Transform( 0.937507, 0.347967, 0, -0.347967, 0.937507, 0, 0, 0, 1, 0, 25.8819, 4.94616 )
 amount = 200
-mesh = SubResource( 14 )
+mesh = SubResource( 6 )
 emission_shape = 2
 emission_box_extents = Vector3( 20, 0, 20 )
 gravity = Vector3( 0, -50, 0 )
@@ -236,7 +236,7 @@ anchor_right = 1.0
 anchor_bottom = 0.11
 margin_right = -1.28098
 margin_bottom = -0.0100021
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 text = "Start"
 flat = true
 __meta__ = {
@@ -250,7 +250,7 @@ anchor_right = 0.845304
 anchor_bottom = 0.275
 margin_left = 0.0400066
 margin_bottom = -0.0250015
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Options"
 flat = true
 __meta__ = {
@@ -264,7 +264,7 @@ anchor_right = 0.518
 anchor_bottom = 0.443
 margin_right = -0.0475616
 margin_bottom = 0.0869904
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 9 )
 text = "Exit"
 flat = true
 __meta__ = {
@@ -311,7 +311,7 @@ anchor_bottom = 0.5
 margin_left = 0.317302
 margin_right = 0.109291
 margin_bottom = 0.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "Sensibilidade"
 valign = 1
 __meta__ = {
@@ -327,7 +327,7 @@ margin_left = 0.0559988
 margin_top = -0.0019989
 margin_right = -0.100002
 margin_bottom = -0.0140038
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
 valign = 1
@@ -361,7 +361,7 @@ margin_left = 0.0799999
 margin_top = 0.151993
 margin_right = -0.0600281
 margin_bottom = -0.199997
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 12 )
 text = "Graficos"
 align = 1
 valign = 1
@@ -384,7 +384,7 @@ anchor_left = 0.0150602
 anchor_top = 0.0204082
 anchor_right = 0.237952
 anchor_bottom = 0.44898
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "Sombra"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -399,7 +399,7 @@ margin_left = -0.0840034
 margin_top = 0.00999832
 margin_right = -0.0560303
 margin_bottom = 0.0149994
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "Low"
 items = [ "Low", null, false, 0, null, "Medium", null, false, 1, null, "High", null, false, 2, null ]
 selected = 0
@@ -424,7 +424,7 @@ anchor_bottom = 0.5
 margin_left = 0.317302
 margin_right = 0.109291
 margin_bottom = 0.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "Distancia de visao"
 valign = 1
 __meta__ = {
@@ -440,7 +440,7 @@ margin_left = 0.0559988
 margin_top = -0.0019989
 margin_right = -0.100002
 margin_bottom = -0.0140038
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
 valign = 1
@@ -481,7 +481,7 @@ anchor_bottom = 0.5
 margin_left = 0.317302
 margin_right = 0.109291
 margin_bottom = 0.5
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "Densidade da grama"
 valign = 1
 __meta__ = {
@@ -497,7 +497,7 @@ margin_left = 0.0559988
 margin_top = -0.0019989
 margin_right = -0.100002
 margin_bottom = -0.0140038
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 11 )
 text = "0"
 align = 1
 valign = 1
@@ -537,7 +537,7 @@ anchor_left = 0.0150602
 anchor_top = 0.0204082
 anchor_right = 0.237952
 anchor_bottom = 0.44898
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "SS Reflexao"
 __meta__ = {
 "_edit_use_anchors_": true
@@ -552,7 +552,7 @@ margin_left = -0.0840034
 margin_top = 0.00999832
 margin_right = -0.0560303
 margin_bottom = 0.0149994
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 13 )
 text = "Yes"
 items = [ "Yes", null, false, 0, null, "No", null, false, 1, null ]
 selected = 0
@@ -569,7 +569,7 @@ margin_left = 0.127998
 margin_top = 0.143982
 margin_right = -0.128021
 margin_bottom = -25.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 14 )
 text = "Aplicar"
 __meta__ = {
 "_edit_use_anchors_": false
