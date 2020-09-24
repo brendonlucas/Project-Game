@@ -1,0 +1,298 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://player/UI/Status_UI.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Status_UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Status_container" type="Control" parent="."]
+anchor_left = 0.964
+anchor_top = 0.5
+anchor_right = 0.964
+anchor_bottom = 0.5
+margin_left = -266.136
+margin_top = -272.0
+margin_right = -0.136047
+margin_bottom = 272.0
+
+[node name="ColorRect" type="ColorRect" parent="Status_container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.552941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Status_container"]
+anchor_top = 0.00551471
+anchor_right = 1.0
+anchor_bottom = 0.0441176
+custom_fonts/font = SubResource( 1 )
+text = "Status"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="bara" type="ColorRect" parent="Status_container"]
+anchor_top = 0.0620294
+anchor_right = 1.0
+anchor_bottom = 0.0720294
+margin_left = 15.0
+margin_top = 0.255999
+margin_right = -15.0
+margin_bottom = -3.184
+color = Color( 0.568627, 0.568627, 0.568627, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="box_dados" type="Control" parent="Status_container"]
+anchor_top = 0.0974265
+anchor_right = 1.0
+anchor_bottom = 0.525735
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Nivel_container" type="Control" parent="Status_container/box_dados"]
+anchor_left = 0.103
+anchor_top = 0.032
+anchor_right = 0.895
+anchor_bottom = 0.116
+margin_left = -0.398003
+margin_top = -0.456
+margin_right = -0.0699921
+margin_bottom = -0.0280018
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_nivel" type="Label" parent="Status_container/box_dados/Nivel_container"]
+anchor_right = 0.251
+anchor_bottom = 1.0
+margin_right = -11.381
+margin_bottom = -14.9216
+custom_fonts/font = SubResource( 2 )
+text = "NIVEL:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_Nivel_values" type="Label" parent="Status_container/box_dados/Nivel_container"]
+anchor_left = 0.251
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0389938
+margin_right = -1.52588e-05
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exp_atual_container" type="Control" parent="Status_container/box_dados"]
+anchor_left = 0.102
+anchor_top = 0.12
+anchor_right = 0.895
+anchor_bottom = 0.206
+margin_left = -0.132002
+margin_top = 0.039999
+margin_right = -0.0699921
+margin_bottom = 0.00199509
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_exp" type="Label" parent="Status_container/box_dados/Exp_atual_container"]
+anchor_right = 0.197
+anchor_bottom = 1.05
+margin_right = 0.0129967
+margin_bottom = -15.9216
+custom_fonts/font = SubResource( 2 )
+text = "EXP:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_exp_values" type="Label" parent="Status_container/box_dados/Exp_atual_container"]
+anchor_left = 0.194
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0659943
+margin_right = -1.52588e-05
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "45 / 659"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bara2" type="ColorRect" parent="Status_container/box_dados"]
+anchor_top = 0.240292
+anchor_right = 1.0
+anchor_bottom = 0.249292
+margin_left = 15.0
+margin_top = 0.0119972
+margin_right = -15.0
+margin_bottom = -0.0850029
+color = Color( 0.568627, 0.568627, 0.568627, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PV_container" type="Control" parent="Status_container/box_dados"]
+anchor_left = 0.102
+anchor_top = 0.279
+anchor_right = 0.895
+anchor_bottom = 0.365
+margin_left = -0.132002
+margin_top = -0.00700378
+margin_right = -0.0699921
+margin_bottom = -0.0450058
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_pv" type="Label" parent="Status_container/box_dados/PV_container"]
+anchor_right = 0.197
+anchor_bottom = 1.05
+margin_right = 0.0129967
+margin_bottom = -15.9216
+custom_fonts/font = SubResource( 2 )
+text = "PV:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_pv_values" type="Label" parent="Status_container/box_dados/PV_container"]
+anchor_left = 0.194
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0659943
+margin_right = -1.52588e-05
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "1500 / 2300"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="attack_container" type="Control" parent="Status_container/box_dados"]
+anchor_left = 0.102
+anchor_top = 0.360545
+anchor_right = 0.895
+anchor_bottom = 0.446545
+margin_left = -0.132002
+margin_top = -0.00700378
+margin_right = -0.0699921
+margin_bottom = -0.0450058
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_attack" type="Label" parent="Status_container/box_dados/attack_container"]
+anchor_right = 0.197
+anchor_bottom = 1.05
+margin_right = 0.0129967
+margin_bottom = -15.9216
+custom_fonts/font = SubResource( 2 )
+text = "STR:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_attack_values" type="Label" parent="Status_container/box_dados/attack_container"]
+anchor_left = 0.194
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0659943
+margin_right = -1.52588e-05
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "138 + 48"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Def_container" type="Control" parent="Status_container/box_dados"]
+anchor_left = 0.102
+anchor_top = 0.44209
+anchor_right = 0.895
+anchor_bottom = 0.52809
+margin_left = -0.132002
+margin_top = -0.00700378
+margin_right = -0.0699921
+margin_bottom = -0.0450058
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label_def" type="Label" parent="Status_container/box_dados/Def_container"]
+anchor_right = 0.197
+anchor_bottom = 1.05
+margin_right = 0.0129967
+margin_bottom = -15.9216
+custom_fonts/font = SubResource( 2 )
+text = "DEF:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_def_values" type="Label" parent="Status_container/box_dados/Def_container"]
+anchor_left = 0.194
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.0659943
+margin_right = -1.52588e-05
+margin_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
+text = "50"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bara3" type="ColorRect" parent="Status_container/box_dados"]
+anchor_top = 0.553597
+anchor_right = 1.0
+anchor_bottom = 0.562597
+margin_left = 15.0
+margin_top = 0.0119972
+margin_right = -15.0
+margin_bottom = -0.0850029
+color = Color( 0.568627, 0.568627, 0.568627, 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}

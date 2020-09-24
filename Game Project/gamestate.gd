@@ -131,42 +131,6 @@ func drop_game():
 	
 	
 	
-# controle de experiencia optida
-func add_exp(xp_value):
-	#Salvar_BD: nivel/ exp total / exp restante / exp nivel atual
-	if nivel < 10:
-		exp_active = false
-		var exp_prox_nivel : int = a[str(nivel)]
-		var exp_restante = a[str(nivel)] - exp_atual
-		
-		if exp_restante < xp_value:
-			print("entrou na sobra")
-			var sobra_exp = xp_value - exp_restante
-			var exp_usada = xp_value - sobra_exp
-			exp_total += exp_usada
-			exp_atual += exp_usada
-			print(exp_usada)
-			print(sobra_exp)
-			
-			if exp_atual >= exp_prox_nivel and nivel < 10:
-				nivel += 1
-				exp_atual = 0
-			add_exp(sobra_exp)
-		else:
-			print("foi normal")
-			exp_total += xp_value
-			exp_atual += xp_value
-			
-			if exp_atual >= exp_prox_nivel and nivel < 10:
-				nivel += 1
-				exp_atual = 0
-	
-		exp_restante = a[str(nivel)] - exp_atual
-		#label_exp_total.set_text(str(exp_total))
-		#label_nivel.set_text(str(nivel))
-		#label_exp_nivel_atual.set_text(str(exp_atual))
-		#label_exp_restante.set_text(str(exp_restante))
-
 func randomNumber():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
