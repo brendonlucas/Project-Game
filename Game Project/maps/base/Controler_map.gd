@@ -4,7 +4,6 @@ var legenda
 var timer
 var legenda_label
 
-var enemy_kill = 0
 var executou = false
 var executou2 = false
 
@@ -12,40 +11,36 @@ var executando_legenda = false
 var text_in_execution
 var text_atual = 1
 var legenda_executando = 0
-var part1 = {'1':{"text":"Ano de 3400, este planeta conhecido como Terra, sofreu com guerras pelo poder durante anos, poucos sobreviveram.",
-	"duracao":8,"audio":"res://audio/falas/p1/p1a1.wav"},
-	'2':{"text":"Os que restaram, criaram duas facções tecnológicas...","duracao":4,"audio":"res://audio/falas/p1/p1a2.wav"},
-	'3':{"text":"RaySpawn… Organização criminosa que fabrica armas militares e androids de combate, com pretensões desconhecidas.",
-	"duracao":8,"audio":"res://audio/falas/p1/p1a3.wav"},
-	'4':{"text":"Gênesis… Organização criada para combater os atos terroristas da RaySpawn.","duracao":6.5,"audio":"res://audio/falas/p1/p1a4.wav"},
-	'5':{"text":"E eu? sou Meya, uma andróide super inteligente da facção Gênesis….","duracao":6,"audio":"res://audio/falas/p1/p1a5.wav"},
-	'6':{"text":"Meya? falando sozinha de novo? Foco na missão!","duracao":5,"audio":"res://audio/falas/p1/p1a6.wav"},
-	'7':{"text":"Ok!","duracao":2,"audio":"res://audio/falas/p1/p1a7.wav"},
-	'8':{"text":"Alerta! inimigos próximos, preparar para o combate.","duracao":4,"audio":"res://audio/falas/p1/p1a8.wav"},
-}
+var part1 = {'1':{"text":"O lugar parece estar vazio e não encontrou sinais de vida.", "duracao":5,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part2 = {'1':{'text':'O elevador está bloqueado... Talvez encontre alguma forma de destravar-lo.','duracao': 7, 'audio':"res://audio/falas/p1/p1a7.wav"}}
+var part3 = {'1':{'text':'humm.. sala de controle. talvez encontre algo aqui.','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"}}
+var part4 = {'1':{'text':'Ela? Quem?', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'O que será que eles faziam aqui.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part5 = {'1':{'text':'Consegui !!! O elevador deve funcionar agora.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part6 = {'1':{'text':'Mais um elevador bloqueado.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part7 = {'1':{'text':'Eles a trancaram nessa base... mas porque?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part8 = {'1':{'text':'Humm... geradores talvez se ligar-los destrave aquela porta.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part9 = {'1':{'text':'Algo me diz que não era para ter feito isso.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part10 = {'1':{'text':'Vieram me matar de vez agora?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Irei matar todos que fizeram isso comigo.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part11 = {'1':{'text':'Terei minha vingança.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Obrigada por deixar a porta aberta.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part12 = {'1':{'text':'A base está entrando em autodestruição devido a fuga da nija.', "duracao": 6,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Tenho que sair daqui.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part13 = {'1':{'text':'Droga ela trancou a porta...', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Mas a outra porta se abriu....', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part14 = {'1':{'text':'Por aqui', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Espere...', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
+'3':{'text':'Por aqui.', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
+'4':{'text':'Ei espere... quem é você?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},}
+var part15 = {'1':{'text':'Sinal obtido, iniciando upload de dados.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
+'2':{'text':'Dados enviados para a base, chance de fuga de 0%...', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
+'3':{'text':'Backup concluído.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"},}
 
-var part2 = {'1':{'text':'Alerta!, inimigo forte está se aproximando','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"}
-}
-
-var part3 = {'1':{'text':'Alerta! vírus detectado no sistema da nave.',
-	"duracao":5,"audio":"res://audio/falas/p1/p1a7.wav"},
-	'2':{'text':'Funções de navegação indisponível','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"},
-	'3':{'text':'Perdendo altitude.','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"},
-	'4':{'text':'Preparar para impacto.','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"}
-}
-
-
-var player_nave
-var fade_final
-var fade_change
-
-var timer_last_kill
+var player
 
 func _ready():
-	timer_last_kill = get_parent().get_node("Timer_last_kill")
-	fade_change = get_parent().get_node("fade/AnimationPlayer")
-	fade_final = get_tree().get_root().get_node_or_null("Map/fade_final/AnimationPlayer")
-	player_nave = get_tree().get_root().get_node_or_null("Map/Player_nave")
+	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	legenda = get_tree().get_root().get_node_or_null("Map/legendas")
 	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
@@ -57,16 +52,6 @@ var cam_normal = preload("res://player/nave/target.tscn")
 func _process(delta):
 	if executando_legenda:
 		aplly_text()
-	
-	if enemy_kill == 5 and !executou:
-		start_legenda2()
-		executou = true
-		
-	if enemy_kill >= 6 and !executou2 and timer_last_kill.time_left == 0:
-		executou2 = true
-		start_legenda3()
-		get_parent().get_node("bg_music").stop()
-		
 
 func set_dados_legenda(execution_text, text_info, audio):
 	executando_legenda = true
@@ -82,7 +67,9 @@ func set_dados_legenda(execution_text, text_info, audio):
 	elif text_info == 3:
 		legenda_executando = 3
 		text_in_execution = part3
-		
+	elif text_info == 8:
+		legenda_executando = 8
+		text_in_execution = part8
 func aplly_text():
 	legenda.show()
 	if text_atual > text_in_execution.size() and timer.time_left == 0:
@@ -91,10 +78,9 @@ func aplly_text():
 		if legenda_executando == 1:
 			pass
 		elif legenda_executando == 2:
-			fade_change.play("fade_in")
-			
+			pass
 		elif legenda_executando == 3:
-			fade_final.play("fade_out")
+			pass
 		return
 		
 	if timer.time_left == 0:
@@ -118,8 +104,12 @@ func start_legenda2():
 	
 func start_legenda3():
 	set_dados_legenda(3, 3, true)
-
-
+	
+func start_legenda_elevador():
+	set_dados_legenda(2, 2, true)
+	
+func start_legenda_gerador():
+	set_dados_legenda(8, 8, true)
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")

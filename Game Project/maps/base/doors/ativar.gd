@@ -17,6 +17,7 @@ func interact():
 	elif !open and get_parent().get_node(".").get_active():
 		dor.play("open")
 		open = true
-		
+	elif !get_parent().get_node(".").get_active():
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda_elevador()
 func set_open(option):
 	open = option
