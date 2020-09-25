@@ -63,10 +63,6 @@ func _process(delta):
 	translation = player.translation
 	translation.y = player.translation.y + 1.8
 
-	
-	
-	
-
 
 func block_cam(option):
 	if option == true:

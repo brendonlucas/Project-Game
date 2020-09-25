@@ -12,4 +12,4 @@ func update_values():
 
 func _process(delta):
 	if Input.is_action_just_pressed("interact"):
-		PlayerStatus.add_exp(50000)
+		PlayerStatus.add_exp(1000)

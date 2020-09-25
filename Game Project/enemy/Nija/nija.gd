@@ -8,7 +8,11 @@ var target
 var timer_attack
 var target_attack
 var animation
+
 var life = 1000
+var defesa = 50
+var dano_arma = 70
+var dano_base = 170
 
 func hit_damage(damage):
 	life -= damage

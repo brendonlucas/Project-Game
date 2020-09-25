@@ -11,8 +11,6 @@ var GRAVITY = 0.98
 var y_velocity : float
 var velocity = Vector3()
 
-
-
 var cam
 var player
 var animation
@@ -55,7 +53,6 @@ func add_atake():
 	atacks += 1
 	
 func _physics_process(delta):
-	#$Armature.translation = translation
 	movimentos(delta)
 	ataque(delta)
 	
@@ -66,31 +63,42 @@ func ataque(delta):
 			atacks = 0
 			
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
-		timer_reset_atak.start()
-		timer_1.start()
+		var timer_space = 0
 		resetado = false
 		if atacks == 0:
-			animation.play("attack1", 0.1)
+			animation.play("attack1")
 			atacks += 1
 			atacando = true
+			timer_space = 0.34
+			
 		elif atacks == 1:
-			animation.play("attack2", 0.1)
+			animation.play("attack2")
 			atacks += 1
 			atacando = true
+			timer_space = 0.35
 		elif atacks == 2:
-			animation.play("attack3", 0.1)
+			animation.play("attack3")
 			atacks = 0
 			atacando = true
+			timer_space = 0.30
 		if atacks == 3:
 			atacks = 0
 			
-	if Input.is_action_just_pressed("ataque_pesado") and moviments_active:
-		#animation.play("dying", 0.2)
-		animation.play("attack_charge_1", 0.2)
+		timer_reset_atak.start()
+		timer_1.wait_time = timer_space
+		timer_1.start()
+	if Input.is_action_just_pressed("ataque_pesado") and moviments_active and timer_1.time_left == 0:
+		timer_1.wait_time = 1
+		timer_1.start()
+		animation.play("attack_charge_1",0.1)
 		atacks = 0
 		atacando = true
-
+	
+	
 func movimentos(delta):
+	
+		
+	
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()
 	var is_moving = false
@@ -120,28 +128,27 @@ func movimentos(delta):
 		caminhando = true
 		MOVE_SPEED = 2
 		atacando = false
-	
-	if cc == 0 and !is_moving:
-		cc = 0.1
-	elif is_moving:
-		cc = 0
+	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("frente"):
+		pass
 		
+	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
+		#MOVE_SPEED = 100
+		#dir += global_transform.basis[2]
+		var olhar = get_parent().get_node("nija/body/Armature").global_transform.origin
+		look_at_from_position(global_transform.origin, olhar, Vector3.UP)
+		self.rotate_object_local(Vector3(0,1,0), 3.14)
+	
 	if is_moving and !correndo and resetado and !caminhando:
 		$AnimationPlayer.play("run1", 0.1)
 		parando = true
 	elif is_moving and !correndo and resetado and caminhando:
 		$AnimationPlayer.play("walk",0.1)
 	elif !is_moving and !correndo and !atacando and !caminhando:
-		animation.play("idle", 0.2)
-
+		animation.play("idle", 0.1)
 	elif correndo and resetado and is_moving:
-		var ii
-		if parando == true:
-			ii = 0.1
-		elif parando == false:
-			ii = 0
-		animation.play("run2", ii)
+		animation.play("run2", 0.1)
 		parando = false
+	
 	
 	dir.y = 0
 	dir = dir.normalized()
@@ -172,7 +179,7 @@ func movimentos(delta):
 	
 	
 	
-	
+
 	
 func block_moviments(option):
 	if option == true:
@@ -187,8 +194,10 @@ func active_moves_ataque(option):
 		atacando = option
 		
 	
-	
-	
+func hit_damage(damage):
+	PlayerStatus.vida_atual -= damage
+	get_parent().get_node("HUD_UI").update_values()
+	get_parent().get_node("Status_UI").update_values()
 func change_ataque(option):
 	pass
 			
