@@ -29,7 +29,7 @@ spring_length = 3.0
 
 [node name="Camera" type="Camera" parent="CameraBoom"]
 current = true
-far = 8192.0
+far = 1000.0
 
 [node name="Area" type="Area" parent="CameraBoom/Camera"]
 script = ExtResource( 1 )

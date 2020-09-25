@@ -6,7 +6,7 @@
 [ext_resource path="res://props/agua/watherfall.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://player/Camera_target.gd" type="Script" id=5]
 [ext_resource path="res://Menu_pausa/Menu_pause.tscn" type="PackedScene" id=6]
-[ext_resource path="res://props/agua/textura/dirt.png" type="Texture" id=7]
+[ext_resource path="res://textures/Snow/Snow006_2K_Color.jpg" type="Texture" id=7]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=8]
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://props/ancient-columns/textures/ground_normal_2K.png" type="Texture" id=10]
@@ -18,7 +18,7 @@
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=16]
 [ext_resource path="res://textures/rock/Rock014_2K_Color.jpg" type="Texture" id=17]
 [ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_Metallic_2K.png" type="Texture" id=18]
-[ext_resource path="res://textures/Rock026_2K-JPG/Rock026_2K_Normal.jpg" type="Texture" id=19]
+[ext_resource path="res://textures/Snow/Snow006_2K_Normal.jpg" type="Texture" id=19]
 [ext_resource path="res://default_env.tres" type="Environment" id=20]
 [ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_Roughness_2K.png" type="Texture" id=21]
 [ext_resource path="res://textures/rock/Rock014_2K_Normal.jpg" type="Texture" id=22]
@@ -31,23 +31,6 @@
 [ext_resource path="res://props/agua/agua_watherfall.tres" type="Material" id=29]
 [ext_resource path="res://audio/ambiente.ogg" type="AudioStream" id=30]
 [ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=32]
-
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="SpatialMaterial" id=2]
-albedo_texture = ExtResource( 11 )
-metallic_texture = ExtResource( 18 )
-roughness_texture = ExtResource( 21 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 23 )
-uv1_scale = Vector3( 12, 8, 1 )
-
-[sub_resource type="ConvexPolygonShape" id=3]
-points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "move"
@@ -85,6 +68,23 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 11 )
+metallic_texture = ExtResource( 18 )
+roughness_texture = ExtResource( 21 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 23 )
+uv1_scale = Vector3( 12, 8, 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.755668, 0.00758927, 19.1759 )
+
 [sub_resource type="Animation" id=8]
 resource_name = "move"
 length = 2.0
@@ -111,7 +111,7 @@ script = ExtResource( 5 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 446.663, 194.063, 314.148 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 199.903, 33.3348, 567.821 )
 script = ExtResource( 28 )
 
 [node name="Node" type="Node" parent="."]
@@ -123,6 +123,30 @@ transform = Transform( 1, 0, 0, 0, -0.700598, 0.713556, 0, -0.713556, -0.700598,
 light_cull_mask = 2147483647
 shadow_enabled = true
 directional_shadow_max_distance = 400.0
+
+[node name="watherfall" type="Spatial" parent="."]
+transform = Transform( 0.553406, 0, 0.832912, 0, 1, 0, -0.832912, 0, 0.553406, 92.9599, -1.81708, 547.553 )
+
+[node name="MeshInstance" type="MeshInstance" parent="watherfall"]
+transform = Transform( 1.906, 0, 0, 0, -1.46433e-07, -1.846, 0, 3.35, -8.06912e-08, 0, 27.7284, 4.92016 )
+mesh = ExtResource( 4 )
+material/0 = ExtResource( 29 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="watherfall"]
+autoplay = "move"
+anims/move = SubResource( 5 )
+
+[node name="agua" type="Spatial" parent="."]
+transform = Transform( 0.509102, 0, 0.860707, 0, 1, 0, -0.860707, 0, 0.509102, 152.117, 2.90874, 632.986 )
+
+[node name="MeshInstance" type="MeshInstance" parent="agua"]
+transform = Transform( 149.687, 0, 9.67983, 0, 0.01, 0, -9.67983, 0, 149.687, 14.6654, -5.60262, -10.1017 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
+autoplay = "move"
+anims/move = SubResource( 7 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 8 )
@@ -280,32 +304,9 @@ transform = Transform( -0.557787, -4.96345, 0.230375, 3.59784, -0.563342, -3.426
 [node name="rock2" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.557787, -4.96345, 0.230375, 3.59784, -0.563342, -3.42611, 3.42701, -0.216437, 3.63438, 468.29, 15.902, 255.902 )
 
-[node name="watherfall" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 788.74, -3.11968, 80.6069 )
-
-[node name="MeshInstance" type="MeshInstance" parent="watherfall"]
-transform = Transform( 1.906, 0, 0, 0, -1.46433e-07, -1.846, 0, 3.35, -8.06912e-08, 0, 27.7284, 4.92016 )
-mesh = ExtResource( 4 )
-material/0 = ExtResource( 29 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="watherfall"]
-autoplay = "move"
-anims/move = SubResource( 5 )
-
-[node name="agua" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 849.323, -2.228, 504.639 )
-
-[node name="MeshInstance" type="MeshInstance" parent="agua"]
-transform = Transform( 77.0032, 0, 32.2661, 0, 0.01, 0, -4.97957, 0, 498.958, 0, 0, 0 )
-mesh = SubResource( 6 )
-material/0 = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
-autoplay = "move"
-anims/move = SubResource( 7 )
-
 [node name="agua2" type="Spatial" parent="."]
 transform = Transform( 60, 0, 0, 0, 1, 0, 0, 0, 40, 1296.16, -2.228, 504.639 )
+visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="agua2"]
 transform = Transform( 77.164, 0, 0, 0, 0.01, 0, 0, 0, 500, -20.3818, 0, 0 )
