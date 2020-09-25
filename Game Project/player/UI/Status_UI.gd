@@ -17,6 +17,7 @@ func _process(delta):
 			hide()
 			mostrando = false
 		elif !mostrando:
+			update_values()
 			show()
 			mostrando = true
 	

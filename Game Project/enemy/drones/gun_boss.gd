@@ -1,6 +1,6 @@
 extends Spatial
 
-const DAMAGE = 15
+const DAMAGE = 20
 var bullet_scene = preload("res://enemy/drones/bullet_drone.tscn")
 var player
 func _ready():
@@ -9,7 +9,6 @@ func _ready():
 	
 func _process(delta):
 	if player:
-		print("sds")
 		var olhar = player.global_transform.origin
 		look_at(olhar, Vector3.UP)
 	

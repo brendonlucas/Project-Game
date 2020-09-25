@@ -36,17 +36,47 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 0, 0
 shape = SubResource( 2 )
 
 [node name="gun" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543298, 0, -0.522579 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.361251, -0.15943, -0.522579 )
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="gun"]
 one_shot = true
 
+[node name="gun3" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375036, 0.185372, -0.522579 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="gun3"]
+one_shot = true
+
+[node name="gun4" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.641575, 0.00409362, -0.522579 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="gun4"]
+one_shot = true
+
 [node name="gun2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404665, 0, -0.522579 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638459, -0.0137273, -0.522579 )
 script = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="gun2"]
 one_shot = true
 
-[node name="Timer_entre disparos" type="Timer" parent="."]
+[node name="gun5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.343449, -0.181581, -0.522579 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="gun5"]
+one_shot = true
+
+[node name="gun6" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.374409, 0.14004, -0.522579 )
+script = ExtResource( 2 )
+
+[node name="Timer" type="Timer" parent="gun6"]
+one_shot = true
+
+[node name="Timer_entre_disparos" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

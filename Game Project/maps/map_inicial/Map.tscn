@@ -712,10 +712,10 @@ anims/wave = SubResource( 14 )
 next/wave = "wave (copy)"
 
 [node name="boss" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.3016, 36.0053 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.3016, 42.3352 )
 
 [node name="drone_H" parent="boss" instance=ExtResource( 17 )]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss"]
