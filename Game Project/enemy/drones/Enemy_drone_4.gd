@@ -2,6 +2,8 @@ extends KinematicBody
 var life = 100000
 var morreu = false
 
+var exp_value = 400
+ 
 var ativo
 var timer
 var timer_gun_refresh
@@ -14,6 +16,7 @@ func _ready():
 	
 func _process(delta):
 	if life <= 0 and !morreu:
+		PlayerStatus.add_exp(exp_value)
 		ativo = false
 		morreu = true
 		get_parent().get_parent().get_node("Controler_map1").set_enemys_kill()

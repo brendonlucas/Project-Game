@@ -1,6 +1,8 @@
 extends KinematicBody
 
 var life = 5000
+var exp_value = 110
+
 var active_moves =true
 var speed = 2
 var timer
@@ -18,6 +20,7 @@ func _physics_process(delta):
 	if life <= 0 and !morreu:
 		morreu()
 		print("morreu")
+		PlayerStatus.add_exp(exp_value)
 		morreu = true
 		# queue_free()
 		
