@@ -134,16 +134,17 @@ func movimentos(delta):
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
 		#MOVE_SPEED = 100
 		#dir += global_transform.basis[2]
-		var olhar = get_parent().get_node("nija/body/Armature").global_transform.origin
-		look_at_from_position(global_transform.origin, olhar, Vector3.UP)
-		self.rotate_object_local(Vector3(0,1,0), 3.14)
+		pass
+		#var olhar = get_parent().get_node("nija").global_transform.origin
+		#look_at_from_position(global_transform.origin, olhar, Vector3.UP)
+		#self.rotate_object_local(Vector3(0,1,0), 3.14)
 	
 	if is_moving and !correndo and resetado and !caminhando:
 		$AnimationPlayer.play("run1", 0.1)
 		parando = true
 	elif is_moving and !correndo and resetado and caminhando:
 		$AnimationPlayer.play("walk",0.1)
-	elif !is_moving and !correndo and !atacando and !caminhando:
+	elif !is_moving and !correndo and !atacando and !caminhando and moviments_active:
 		animation.play("idle", 0.1)
 	elif correndo and resetado and is_moving:
 		animation.play("run2", 0.1)

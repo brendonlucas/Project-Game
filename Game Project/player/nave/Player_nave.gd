@@ -26,6 +26,10 @@ func _ready():
 	
 	#rotation_degrees.y = -180
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+func hit_damage(damage):
+	PlayerStatus.vida_atual -= damage
+	get_parent().get_node("HUD_UI").update_values()
+	
 func change_moves(option):
 	move_atual = option
 	
@@ -79,8 +83,6 @@ func moves_normal(delta):
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
-		
-	
 		
 	dir = dir.normalized()
 	var hv = velocity

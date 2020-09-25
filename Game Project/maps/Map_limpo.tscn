@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -85,6 +85,23 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=8]
+resource_name = "move"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
+}
+
 [node name="Map" type="Spatial"]
 
 [node name="target" parent="." instance=ExtResource( 3 )]
@@ -94,7 +111,7 @@ script = ExtResource( 5 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 472.52, 35.7149, 257.702 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 446.663, 194.063, 314.148 )
 script = ExtResource( 28 )
 
 [node name="Node" type="Node" parent="."]
@@ -286,6 +303,18 @@ material/0 = ExtResource( 2 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
 autoplay = "move"
 anims/move = SubResource( 7 )
+
+[node name="agua2" type="Spatial" parent="."]
+transform = Transform( 60, 0, 0, 0, 1, 0, 0, 0, 40, 1296.16, -2.228, 504.639 )
+
+[node name="MeshInstance" type="MeshInstance" parent="agua2"]
+transform = Transform( 77.164, 0, 0, 0, 0.01, 0, 0, 0, 500, -20.3818, 0, 0 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="agua2"]
+autoplay = "move"
+anims/move = SubResource( 8 )
 
 [node name="ambiente" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )

@@ -208,7 +208,8 @@ func active_new_wave():
 		get_parent().get_node("wave5").active_wave()
 		get_parent().get_node("wave5").show()
 		set_enemys_kill()
-	
+	if current_wave == 6:
+		set_enemys_kill()
 	
 	
 	

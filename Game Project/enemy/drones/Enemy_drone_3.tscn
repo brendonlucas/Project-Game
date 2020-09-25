@@ -19,7 +19,7 @@ surfaces/0 = {
 "vertex_count": 2382
 }
 
-[sub_resource type="ConvexPolygonShape" id=3]
+[sub_resource type="ConvexPolygonShape" id=2]
 points = PoolVector3Array( 0, 1, 1, 0, 1, -1, 0, 1, 1, 0, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 0, 1, 1, 0, 1, -1, 0, 1, -1, 0, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1 )
 
 [node name="drone_L" type="KinematicBody" groups=[
@@ -35,7 +35,7 @@ material/0 = null
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1.40513, 0, 0, 0, -1.62921e-07, -1, 0, 0.710905, -1.15821e-07, 0.00131595, 0, -0.0349548 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="gun" type="Spatial" parent="."]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.327135, 0, 0.4226 )

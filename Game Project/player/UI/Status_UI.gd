@@ -10,6 +10,13 @@ func update_values():
 	$Status_container/box_dados/Nivel_container/Label_Nivel_values.set_text(str(PlayerStatus.nivel))
 	$Status_container/box_dados/Exp_atual_container/Label_exp_values.set_text(str(PlayerStatus.exp_atual) + " / " + str(PlayerStatus.exp_niveis[str(PlayerStatus.nivel)]))
 
+var mostrando = false
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
-		PlayerStatus.add_exp(1000)
+	if Input.is_action_just_pressed("info"):
+		if mostrando:
+			hide()
+			mostrando = false
+		elif !mostrando:
+			show()
+			mostrando = true
+	

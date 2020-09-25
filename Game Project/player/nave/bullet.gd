@@ -4,7 +4,7 @@ extends Spatial
 var BULLET_SPEED = 150
 
 # The damage the bullet does on whatever it hits
-var BULLET_DAMAGE = 100
+var BULLET_DAMAGE = 500
 
 const KILL_TIMER = 4
 var timer = 0

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://testes/Controle_anin.gd" type="Script" id=1]
+
+[sub_resource type="Animation" id=4]
+resource_name = "hack_nija"
+length = 20.0
+tracks/0/type = "animation"
+tracks/0/path = NodePath("fade/AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": PoolStringArray( "fade", "fade" ),
+"times": PoolRealArray( 0, 9.3 )
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Animation_hack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6, 2.1, 2.9, 6.2, 6.9, 9.8, 10.2, 11.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_position"
+}, {
+"args": [  ],
+"method": "play_hack_nija"
+}, {
+"args": [  ],
+"method": "play_kill_meya"
+}, {
+"args": [  ],
+"method": "nija_walk"
+}, {
+"args": [  ],
+"method": "play_legenda"
+}, {
+"args": [  ],
+"method": "remove_nija"
+}, {
+"args": [  ],
+"method": "remove_cam"
+}, {
+"args": [  ],
+"method": "instance_game"
+} ]
+}
+
+[node name="Animation_hack" type="AnimationPlayer"]
+anims/hack_nija = SubResource( 4 )
+script = ExtResource( 1 )

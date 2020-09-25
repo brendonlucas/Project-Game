@@ -9,8 +9,13 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sinal/No_sinal.show()
-	pass
-
+	update_values()
+	
+	
+func update_values():
+	$Status/HP_bar.max_value =  PlayerStatus.vida_maxima
+	$Status/HP_bar.value =  PlayerStatus.vida_atual
+	
 func set_active_sinal():
 	$Sinal/on_sinal.show()
 	$Sinal/No_sinal.hide()

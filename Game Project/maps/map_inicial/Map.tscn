@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://props/agua/agua.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/drones/Enemy_drone_3.tscn" type="PackedScene" id=2]
@@ -18,6 +18,8 @@
 [ext_resource path="res://maps/map_inicial/waves/wave5.gd" type="Script" id=16]
 [ext_resource path="res://enemy/drones/Enemy_drone_4.tscn" type="PackedScene" id=17]
 [ext_resource path="res://enemy/drones/Enemy_drone_4.gd" type="Script" id=18]
+[ext_resource path="res://player/UI/HUD_UI.tscn" type="PackedScene" id=19]
+[ext_resource path="res://player/UI/Status_UI.tscn" type="PackedScene" id=20]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381219, 21.2058, 46.4236 )
@@ -431,13 +433,32 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ true ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("drone_H")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "set_active"
+} ]
+}
 
 [node name="Map" type="Spatial"]
+
+[node name="HUD_UI" parent="." instance=ExtResource( 19 )]
+
+[node name="Status_UI" parent="." instance=ExtResource( 20 )]
+visible = false
 
 [node name="Controler_map1" type="Node" parent="."]
 script = ExtResource( 8 )
@@ -453,7 +474,9 @@ one_shot = true
 [node name="target" parent="." instance=ExtResource( 4 )]
 transform = Transform( -5.57221e-08, 1.53095e-07, 1, 0.939692, 0.34202, 0, -0.34202, 0.939692, -1.62921e-07, 0, 7.64697, 0 )
 
-[node name="Player_nave" parent="." instance=ExtResource( 13 )]
+[node name="Player_nave" parent="." groups=[
+"Player_v4",
+] instance=ExtResource( 13 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8, 0 )
 script = ExtResource( 3 )
 
