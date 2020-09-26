@@ -52,9 +52,19 @@ func _ready():
 func add_atake():
 	atacks += 1
 	
+var lanterna = false
+
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
+	
+	if Input.is_action_just_pressed("lanterna"):
+		if lanterna:
+			$lanterna.light_energy = 0
+			lanterna = false
+		else:
+			$lanterna.light_energy = 1
+			lanterna = true
 	
 	
 func ataque(delta):

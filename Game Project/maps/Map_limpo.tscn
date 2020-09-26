@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -37,26 +37,28 @@
 [ext_resource path="res://props/metal_walls/Wall_Long.tscn" type="PackedScene" id=35]
 [ext_resource path="res://enemy/drones/Enemy_drone_1.tscn" type="PackedScene" id=36]
 [ext_resource path="res://textures/J8PL2ps.png" type="Texture" id=37]
+[ext_resource path="res://props/metal_walls/Stairway_Joiner.tscn" type="PackedScene" id=38]
+[ext_resource path="res://props/metal_walls/Stairway_large.tscn" type="PackedScene" id=39]
+[ext_resource path="res://props/metal_walls/Platform_Corner.tscn" type="PackedScene" id=40]
 
-[sub_resource type="ParticlesMaterial" id=10]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 1, 1 )
 gravity = Vector3( 10, 0, 0 )
 color = Color( 1, 0.984314, 0, 1 )
 
-[sub_resource type="SpatialMaterial" id=11]
+[sub_resource type="SpatialMaterial" id=2]
 flags_unshaded = true
 params_blend_mode = 1
 params_cull_mode = 2
 albedo_color = Color( 0.407843, 0.407843, 0.407843, 1 )
 albedo_texture = ExtResource( 37 )
 
-[sub_resource type="PlaneMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="PlaneMesh" id=3]
+material = SubResource( 2 )
 size = Vector2( 1, 1 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "move"
+[sub_resource type="Animation" id=4]
 length = 0.4
 loop = true
 tracks/0/type = "value"
@@ -72,10 +74,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="PlaneMesh" id=2]
+[sub_resource type="PlaneMesh" id=5]
 
-[sub_resource type="Animation" id=3]
-resource_name = "move"
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -91,9 +92,9 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=7]
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=8]
 albedo_texture = ExtResource( 11 )
 metallic_texture = ExtResource( 18 )
 roughness_texture = ExtResource( 21 )
@@ -102,14 +103,13 @@ normal_scale = 1.0
 normal_texture = ExtResource( 23 )
 uv1_scale = Vector3( 12, 8, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=6]
+[sub_resource type="ConvexPolygonShape" id=9]
 points = PoolVector3Array( -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, -1, 1, 1, -1, -1, 1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, 1, 1, -1, -1, 1, -1, 1, 1, 1, -1, 1, 1, 1, -1, -1, -1, -1, -1, 1, -1, 1, -1, -1 )
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=10]
 extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
-[sub_resource type="Animation" id=8]
-resource_name = "move"
+[sub_resource type="Animation" id=11]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -125,7 +125,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=12]
 extents = Vector3( 12.338, 1, 0.15485 )
 
 [node name="Map" type="Spatial"]
@@ -138,18 +138,12 @@ transform = Transform( -0.304649, -0.672049, 0.674936, 0.931779, -0.357173, 0.06
 amount = 20
 speed_scale = 0.42
 visibility_aabb = AABB( -3.09651, -1.36818, -0.548848, 6.19302, 2.73637, 1.0977 )
-process_material = SubResource( 10 )
-draw_pass_1 = SubResource( 12 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
 
 [node name="target" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 427.974, 3.1385, 264.553 )
 script = ExtResource( 5 )
-
-[node name="Player_v4" parent="." groups=[
-"Player_v4",
-] instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 324.204, 33.3348, 623.152 )
-script = ExtResource( 28 )
 
 [node name="Node" type="Node" parent="."]
 
@@ -174,19 +168,19 @@ material/0 = ExtResource( 29 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="watherfall"]
 autoplay = "move"
-anims/move = SubResource( 1 )
+anims/move = SubResource( 4 )
 
 [node name="agua" type="Spatial" parent="."]
 transform = Transform( 0.509102, 0, 0.860707, 0, 1, 0, -0.860707, 0, 0.509102, 152.117, 2.90874, 632.986 )
 
 [node name="MeshInstance" type="MeshInstance" parent="agua"]
 transform = Transform( 149.687, 0, 9.67983, 0, 0.01, 0, -9.67983, 0, 149.687, 14.6654, -5.60262, -10.1017 )
-mesh = SubResource( 2 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
 autoplay = "move"
-anims/move = SubResource( 3 )
+anims/move = SubResource( 6 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 script = ExtResource( 8 )
@@ -225,10 +219,6 @@ instance_mesh = null
 shader_params/u_globalmap_tint_bottom = 0.0
 shader_params/u_globalmap_tint_top = 0.0
 shader_params/u_bottom_ao = 0.253
-
-[node name="Menu_pause" parent="." instance=ExtResource( 6 )]
-pause_mode = 2
-visible = false
 
 [node name="colunas" type="Spatial" parent="."]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 431.047, -0.14738, 290.821 )
@@ -319,13 +309,13 @@ transform = Transform( -0.0102625, 0, 1.49996, 0, 30, 0, -1.49996, 0, -0.0102625
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 20, 0, 0, 0, 1, 0, 0, 0, 20, 431.047, -0.14738, 290.821 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance"]
 
 [node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 transform = Transform( 0.826884, 0.562372, 0, -0.562372, 0.826884, 0, 0, 0, 1, 451.663, 0.425, 290.82 )
@@ -333,7 +323,7 @@ visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0.00750732, 1.52588e-05, 0 )
-shape = SubResource( 7 )
+shape = SubResource( 10 )
 
 [node name="rock" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.557787, -4.96345, 0.230375, 3.59784, -0.563342, -3.42611, 3.42701, -0.216437, 3.63438, 390.196, 14.973, 324.868 )
@@ -347,12 +337,12 @@ visible = false
 
 [node name="MeshInstance" type="MeshInstance" parent="agua2"]
 transform = Transform( 77.164, 0, 0, 0, 0.01, 0, 0, 0, 500, -20.3818, 0, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua2"]
 autoplay = "move"
-anims/move = SubResource( 8 )
+anims/move = SubResource( 11 )
 
 [node name="ambiente" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 30 )
@@ -418,10 +408,13 @@ transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 391.81, -0.097, 836.368 )
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 375.813, -0.097, 836.368 )
 
 [node name="ST_Tower" parent="." instance=ExtResource( 34 )]
-transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 821.674 )
+transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 835.471 )
 
 [node name="Wall_Long" parent="." instance=ExtResource( 35 )]
 transform = Transform( -1.62921e-07, -1, 1.79213e-06, 0, -1.62921e-07, -11, 1, -1.62921e-07, 2.91975e-13, 372.123, -44.259, 828.689 )
+
+[node name="Wall_Long3" parent="." instance=ExtResource( 35 )]
+transform = Transform( -1.62921e-07, -1, 1.79213e-06, 0, -1.62921e-07, -11, 1, -1.62921e-07, 2.91975e-13, 391.808, -44.259, 812.434 )
 
 [node name="Wall_Long2" parent="." instance=ExtResource( 35 )]
 transform = Transform( -1.62921e-07, 1, -1.79213e-06, 0, -1.62921e-07, -11, -1, -1.62921e-07, 2.91975e-13, 413.807, -44.206, 828.689 )
@@ -432,20 +425,54 @@ collision_layer = 16384
 collision_mask = 16384
 
 [node name="CollisionShape" type="CollisionShape" parent="colisions"]
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="colisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0782, 0, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, -9.36749, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, 38.735, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="colisions"]
 transform = Transform( 2.20197, 0, 0, 0, 1, 0, 0, 0, 1, 15.1951, 0, 32.1223 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
+
+[node name="Player_v4" parent="." groups=[
+"Player_v4",
+] instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 673.178, 15.1706, 128.724 )
+script = ExtResource( 28 )
+
+[node name="ST_Tower2" parent="." instance=ExtResource( 34 )]
+transform = Transform( 0.798909, 0, -0.601452, 0, 1, 0, 0.601452, 0, 0.798909, 681.828, 11.969, 108.516 )
+
+[node name="escada" type="Spatial" parent="."]
+transform = Transform( -0.684025, 0, -0.729459, 0, 1, 0, 0.729459, 0, -0.684025, 658.773, 5.85687, 158.85 )
+
+[node name="Stairway_Joiner" parent="escada" instance=ExtResource( 38 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Stairway_Joiner2" parent="escada" instance=ExtResource( 38 )]
+transform = Transform( -8.9407e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -8.9407e-08, 8.621, -3.85, -9.796 )
+
+[node name="Stairway_large" parent="escada" instance=ExtResource( 39 )]
+transform = Transform( 1, 0, 3.25841e-07, 0, 1, 0, -3.25841e-07, 0, 1, -10.0894, 4.94729, 5.79718 )
+
+[node name="Platform_Corner" parent="escada" instance=ExtResource( 40 )]
+transform = Transform( 1.62921e-07, 0, 1, 0, 1, 0, -1, 0, 1.62921e-07, -15.5275, 6.23329, 15.1192 )
+
+[node name="Platform_Corner3" parent="escada" instance=ExtResource( 40 )]
+transform = Transform( -1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, -1, -15.463, 6.233, -3.245 )
+
+[node name="Platform_Corner2" parent="escada" instance=ExtResource( 40 )]
+transform = Transform( -1.19209e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.19209e-07, -0.467, -1.617, -10.329 )
+
+[node name="Menu_pause" parent="." instance=ExtResource( 6 )]
+pause_mode = 2
+visible = false
