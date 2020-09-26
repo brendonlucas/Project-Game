@@ -16,6 +16,6 @@ refraction_enabled = true
 refraction_scale = 0.0
 refraction_texture_channel = 0
 uv1_scale = Vector3( 10, 10, 1 )
-uv1_offset = Vector3( 0, -0.717931, 0 )
+uv1_offset = Vector3( 0, -0.257674, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0

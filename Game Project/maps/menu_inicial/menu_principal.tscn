@@ -112,7 +112,7 @@ chunk_size = 32
 shader_type = "Classic4Lite"
 custom_shader = null
 shader_params/u_ground_uv_scale = 10.0
-shader_params/u_depth_blending = true
+shader_params/u_depth_blending = false
 shader_params/u_triplanar = true
 ground/albedo_bump_0 = ExtResource( 4 )
 ground/normal_roughness_0 = ExtResource( 3 )
@@ -183,8 +183,8 @@ gravity = Vector3( 0, -50, 0 )
 [node name="Treemedium2" parent="." instance=ExtResource( 21 )]
 transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -11.9437, 9.69569, -11.0174 )
 
-[node name="Treemedium3" parent="." instance=ExtResource( 21 )]
-transform = Transform( 0.389099, 0, -0.921196, 0, 1, 0, 0.921196, 0, 0.389099, -5.17664, 10.0504, -40.4448 )
+[node name="Treemedium3" parent="Treemedium2" instance=ExtResource( 21 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -24.4753, 0.35471, -17.684 )
 
 [node name="treelarge2" parent="." instance=ExtResource( 20 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.61173, 9.99138, -5.00577 )
