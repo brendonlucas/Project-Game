@@ -69,6 +69,7 @@ func done_game():
 		get_tree().get_root().get_node("Map/galpao/Light_refletor2").show()
 	if solicitante_minigame == "elevador_1":
 		elevador_1 = true
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda_elevador_1()
 		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").queue_free()
 		get_tree().get_root().get_node("Map/builds_2/elevador/capsula/door_elevator").set_active(true)
 		

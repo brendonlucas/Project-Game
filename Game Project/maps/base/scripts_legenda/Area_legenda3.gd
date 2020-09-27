@@ -17,4 +17,7 @@ func _ready():
 
 
 func _on_Area_legenda3_body_entered(body):
-	pass # Replace with function body.
+	if body.name == "Player_v4":
+		get_parent().get_node("Controler_map").start_legenda_elevador_2_bloqueado()
+		queue_free()
+

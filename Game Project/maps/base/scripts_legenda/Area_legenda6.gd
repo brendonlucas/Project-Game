@@ -1,20 +1,9 @@
 extends Area
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_Area_legenda6_area_shape_entered(area_id, area, area_shape, self_shape):
-	pass # Replace with function body.
+func _on_Area_legenda6_body_entered(body):
+	if body.name == "Player_v4":
+		get_parent().get_node("Controler_map").start_legenda_fechar_portas()
+		queue_free()

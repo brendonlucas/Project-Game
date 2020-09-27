@@ -17,4 +17,6 @@ func _ready():
 
 
 func _on_Area_legenda8_body_entered(body):
-	pass
+	if body.name == "Player_v4":
+		get_parent().get_node("Controler_map").start_legenda_upload()
+		queue_free()

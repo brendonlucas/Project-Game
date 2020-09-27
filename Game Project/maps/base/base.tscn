@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -63,6 +63,7 @@
 [ext_resource path="res://maps/base/scripts_legenda/Area_legenda4.gd" type="Script" id=61]
 [ext_resource path="res://maps/base/scripts_legenda/Area_legenda5.gd" type="Script" id=62]
 [ext_resource path="res://legendas sys/legendas.tscn" type="PackedScene" id=63]
+[ext_resource path="res://maps/base/scripts_legenda/Area_legenda9.gd" type="Script" id=64]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -218,6 +219,15 @@ radius = 11.5762
 [sub_resource type="BoxShape" id=34]
 extents = Vector3( 0.0730144, 1, 2.44346 )
 
+[sub_resource type="BoxShape" id=35]
+extents = Vector3( 0.251181, 1, 24.2607 )
+
+[sub_resource type="BoxShape" id=36]
+extents = Vector3( 0.134187, 1, 24.3037 )
+
+[sub_resource type="BoxShape" id=37]
+extents = Vector3( 0.330471, 1, 3.09269 )
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map" type="Node" parent="."]
@@ -229,7 +239,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -62.5239, -25.7472, 9.15274 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -85.4918, -25.3425, 53.5529 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
@@ -2698,7 +2708,7 @@ environment = SubResource( 31 )
 script = ExtResource( 48 )
 
 [node name="nija" parent="." instance=ExtResource( 50 )]
-transform = Transform( 1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -177.214, -35.7248, 64.2235 )
+transform = Transform( 1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -178.642, -35.7248, 64.2235 )
 
 [node name="Status_UI" parent="." instance=ExtResource( 51 )]
 visible = false
@@ -2737,7 +2747,7 @@ script = ExtResource( 56 )
 shape = SubResource( 32 )
 
 [node name="Area_legenda3" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.23281, 36.3393, -12.668, -3.68703 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.23281, 31.4613, -12.668, -3.62249 )
 script = ExtResource( 59 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda3"]
@@ -2757,6 +2767,13 @@ script = ExtResource( 62 )
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda5"]
 shape = SubResource( 34 )
 
+[node name="Area_legenda9" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -155.698, -34.4175, 64.6356 )
+script = ExtResource( 64 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_legenda9"]
+shape = SubResource( 35 )
+
 [node name="Area_legenda6" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.0977, -26.3561, 10.0198 )
 script = ExtResource( 57 )
@@ -2772,7 +2789,7 @@ script = ExtResource( 60 )
 shape = SubResource( 34 )
 
 [node name="Area_legenda8" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.0061, -14.7201, -112.152 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8717, -14.7201, -112.152 )
 script = ExtResource( 55 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda8"]
@@ -2783,6 +2800,36 @@ shape = SubResource( 34 )
 [node name="Menu_pause" parent="." instance=ExtResource( 32 )]
 pause_mode = 2
 visible = false
+
+[node name="limite_plane" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -173.49, -35.537, 65.1418 )
+collision_layer = 0
+collision_mask = 16384
+
+[node name="CollisionShape" type="CollisionShape" parent="limite_plane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0723, 0.925606, 0 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="limite_plane"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.49644, 0.925606, 23.5435 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="limite_plane"]
+transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.49646, 0.925606, -24.0974 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="limite_plane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.446342, 22.467, 0.926, -13.578 )
+shape = SubResource( 36 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="limite_plane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.446342, 22.467, 0.926, 12.865 )
+shape = SubResource( 36 )
+
+[node name="Parede_bloqueio" type="CollisionShape" parent="limite_plane"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6623, 0.886555, -0.24099 )
+shape = SubResource( 37 )
+disabled = true
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="limbo/curva/Area_close_door" to="limbo/curva/Area_close_door" method="_on_Area_close_door_body_entered"]
@@ -2793,6 +2840,7 @@ visible = false
 [connection signal="body_entered" from="Area_legenda3" to="Area_legenda3" method="_on_Area_legenda3_body_entered"]
 [connection signal="body_entered" from="Area_legenda4" to="Area_legenda4" method="_on_Area_legenda4_body_entered"]
 [connection signal="body_entered" from="Area_legenda5" to="Area_legenda5" method="_on_Area_legenda5_body_entered"]
-[connection signal="area_shape_entered" from="Area_legenda6" to="Area_legenda6" method="_on_Area_legenda6_area_shape_entered"]
+[connection signal="body_entered" from="Area_legenda9" to="Area_legenda9" method="_on_Area_legenda9_body_entered"]
+[connection signal="body_entered" from="Area_legenda6" to="Area_legenda6" method="_on_Area_legenda6_body_entered"]
 [connection signal="body_entered" from="Area_legenda7" to="Area_legenda7" method="_on_Area_legenda7_body_entered"]
 [connection signal="body_entered" from="Area_legenda8" to="Area_legenda8" method="_on_Area_legenda8_body_entered"]
