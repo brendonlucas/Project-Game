@@ -34,10 +34,13 @@ var game1 = preload("res://maps/mine_games/game_map_1.tscn")
 var game2 = preload("res://maps/mine_games/game_map_2.tscn")
 var game3 = preload("res://maps/mine_games/game_map_3.tscn")
 
+var hack_nija = preload("res://maps/mine_games/game_map_hack.tscn")
+
 var cam_turrent = preload("res://player/nave/turret.tscn")
 var cam_normal = preload("res://player/nave/target.tscn")
 
 var plane_agua = preload("res://props/agua/agua.tscn")
+
 
 var drop_game_test = 0
 
@@ -78,6 +81,13 @@ func done_game():
 		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").queue_free()
 		get_tree().get_root().get_node("Map/builds_3/elevador2/capsula/door_elevator").set_active(true)
 	
+	elif solicitante_minigame == "hack_nija":
+		get_tree().get_root().get_node("Map/limite_plane/Parede_bloqueio").disabled = true
+		get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
+		get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
+		get_tree().get_root().get_node("Map/Controle_map").start_legenda_base_alerta()
+		
+		
 	var game = get_node_or_null("map_game")
 	game.queue_free()
 	player.block_moviments(true)
@@ -100,17 +110,24 @@ var cam_atual = 1
 
 func _process(delta):
 	pass
-#	if Input.is_action_just_pressed("jump"):
-#		boss_kill()
+
 	
 		
 func instancia_game(solicitante):
 	player.block_moviments(false)
 	cam.block_cam(false)
 	Gamestate.in_mine_game = true
-	instancia_objetos()
+	if solicitante != "hack_nija":
+		instancia_objetos()
+	else:
+		instance_hack_nija()
 	drop_game_test = 1
 	solicitante_minigame = solicitante
+	
+func instance_hack_nija():
+	var clone = hack_nija.instance()
+	var scene_root = get_tree().root.get_children()[0]
+	scene_root.add_child(clone)
 	
 func drop_game():
 	var game_teste = get_node_or_null("map_game")
@@ -129,7 +146,6 @@ func drop_game():
 		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").set_active(false)
 	elif solicitante_minigame == "elevador_2":
 		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").set_active(false)
-	
 	
 	
 func randomNumber():

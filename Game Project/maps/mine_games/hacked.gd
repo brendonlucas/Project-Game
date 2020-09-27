@@ -18,7 +18,6 @@ func _process(delta):
 
 
 func done_game():
-	print("r")
-	pass
-	# Gamestate.done_game()
+	get_tree()
+	Gamestate.done_game()
 	# Gamestate.drop_game()

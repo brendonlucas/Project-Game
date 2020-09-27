@@ -239,7 +239,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -85.4918, -25.3425, 53.5529 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -49.1038, -27.8205, 7.11719 )
 script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
@@ -2718,7 +2718,7 @@ visible = false
 [node name="fade" parent="." instance=ExtResource( 53 )]
 
 [node name="Position_meya" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -161.036, -35.5611, 63.9414 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -161.036, -35.5611, 63.9414 )
 
 [node name="Position_nija" type="Position3D" parent="."]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -168.835, -35.5611, 64.4955 )
