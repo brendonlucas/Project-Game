@@ -83,8 +83,10 @@ func _on_Button_continuar_pressed():
 	if player != null:
 		player.block_moviments(true)
 		cam.block_cam(true)
+		
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Menu_2.hide()
+	get_tree().paused = false
 	hide()
 
 

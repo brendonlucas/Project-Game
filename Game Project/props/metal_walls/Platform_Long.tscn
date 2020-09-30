@@ -23,7 +23,9 @@ extents = Vector3( 1.70359, 0.00401944, 4.01069 )
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 0.299931, 1.61348, 4.01144 )
 
-[node name="Platform_Long" type="StaticBody"]
+[node name="Platform_Long" type="StaticBody" groups=[
+"metal",
+]]
 transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0 )
 collision_layer = 3
 collision_mask = 3

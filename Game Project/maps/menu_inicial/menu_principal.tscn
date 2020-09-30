@@ -137,7 +137,7 @@ shader_params/u_bottom_ao = null
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.116, 2.755, 14.352 )
-far = 300.0
+far = 1000.0
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 60, 0, 0, 0, 1, 0, 0, 0, 70, 0, 1.099, 0 )

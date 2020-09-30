@@ -62,7 +62,7 @@ func add_exp(xp_value):
 
 
 func _process(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and false:
 		healer(400)
 		get_tree().get_root().get_node("Map/HUD_UI").update_values()
 		get_tree().get_root().get_node("Map/Status_UI").update_values()

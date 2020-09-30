@@ -38,7 +38,7 @@ var atacando
 var luz 
 
 var jumped = false
-	
+
 func _ready():
 	luz = get_parent().get_node("Sol")
 	timer_1 = get_node("Timer")
@@ -107,8 +107,6 @@ func ataque(delta):
 	
 func movimentos(delta):
 	
-		
-	
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()
 	var is_moving = false
@@ -118,6 +116,7 @@ func movimentos(delta):
 	MOVE_SPEED = 5
 	var grounded = is_on_floor()
 	
+		
 	if Input.is_action_pressed("frente") and moviments_active and !atacando:
 		dir += -cam.basis[2]
 		is_moving = true
@@ -213,3 +212,5 @@ func change_ataque(option):
 	pass
 			
 		
+
+
