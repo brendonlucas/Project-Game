@@ -1,9 +1,8 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=101 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://props/Scifi_wall/parts/Wall_Corner_in2.tscn" type="PackedScene" id=3]
-[ext_resource path="res://player/Meya/player.gd" type="Script" id=4]
 [ext_resource path="res://player/Camera_target.gd" type="Script" id=5]
 [ext_resource path="res://props/Scifi_wall/parts/Wall_Door2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://props/Scifi_wall/parts/Floor_6x7.tscn" type="PackedScene" id=7]
@@ -240,7 +239,6 @@ visible = false
 "Player_v4",
 ] instance=ExtResource( 1 )]
 transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -49.1038, -27.8205, 7.11719 )
-script = ExtResource( 4 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2572, 2.8286, -2.57851 )

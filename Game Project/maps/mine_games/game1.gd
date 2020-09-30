@@ -14,11 +14,11 @@ func _process(delta):
 		timer_iniciado = true
 	elif !player and timer.time_left == 0:
 		pass
-		#Gamestate.drop_game()
+		Gamestate.drop_game()
 
 
 func done_game():
 	print("r")
 	pass
-	# Gamestate.done_game()
+	Gamestate.done_game()
 	# Gamestate.drop_game()

@@ -56,6 +56,7 @@ var gerador_1 = false
 var gerador_2 = false
 var solicitante_minigame = ""
 
+
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
@@ -86,7 +87,10 @@ func done_game():
 		get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
 		get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 		get_tree().get_root().get_node("Map/Controle_map").start_legenda_base_alerta()
-		
+	elif solicitante_minigame == "torre_1":
+		get_tree().get_root().get_node("Map/bloqueio").queue_free()
+	elif solicitante_minigame == "torre_2":
+		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
 		
 	var game = get_node_or_null("map_game")
 	game.queue_free()
@@ -146,6 +150,10 @@ func drop_game():
 		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").set_active(false)
 	elif solicitante_minigame == "elevador_2":
 		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").set_active(false)
+	elif solicitante_minigame == "torre_2":
+		get_tree().get_root().get_node("Map/SM_Console_Fellming3/Area_active_painel").set_active(false)
+	elif solicitante_minigame == "torre_1":
+		get_tree().get_root().get_node("Map/SM_Console_Fellming2/Area_active_torre").set_active(false)
 	
 	
 func randomNumber():

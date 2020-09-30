@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -46,6 +46,10 @@
 [ext_resource path="res://props/door scifi/base.tscn" type="PackedScene" id=44]
 [ext_resource path="res://props/console/SM_Console_Fellming.tscn" type="PackedScene" id=45]
 [ext_resource path="res://maps/teleports/Area_legenda_3.gd" type="Script" id=46]
+[ext_resource path="res://maps/teleports/Area_painel.gd" type="Script" id=47]
+[ext_resource path="res://textures/Water_001_SD/Water_001_NORM.jpg" type="Texture" id=48]
+[ext_resource path="res://maps/teleports/Area_active_painel2.gd" type="Script" id=49]
+[ext_resource path="res://maps/teleports/Area_active_torre1.gd" type="Script" id=50]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -152,6 +156,67 @@ tracks/1/keys = {
 } ]
 }
 
+[sub_resource type="BoxShape" id=32]
+extents = Vector3( 0.275565, 0.340976, 0.167299 )
+
+[sub_resource type="CylinderMesh" id=26]
+
+[sub_resource type="SpatialMaterial" id=28]
+flags_transparent = true
+albedo_color = Color( 0.992157, 1, 0.109804, 0.309804 )
+albedo_texture = ExtResource( 18 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 0.45
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 18 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 48 )
+uv1_scale = Vector3( 2, 2, 1 )
+uv1_offset = Vector3( 0, 0.239533, 0 )
+
+[sub_resource type="CylinderShape" id=27]
+radius = 1.16278
+
+[sub_resource type="Animation" id=29]
+resource_name = "move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance2:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
+[sub_resource type="BoxShape" id=31]
+extents = Vector3( 0.298416, 0.458296, 0.118076 )
+
+[sub_resource type="Animation" id=30]
+resource_name = "move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance2:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
 [sub_resource type="BoxShape" id=12]
 extents = Vector3( 0.192112, 31.6924, 193.212 )
 
@@ -197,6 +262,44 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 0.267248, 0.29173, 0.220224 )
+
+[sub_resource type="SphereMesh" id=22]
+
+[sub_resource type="SpatialMaterial" id=23]
+flags_transparent = true
+albedo_color = Color( 0.945098, 1, 0, 0.0627451 )
+albedo_texture = ExtResource( 18 )
+emission_enabled = true
+emission = Color( 0, 0, 0, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+emission_texture = ExtResource( 18 )
+uv1_scale = Vector3( 2, 2, 2 )
+uv1_offset = Vector3( 0, 0.0394181, 0 )
+
+[sub_resource type="Animation" id=24]
+resource_name = "move"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
+[sub_resource type="SphereShape" id=25]
+radius = 1.11978
 
 [node name="Map" type="Spatial"]
 
@@ -409,10 +512,37 @@ anims/fade = SubResource( 11 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 433.294, 15.6568, 281.969 )
+transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 415.709, 25.2466, 445.082 )
+
+[node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
+transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
+
+[node name="Area_active_torre" type="Area" parent="SM_Console_Fellming2"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 50 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming2/Area_active_torre"]
+transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.000167847, 0.842599, -0.279144 )
+shape = SubResource( 32 )
 
 [node name="ST_Tower2" parent="." instance=ExtResource( 34 )]
 transform = Transform( 0.798909, 0, -0.601452, 0, 1, 0, 0.601452, 0, 0.798909, 681.008, 11.969, 118.428 )
+
+[node name="StaticBody" type="StaticBody" parent="ST_Tower2"]
+transform = Transform( 4, 0, 1.19209e-07, 0, 8, 0, -1.19209e-07, 0, 4, 0, 12.8923, 0 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower2/StaticBody"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = SubResource( 26 )
+material/0 = SubResource( 28 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ST_Tower2/StaticBody"]
+shape = SubResource( 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower2/StaticBody"]
+autoplay = "move"
+anims/move = SubResource( 29 )
 
 [node name="escada" type="Spatial" parent="."]
 transform = Transform( -0.684025, 0, -0.729459, 0, 1, 0, 0.729459, 0, -0.684025, 658.773, 5.85687, 158.85 )
@@ -434,6 +564,36 @@ transform = Transform( -1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, -1, -15.463
 
 [node name="Platform_Corner2" parent="escada" instance=ExtResource( 40 )]
 transform = Transform( -1.19209e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.19209e-07, -0.467, -1.617, -10.329 )
+
+[node name="SM_Console_Fellming3" parent="." instance=ExtResource( 45 )]
+transform = Transform( 1.5, 0, 1.07288e-06, 0, 1.5, 0, -1.07288e-06, 0, 1.5, 391.788, -0.106715, 833.286 )
+
+[node name="Area_active_painel" type="Area" parent="SM_Console_Fellming3"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 49 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming3/Area_active_painel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790092, -0.302368 )
+shape = SubResource( 31 )
+
+[node name="ST_Tower" parent="." instance=ExtResource( 34 )]
+transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 835.471 )
+
+[node name="StaticBody2" type="StaticBody" parent="ST_Tower"]
+transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 12.0204, 0 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower/StaticBody2"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = SubResource( 26 )
+material/0 = SubResource( 28 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ST_Tower/StaticBody2"]
+shape = SubResource( 27 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower/StaticBody2"]
+autoplay = "move"
+anims/move = SubResource( 30 )
 
 [node name="plataformas" type="Spatial" parent="."]
 
@@ -490,9 +650,6 @@ transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 391.81, -0.097, 836.368 )
 
 [node name="Plane6" parent="plataformas" instance=ExtResource( 33 )]
 transform = Transform( 2, 0, 0, 0, 1, 0, 0, 0, 2, 375.813, -0.097, 836.368 )
-
-[node name="ST_Tower" parent="plataformas" instance=ExtResource( 34 )]
-transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 835.471 )
 
 [node name="Wall_Long" parent="plataformas" instance=ExtResource( 35 )]
 transform = Transform( -1.62921e-07, -1, 1.79213e-06, 0, -1.62921e-07, -11, 1, -1.62921e-07, 2.91975e-13, 372.123, -44.259, 828.689 )
@@ -560,17 +717,17 @@ script = ExtResource( 46 )
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_3"]
 shape = SubResource( 20 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="bloqueio" type="MeshInstance" parent="."]
 transform = Transform( 15.5033, 0, -0.0426939, 0, 17.4313, 0, 3.06693, 0, 0.215818, 409.707, 14.7291, 545.603 )
 mesh = SubResource( 15 )
 material/0 = SubResource( 16 )
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="bloqueio"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="bloqueio/StaticBody"]
 shape = SubResource( 17 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio"]
 autoplay = "effect"
 anims/effect = SubResource( 18 )
 
@@ -580,7 +737,31 @@ transform = Transform( 0.210679, 5.72582, -1.78061, -5.62382, -0.429497, -2.0465
 [node name="som_vozes" type="AudioStreamPlayer" parent="."]
 
 [node name="SM_Console_Fellming" parent="." instance=ExtResource( 45 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 430.424, 11.764, 303.438 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 430.424, 11.764, 303.438 )
+
+[node name="Area_painel" type="Area" parent="SM_Console_Fellming"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 47 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/Area_painel"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.760402, -0.0795135 )
+shape = SubResource( 21 )
+
+[node name="MeshInstance" type="MeshInstance" parent="SM_Console_Fellming"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339465, 0 )
+mesh = SubResource( 22 )
+material/0 = SubResource( 23 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Console_Fellming/MeshInstance"]
+autoplay = "move"
+anims/move = SubResource( 24 )
+
+[node name="StaticBody" type="StaticBody" parent="SM_Console_Fellming/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182425, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/MeshInstance/StaticBody"]
+shape = SubResource( 25 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
