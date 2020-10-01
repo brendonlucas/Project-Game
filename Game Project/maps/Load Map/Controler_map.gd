@@ -121,3 +121,6 @@ func start_legenda4():
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_out":
 		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")
+
+func change_map():
+	BackgroundLoad.load_scene("res://maps/base/base.tscn")

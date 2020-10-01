@@ -1,7 +1,7 @@
 extends Interactable
 
 var dor
-var ativo = true
+var ativo = false
 var status_porta
 
 func _ready():
@@ -16,6 +16,6 @@ func set_active(option):
 
 func interact():
 	if !ativo :
-		# Gamestate.instancia_game("elevador_1")
+		Gamestate.instancia_game("elevador_base")
 		# instanciar minigame
 		ativo = true

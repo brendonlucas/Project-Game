@@ -203,6 +203,12 @@ func active_moves_ataque(option):
 	elif option == false:
 		atacando = option
 		
+func desativar_moves():
+	moviments_active = false
+	$AnimationPlayer.play("idle")
+	
+func ativar_moves():
+	moviments_active = true
 	
 func hit_damage(damage):
 	PlayerStatus.vida_atual -= damage

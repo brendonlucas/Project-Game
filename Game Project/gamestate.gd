@@ -92,6 +92,10 @@ func done_game():
 	elif solicitante_minigame == "torre_2":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
 		
+	elif solicitante_minigame == "elevador_base":
+		get_tree().get_root().get_node("Map/animations/Animation_open_gate").play("open_gate")
+		pass
+		
 	var game = get_node_or_null("map_game")
 	game.queue_free()
 	player.block_moviments(true)
@@ -154,7 +158,8 @@ func drop_game():
 		get_tree().get_root().get_node("Map/SM_Console_Fellming3/Area_active_painel").set_active(false)
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming2/Area_active_torre").set_active(false)
-	
+	elif solicitante_minigame == "elevador_base":
+		get_tree().get_root().get_node("Map/SM_Console_Fellming/Area_painel").set_active(false)
 	
 func randomNumber():
 	var rng = RandomNumberGenerator.new()

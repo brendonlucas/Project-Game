@@ -88,7 +88,7 @@ albedo_texture = ExtResource( 47 )
 
 [sub_resource type="SpatialMaterial" id=8]
 emission_enabled = true
-emission = Color( 1, 0.904541, 0.28125, 1 )
+emission = Color( 1, 0.905882, 0.282353, 1 )
 emission_energy = 2.0
 emission_operator = 0
 emission_on_uv2 = false

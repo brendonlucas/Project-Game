@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Game Project"
-run/main_scene="res://maps/menu_inicial/menu_principal.tscn"
+run/main_scene="res://maps/Map_limpo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
