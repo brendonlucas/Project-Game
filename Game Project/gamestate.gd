@@ -98,8 +98,8 @@ func done_game():
 		
 	var game = get_node_or_null("map_game")
 	game.queue_free()
-	player.block_moviments(true)
-	cam.block_cam(true)
+	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(true)
+	get_tree().get_root().get_node_or_null("Map/target").block_cam(true)
 	Gamestate.in_mine_game = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	drop_game_test = 0
@@ -122,8 +122,8 @@ func _process(delta):
 	
 		
 func instancia_game(solicitante):
-	player.block_moviments(false)
-	cam.block_cam(false)
+	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(false)
+	get_tree().get_root().get_node_or_null("Map/target").block_cam(false)
 	Gamestate.in_mine_game = true
 	if solicitante != "hack_nija":
 		instancia_objetos()
@@ -140,8 +140,8 @@ func instance_hack_nija():
 func drop_game():
 	var game_teste = get_node_or_null("map_game")
 	game_teste.queue_free()
-	player.block_moviments(true)
-	cam.block_cam(true)
+	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(true)
+	get_tree().get_root().get_node_or_null("Map/target").block_cam(true)
 	Gamestate.in_mine_game = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	drop_game_test = 0

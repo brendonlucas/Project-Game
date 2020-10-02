@@ -42,6 +42,7 @@ func _process(delta):
 	if executando_legenda:
 		aplly_text()
 
+
 func set_dados_legenda(execution_text, text_info, audio):
 	executando_legenda = true
 	text_in_execution = execution_text

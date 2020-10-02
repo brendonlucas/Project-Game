@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -47,11 +47,13 @@
 [ext_resource path="res://props/console/SM_Console_Fellming.tscn" type="PackedScene" id=45]
 [ext_resource path="res://maps/teleports/Area_legenda_3.gd" type="Script" id=46]
 [ext_resource path="res://maps/teleports/Area_painel.gd" type="Script" id=47]
-[ext_resource path="res://textures/Water_001_SD/Water_001_NORM.jpg" type="Texture" id=48]
 [ext_resource path="res://maps/teleports/Area_active_painel2.gd" type="Script" id=49]
 [ext_resource path="res://maps/teleports/Area_active_torre1.gd" type="Script" id=50]
 [ext_resource path="res://props/door scifi/base.gd" type="Script" id=51]
 [ext_resource path="res://maps/animations.gd" type="Script" id=52]
+[ext_resource path="res://enemy/testes/teste_enemy.tscn" type="PackedScene" id=53]
+[ext_resource path="res://enemy/testes/teste_enemy2.gd" type="Script" id=54]
+[ext_resource path="res://enemy/testes/teste_enemy.gd" type="Script" id=55]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -163,24 +165,25 @@ extents = Vector3( 0.275565, 0.340976, 0.167299 )
 
 [sub_resource type="CylinderMesh" id=13]
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=38]
 flags_transparent = true
-albedo_color = Color( 0.992157, 1, 0.109804, 0.309804 )
+albedo_color = Color( 0, 0.811765, 1, 0.317647 )
 albedo_texture = ExtResource( 18 )
 emission_enabled = true
-emission = Color( 0, 0, 0, 1 )
-emission_energy = 0.45
-emission_operator = 0
+emission = Color( 1, 0, 0, 1 )
+emission_energy = 3.0
+emission_operator = 1
 emission_on_uv2 = false
 emission_texture = ExtResource( 18 )
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 48 )
-uv1_scale = Vector3( 2, 2, 1 )
-uv1_offset = Vector3( 0, 0.239533, 0 )
+uv1_scale = Vector3( 2, 0.298, 1 )
+uv1_offset = Vector3( 0, 0.479062, 0 )
+uv1_triplanar_sharpness = 4.75683
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
 
 [sub_resource type="CylinderShape" id=15]
 radius = 1.16278
+height = 3.3792
 
 [sub_resource type="Animation" id=16]
 resource_name = "move"
@@ -199,8 +202,77 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=39]
+resource_name = "drop"
+length = 1.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance2:material/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.811765, 1, 0.317647 ), Color( 0, 0.811765, 1, 0.317647 ), Color( 0, 0.811765, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance2:material/0:emission_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.0, 13.79 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MeshInstance2:material/0:emission")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 0.678431, 0, 1 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
 [sub_resource type="BoxShape" id=17]
 extents = Vector3( 0.298416, 0.458296, 0.118076 )
+
+[sub_resource type="SpatialMaterial" id=14]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.352941 )
+albedo_texture = ExtResource( 18 )
+emission_enabled = true
+emission = Color( 1, 0.772549, 0, 1 )
+emission_energy = 3.0
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 18 )
+uv1_scale = Vector3( 2, 0.298, 1 )
+uv1_offset = Vector3( 0, 0.821815, 0 )
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
 
 [sub_resource type="Animation" id=18]
 resource_name = "move"
@@ -217,6 +289,57 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "drop"
+length = 1.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MeshInstance2:material/0:emission")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.772549, 0, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MeshInstance2:material/0:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0.352941 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MeshInstance2:material/0:emission_energy")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.0, 16.0 ]
 }
 
 [sub_resource type="BoxShape" id=19]
@@ -301,7 +424,7 @@ tracks/0/keys = {
 [sub_resource type="SphereShape" id=31]
 radius = 1.11978
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=32]
 resource_name = "close_gate"
 length = 10.0
 tracks/0/type = "animation"
@@ -369,8 +492,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=32]
-resource_name = "open_gate"
+[sub_resource type="Animation" id=33]
 length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("../base")
@@ -453,9 +575,22 @@ tracks/1/keys = {
 "update": 1,
 "values": [ true, false ]
 }
+tracks/2/type = "method"
+tracks/2/path = NodePath("../Controler_map")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "start_legenda1"
+} ]
+}
 
-[sub_resource type="Animation" id=33]
-resource_name = "fade"
+[sub_resource type="Animation" id=35]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -693,7 +828,7 @@ anims/fade = SubResource( 11 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 395.164, 10, 277.653 )
+transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 665.951, 12.8909, 117.881 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
@@ -710,20 +845,24 @@ shape = SubResource( 12 )
 [node name="ST_Tower2" parent="." instance=ExtResource( 34 )]
 transform = Transform( 0.798909, 0, -0.601452, 0, 1, 0, 0.601452, 0, 0.798909, 681.008, 11.969, 118.428 )
 
-[node name="StaticBody" type="StaticBody" parent="ST_Tower2"]
-transform = Transform( 4, 0, 1.19209e-07, 0, 8, 0, -1.19209e-07, 0, 4, 0, 12.8923, 0 )
+[node name="escudo" type="StaticBody" parent="ST_Tower2"]
+transform = Transform( 4, 0, 1.19209e-07, 0, 8, 0, -1.19209e-07, 0, 4, 0, 11.214, 0 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower2/StaticBody"]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower2/escudo"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1.42371, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
 mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+material/0 = SubResource( 38 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ST_Tower2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="ST_Tower2/escudo"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.0172842, 0 )
 shape = SubResource( 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower2/StaticBody"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower2/escudo"]
 autoplay = "move"
 anims/move = SubResource( 16 )
+
+[node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower2/escudo"]
+anims/drop = SubResource( 39 )
 
 [node name="escada" type="Spatial" parent="."]
 transform = Transform( -0.684025, 0, -0.729459, 0, 1, 0, 0.729459, 0, -0.684025, 658.773, 5.85687, 158.85 )
@@ -761,20 +900,23 @@ shape = SubResource( 17 )
 [node name="ST_Tower" parent="." instance=ExtResource( 34 )]
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 835.471 )
 
-[node name="StaticBody2" type="StaticBody" parent="ST_Tower"]
-transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 12.0204, 0 )
+[node name="escudo" type="StaticBody" parent="ST_Tower"]
+transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 7.789, 0 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower/StaticBody2"]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+[node name="MeshInstance2" type="MeshInstance" parent="ST_Tower/escudo"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 2.00151, 0, -2.98023e-08, 0, 1, 0, 0.951156, 0 )
 mesh = SubResource( 13 )
 material/0 = SubResource( 14 )
 
-[node name="CollisionShape" type="CollisionShape" parent="ST_Tower/StaticBody2"]
+[node name="CollisionShape" type="CollisionShape" parent="ST_Tower/escudo"]
 shape = SubResource( 15 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower/StaticBody2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower/escudo"]
 autoplay = "move"
 anims/move = SubResource( 18 )
+
+[node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower/escudo"]
+anims/drop = SubResource( 37 )
 
 [node name="plataformas" type="Spatial" parent="."]
 
@@ -944,8 +1086,8 @@ disabled = true
 script = ExtResource( 52 )
 
 [node name="Animation_open_gate" type="AnimationPlayer" parent="animations"]
-anims/close_gate = SubResource( 35 )
-anims/open_gate = SubResource( 32 )
+anims/close_gate = SubResource( 32 )
+anims/open_gate = SubResource( 33 )
 
 [node name="Camera_gate" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.894279, 0.447509, 0, -0.447509, 0.894279, 432.8, 23.299, 310.649 )
@@ -954,10 +1096,9 @@ far = 1000.0
 [node name="HUD_UI" parent="." instance=ExtResource( 42 )]
 
 [node name="Fade_inicio" type="ColorRect" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
+color = Color( 0, 0, 0, 0.25 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -975,12 +1116,20 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
-anims/fade = SubResource( 33 )
+anims/fade = SubResource( 35 )
 anims/fade_out = SubResource( 36 )
 
 [node name="Menu_pause" parent="." instance=ExtResource( 6 )]
 pause_mode = 2
 visible = false
+
+[node name="teste_enemy" parent="." instance=ExtResource( 53 )]
+transform = Transform( 1, 0, 0, 0, 1.53087, 0, 0, 0, 1, 392.402, 1.14681, 825.194 )
+script = ExtResource( 55 )
+
+[node name="teste_enemy2" parent="." instance=ExtResource( 53 )]
+transform = Transform( 1, 0, 0, 0, 1.53087, 0, 0, 0, 1, 671.065, 13.6024, 126.441 )
+script = ExtResource( 54 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
