@@ -33,18 +33,22 @@ func dados_iniciais():
 	
 func _process(delta):
 	pass
-		
+
 
 func _input(event):
 	if Input.is_action_just_pressed("menu_pause"):
 		if menu_pause_active:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+			if Gamestate.in_mine_game:
+				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+			else:
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			menu_pause_active = false
 			menu_2_active = false
 			if !Gamestate.in_mine_game:
 				if player != null:
-					player.block_moviments(true)
-					cam.block_cam(true)
+					pass
+#					player.block_moviments(true)
+#					cam.block_cam(true)
 			$Menu_2.hide()
 			get_tree().paused = false
 			hide()
@@ -54,8 +58,9 @@ func _input(event):
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			if !Gamestate.in_mine_game:
 				if player != null:
-					player.block_moviments(false)
-					cam.block_cam(false)
+					pass
+#					player.block_moviments(false)
+#					cam.block_cam(false)
 			get_tree().paused = true
 			show()
 		
@@ -81,10 +86,14 @@ func _on_Button_continuar_pressed():
 	menu_pause_active = false
 	menu_2_active = false
 	if player != null:
-		player.block_moviments(true)
-		cam.block_cam(true)
+		pass
+		#player.block_moviments(true)
+		#cam.block_cam(true)
 		
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	if Gamestate.in_mine_game:
+		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Menu_2.hide()
 	get_tree().paused = false
 	hide()

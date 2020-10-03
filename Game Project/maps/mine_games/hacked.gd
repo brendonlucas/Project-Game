@@ -21,3 +21,6 @@ func done_game():
 	get_tree()
 	Gamestate.done_game()
 	# Gamestate.drop_game()
+
+func up_speed_ataque():
+	pass

@@ -45,7 +45,7 @@ func look_at_cursor():
 func _physics_process(delta):
 	if life <= 0:
 		pass
-		queue_free()
+		#queue_free()
 		
 	look_at_cursor()
 	cam = get_parent().get_node("target").global_transform

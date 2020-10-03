@@ -86,7 +86,9 @@ func done_game():
 		get_tree().get_root().get_node("Map/limite_plane/Parede_bloqueio").disabled = true
 		get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
 		get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
-		get_tree().get_root().get_node("Map/Controle_map").start_legenda_base_alerta()
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda_base_alerta()
+		get_tree().get_root().get_node("Map/Area_legenda6").active = true
+	
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
 	elif solicitante_minigame == "torre_2":

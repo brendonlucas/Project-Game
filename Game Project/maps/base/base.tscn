@@ -238,7 +238,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -49.1038, -27.8205, 7.11719 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -100.293, -27.8205, 65.2839 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2572, 2.8286, -2.57851 )
@@ -2423,18 +2423,22 @@ omni_range = 30.1866
 
 [node name="OmniLight9" type="OmniLight" parent="limbo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.538, 1.63317, -28.9882 )
+light_specular = 0.0
 omni_range = 72.1724
 
 [node name="OmniLight10" type="OmniLight" parent="limbo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 133.701, 1.63317, -80.7958 )
+light_specular = 0.0
 omni_range = 72.1724
 
 [node name="OmniLight11" type="OmniLight" parent="limbo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 81.8596, 1.63317, -82.4299 )
+light_specular = 0.0
 omni_range = 72.1724
 
 [node name="OmniLight12" type="OmniLight" parent="limbo"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 82.1613, 1.63317, -29.197 )
+light_specular = 0.0
 omni_range = 72.1724
 
 [node name="OmniLight2" type="OmniLight" parent="limbo"]

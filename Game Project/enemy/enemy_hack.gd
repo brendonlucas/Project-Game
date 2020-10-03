@@ -15,6 +15,7 @@ func _ready():
 	
 func _process(delta):
 	if life <= 0:
+		get_parent().get_node(".").up_speed_ataque()
 		queue_free()
 		
 	if target:
@@ -55,3 +56,6 @@ func move_to_target(delta):
 	
 func hit_damage(BULLET_DAMAGE):
 	life -= BULLET_DAMAGE
+
+func up_bullet_speed():
+	$gun/Timer.wait_time = $gun/Timer.wait_time - 0.1
