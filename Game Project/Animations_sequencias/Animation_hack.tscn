@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://testes/Controle_anin.gd" type="Script" id=1]
+[ext_resource path="res://Animations_sequencias/Controle_anin.gd" type="Script" id=1]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "hack_nija"
 length = 20.0
 tracks/0/type = "animation"
@@ -52,5 +52,5 @@ tracks/1/keys = {
 }
 
 [node name="Animation_hack" type="AnimationPlayer"]
-anims/hack_nija = SubResource( 4 )
+anims/hack_nija = SubResource( 1 )
 script = ExtResource( 1 )
