@@ -1,4 +1,4 @@
-extends StaticBody
+extends Node
 
 var BULLET_DAMAGE = 100
 var life = 200
@@ -10,7 +10,7 @@ func _ready():
 
 func _process(delta):
 	if life <= 0:
-		queue_free()
+		$AnimationPlayer.play("drop")
 		
 func hit_damage(damage):
 	life -= damage
