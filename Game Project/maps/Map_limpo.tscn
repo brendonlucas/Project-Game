@@ -824,7 +824,7 @@ anims/fade = SubResource( 11 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 665.951, 12.8909, 117.881 )
+transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 422.076, 49.6736, 287.897 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )

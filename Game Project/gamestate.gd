@@ -56,6 +56,7 @@ var gerador_1 = false
 var gerador_2 = false
 var solicitante_minigame = ""
 
+var map_loading = ""
 
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")

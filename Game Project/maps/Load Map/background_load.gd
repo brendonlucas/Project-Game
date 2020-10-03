@@ -46,6 +46,7 @@ func _thread_done(resource):
 	progress.hide()
 	
 	# Instantiate new scene.
+	#get_tree().current_scene.free()
 	var new_scene = resource.instance()
 	# Free current scene.
 	get_tree().current_scene.free()

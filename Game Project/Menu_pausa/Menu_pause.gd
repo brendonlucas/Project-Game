@@ -100,6 +100,8 @@ func _on_Button_continuar_pressed():
 
 
 func _on_FadeIn_fade_finished():
+	
+#	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
 	BackgroundLoad.load_scene("res://maps/menu_inicial/menu_principal.tscn")
 	#get_tree().change_scene(scene_change)
 
