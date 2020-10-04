@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -47,10 +47,12 @@
 [ext_resource path="res://props/console/SM_Console_Fellming.tscn" type="PackedScene" id=45]
 [ext_resource path="res://maps/teleports/Area_legenda_3.gd" type="Script" id=46]
 [ext_resource path="res://maps/teleports/Area_painel.gd" type="Script" id=47]
+[ext_resource path="res://enemy/cube/cube_enemy.tscn" type="PackedScene" id=48]
 [ext_resource path="res://maps/teleports/Area_active_painel2.gd" type="Script" id=49]
 [ext_resource path="res://maps/teleports/Area_active_torre1.gd" type="Script" id=50]
 [ext_resource path="res://props/door scifi/base.gd" type="Script" id=51]
 [ext_resource path="res://maps/animations.gd" type="Script" id=52]
+[ext_resource path="res://enemy/cube/pilar.tscn" type="PackedScene" id=53]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -824,7 +826,7 @@ anims/fade = SubResource( 11 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 422.076, 49.6736, 287.897 )
+transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 369.734, -0.0740082, 815.578 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
@@ -1118,6 +1120,21 @@ anims/fade_out = SubResource( 39 )
 [node name="Menu_pause" parent="." instance=ExtResource( 6 )]
 pause_mode = 2
 visible = false
+
+[node name="cube_enemy" parent="." instance=ExtResource( 48 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 391.696, 0.840669, 826.043 )
+
+[node name="pilar" parent="." instance=ExtResource( 53 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 369.04, -0.10814, 813.436 )
+
+[node name="pilar3" parent="." instance=ExtResource( 53 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 414.59, -0.355722, 813.517 )
+
+[node name="pilar4" parent="." instance=ExtResource( 53 )]
+transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 414.588, -0.355722, 843.227 )
+
+[node name="pilar2" parent="." instance=ExtResource( 53 )]
+transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 369.008, -0.10814, 843.198 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
