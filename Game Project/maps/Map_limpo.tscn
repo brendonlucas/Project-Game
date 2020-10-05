@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=97 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -53,6 +53,9 @@
 [ext_resource path="res://props/door scifi/base.gd" type="Script" id=51]
 [ext_resource path="res://maps/animations.gd" type="Script" id=52]
 [ext_resource path="res://enemy/cube/pilar.tscn" type="PackedScene" id=53]
+[ext_resource path="res://player/UI/Status_UI.tscn" type="PackedScene" id=54]
+[ext_resource path="res://maps/teleports/Area_target.gd" type="Script" id=55]
+[ext_resource path="res://maps/teleports/pilar_enemys.gd" type="Script" id=56]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -299,9 +302,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"values": [  ]
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("MeshInstance2:material/0:emission")
@@ -615,6 +621,9 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
+[sub_resource type="BoxShape" id=40]
+extents = Vector3( 25.0838, 1, 15.902 )
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map" type="Node" parent="."]
@@ -826,7 +835,7 @@ anims/fade = SubResource( 11 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 369.734, -0.0740082, 815.578 )
+transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 391.415, -0.0740082, 807.991 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
@@ -884,7 +893,7 @@ transform = Transform( -1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, -1, -15.463
 transform = Transform( -1.19209e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.19209e-07, -0.467, -1.617, -10.329 )
 
 [node name="SM_Console_Fellming3" parent="." instance=ExtResource( 45 )]
-transform = Transform( 1.5, 0, 1.07288e-06, 0, 1.5, 0, -1.07288e-06, 0, 1.5, 391.788, -0.106715, 833.286 )
+transform = Transform( 1.5, 0, 1.07288e-06, 0, 1.5, 0, -1.07288e-06, 0, 1.5, 391.788, -0.106715, 838.135 )
 
 [node name="Area_active_painel" type="Area" parent="SM_Console_Fellming3"]
 collision_layer = 2
@@ -896,7 +905,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790092, -0.302368 )
 shape = SubResource( 18 )
 
 [node name="ST_Tower" parent="." instance=ExtResource( 34 )]
-transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 835.471 )
+transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 840.32 )
 
 [node name="escudo" type="StaticBody" parent="ST_Tower"]
 transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 7.789, 0 )
@@ -1093,6 +1102,9 @@ far = 1000.0
 
 [node name="HUD_UI" parent="." instance=ExtResource( 42 )]
 
+[node name="Status_UI" parent="." instance=ExtResource( 54 )]
+visible = false
+
 [node name="Fade_inicio" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1121,21 +1133,34 @@ anims/fade_out = SubResource( 39 )
 pause_mode = 2
 visible = false
 
-[node name="cube_enemy" parent="." instance=ExtResource( 48 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 391.696, 0.840669, 826.043 )
+[node name="pilar_enemys" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 391.27, 0, 828.45 )
+script = ExtResource( 56 )
 
-[node name="pilar" parent="." instance=ExtResource( 53 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 369.04, -0.10814, 813.436 )
+[node name="Area_target" type="Area" parent="pilar_enemys"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994504, -0.29364 )
+script = ExtResource( 55 )
 
-[node name="pilar3" parent="." instance=ExtResource( 53 )]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 414.59, -0.355722, 813.517 )
+[node name="CollisionShape" type="CollisionShape" parent="pilar_enemys/Area_target"]
+shape = SubResource( 40 )
 
-[node name="pilar4" parent="." instance=ExtResource( 53 )]
-transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 414.588, -0.355722, 843.227 )
+[node name="cube_enemy" parent="pilar_enemys" instance=ExtResource( 48 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425598, 1.22685, -0.0315552 )
 
-[node name="pilar2" parent="." instance=ExtResource( 53 )]
-transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, 369.008, -0.10814, 843.198 )
+[node name="pilar" parent="pilar_enemys" instance=ExtResource( 53 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -22.2304, -0.10814, -15.0139 )
+
+[node name="pilar3" parent="pilar_enemys" instance=ExtResource( 53 )]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 23.3196, -0.355722, -14.9328 )
+
+[node name="pilar4" parent="pilar_enemys" instance=ExtResource( 53 )]
+transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152, 23.3176, -0.355722, 14.7772 )
+
+[node name="pilar2" parent="pilar_enemys" instance=ExtResource( 53 )]
+transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -22.2624, -0.10814, 14.7482 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
 [connection signal="body_entered" from="Area_legenda_3" to="Area_legenda_3" method="_on_Area_legenda_3_body_entered"]
+[connection signal="body_entered" from="pilar_enemys/Area_target" to="pilar_enemys/Area_target" method="_on_Area_target_body_entered"]
+[connection signal="body_exited" from="pilar_enemys/Area_target" to="pilar_enemys/Area_target" method="_on_Area_target_body_exited"]

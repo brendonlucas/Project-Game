@@ -9,13 +9,10 @@ var timer_attack
 var target_attack
 
 func _ready():
-	
 	space_state = get_world().direct_space_state
 	timer_attack = get_node("Area_attack/Timer_attack")
-	print(space_state)
+	
 func _process(delta):
-	
-	
 	if target:
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
 		if target.is_in_group("Player_v4"):
