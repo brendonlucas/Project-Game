@@ -4,11 +4,15 @@ export var speed = 1.5
 
 var space_state
 var target
+var caido = false
+var desabilitado = false
+
+var destruido = false
 
 var timer_attack
 var target_attack
 
-var vida = 15000
+var vida = 9000
 var defesa = 70
 
 func _ready():
@@ -16,18 +20,22 @@ func _ready():
 	timer_attack = $guns/Timer_recarga
 	
 func hit_damage(damage):
-	vida -= damage
+	if vida > 0:
+		vida -= damage
+		if vida <= 0:
+			$AnimationPlayer.play("kill")
+			$Timer_caido.start()
+			caido = true
+			destruido = true
+	
 	
 func _process(delta):
-	if Input.is_action_just_pressed("lanterna"):
-		$AnimationPlayer.play("Bolvanka|Shoot")
-		
-	if target_attack and timer_attack.time_left == 0 :
+	if target_attack and timer_attack.time_left == 0 and !caido:
 		if target_attack.is_in_group("Player_v4"):
 			$AnimationPlayer.play("Bolvanka|Shoot")
 			timer_attack.start()
 			
-	if target and $AnimationPlayer.current_animation != "Bolvanka|Shoot":
+	if target and $AnimationPlayer.current_animation != "Bolvanka|Shoot" and !caido:
 		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
 		if target.is_in_group("Player_v4"):
 			var olhar = target.global_transform.origin
@@ -39,35 +47,24 @@ func _process(delta):
 			
 	elif !target:
 		$AnimationPlayer.play("Bolvanka|Idle.001", 0.2)
+	
+	if vida <= 8000 and !caido and !desabilitado:
+		caido()
+		desabilitado = true
 		
-		
-		
-#	if target:
-#		var result = space_state.intersect_ray(global_transform.origin, target.global_transform.origin)
-#		if target.is_in_group("Player_v4"):
-#			var olhar = target.global_transform.origin
-#
-#			#olhar.y = 1
-#			#look_at_from_position(translation, olhar, Vector3.UP)
-#			look_at(olhar, Vector3.UP)
-#			self.rotate_object_local(Vector3(0,1,0), 3.14)
-#			if !target_attack:
-#				move_to_target(delta)
-#				$AnimationPlayer.play("Bolvanka|Walk")
-#	elif !target:
-#		pass
-#		$AnimationPlayer.play("Bolvanka|Idle.001", 0.2)
-#
+	if $Timer_caido.time_left == 0 and caido and desabilitado:
+		caido = false
+	
 	var velocity = Vector3()
 	velocity.y -= 0.98
 	rotation_degrees.x = 0
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 	
-#	if target_attack and timer_attack.time_left == 0:
-#		if target_attack.is_in_group("Player_v4"):
-#			# atacar()
-#			timer_attack.start()
-
+func caido():
+	$AnimationPlayer.play("Bolvanka|Fall")
+	$Timer_caido.start()
+	caido = true
+	
 func _on_Area_target_body_entered(body):
 	if body.is_in_group("Player_v4"):
 		target = body
