@@ -1161,7 +1161,7 @@ transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152,
 transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -22.2624, -0.10814, 14.7482 )
 
 [node name="BolvankaRobotCA" parent="." instance=ExtResource( 57 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 673.062, 11.9855, 133.269 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 688.364, 11.9855, 126.876 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]

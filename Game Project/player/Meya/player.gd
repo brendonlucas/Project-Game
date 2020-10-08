@@ -141,12 +141,14 @@ func movimentos(delta):
 		pass
 		
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
-		#MOVE_SPEED = 100
-		#dir += global_transform.basis[2]
+		
 		pass
-		#var olhar = get_parent().get_node("nija").global_transform.origin
-		#look_at_from_position(global_transform.origin, olhar, Vector3.UP)
-		#self.rotate_object_local(Vector3(0,1,0), 3.14)
+#		var olhar = get_parent().get_node("BolvankaRobotCA").global_transform.origin
+#		look_at_from_position(global_transform.origin, olhar, Vector3.UP)
+#		self.rotate_object_local(Vector3(0,1,0), 3.14)
+#
+#		MOVE_SPEED = 100
+#		dir += global_transform.basis[2]
 	
 	if is_moving and !correndo and resetado and !caminhando:
 		$AnimationPlayer.play("run1", 0.1)

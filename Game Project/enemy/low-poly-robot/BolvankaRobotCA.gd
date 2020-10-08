@@ -85,12 +85,12 @@ func move_to_target(delta):
 	
 
 func shot_bullets():
-	$guns/gun.fire_weapon(target)
-	$guns/gun2.fire_weapon(target)
+	$guns/gun.fire_weapon()
+	$guns/gun2.fire_weapon()
 	
 func get_target_local():
-	$guns/gun.set_target()
-	$guns/gun2.set_target()
+	$guns/gun.set_target(target.translation)
+	$guns/gun2.set_target(target.translation)
 	
 	
 func _on_target_attack_body_entered(body):
