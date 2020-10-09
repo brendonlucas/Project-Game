@@ -15,7 +15,55 @@ var exp_niveis = {'1': 1000,'2': 1500, '3': 2500,
  '4':3000,'5': 3500,'6': 4000,'7':5000,
 '8':6000,'9':7000,'10':0}
 
+var point_position
+var point_dano_personagem
+var point_dano_arma
+var point_def_personagem
+var point_vida_atual
+var point_vida_maxima
 
+var point_nivel
+var point_exp_total
+var point_exp_atual
+var point_exp_active
+
+func set_point():
+	point_position
+	point_dano_personagem = dano_personagem
+	point_dano_arma = dano_arma
+	point_def_personagem = def_personagem
+	point_vida_atual = vida_atual
+	point_vida_maxima = vida_maxima
+	
+	point_nivel = nivel
+	point_exp_total = exp_total
+	point_exp_atual = exp_atual
+	point_exp_active = exp_active
+	
+func load_points():
+	point_position
+	dano_personagem = point_dano_personagem
+	dano_arma = point_dano_arma
+	def_personagem = point_def_personagem
+	vida_atual = point_vida_atual
+	vida_maxima = point_vida_maxima
+	
+	nivel = point_nivel
+	exp_total = point_exp_total
+	exp_atual = point_exp_atual
+	exp_active = point_exp_active
+	
+func reset_dados():
+	dano_personagem = 135
+	dano_arma = 48
+	def_personagem = 30
+	vida_atual = 5000
+	vida_maxima = 5000
+	nivel = 1
+	exp_total = 0
+	exp_atual = 0
+	exp_active = true
+	 
 func healer(value):
 	var nova_vida = vida_atual + value
 	if nova_vida > vida_maxima:

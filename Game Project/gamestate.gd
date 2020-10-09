@@ -58,6 +58,29 @@ var solicitante_minigame = ""
 
 var map_loading = ""
 
+
+var checkpoint_local
+func set_checkpoint():
+	PlayerStatus.set_point()
+	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
+	if player:
+		checkpoint_local = player.translation
+		
+func load_checkpoint():
+	PlayerStatus.load_points()
+	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
+	if player:
+		player.translation = checkpoint_local
+	
+func reset_all_enemys():
+	var pilar = get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy")
+	var sentinela = get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA")
+	
+	if pilar:
+		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
+	if sentinela:
+		
+	
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)

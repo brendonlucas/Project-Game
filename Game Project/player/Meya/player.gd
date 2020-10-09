@@ -45,7 +45,7 @@ func _ready():
 	timer_reset_atak = get_node("Timer fim")
 	player = get_node(".")
 	animation = get_node("AnimationPlayer")
-	player.rotation_degrees.y = 180
+	#player.rotation_degrees.y = 180
 	moviments_active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

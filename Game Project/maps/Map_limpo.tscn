@@ -592,6 +592,23 @@ tracks/2/keys = {
 "method": "start_legenda1"
 } ]
 }
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Player_v4")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "desativar_moves"
+}, {
+"args": [  ],
+"method": "ativar_moves"
+} ]
+}
 
 [sub_resource type="Animation" id=38]
 length = 1.5
@@ -630,6 +647,11 @@ extents = Vector3( 25.0838, 1, 15.902 )
 [node name="Controler_map" type="Node" parent="."]
 script = ExtResource( 43 )
 
+[node name="Player_v4" parent="." groups=[
+"Player_v4",
+] instance=ExtResource( 9 )]
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 87.1399, 0.513225, 261.85 )
+
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
 
@@ -642,7 +664,7 @@ process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 3 )
 
 [node name="target" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 427.974, 3.1385, 264.553 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 84.8345, 3.1385, 262.015 )
 script = ExtResource( 5 )
 
 [node name="legendas" parent="." instance=ExtResource( 25 )]
@@ -785,7 +807,7 @@ autoplay = true
 
 [node name="bg_map" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 12 )
-volume_db = -5.0
+volume_db = -18.0
 autoplay = true
 
 [node name="re_spawn" type="Position3D" parent="."]
@@ -832,11 +854,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="colisions/Area_teleporte/fade"]
 anims/fade = SubResource( 11 )
-
-[node name="Player_v4" parent="." groups=[
-"Player_v4",
-] instance=ExtResource( 9 )]
-transform = Transform( 0.699676, 0, -0.71446, 0, 1, 0, 0.71446, 0, 0.699676, 664.032, 13.2535, 126.326 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
@@ -1109,7 +1126,7 @@ visible = false
 [node name="Fade_inicio" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.25 )
+color = Color( 0, 0, 0, 0.75 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

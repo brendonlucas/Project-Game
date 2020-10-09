@@ -238,7 +238,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -36.7223, -27.8205, 14.6356 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 90.6711, 23.9637, -2.58622 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 58.2572, 2.8286, -2.57851 )

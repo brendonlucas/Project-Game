@@ -12,7 +12,7 @@ var destruido = false
 var timer_attack
 var target_attack
 
-var vida = 9000
+var vida = 5000
 var defesa = 70
 
 func _ready():
@@ -23,6 +23,7 @@ func hit_damage(damage):
 	if vida > 0:
 		vida -= damage
 		if vida <= 0:
+			get_tree().get_root().get_node("Map/Controler_map").kill_sentinela()
 			$AnimationPlayer.play("kill")
 			$Timer_caido.start()
 			caido = true
@@ -48,7 +49,7 @@ func _process(delta):
 	elif !target:
 		$AnimationPlayer.play("Bolvanka|Idle.001", 0.2)
 	
-	if vida <= 8000 and !caido and !desabilitado:
+	if vida <= 500 and !caido and !desabilitado:
 		caido()
 		desabilitado = true
 		
@@ -98,3 +99,9 @@ func _on_target_attack_body_entered(body):
 func _on_target_attack_body_exited(body):
 	if body.is_in_group("Player_v4"):
 		target_attack = null
+
+func reset():
+	vida = 5000
+	caido = false
+	desabilitado = false
+	destruido = false

@@ -125,3 +125,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func change_map():
 	BackgroundLoad.load_scene("res://maps/base/base.tscn")
+
+func kill_sentinela():
+	get_parent().get_node("ST_Tower2/escudo/AnimationRemove").play("drop")
