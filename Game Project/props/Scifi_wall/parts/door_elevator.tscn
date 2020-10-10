@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://props/Scifi_wall/parts/door_elevator.gd" type="Script" id=1]
 [ext_resource path="res://props/Scifi_wall/source/mat_nonwalls.material" type="Material" id=2]
+[ext_resource path="res://audio/door.wav" type="AudioStream" id=3]
 [ext_resource path="res://maps/base/doors/ativar.gd" type="Script" id=4]
 [ext_resource path="res://props/Scifi_wall/parts/painel_interno.gd" type="Script" id=5]
 
@@ -228,3 +229,7 @@ shape = SubResource( 14 )
 [node name="Timer" type="Timer" parent="painel"]
 wait_time = 2.0
 one_shot = true
+
+[node name="dor" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+attenuation_model = 3
