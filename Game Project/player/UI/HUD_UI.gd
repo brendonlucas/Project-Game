@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	$Sinal/on_sinal.show()
 	update_values()
 	
 	

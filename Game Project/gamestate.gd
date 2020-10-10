@@ -11,6 +11,7 @@ var type_shadow_mode = 0
 var view_distance = 100
 var grass_dencidade = 1
 
+var ativar_menu = true
 # exp variaveis
 var nivel : int
 var exp_total : int

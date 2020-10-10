@@ -49,7 +49,7 @@ func _process(delta):
 
 
 func _input(event):
-	if Input.is_action_just_pressed("menu_pause"):
+	if Input.is_action_just_pressed("menu_pause") and Gamestate.ativar_menu:
 		if menu_pause_active:
 			if Gamestate.in_mine_game:
 				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)

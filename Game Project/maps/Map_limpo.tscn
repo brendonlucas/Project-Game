@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -57,6 +57,7 @@
 [ext_resource path="res://maps/teleports/Area_target.gd" type="Script" id=55]
 [ext_resource path="res://maps/teleports/pilar_enemys.gd" type="Script" id=56]
 [ext_resource path="res://enemy/low-poly-robot/BolvankaRobotCA.tscn" type="PackedScene" id=57]
+[ext_resource path="res://player/UI/HUD_UI.gd" type="Script" id=58]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -1155,6 +1156,7 @@ transform = Transform( 1, 0, 0, 0, 0.894279, 0.447509, 0, -0.447509, 0.894279, 4
 far = 1000.0
 
 [node name="HUD_UI" parent="." instance=ExtResource( 42 )]
+script = ExtResource( 58 )
 
 [node name="Status_UI" parent="." instance=ExtResource( 54 )]
 visible = false
