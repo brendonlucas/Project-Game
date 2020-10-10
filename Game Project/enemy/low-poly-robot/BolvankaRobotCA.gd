@@ -57,7 +57,7 @@ func _process(delta):
 		caido = false
 	
 	var velocity = Vector3()
-	velocity.y -= 15
+	velocity.y -= 1
 	rotation_degrees.x = 0
 	velocity = move_and_slide(velocity, Vector3(0, 1, 0))
 	
