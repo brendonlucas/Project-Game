@@ -2,12 +2,11 @@ extends Spatial
 
 const DAMAGE = 15
 var bullet_scene = preload("res://enemy/cube/bullet.tscn")
-var player
 
 var target
 
 func _ready():
-	player = get_tree().get_root().get_node("Map/Player_v4").translation
+	pass
 	
 
 func fire_weapon():

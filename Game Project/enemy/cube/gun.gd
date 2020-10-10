@@ -2,11 +2,10 @@ extends Spatial
 
 const DAMAGE = 15
 var bullet_scene = preload("res://enemy/cube/bullet.tscn")
-var player
+
 
 func _ready():
-	player = get_tree().get_root().get_node("Map/Player_v4").translation
-	
+	pass
 
 func fire_weapon():
 	var clone = bullet_scene.instance()
@@ -19,7 +18,7 @@ func fire_weapon():
 	
 func _process(delta):
 	if get_parent().get_parent().get_node(".").ativo:
-		player = get_tree().get_root().get_node("Map/Player_v4").translation
+		var player = get_tree().get_root().get_node("Map/Player_v4").translation
 		player.y = 1.5
 		look_at(player, Vector3.UP)
 	

@@ -79,7 +79,7 @@ func reset_all_enemys():
 	if pilar:
 		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
 	if sentinela:
-		
+		pass
 	
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")

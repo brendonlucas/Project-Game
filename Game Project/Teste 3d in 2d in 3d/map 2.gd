@@ -13,6 +13,7 @@ onready var viewport_sprite = $Control/ViewportSprite
 var map_control
 
 func _ready():
+	
 	# viewport_sprite.modulate = Color(1, 1,1, 0.01)
 	get_viewport().connect("size_changed", self, "_root_viewport_size_changed")
 	# viewport_initial_size = viewport.size

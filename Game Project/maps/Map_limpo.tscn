@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=102 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -642,6 +642,42 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=40]
 extents = Vector3( 25.0838, 1, 15.902 )
 
+[sub_resource type="CubeMesh" id=41]
+
+[sub_resource type="SpatialMaterial" id=43]
+flags_transparent = true
+albedo_color = Color( 0, 0.788235, 1, 0.137255 )
+albedo_texture = ExtResource( 18 )
+emission_enabled = true
+emission = Color( 0, 0.694118, 1, 1 )
+emission_energy = 2.0
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 18 )
+uv1_scale = Vector3( 10, 1, 1 )
+uv1_offset = Vector3( 0, 0.204388, 0 )
+proximity_fade_enable = true
+proximity_fade_distance = 2.0
+
+[sub_resource type="BoxShape" id=42]
+
+[sub_resource type="Animation" id=44]
+resource_name = "move"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map" type="Node" parent="."]
@@ -738,16 +774,16 @@ ground/normal_roughness_2 = ExtResource( 19 )
 ground/albedo_bump_3 = ExtResource( 11 )
 ground/normal_roughness_3 = ExtResource( 10 )
 
-[node name="HTerrainDetailLayer2" type="Spatial" parent="HTerrain"]
+[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
 script = ExtResource( 14 )
 __meta__ = {
 "_editor_icon": ExtResource( 32 )
 }
 layer_index = 0
 texture = ExtResource( 24 )
-view_distance = 100.0
+view_distance = 200.0
 custom_shader = null
-density = 1.0
+density = 4.0
 instance_mesh = null
 shader_params/u_globalmap_tint_bottom = 0.0
 shader_params/u_globalmap_tint_top = 0.0
@@ -1178,7 +1214,21 @@ transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152,
 transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -22.2624, -0.10814, 14.7482 )
 
 [node name="BolvankaRobotCA" parent="." instance=ExtResource( 57 )]
-transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 688.364, 11.9855, 126.876 )
+transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 686.819, 37.5359, 111.012 )
+
+[node name="bloqueio_combate" type="MeshInstance" parent="."]
+transform = Transform( 38.4396, 0, -0.486183, 0, 11.1235, 0, 21.3864, 0, 0.873857, 673.515, 19.6962, 140.424 )
+mesh = SubResource( 41 )
+material/0 = SubResource( 43 )
+
+[node name="StaticBody" type="StaticBody" parent="bloqueio_combate"]
+
+[node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/StaticBody"]
+shape = SubResource( 42 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio_combate"]
+autoplay = "move"
+anims/move = SubResource( 44 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
