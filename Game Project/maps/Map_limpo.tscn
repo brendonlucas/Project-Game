@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -658,6 +658,7 @@ emission_operator = 1
 emission_on_uv2 = false
 emission_texture = ExtResource( 18 )
 uv1_scale = Vector3( 10, 1, 1 )
+uv1_offset = Vector3( 0, 0.920074, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 2.0
 
@@ -678,6 +679,72 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "drop"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.838995 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 0.8, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.788235, 1, 0.137255 ), Color( 0, 0.788235, 1, 0.137255 ), Color( 0, 0.788235, 1, 0 ), Color( 0, 0.788235, 1, 0.137255 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:material/0:emission_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 2.0, 16.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("colisao/CollisionShape:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true ],
+"method": "stop"
+} ]
 }
 
 [sub_resource type="BoxShape" id=45]
@@ -1232,11 +1299,13 @@ script = ExtResource( 59 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/colisao"]
 shape = SubResource( 43 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio_combate"]
 autoplay = "move"
 anims/move = SubResource( 44 )
+
+[node name="AnimationDrop" type="AnimationPlayer" parent="bloqueio_combate"]
+anims/drop = SubResource( 46 )
 
 [node name="Area_bloqueio" type="Area" parent="bloqueio_combate"]
 transform = Transform( 1, 0, 6.51926e-09, 0, 1, 0, 1.33514e-05, 0, 1, -0.196115, -0.529726, -2.85727 )

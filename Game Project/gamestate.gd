@@ -124,6 +124,7 @@ func done_game():
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda5()
+		get_tree().get_root().get_node("Map/bloqueio_combate/AnimationDrop").play("drop")
 		
 	elif solicitante_minigame == "torre_2":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
