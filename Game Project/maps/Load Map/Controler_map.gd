@@ -41,7 +41,9 @@ func _ready():
 func _process(delta):
 	if executando_legenda:
 		aplly_text()
-
+		
+func set_music_map():
+	get_parent().get_node("bg_map").stream = load("res://audio/gb_2.ogg")
 
 func set_dados_legenda(execution_text, text_info, audio):
 	executando_legenda = true
@@ -115,6 +117,9 @@ func start_legenda3():
 	
 func start_legenda4():
 	set_dados_legenda(4, 4, true)
+	
+func start_legenda5():
+	set_dados_legenda(5, 5, true)
 
 
 

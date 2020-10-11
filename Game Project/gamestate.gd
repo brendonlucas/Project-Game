@@ -76,7 +76,6 @@ func load_checkpoint():
 func reset_all_enemys():
 	var pilar = get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy")
 	var sentinela = get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA")
-	
 	if pilar:
 		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
 	if sentinela:
@@ -86,7 +85,15 @@ func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
 	
-	
+func set_music_battle():
+	get_tree().get_root().get_node("Map/bg_map").stream = load("res://audio/bg_battle.ogg")
+	get_tree().get_root().get_node("Map/bg_map").play()
+
+func set_music_map():
+	get_tree().get_root().get_node("Map/Controler_map").set_music_map()
+	get_tree().get_root().get_node("Map/bg_map").play()
+	pass
+
 func done_game():
 	if solicitante_minigame == "gerador_1":
 		gerador_1 = true
@@ -116,6 +123,8 @@ func done_game():
 	
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda5()
+		
 	elif solicitante_minigame == "torre_2":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
 		

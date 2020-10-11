@@ -69,12 +69,14 @@ func caido():
 func _on_Area_target_body_entered(body):
 	if body.is_in_group("Player_v4"):
 		target = body
+		Gamestate.set_music_battle()
 		#print(body.name + " entered")
 
 
 func _on_Area_target_body_exited(body):
 	if body.is_in_group("Player_v4"):
 		target = null
+		Gamestate.set_music_map()
 		#print(body.name + " exited")
 
 func move_to_target(delta):

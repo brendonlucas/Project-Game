@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://props/tree/source/bark1.material" type="Material" id=1]
 [ext_resource path="res://props/tree/source/leaf1.material" type="Material" id=2]
@@ -648,6 +648,9 @@ surfaces/0 = {
 "vertex_count": 36
 }
 
+[sub_resource type="CylinderShape" id=44]
+radius = 0.480104
+
 [node name="treelarge2" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0368429, 0 )
 mesh = SubResource( 1 )
@@ -865,3 +868,9 @@ material/0 = null
 transform = Transform( 0.622361, -0.333088, -0.708321, 1.49012e-08, 0.904936, -0.425547, 0.78273, 0.264844, 0.563197, -0.400005, 1.238, 0.554966 )
 mesh = SubResource( 43 )
 material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.903469, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 44 )

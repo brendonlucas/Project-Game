@@ -5,6 +5,7 @@ func _ready():
 
 func _on_Area_target_body_entered(body):
 	if body.name == "Player_v4":
+		Gamestate.set_music_battle()
 		get_parent().get_node("pilar").ativo = true
 		get_parent().get_node("pilar2").ativo = true
 		get_parent().get_node("pilar3").ativo = true
@@ -13,6 +14,7 @@ func _on_Area_target_body_entered(body):
 
 func _on_Area_target_body_exited(body):
 	if body.name == "Player_v4":
+		Gamestate.set_music_map()
 		get_parent().get_node("pilar").ativo = false
 		get_parent().get_node("pilar2").ativo = false
 		get_parent().get_node("pilar3").ativo = false
