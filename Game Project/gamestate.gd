@@ -71,7 +71,10 @@ func load_checkpoint():
 	PlayerStatus.load_points()
 	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	if player:
+		get_tree().get_root().get_node_or_null("Map/Player_v4/AnimationPlayer").play("idle")
 		player.translation = checkpoint_local
+	reset_all_enemys()
+	get_tree().get_root().get_node("Map/HUD_UI").update_values()
 	
 func reset_all_enemys():
 	var pilar = get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy")
@@ -79,7 +82,8 @@ func reset_all_enemys():
 	if pilar:
 		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
 	if sentinela:
-		pass
+		get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA").reset()
+		
 	
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
@@ -125,13 +129,13 @@ func done_game():
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda5()
 		get_tree().get_root().get_node("Map/bloqueio_combate/AnimationDrop").play("drop")
-		
+		 
 	elif solicitante_minigame == "torre_2":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
 		
 	elif solicitante_minigame == "elevador_base":
 		get_tree().get_root().get_node("Map/animations/Animation_open_gate").play("open_gate")
-		pass
+		
 		
 	var game = get_node_or_null("map_game")
 	game.queue_free()

@@ -8,27 +8,24 @@ func _ready():
 
 func _process(delta):
 	if pilares_destruidos == 4 and !escudo_destruido:
-		$cube_enemy/nucleo/escudo.queue_free()
-		$cube_enemy/nucleo/MeshInstance/colision_nucleo.ativo = true
-		escudo_destruido = true
+		drop_escudo()
 	if pilares_destruidos == 5 and !nucleo_destruido:
-		$cube_enemy/nucleo.queue_free()
+		$cube_enemy.queue_free()
 		nucleo_destruido = true
 
 func reset():
-	$cube_enemy/nucleo/MeshInstance/colision_nucleo.vida = 10000
-	$pilar.vida = 2000
-	$pilar.desativado = false
-	$pilar.ativo = true
+	pilares_destruidos = 0
+	escudo_destruido = false
+	nucleo_destruido = false
+	$cube_enemy/nucleo/MeshInstance/colision_nucleo.reset()
+	$cube_enemy/nucleo/escudo.reset()
+	$pilar.reset()
+	$pilar2.reset()
+	$pilar3.reset()
+	$pilar4.reset()
 	
-	$pilar2.vida = 2000
-	$pilar2.desativado = false
-	$pilar2.ativo = true
-	
-	$pilar3.vida = 2000
-	$pilar3.desativado = false
-	$pilar3.ativo = true
-	
-	$pilar4.vida = 2000
-	$pilar4.desativado = false
-	$pilar4.ativo = true
+func drop_escudo():
+	$cube_enemy/nucleo/escudo.hide()
+	$cube_enemy/nucleo/escudo/StaticBody/CollisionShape.disabled = true
+	$cube_enemy/nucleo/MeshInstance/colision_nucleo.ativo = true
+	escudo_destruido = true

@@ -103,7 +103,10 @@ func _on_target_attack_body_exited(body):
 		target_attack = null
 
 func reset():
-	vida = 5000
-	caido = false
-	desabilitado = false
-	destruido = false
+	if vida > 0:
+		translation = get_parent().get_node("spawn_sentinela").translation
+		vida = 5000
+		caido = false
+		desabilitado = false
+		destruido = false
+

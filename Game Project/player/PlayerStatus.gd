@@ -3,8 +3,8 @@ extends Node
 var dano_personagem = 135
 var dano_arma = 48
 var def_personagem = 30
-var vida_atual = 5000
-var vida_maxima = 5000
+var vida_atual = 1000
+var vida_maxima = 1000
 
 var nivel : int = 1
 var exp_total : int

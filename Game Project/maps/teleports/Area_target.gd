@@ -4,17 +4,27 @@ func _ready():
 	pass
 
 func _on_Area_target_body_entered(body):
-	if body.name == "Player_v4":
+	if body.name == "Player_v4" and get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy"):
 		Gamestate.set_music_battle()
+		get_parent().get_node("pilar/esfera/gun").target = body
+		#get_parent().get_node("pilar").ativo = true
+		get_parent().get_node("pilar2/esfera/gun").target = body
+		get_parent().get_node("pilar3/esfera/gun").target = body
+		get_parent().get_node("pilar4/esfera/gun").target = body
+	
 		get_parent().get_node("pilar").ativo = true
 		get_parent().get_node("pilar2").ativo = true
 		get_parent().get_node("pilar3").ativo = true
 		get_parent().get_node("pilar4").ativo = true
-	
-
+		
 func _on_Area_target_body_exited(body):
-	if body.name == "Player_v4":
+	if body.name == "Player_v4" and get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy"):
 		Gamestate.set_music_map()
+		get_parent().get_node("pilar/esfera/gun").target = null
+		get_parent().get_node("pilar2/esfera/gun").target = null
+		get_parent().get_node("pilar3/esfera/gun").target = null
+		get_parent().get_node("pilar4/esfera/gun").target = null
+		
 		get_parent().get_node("pilar").ativo = false
 		get_parent().get_node("pilar2").ativo = false
 		get_parent().get_node("pilar3").ativo = false

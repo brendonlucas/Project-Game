@@ -13,4 +13,7 @@ func hit_damage(damage):
 		print("- " + str(vida))
 		if vida <= 0:
 			get_tree().get_root().get_node("Map/ST_Tower/escudo/AnimationRemove").play("drop")
-			get_parent().get_node(".").queue_free()
+			get_tree().get_root().get_node("Map/pilar_enemys/cube_enemy").queue_free()
+func reset():
+	if vida > 0:
+		vida = 10000

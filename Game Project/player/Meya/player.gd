@@ -12,7 +12,7 @@ var y_velocity : float
 var velocity = Vector3()
 
 var cam
-var player
+#var player
 var animation
 
 # var controles
@@ -35,15 +35,15 @@ var resetado = true
 var ultimo_atake
 
 var atacando
-var luz 
+#var luz 
 
 var jumped = false
 
 func _ready():
-	luz = get_parent().get_node("Sol")
+#	luz = get_parent().get_node("Sol")
 	timer_1 = get_node("Timer")
 	timer_reset_atak = get_node("Timer fim")
-	player = get_node(".")
+	#player = get_node(".")
 	animation = get_node("AnimationPlayer")
 	#player.rotation_degrees.y = 180
 	moviments_active = true
@@ -185,12 +185,9 @@ func movimentos(delta):
 		
 	if is_moving:
 		var angle = atan2(hv.x, hv.z)
-		var character_rot = player.get_rotation()
+		var character_rot = get_rotation()
 		character_rot.y = angle
-		player.set_rotation(character_rot)
-	
-	
-	
+		set_rotation(character_rot)
 
 	
 func block_moviments(option):
@@ -212,13 +209,22 @@ func desativar_moves():
 func ativar_moves():
 	moviments_active = true
 	
+var morreu = false
+
 func hit_damage(damage):
 	PlayerStatus.vida_atual -= damage
 	get_parent().get_node("HUD_UI").update_values()
 	get_parent().get_node("Status_UI").update_values()
+	if PlayerStatus.vida_atual <= 700 and !morreu:
+		desativar_moves()
+		$AnimationPlayer.play("died")
+		morreu = true
+		
 func change_ataque(option):
 	pass
 			
-		
-
-
+func call_screen_kill():
+	morreu = false
+	
+	get_tree().get_root().get_node("Map/tela_Kill").show_menu()
+	ativar_moves()

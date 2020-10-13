@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=2]
+[gd_scene load_steps=118 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -60,6 +60,9 @@
 [ext_resource path="res://player/UI/HUD_UI.gd" type="Script" id=58]
 [ext_resource path="res://maps/teleports/bloqueio_combate.gd" type="Script" id=59]
 [ext_resource path="res://props/tree/tree_2.tscn" type="PackedScene" id=60]
+[ext_resource path="res://maps/exp_teste.gd" type="Script" id=61]
+[ext_resource path="res://maps/checkpoints/Area_checkpoint.gd" type="Script" id=62]
+[ext_resource path="res://player/UI/tela_Kill.tscn" type="PackedScene" id=63]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -628,6 +631,21 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=53]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=39]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -681,7 +699,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=45]
 resource_name = "drop"
 length = 2.0
 tracks/0/type = "value"
@@ -747,8 +765,64 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=45]
+[sub_resource type="BoxShape" id=46]
 extents = Vector3( 0.582425, 0.177475, 1 )
+
+[sub_resource type="CapsuleShape" id=47]
+
+[sub_resource type="CapsuleMesh" id=48]
+
+[sub_resource type="BoxShape" id=49]
+
+[sub_resource type="CubeMesh" id=50]
+
+[sub_resource type="SpatialMaterial" id=51]
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.180392 )
+albedo_texture = ExtResource( 18 )
+emission_enabled = true
+emission = Color( 0.172549, 1, 0, 1 )
+emission_energy = 2.38
+emission_operator = 1
+emission_on_uv2 = false
+emission_texture = ExtResource( 18 )
+uv1_scale = Vector3( 10, 1, 1 )
+proximity_fade_enable = true
+proximity_fade_distance = 1.0
+
+[sub_resource type="Animation" id=52]
+resource_name = "move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=54]
+resource_name = "move"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:material/0:uv1_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
+}
 
 [node name="Map" type="Spatial"]
 
@@ -758,7 +832,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 656.396, 9.6936, 183.853 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 392.365, 5.02923, 692.23 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -1235,7 +1309,7 @@ visible = false
 [node name="Fade_inicio" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.75 )
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -1254,7 +1328,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade"]
 anims/fade = SubResource( 38 )
+anims/fade_in = SubResource( 53 )
 anims/fade_out = SubResource( 39 )
+
+[node name="tela_Kill" parent="." instance=ExtResource( 63 )]
 
 [node name="Menu_pause" parent="." instance=ExtResource( 6 )]
 pause_mode = 2
@@ -1286,6 +1363,9 @@ transform = Transform( -0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, -0.819152,
 [node name="pilar2" parent="pilar_enemys" instance=ExtResource( 53 )]
 transform = Transform( -0.819152, 0, 0.573576, 0, 1, 0, -0.573576, 0, -0.819152, -22.2624, -0.10814, 14.7482 )
 
+[node name="spawn_sentinela" type="Position3D" parent="."]
+transform = Transform( 0.410491, 0, 0.437603, 0, 0.6, 0, -0.437603, 0, 0.410491, 691.514, 12.3596, 102.383 )
+
 [node name="BolvankaRobotCA" parent="." instance=ExtResource( 57 )]
 transform = Transform( 0.410491, 0, 0.437603, 0, 0.6, 0, -0.437603, 0, 0.410491, 691.514, 12.2957, 102.383 )
 
@@ -1299,19 +1379,20 @@ script = ExtResource( 59 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/colisao"]
 shape = SubResource( 43 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio_combate"]
 autoplay = "move"
 anims/move = SubResource( 44 )
 
 [node name="AnimationDrop" type="AnimationPlayer" parent="bloqueio_combate"]
-anims/drop = SubResource( 46 )
+anims/drop = SubResource( 45 )
 
 [node name="Area_bloqueio" type="Area" parent="bloqueio_combate"]
 transform = Transform( 1, 0, 6.51926e-09, 0, 1, 0, 1.33514e-05, 0, 1, -0.196115, -0.529726, -2.85727 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/Area_bloqueio"]
-shape = SubResource( 45 )
+shape = SubResource( 46 )
 
 [node name="treelarge3" parent="." instance=ExtResource( 60 )]
 transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 470.144, 0.675159, 356.18 )
@@ -1321,6 +1402,49 @@ transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 35
 
 [node name="treelarge4" parent="." instance=ExtResource( 60 )]
 transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 626.877, 14.0632, 243.639 )
+
+[node name="exp_teste" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 461.686, 1.58896, 337.074 )
+script = ExtResource( 61 )
+
+[node name="CollisionShape" type="CollisionShape" parent="exp_teste"]
+shape = SubResource( 47 )
+
+[node name="MeshInstance" type="MeshInstance" parent="exp_teste"]
+mesh = SubResource( 48 )
+material/0 = null
+
+[node name="Area_checkpoint" type="Area" parent="."]
+transform = Transform( 1.19845, 0, -1.19698, 0, 0.523126, 0, 1.13446, 0, 1.26449, 655.663, 8.03658, 153.723 )
+script = ExtResource( 62 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
+shape = SubResource( 49 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = SubResource( 50 )
+material/0 = SubResource( 51 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint"]
+autoplay = "move"
+anims/move = SubResource( 52 )
+
+[node name="Area_checkpoint2" type="Area" parent="."]
+transform = Transform( -2.68858e-07, 0, -1.74118, 0, 0.523126, 0, 1.65024, 0, -2.83674e-07, 391.507, 0.359922, 715.212 )
+script = ExtResource( 62 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
+shape = SubResource( 49 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
+mesh = SubResource( 50 )
+material/0 = SubResource( 51 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint2"]
+autoplay = "move"
+anims/move = SubResource( 54 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
@@ -1328,3 +1452,5 @@ transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 62
 [connection signal="body_entered" from="pilar_enemys/Area_target" to="pilar_enemys/Area_target" method="_on_Area_target_body_entered"]
 [connection signal="body_exited" from="pilar_enemys/Area_target" to="pilar_enemys/Area_target" method="_on_Area_target_body_exited"]
 [connection signal="body_entered" from="bloqueio_combate/Area_bloqueio" to="bloqueio_combate" method="_on_Area_bloqueio_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint" to="Area_checkpoint" method="_on_Area_checkpoint_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint2" to="Area_checkpoint2" method="_on_Area_checkpoint_body_entered"]
