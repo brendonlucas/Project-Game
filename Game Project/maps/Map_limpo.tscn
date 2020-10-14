@@ -132,7 +132,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=55]
+[sub_resource type="Animation" id=8]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -148,17 +148,16 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=8]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=10]
 extents = Vector3( 12.338, 1, 0.15485 )
 
-[sub_resource type="CylinderShape" id=10]
+[sub_resource type="CylinderShape" id=11]
 radius = 99.8211
 
-[sub_resource type="Animation" id=11]
-resource_name = "fade"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -186,12 +185,12 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=13]
 extents = Vector3( 0.275565, 0.340976, 0.167299 )
 
-[sub_resource type="CylinderMesh" id=13]
+[sub_resource type="CylinderMesh" id=14]
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=15]
 flags_transparent = true
 albedo_color = Color( 0, 0.811765, 1, 0.317647 )
 albedo_texture = ExtResource( 18 )
@@ -207,12 +206,11 @@ uv1_triplanar_sharpness = 4.75683
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="CylinderShape" id=15]
+[sub_resource type="CylinderShape" id=16]
 radius = 1.16278
 height = 3.3792
 
-[sub_resource type="Animation" id=16]
-resource_name = "move"
+[sub_resource type="Animation" id=17]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -228,8 +226,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "drop"
+[sub_resource type="Animation" id=18]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance2:material/0:albedo_color")
@@ -282,10 +279,10 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=18]
+[sub_resource type="BoxShape" id=19]
 extents = Vector3( 0.298416, 0.458296, 0.118076 )
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=20]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.352941 )
 albedo_texture = ExtResource( 18 )
@@ -300,7 +297,7 @@ uv1_offset = Vector3( 0, 0.821815, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -316,8 +313,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=21]
-resource_name = "drop"
+[sub_resource type="Animation" id=22]
 length = 1.3
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -370,13 +366,13 @@ tracks/3/keys = {
 "values": [ 3.0, 16.0 ]
 }
 
-[sub_resource type="BoxShape" id=22]
+[sub_resource type="BoxShape" id=23]
 extents = Vector3( 0.192112, 31.6924, 193.212 )
 
-[sub_resource type="BoxShape" id=23]
+[sub_resource type="BoxShape" id=24]
 extents = Vector3( 0.18232, 6.8759, 101.373 )
 
-[sub_resource type="BoxShape" id=24]
+[sub_resource type="BoxShape" id=25]
 extents = Vector3( 0.393475, 6.26869, 33.5392 )
 
 [sub_resource type="CubeMesh" id=26]
@@ -412,15 +408,15 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="SphereShape" id=25]
+[sub_resource type="SphereShape" id=30]
 radius = 4.14451
 
-[sub_resource type="BoxShape" id=30]
+[sub_resource type="BoxShape" id=31]
 extents = Vector3( 0.267248, 0.29173, 0.220224 )
 
-[sub_resource type="SphereMesh" id=31]
+[sub_resource type="SphereMesh" id=32]
 
-[sub_resource type="SpatialMaterial" id=32]
+[sub_resource type="SpatialMaterial" id=33]
 flags_transparent = true
 albedo_color = Color( 0.945098, 1, 0, 0.0627451 )
 albedo_texture = ExtResource( 18 )
@@ -433,7 +429,7 @@ emission_texture = ExtResource( 18 )
 uv1_scale = Vector3( 2, 2, 2 )
 uv1_offset = Vector3( 0, 0.0394181, 0 )
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=34]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -449,10 +445,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="SphereShape" id=34]
+[sub_resource type="SphereShape" id=35]
 radius = 1.11978
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=36]
 length = 10.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("../Fade/AnimationPlayer")
@@ -519,7 +515,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=37]
 length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("../base")
@@ -575,7 +571,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 6.8 )
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=38]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -633,12 +629,12 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=41]
+[sub_resource type="BoxShape" id=39]
 extents = Vector3( 25.0838, 1, 15.902 )
 
-[sub_resource type="CubeMesh" id=42]
+[sub_resource type="CubeMesh" id=40]
 
-[sub_resource type="SpatialMaterial" id=43]
+[sub_resource type="SpatialMaterial" id=41]
 flags_transparent = true
 albedo_color = Color( 0, 0.788235, 1, 0.137255 )
 albedo_texture = ExtResource( 18 )
@@ -653,9 +649,9 @@ uv1_offset = Vector3( 0, 0.920074, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 2.0
 
-[sub_resource type="BoxShape" id=44]
+[sub_resource type="BoxShape" id=42]
 
-[sub_resource type="Animation" id=45]
+[sub_resource type="Animation" id=43]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -671,7 +667,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=46]
+[sub_resource type="Animation" id=44]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -736,14 +732,14 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=47]
+[sub_resource type="BoxShape" id=45]
 extents = Vector3( 0.582425, 0.177475, 1 )
 
-[sub_resource type="BoxShape" id=50]
+[sub_resource type="BoxShape" id=46]
 
-[sub_resource type="CubeMesh" id=51]
+[sub_resource type="CubeMesh" id=47]
 
-[sub_resource type="SpatialMaterial" id=52]
+[sub_resource type="SpatialMaterial" id=48]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.180392 )
 albedo_texture = ExtResource( 18 )
@@ -757,7 +753,7 @@ uv1_scale = Vector3( 10, 1, 1 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="Animation" id=53]
+[sub_resource type="Animation" id=49]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -773,7 +769,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=54]
+[sub_resource type="Animation" id=50]
 resource_name = "move"
 length = 3.0
 loop = true
@@ -798,7 +794,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 607.516, 26.8923, 198.256 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 602.703, 26.8923, 271.613 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -872,15 +868,12 @@ material/0 = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua4"]
 autoplay = "move"
-anims/move = SubResource( 55 )
+anims/move = SubResource( 8 )
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.483, 0, 0 )
 script = ExtResource( 8 )
-collision_enabled = true
 ambient_wind = 0.093
-lod_scale = 2.0
-custom_globalmap_shader = null
 map_scale = Vector3( 1, 3, 1 )
 _terrain_data = ExtResource( 1 )
 chunk_size = 32
@@ -953,7 +946,7 @@ visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
 transform = Transform( 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0.00750732, 1.52588e-05, 0 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="rock" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.322501, -4.96664, 0.47798, 3.59784, -0.563342, -3.42611, 3.4571, 0.122955, 3.61017, 397.568, 14.973, 322.86 )
@@ -979,30 +972,30 @@ collision_layer = 16384
 collision_mask = 16384
 
 [node name="CollisionShape" type="CollisionShape" parent="colisions"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="colisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0782, 0, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, -9.36749, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, 38.735, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="colisions"]
 transform = Transform( 2.20197, 0, 0, 0, 1, 0, 0, 0, 1, 15.1951, 0, 32.1223 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Area_teleporte" type="Area" parent="colisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4516, -29.3421, -4.59589 )
 script = ExtResource( 28 )
 
 [node name="CollisionShape" type="CollisionShape" parent="colisions/Area_teleporte"]
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="fade" type="ColorRect" parent="colisions/Area_teleporte"]
 anchor_right = 1.0
@@ -1013,7 +1006,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="colisions/Area_teleporte/fade"]
-anims/fade = SubResource( 11 )
+anims/fade = SubResource( 12 )
 
 [node name="SM_Console_Fellming2" parent="." instance=ExtResource( 45 )]
 transform = Transform( 0.893769, 0, 1.20465, 0, 1.5, 0, -1.20465, 0, 0.893769, 679.201, 11.969, 117.163 )
@@ -1025,7 +1018,7 @@ script = ExtResource( 50 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming2/Area_active_torre"]
 transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.000167847, 0.842599, -0.279144 )
-shape = SubResource( 12 )
+shape = SubResource( 13 )
 
 [node name="ST_Tower2" parent="." instance=ExtResource( 34 )]
 transform = Transform( 0.798909, 0, -0.601452, 0, 1, 0, 0.601452, 0, 0.798909, 681.008, 11.969, 118.428 )
@@ -1035,19 +1028,19 @@ transform = Transform( 4, 0, 1.19209e-07, 0, 8, 0, -1.19209e-07, 0, 4, 0, 11.217
 
 [node name="MeshInstance2" type="MeshInstance" parent="ST_Tower2/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1.42371, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 15 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ST_Tower2/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.0172842, 0 )
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower2/escudo"]
 autoplay = "move"
-anims/move = SubResource( 16 )
+anims/move = SubResource( 17 )
 
 [node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower2/escudo"]
-anims/drop = SubResource( 17 )
+anims/drop = SubResource( 18 )
 
 [node name="escada4" type="Spatial" parent="."]
 transform = Transform( 0.737796, 0, 0.675025, 0, 1, 0, -0.675025, 0, 0.737796, 633.201, 17.8362, 179.845 )
@@ -1113,7 +1106,7 @@ script = ExtResource( 49 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming3/Area_active_painel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790092, -0.302368 )
-shape = SubResource( 18 )
+shape = SubResource( 19 )
 
 [node name="ST_Tower" parent="." instance=ExtResource( 34 )]
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 840.32 )
@@ -1123,18 +1116,18 @@ transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 
 
 [node name="MeshInstance2" type="MeshInstance" parent="ST_Tower/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 2.00151, 0, -2.98023e-08, 0, 1, 0, 0.951156, 0 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 14 )
+material/0 = SubResource( 20 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ST_Tower/escudo"]
-shape = SubResource( 15 )
+shape = SubResource( 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower/escudo"]
 autoplay = "move"
-anims/move = SubResource( 20 )
+anims/move = SubResource( 21 )
 
 [node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower/escudo"]
-anims/drop = SubResource( 21 )
+anims/drop = SubResource( 22 )
 
 [node name="plataformas" type="Spatial" parent="."]
 
@@ -1253,7 +1246,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_1"]
 transform = Transform( 0.996927, 0, -0.0783373, 0, 1, 0, 0.0783373, 0, 0.996927, 9.25082, 21.1287, 78.6742 )
-shape = SubResource( 22 )
+shape = SubResource( 23 )
 
 [node name="Area_legenda_2" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 242.24, 15.8083, 346.449 )
@@ -1261,11 +1254,11 @@ script = ExtResource( 23 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_2"]
 transform = Transform( 0.996091, 0, -0.088338, 0, 1, 0, 0.088338, 0, 0.996091, -4.55185, 15.6374, 0.901428 )
-shape = SubResource( 23 )
+shape = SubResource( 24 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="Area_legenda_2"]
 transform = Transform( 0.739232, 0, -0.673451, 0, 1, 0, 0.673451, 0, 0.739232, 106.848, -8.59477, -140.297 )
-shape = SubResource( 24 )
+shape = SubResource( 25 )
 
 [node name="bloqueio" type="MeshInstance" parent="."]
 transform = Transform( 15.5033, 0, -0.0426939, 0, 17.4313, 0, 3.06693, 0, 0.215818, 409.707, 14.7291, 545.603 )
@@ -1291,7 +1284,7 @@ transform = Transform( -5.01114e-07, 0, -1, 0, 1, 0, 3.07582, 0, -1.62921e-07, 4
 script = ExtResource( 46 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_3"]
-shape = SubResource( 25 )
+shape = SubResource( 30 )
 
 [node name="SM_Console_Fellming" parent="." instance=ExtResource( 45 )]
 transform = Transform( -2.44381e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, -2.44381e-07, 414.519, 11.764, 289.881 )
@@ -1303,30 +1296,30 @@ script = ExtResource( 47 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/Area_painel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.760402, -0.0795135 )
-shape = SubResource( 30 )
+shape = SubResource( 31 )
 
 [node name="MeshInstance" type="MeshInstance" parent="SM_Console_Fellming"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339465, 0 )
-mesh = SubResource( 31 )
-material/0 = SubResource( 32 )
+mesh = SubResource( 32 )
+material/0 = SubResource( 33 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Console_Fellming/MeshInstance"]
 autoplay = "move"
-anims/move = SubResource( 33 )
+anims/move = SubResource( 34 )
 
 [node name="StaticBody" type="StaticBody" parent="SM_Console_Fellming/MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182425, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/MeshInstance/StaticBody"]
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 disabled = true
 
 [node name="animations" type="Node" parent="."]
 script = ExtResource( 52 )
 
 [node name="Animation_open_gate" type="AnimationPlayer" parent="animations"]
-anims/close_gate = SubResource( 35 )
-anims/open_gate = SubResource( 36 )
+anims/close_gate = SubResource( 36 )
+anims/open_gate = SubResource( 37 )
 
 [node name="Camera_gate" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.894279, 0.447509, 0, -0.447509, 0.894279, 432.8, 23.299, 310.649 )
@@ -1348,7 +1341,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade_inicio"]
 autoplay = "fade"
-anims/fade = SubResource( 37 )
+anims/fade = SubResource( 38 )
 
 [node name="Fade" parent="." instance=ExtResource( 64 )]
 
@@ -1367,7 +1360,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994504, -0.29364 )
 script = ExtResource( 55 )
 
 [node name="CollisionShape" type="CollisionShape" parent="pilar_enemys/Area_target"]
-shape = SubResource( 41 )
+shape = SubResource( 39 )
 
 [node name="cube_enemy" parent="pilar_enemys" instance=ExtResource( 48 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425598, 1.22685, -0.0315552 )
@@ -1392,28 +1385,28 @@ transform = Transform( 0.410491, 0, 0.437603, 0, 0.6, 0, -0.437603, 0, 0.410491,
 
 [node name="bloqueio_combate" type="MeshInstance" parent="."]
 transform = Transform( 33.3582, 0, -0.65186, 0, 11.1235, 0, 28.6743, 0, 0.758339, 672.338, 19.6962, 141.801 )
-mesh = SubResource( 42 )
-material/0 = SubResource( 43 )
+mesh = SubResource( 40 )
+material/0 = SubResource( 41 )
 script = ExtResource( 59 )
 
 [node name="colisao" type="StaticBody" parent="bloqueio_combate"]
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/colisao"]
-shape = SubResource( 44 )
+shape = SubResource( 42 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio_combate"]
 autoplay = "move"
-anims/move = SubResource( 45 )
+anims/move = SubResource( 43 )
 
 [node name="AnimationDrop" type="AnimationPlayer" parent="bloqueio_combate"]
-anims/drop = SubResource( 46 )
+anims/drop = SubResource( 44 )
 
 [node name="Area_bloqueio" type="Area" parent="bloqueio_combate"]
 transform = Transform( 1, 0, 6.51926e-09, 0, 1, 0, 1.33514e-05, 0, 1, -0.196115, -0.529726, -2.85727 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/Area_bloqueio"]
-shape = SubResource( 47 )
+shape = SubResource( 45 )
 
 [node name="treelarge3" parent="." instance=ExtResource( 60 )]
 transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 470.144, 0.675159, 356.18 )
@@ -1429,32 +1422,32 @@ transform = Transform( 1.12822, 0, -1.27069, 0, 0.523126, 0, 1.20433, 0, 1.19039
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
-shape = SubResource( 50 )
+shape = SubResource( 46 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 51 )
-material/0 = SubResource( 52 )
+mesh = SubResource( 47 )
+material/0 = SubResource( 48 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint"]
 autoplay = "move"
-anims/move = SubResource( 53 )
+anims/move = SubResource( 49 )
 
 [node name="Area_checkpoint2" type="Area" parent="."]
 transform = Transform( -2.68858e-07, 0, -1.74118, 0, 0.523126, 0, 1.65024, 0, -2.83674e-07, 391.507, 0.359922, 715.212 )
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
-shape = SubResource( 50 )
+shape = SubResource( 46 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 51 )
-material/0 = SubResource( 52 )
+mesh = SubResource( 47 )
+material/0 = SubResource( 48 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint2"]
 autoplay = "move"
-anims/move = SubResource( 54 )
+anims/move = SubResource( 50 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]

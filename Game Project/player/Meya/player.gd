@@ -38,6 +38,7 @@ var atacando
 #var luz 
 
 var jumped = false
+var target
 
 func _ready():
 #	luz = get_parent().get_node("Sol")
@@ -142,11 +143,9 @@ func movimentos(delta):
 		pass
 		
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
-		
-		pass
-#		var olhar = get_parent().get_node("BolvankaRobotCA").global_transform.origin
-#		look_at_from_position(global_transform.origin, olhar, Vector3.UP)
-#		self.rotate_object_local(Vector3(0,1,0), 3.14)
+		if target:
+			look_at_from_position(global_transform.origin, target.global_transform.origin, Vector3.UP)
+			self.rotate_object_local(Vector3(0,1,0), 3.14)
 #
 #		MOVE_SPEED = 100
 #		dir += global_transform.basis[2]
@@ -233,3 +232,12 @@ func call_screen_kill():
 	
 	get_tree().get_root().get_node("Map/tela_Kill").show_menu()
 	ativar_moves()
+
+
+func _on_Area_target_body_entered(body):
+	if body.is_in_group("enemy"):
+		target = body
+
+func _on_Area_target_body_exited(body):
+	if body.is_in_group("enemy"):
+		target = null
