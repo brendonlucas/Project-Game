@@ -20,7 +20,8 @@ func _ready():
 	timer_attack = $guns/Timer_recarga
 	
 func hit_damage(damage):
-	if vida > 0:
+	if vida > 0 and PlayerStatus.vida_atual > 0:
+		print(vida)
 		vida -= damage
 		if vida <= 0:
 			get_tree().get_root().get_node("Map/Controler_map").kill_sentinela()
@@ -28,9 +29,13 @@ func hit_damage(damage):
 			$Timer_caido.start()
 			caido = true
 			destruido = true
+			PlayerStatus.add_exp(2000)
+			Gamestate.set_checkpoint()
 	
 	
 func _process(delta):
+	if Input.is_action_just_pressed("lanterna"):
+		hit_damage(20000)
 	if target_attack and timer_attack.time_left == 0 and !caido:
 		if target_attack.is_in_group("Player_v4"):
 			$AnimationPlayer.play("Bolvanka|Shoot")

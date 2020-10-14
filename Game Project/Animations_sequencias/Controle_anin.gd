@@ -11,9 +11,15 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("lanterna"):
 		stop()
 		play("hack_nija")
+		Gamestate.ativar_menu = false
+		get_tree().get_root().get_node("Map/Status_UI").hide()
+		get_tree().get_root().get_node("Map/HUD_UI").hide()
+		
+		
+		
 		
 func change_position():
 	var n_pos_m = get_parent().get_node("Position_meya")

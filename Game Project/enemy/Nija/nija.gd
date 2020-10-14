@@ -36,6 +36,10 @@ func _ready():
 	print(space_state)
 	
 func _process(delta):
+	
+	if Input.is_action_just_pressed("lanterna"):
+		hit_damage(20000)
+		
 	if target_attack and timer_attack.time_left == 0 and active_moves :
 		if target_attack.is_in_group("Player_v4"):
 			atacar()
@@ -83,8 +87,6 @@ func _on_Area_attack_body_exited(body):
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
 	move_and_slide(direction * speed, Vector3.UP)
-	
-
 
 func set_pos_target(alvo):
 	target = alvo
@@ -106,3 +108,6 @@ func randomNumber():
 	var my_random_number = rng.randi_range(1, 2)
 	return my_random_number
 
+func reset():
+	life = 8000
+	translation = get_parent().get_node("spawn_nija").translation

@@ -57,7 +57,8 @@ var lanterna = false
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
-	
+	if Input.is_action_just_pressed("lanterna"):
+		hit_damage(1300)
 	if Input.is_action_just_pressed("lanterna"):
 		if lanterna:
 			$lanterna.light_energy = 0
@@ -212,13 +213,17 @@ func ativar_moves():
 var morreu = false
 
 func hit_damage(damage):
-	PlayerStatus.vida_atual -= damage
-	get_parent().get_node("HUD_UI").update_values()
-	get_parent().get_node("Status_UI").update_values()
-	if PlayerStatus.vida_atual <= 700 and !morreu:
-		desativar_moves()
-		$AnimationPlayer.play("died")
-		morreu = true
+	if PlayerStatus.vida_atual > 0:
+		if damage >= PlayerStatus.vida_atual:
+			PlayerStatus.vida_atual -= PlayerStatus.vida_atual
+		else:
+			PlayerStatus.vida_atual -= damage
+		get_parent().get_node("HUD_UI").update_values()
+		get_parent().get_node("Status_UI").update_values()
+		if PlayerStatus.vida_atual <= 0 and !morreu:
+			desativar_moves()
+			$AnimationPlayer.play("died")
+			morreu = true
 		
 func change_ataque(option):
 	pass

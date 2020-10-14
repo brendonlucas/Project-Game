@@ -83,8 +83,10 @@ func reset_all_enemys():
 		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
 	if sentinela:
 		get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA").reset()
-		
-	
+	var nija = get_tree().get_root().get_node_or_null("Map/nija")
+	if nija:
+		get_tree().get_root().get_node_or_null("Map/nija").reset()
+
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
@@ -124,7 +126,10 @@ func done_game():
 		get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda_base_alerta()
 		get_tree().get_root().get_node("Map/Area_legenda6").active = true
-	
+		PlayerStatus.add_exp(7000)
+		Gamestate.ativar_menu = true
+		get_tree().get_root().get_node("Map/HUD_UI").show()
+		
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda5()

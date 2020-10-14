@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=2]
+[gd_scene load_steps=108 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -66,6 +66,9 @@
 [ext_resource path="res://maps/base/scripts_legenda/Area_legenda9.gd" type="Script" id=64]
 [ext_resource path="res://player/UI/notas.tscn" type="PackedScene" id=65]
 [ext_resource path="res://Images/notas/nota2.gd" type="Script" id=66]
+[ext_resource path="res://maps/checkpoints/Area_checkpoint.gd" type="Script" id=67]
+[ext_resource path="res://player/UI/tela_Kill.tscn" type="PackedScene" id=68]
+[ext_resource path="res://maps/fades/Fade.tscn" type="PackedScene" id=69]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -191,7 +194,7 @@ emission_texture = ExtResource( 30 )
 uv1_scale = Vector3( 10, 5, 0 )
 
 [sub_resource type="BoxShape" id=28]
-extents = Vector3( 23.2934, 9.48707, 33.8295 )
+extents = Vector3( 23.2934, 9.48707, 49.5993 )
 
 [sub_resource type="CubeMesh" id=29]
 
@@ -230,6 +233,8 @@ extents = Vector3( 0.134187, 1, 24.3037 )
 [sub_resource type="BoxShape" id=37]
 extents = Vector3( 0.330471, 1, 3.09269 )
 
+[sub_resource type="BoxShape" id=38]
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map" type="Node" parent="."]
@@ -241,7 +246,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 0.71157, 0.988081, -14.7343 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 78.3769, 0.988081, -4.23141 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.6372, 2.8286, -14.6292 )
@@ -2614,7 +2619,7 @@ transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, -17.982
 script = ExtResource( 49 )
 
 [node name="CollisionShape" type="CollisionShape" parent="saida/Area_active_sinal"]
-transform = Transform( 0.999999, 0, 1.7053e-13, 0, 0.999999, 0, -2.84217e-14, 0, 1, 13.1089, 0.678427, -8.11243 )
+transform = Transform( 0.999999, 0, 1.7053e-13, 0, 0.999999, 0, -2.84217e-14, 0, 1, 13.1089, 0.678427, -29.3925 )
 shape = SubResource( 28 )
 
 [node name="Tunnel Variant16" parent="saida" instance=ExtResource( 19 )]
@@ -2650,13 +2655,25 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.207, 22.347, -87.134 )
 [node name="Tunnel Variant26" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.958, 22.347, -87.134 )
 
-[node name="MeshInstance" type="MeshInstance" parent="saida/Tunnel Variant26"]
-transform = Transform( 0.144789, 0, 0, 0, 2.12789, 0, 0, 0, 2.03891, 2.23394, -0.342951, 0 )
-mesh = SubResource( 29 )
-material/0 = SubResource( 30 )
+[node name="Tunnel Variant27" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.673, 22.347, -87.134 )
+
+[node name="Tunnel Variant28" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.392, 22.347, -87.134 )
+
+[node name="Tunnel Variant29" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.11, 22.347, -87.134 )
+
+[node name="Tunnel Variant30" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.83, 22.347, -87.134 )
 
 [node name="Tunnel Variant8" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.775, 2.405, -15.338 )
+
+[node name="MeshInstance" type="MeshInstance" parent="saida/Tunnel Variant8"]
+transform = Transform( 0.144789, 0, 0, 0, 2.12789, 0, 0, 0, 2.03891, 37.0237, 19.5991, -71.796 )
+mesh = SubResource( 29 )
+material/0 = SubResource( 30 )
 
 [node name="curva" parent="saida" instance=ExtResource( 35 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.235, 2.405, -9.959 )
@@ -2708,6 +2725,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0883236, 0.099556, -14.9022 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 31 )
+
+[node name="spawn_nija" type="Position3D" parent="."]
+transform = Transform( 1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -178.642, -35.7248, 64.2235 )
 
 [node name="nija" parent="." instance=ExtResource( 50 )]
 transform = Transform( 1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -178.642, -35.7248, 64.2235 )
@@ -2829,14 +2849,20 @@ script = ExtResource( 48 )
 visible = false
 
 [node name="fade" parent="." instance=ExtResource( 53 )]
+visible = false
 
 [node name="legendas" parent="." instance=ExtResource( 63 )]
 
 [node name="notas" parent="." instance=ExtResource( 65 )]
 visible = false
 
+[node name="tela_Kill" parent="." instance=ExtResource( 68 )]
+
 [node name="Menu_pause" parent="." instance=ExtResource( 32 )]
 pause_mode = 2
+visible = false
+
+[node name="Fade" parent="." instance=ExtResource( 69 )]
 visible = false
 
 [node name="nota" parent="." instance=ExtResource( 4 )]
@@ -2845,6 +2871,34 @@ transform = Transform( 0.0200723, 0, 0.19899, 0, 0.2, 0, -0.19899, 0, 0.0200723,
 [node name="nota2" parent="." instance=ExtResource( 4 )]
 transform = Transform( 0.0200723, 0, 0.19899, 0, 0.2, 0, -0.19899, 0, 0.0200723, 0.225953, 0.946735, -19.4467 )
 script = ExtResource( 66 )
+
+[node name="Area_checkpoint" type="Area" parent="."]
+transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 67.9596, 1.12572, -3.74972 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
+shape = SubResource( 38 )
+
+[node name="Area_checkpoint2" type="Area" parent="."]
+transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 18.4693, -12.8463, -3.74972 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
+shape = SubResource( 38 )
+
+[node name="Area_checkpoint3" type="Area" parent="."]
+transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 36.9607, -26.8555, -3.73089 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint3"]
+shape = SubResource( 38 )
+
+[node name="Area_checkpoint4" type="Area" parent="."]
+transform = Transform( 0.197021, 0, -0.0440433, 0, 1, 0, 0.00429212, 0, 2.02171, -96.4807, -26.8555, 64.7885 )
+script = ExtResource( 67 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint4"]
+shape = SubResource( 38 )
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="limbo/curva/Area_close_door" to="limbo/curva/Area_close_door" method="_on_Area_close_door_body_entered"]
@@ -2859,3 +2913,7 @@ script = ExtResource( 66 )
 [connection signal="body_entered" from="Area_legenda6" to="Area_legenda6" method="_on_Area_legenda6_body_entered"]
 [connection signal="body_entered" from="Area_legenda7" to="Area_legenda7" method="_on_Area_legenda7_body_entered"]
 [connection signal="body_entered" from="Area_legenda8" to="Area_legenda8" method="_on_Area_legenda8_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint" to="Area_checkpoint" method="_on_Area_checkpoint_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint2" to="Area_checkpoint2" method="_on_Area_checkpoint_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint3" to="Area_checkpoint3" method="_on_Area_checkpoint_body_entered"]
+[connection signal="body_entered" from="Area_checkpoint4" to="Area_checkpoint4" method="_on_Area_checkpoint_body_entered"]
