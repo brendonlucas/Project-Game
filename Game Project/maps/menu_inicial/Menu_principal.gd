@@ -16,7 +16,9 @@ var d_grass
 
 
 func _ready():
+	
 	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	option_sombra = get_node_or_null("Menu_2/ColorRect/Sombra/OptionButton")
 	sensibilidade = get_node_or_null("Menu_2/ColorRect/Sensibilidade/HSlider")
@@ -34,9 +36,10 @@ func _input(event):
 	pass
 		
 func _on_Button_sair_pressed():
-	scene_change = "res://Menu_pausa/teste.tscn"
-	$FadeIn.show()
-	$FadeIn.fade_in()
+	get_tree().quit()
+#	scene_change = "res://Menu_pausa/teste.tscn"
+#	$FadeIn.show()
+#	$FadeIn.fade_in()
 	
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_change)
@@ -59,7 +62,6 @@ func _on_Button_start_pressed():
 
 
 func update_options():
-	pass
 	option_sombra.select(Gamestate.type_shadow_mode)
 	$Menu_2/ColorRect/Sensibilidade/HSlider.value = Gamestate.camera_sensibilidade
 	$Menu_2/ColorRect/Sensibilidade/Label_sensi.set_text(str(Gamestate.camera_sensibilidade))

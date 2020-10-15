@@ -8,14 +8,20 @@ var textos_creditos = {'1':{"referente":"Programadores","nome":"Brendon"},
 '5':{"referente":"asd fsdf asd","nome":"Brendon"},
 }
 var text_atual = 1
+var finalizou = false
 
 func _ready():
+	get_tree().paused = false
 	pass
 
 func _process(delta):
 	if $Timer_text.time_left == 0 and text_atual <= 5:
 		instance()
 		$Timer_text.start()
+	if text_atual and !finalizou and $Timer_text.time_left == 0:
+		$Final_tipo.set_text("Final " + str(Gamestate.final_game))
+		$Final_tipo/AnimationPlayer.play("fade")
+		finalizou = true
 		
 func instance():
 	var clone = text.instance()
@@ -56,3 +62,6 @@ func randomNumber():
 	rng.randomize()
 	var my_random_number = rng.randi_range(1, 5)
 	return my_random_number
+
+func change_menu():
+	BackgroundLoad.load_scene("res://maps/menu_inicial/menu_principal.tscn")

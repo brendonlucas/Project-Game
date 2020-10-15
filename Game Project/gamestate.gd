@@ -58,7 +58,7 @@ var gerador_2 = false
 var solicitante_minigame = ""
 
 var map_loading = ""
-
+var final_game
 
 var checkpoint_local
 func set_checkpoint():

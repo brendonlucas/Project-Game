@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://props/agua/agua.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/drones/Enemy_drone_3.tscn" type="PackedScene" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://enemy/drones/Enemy_drone_4.gd" type="Script" id=18]
 [ext_resource path="res://player/UI/HUD_UI.tscn" type="PackedScene" id=19]
 [ext_resource path="res://player/UI/Status_UI.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=21]
+[ext_resource path="res://maps/base/finalizacao.gd" type="Script" id=22]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.381219, 21.2058, 46.4236 )
@@ -453,6 +455,70 @@ tracks/2/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=18]
+resource_name = "fade"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../Label_1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.7, 2.4, 6.2, 6.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../Label_2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 7.2, 8.1, 12.1, 12.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.6, 1, 14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "A" ],
+"method": "set_end"
+}, {
+"args": [  ],
+"method": "pause"
+}, {
+"args": [  ],
+"method": "creditos"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=19]
+size = 28
+font_data = ExtResource( 21 )
+
 [node name="Map" type="Spatial"]
 
 [node name="HUD_UI" parent="." instance=ExtResource( 19 )]
@@ -720,6 +786,68 @@ script = ExtResource( 18 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss"]
 anims/kill = SubResource( 16 )
 anims/move_frente = SubResource( 17 )
+
+[node name="finalizacao" type="Control" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fade" type="ColorRect" parent="finalizacao"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="finalizacao/fade"]
+autoplay = "fade"
+anims/fade = SubResource( 18 )
+
+[node name="Label_1" type="Label" parent="finalizacao"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.0
+margin_top = -41.5
+margin_right = 304.0
+margin_bottom = 41.5
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Seus esforçoes não foram o suficiente
+ para derrotar as hordas de inimigos"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_2" type="Label" parent="finalizacao"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.658
+anchor_right = 0.5
+anchor_bottom = 0.658
+margin_left = -304.0
+margin_top = -41.3
+margin_right = 304.0
+margin_bottom = 41.7
+custom_fonts/font = SubResource( 19 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Sua missão termina aqui"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="animation_finished" from="fade_final/AnimationPlayer" to="Controler_map1" method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="target"]
