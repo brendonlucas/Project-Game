@@ -84,7 +84,6 @@ func add_exp(xp_value):
 		var sobra_exp = 0
 		var exp_prox_nivel : int = exp_niveis[str(nivel)]
 		var exp_restante = exp_niveis[str(nivel)] - exp_atual
-		
 		if exp_restante < xp_value:
 			sobra_exp = xp_value - exp_restante
 			var exp_usada = xp_value - sobra_exp
@@ -93,29 +92,22 @@ func add_exp(xp_value):
 		else:
 			exp_total += xp_value
 			exp_atual += xp_value
-			
 		if exp_atual >= exp_prox_nivel and nivel < 10:
 			nivel += 1
 			exp_atual = 0
 			upgrade_level_up_status()
 			get_tree().get_root().get_node("Map/Status_UI").update_values()
 			get_tree().get_root().get_node("Map/HUD_UI").update_values()
-			
 		if sobra_exp > 0:
 			add_exp(sobra_exp)
-		
-		
 		exp_restante = exp_niveis[str(nivel)] - exp_atual
 		get_tree().get_root().get_node("Map/Status_UI").update_values()
-
 
 func _process(delta):
 	if Input.is_action_just_pressed("jump") and false:
 		healer(400)
 		get_tree().get_root().get_node("Map/HUD_UI").update_values()
 		get_tree().get_root().get_node("Map/Status_UI").update_values()
-		
-
 
 func calculo_dano(def, dano_base, dano_arma):
 	var def_inimigo = def
@@ -142,41 +134,4 @@ func critico_gen(dano):
 	rng.randomize()
 	var chance_critico = rng.randi_range(1, 100)
 	return chance_critico
-		
 	
-	
-#
-#func add_exp(xp_value):
-#	if nivel < 10:
-#		exp_active = false
-#		var exp_prox_nivel : int = exp_niveis[str(nivel)]
-#		var exp_restante = exp_niveis[str(nivel)] - exp_atual
-#
-#		if exp_restante < xp_value:
-#			var sobra_exp = xp_value - exp_restante
-#			var exp_usada = xp_value - sobra_exp
-#			exp_total += exp_usada
-#			exp_atual += exp_usada
-#
-#			if exp_atual >= exp_prox_nivel and nivel < 10:
-#				nivel += 1
-#				exp_atual = 0
-#				upgrade_level_up_status()
-#				get_tree().get_root().get_node("Map/Status_UI").update_values()
-#				get_tree().get_root().get_node("Map/HUD_UI").update_values()
-#
-#			add_exp(sobra_exp)
-#		else:
-#			exp_total += xp_value
-#			exp_atual += xp_value
-#
-#			if exp_atual >= exp_prox_nivel and nivel < 10:
-#				nivel += 1
-#				exp_atual = 0
-#				upgrade_level_up_status()
-#				get_tree().get_root().get_node("Map/Status_UI").update_values()
-#				get_tree().get_root().get_node("Map/HUD_UI").update_values()
-#
-#		exp_restante = exp_niveis[str(nivel)] - exp_atual
-#		get_tree().get_root().get_node("Map/Status_UI").update_values()
-

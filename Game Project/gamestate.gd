@@ -12,24 +12,6 @@ var view_distance = 100
 var grass_dencidade = 1
 
 var ativar_menu = true
-# exp variaveis
-var nivel : int
-var exp_total : int
-var exp_atual : int
-var a = {'1': 1000,'2': 1500, '3': 2500,
- '4':3000,'5': 3500,'6': 4000,'7':5000,
-'8':6000,'9':7000,'10':0}
-var exp_active
-
-var text_atual = 1
-var executando_legenda = false
-var legenda_executando = 0
-
-
-var legenda
-var text_in_execution
-var timer
-var legenda_label
 
 var game1 = preload("res://maps/mine_games/game_map_1.tscn")
 var game2 = preload("res://maps/mine_games/game_map_2.tscn")
@@ -42,14 +24,12 @@ var cam_normal = preload("res://player/nave/target.tscn")
 
 var plane_agua = preload("res://props/agua/agua.tscn")
 
-
 var drop_game_test = 0
 
 var cam
 var player
 var player_nave
 var fade_final
-
 
 var elevador_1 = false
 var elevador_2 = false
@@ -61,6 +41,19 @@ var map_loading = ""
 var final_game
 
 var checkpoint_local
+
+func reset_dados_game():
+	elevador_1 = false
+	elevador_2 = false
+	gerador_1 = false
+	gerador_2 = false
+	final_game = null
+	checkpoint_local = null
+	PlayerStatus.reset_dados()
+	solicitante_minigame = ""
+	drop_game_test = 0
+	in_mine_game = false
+	
 func set_checkpoint():
 	PlayerStatus.set_point()
 	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
@@ -75,6 +68,8 @@ func load_checkpoint():
 		player.translation = checkpoint_local
 	reset_all_enemys()
 	get_tree().get_root().get_node("Map/HUD_UI").update_values()
+
+
 	
 func reset_all_enemys():
 	var pilar = get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy")
@@ -155,17 +150,11 @@ func _ready():
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	player_nave = get_tree().get_root().get_node_or_null("Map/Player_nave")
 	cam = get_tree().get_root().get_node_or_null("Map/target")
-	#var nodess = get_tree().get_root().get_node_or_null("cena 1")
-	legenda = get_tree().get_root().get_node_or_null("Map/legendas")
-	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
-	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
 var cam_atual = 1
 
 func _process(delta):
 	pass
-
-	
 		
 func instancia_game(solicitante):
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(false)
@@ -229,27 +218,22 @@ func instancia_objetos():
 	scene_root.add_child(clone)
 	#clone.translation = novo_lugar
 	
-var localizacao_prox_agua = 0
-var delete_agua = 1
-
-# instanciar agua
-func instanciar_agua():
-	var clone = plane_agua.instance()
-	var scene_root = get_tree().root.get_children()[1]
-	scene_root.add_child(clone)
-	localizacao_prox_agua += -13000
-	clone.translation = Vector3(0,0,localizacao_prox_agua)
-	if delete_agua == 1:
-		clone.name = "agua1"
-		delete_agua = 2
-		return
-	elif delete_agua == 2:
-		clone.name = "agua"
-		delete_agua = 1
-		return
-		
-		
-	
-	
-	
-	
+#var localizacao_prox_agua = 0
+#var delete_agua = 1
+#
+## instanciar agua
+#func instanciar_agua():
+#	var clone = plane_agua.instance()
+#	var scene_root = get_tree().root.get_children()[1]
+#	scene_root.add_child(clone)
+#	localizacao_prox_agua += -13000
+#	clone.translation = Vector3(0,0,localizacao_prox_agua)
+#	if delete_agua == 1:
+#		clone.name = "agua1"
+#		delete_agua = 2
+#		return
+#	elif delete_agua == 2:
+#		clone.name = "agua"
+#		delete_agua = 1
+#		return
+#

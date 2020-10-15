@@ -30,10 +30,6 @@ func _ready():
 func _process(delta):
 	pass
 		
-
-func _input(event):
-	pass
-		
 func _on_Button_sair_pressed():
 	get_tree().quit()
 #	scene_change = "res://Menu_pausa/teste.tscn"
@@ -53,10 +49,8 @@ func _on_Button_opcoes_pressed():
 		update_options()
 		$Menu_2.show()
 
-
 func _on_Button_start_pressed():
 	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
-
 
 func set_options_grafcs():
 	var sun_map = get_tree().get_root().get_node_or_null("Map/Sol")
@@ -94,7 +88,6 @@ func _on_Button_aplicar_pressed():
 	if terrain_grass != null:
 		terrain_grass.view_distance = Gamestate.view_distance
 		terrain_grass.density = Gamestate.grass_dencidade
-
 
 func _on_HSlider_value_changed(value):
 	$Menu_2/ColorRect/Sensibilidade/Label_sensi.set_text(str($Menu_2/ColorRect/Sensibilidade/HSlider.value)) 
