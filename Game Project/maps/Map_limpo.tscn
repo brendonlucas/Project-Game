@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -15,7 +15,7 @@
 [ext_resource path="res://props/ancient-columns/colun.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=14]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=15]
-[ext_resource path="res://props/agua/textura/dirt.png" type="Texture" id=16]
+[ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Color.jpg" type="Texture" id=16]
 [ext_resource path="res://textures/rock/Rock014_2K_Color.jpg" type="Texture" id=17]
 [ext_resource path="res://textures/Water_001_SD/Water_001_DISP.png" type="Texture" id=18]
 [ext_resource path="res://textures/Snow/Snow006_2K_Normal.jpg" type="Texture" id=19]
@@ -147,9 +147,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
-
-[sub_resource type="BoxShape" id=9]
-extents = Vector3( 0.755668, 0.00758927, 19.1759 )
 
 [sub_resource type="BoxShape" id=10]
 extents = Vector3( 12.338, 1, 0.15485 )
@@ -408,8 +405,8 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="SphereShape" id=30]
-radius = 4.14451
+[sub_resource type="BoxShape" id=53]
+extents = Vector3( 4.04161, 0.175922, 0.165284 )
 
 [sub_resource type="BoxShape" id=31]
 extents = Vector3( 0.267248, 0.29173, 0.220224 )
@@ -786,6 +783,27 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
+[sub_resource type="BoxShape" id=51]
+extents = Vector3( 58.5064, 1, 0.30498 )
+
+[sub_resource type="BoxShape" id=52]
+extents = Vector3( 22.9482, 1, 0.23951 )
+
+[sub_resource type="BoxShape" id=54]
+extents = Vector3( 0.196766, 1, 5.97398 )
+
+[sub_resource type="BoxShape" id=55]
+extents = Vector3( 0.265879, 1, 4.83721 )
+
+[sub_resource type="BoxShape" id=56]
+extents = Vector3( 11.8433, 3.50217, 0.110203 )
+
+[sub_resource type="BoxShape" id=57]
+extents = Vector3( 18.1491, 1, 0.123641 )
+
+[sub_resource type="BoxShape" id=58]
+extents = Vector3( 0.191956, 1, 3.38041 )
+
 [node name="Map" type="Spatial"]
 
 [node name="Controler_map" type="Node" parent="."]
@@ -794,7 +812,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 602.703, 26.8923, 271.613 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 371.997, 91.6573, 263.256 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -939,14 +957,6 @@ transform = Transform( 1.5, 0, 0, 0, 30, 0, 0, 0, 1.5, 4.60895, -4.57103, -0.778
 
 [node name="colun2" parent="colunas" instance=ExtResource( 13 )]
 transform = Transform( 1.31273, -0.662804, 0.295695, 0.707308, -11.0398, -27.8859, 0.724909, 1.22719, -0.467448, 0.843288, 3.3716, -0.777663 )
-
-[node name="StaticBody" type="StaticBody" parent="."]
-transform = Transform( 0.826884, 0.562372, 0, -0.562372, 0.826884, 0, 0, 0, 1, 451.663, 0.425, 290.82 )
-visible = false
-
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
-transform = Transform( 1, -2.98023e-08, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0.00750732, 1.52588e-05, 0 )
-shape = SubResource( 9 )
 
 [node name="rock" parent="." instance=ExtResource( 26 )]
 transform = Transform( -0.322501, -4.96664, 0.47798, 3.59784, -0.563342, -3.42611, 3.4571, 0.122955, 3.61017, 397.568, 14.973, 322.86 )
@@ -1236,6 +1246,24 @@ transform = Transform( -1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, -1, -15.463
 [node name="Platform_Corner2" parent="escada3" instance=ExtResource( 40 )]
 transform = Transform( -1.19209e-07, 0, -0.999999, 0, 1, 0, 0.999999, 0, -1.19209e-07, -0.467, -1.617, -10.329 )
 
+[node name="escada5" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 431.303, 13.92, 323.375 )
+
+[node name="Stairway_Joiner2" parent="escada5" instance=ExtResource( 38 )]
+transform = Transform( -8.9407e-08, 0, -0.999999, 0, 1, 0, 0.999999, 0, -8.9407e-08, 8.993, -3.85, -7.817 )
+
+[node name="Stairway_Joiner3" parent="escada5" instance=ExtResource( 38 )]
+transform = Transform( -0.999999, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -0.999999, 18.803, -7.783, 0.788 )
+
+[node name="Stairway_Joiner4" parent="escada5" instance=ExtResource( 38 )]
+transform = Transform( -0.999999, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -0.999999, 18.803, -11.83, 9.838 )
+
+[node name="Platform_Corner2" parent="escada5" instance=ExtResource( 40 )]
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.46701, -1.617, -10.329 )
+
+[node name="Platform_Corner3" parent="escada5" instance=ExtResource( 40 )]
+transform = Transform( -0.999999, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -0.999999, 19.323, -5.548, -8.288 )
+
 [node name="base" parent="." instance=ExtResource( 44 )]
 transform = Transform( 1.5, 0, 0, 0, 3, 0, 0, 0, 1.5, 430.332, 9.837, 289.823 )
 script = ExtResource( 51 )
@@ -1284,7 +1312,8 @@ transform = Transform( -5.01114e-07, 0, -1, 0, 1, 0, 3.07582, 0, -1.62921e-07, 4
 script = ExtResource( 46 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_3"]
-shape = SubResource( 30 )
+transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, -2.84217e-13, 0, 1, -0.143028, 0, 2.3584 )
+shape = SubResource( 53 )
 
 [node name="SM_Console_Fellming" parent="." instance=ExtResource( 45 )]
 transform = Transform( -2.44381e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, -2.44381e-07, 414.519, 11.764, 289.881 )
@@ -1385,6 +1414,7 @@ transform = Transform( 0.410491, 0, 0.437603, 0, 0.6, 0, -0.437603, 0, 0.410491,
 
 [node name="bloqueio_combate" type="MeshInstance" parent="."]
 transform = Transform( 33.3582, 0, -0.65186, 0, 11.1235, 0, 28.6743, 0, 0.758339, 672.338, 19.6962, 141.801 )
+visible = false
 mesh = SubResource( 40 )
 material/0 = SubResource( 41 )
 script = ExtResource( 59 )
@@ -1448,6 +1478,84 @@ material/0 = SubResource( 48 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint2"]
 autoplay = "move"
 anims/move = SubResource( 50 )
+
+[node name="barreira" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 582.258, 23.1179, 246.452 )
+visible = false
+collision_layer = 2147500032
+collision_mask = 16384
+
+[node name="CollisionShape" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.886882, 0, 0.461996, 0, 1, 0, -0.461996, 0, 0.886882, -41.815, 2.417, 34.606 )
+shape = SubResource( 51 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="barreira"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.879, 2.374, 7.545 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.68838, 0, -0.72535, 0, 1, 0, 0.72535, 0, 0.68838, 71.459, 2.374, 24.118 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.88319, 0, -0.766044, 0, 1, 0, 1.05255, 0, 0.642788, 68.4835, 2.68466, -15.5071 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.359388, 0, -0.749661, 0, 4.9777, 0, 0.407087, 0, 0.661822, 23.3361, 6.39615, -66.7928 )
+shape = SubResource( 52 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="barreira"]
+transform = Transform( -0.0143636, 0, 0.386255, 0, 2.16541, 0, -0.999897, 0, -0.00554856, -106.636, 2.37662, 42.0221 )
+shape = SubResource( 54 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="barreira"]
+transform = Transform( 1, 0, 0, 0, 2.16541, 0, 0, 0, 0.386294, -104.466, 2.37662, 44.0287 )
+shape = SubResource( 54 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.946091, 0, 0.323901, 0, 1, 0, -0.323901, 0, 0.946091, -108.829, 1.83293, 23.3527 )
+shape = SubResource( 55 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.692433, 0, -0.721482, 0, 1, 0, 0.721482, 0, 0.692433, 66.645, -10.425, -114.61 )
+shape = SubResource( 56 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.890872, 0, -0.454255, 0, 1, 0, 0.454255, 0, 0.890872, 87.159, -9.58845, -97.483 )
+shape = SubResource( 56 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="barreira"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.912, -10.2951, 25.8123 )
+shape = SubResource( 57 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="barreira"]
+transform = Transform( -1.32617e-07, 0, 1, 0, 1, 0, -0.814, 0, -1.62921e-07, -134.272, -10.2955, 40.691 )
+shape = SubResource( 57 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="barreira"]
+transform = Transform( -0.0110856, 0, 0.999715, 0, 1, 0, -0.463868, 0, -0.0238914, -169.855, -10.2955, 42.655 )
+shape = SubResource( 57 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="barreira"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -169.734, -10.0035, 58.0153 )
+shape = SubResource( 58 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="barreira"]
+transform = Transform( -1.62921e-07, 0, 2.24258, 0, 1, 0, -1, 0, -3.65363e-07, -161.932, -10.0035, 61.533 )
+shape = SubResource( 58 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="barreira"]
+transform = Transform( -1.62921e-07, 0, 2.581, 0, 1, 0, -1, 0, -4.20498e-07, -141.652, -10.0035, 61.533 )
+shape = SubResource( 58 )
+
+[node name="CollisionShape17" type="CollisionShape" parent="barreira"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.395, -134.283, -10.0035, 60.3819 )
+shape = SubResource( 58 )
+
+[node name="CollisionShape18" type="CollisionShape" parent="barreira"]
+transform = Transform( 0.996189, 0, -0.0597493, 0, 1, 0, 0.0872253, 0, 0.682389, -169.782, -10.0035, 28.135 )
+shape = SubResource( 58 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]
