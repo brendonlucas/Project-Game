@@ -4,7 +4,7 @@ func _ready():
 	pass 
 
 func _process(delta):
-	if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("interact") and false:
 		hide()
 		show()
 		get_tree().paused = true

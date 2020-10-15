@@ -11,7 +11,7 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if Input.is_action_just_pressed("lanterna"):
+	if Input.is_action_just_pressed("lanterna") and false:
 		stop()
 		play("hack_nija")
 		Gamestate.ativar_menu = false
