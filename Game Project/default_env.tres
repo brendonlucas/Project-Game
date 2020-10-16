@@ -10,6 +10,7 @@ ground_energy = 0.0
 [resource]
 background_mode = 2
 background_sky = SubResource( 1 )
+fog_enabled = true
 fog_depth_begin = 400.0
 fog_depth_end = 0.0
 tonemap_exposure = 1.5

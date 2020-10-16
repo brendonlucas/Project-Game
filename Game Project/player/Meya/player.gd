@@ -144,8 +144,10 @@ func movimentos(delta):
 		
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
 		if target:
-			look_at_from_position(global_transform.origin, target.global_transform.origin, Vector3.UP)
+			look_at(target.global_transform.origin, Vector3.UP)
+			
 			self.rotate_object_local(Vector3(0,1,0), 3.14)
+			rotation_degrees.x = 0
 #
 #		MOVE_SPEED = 100
 #		dir += global_transform.basis[2]

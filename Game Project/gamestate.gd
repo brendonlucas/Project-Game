@@ -137,7 +137,7 @@ func done_game():
 		get_tree().get_root().get_node("Map/animations/Animation_open_gate").play("open_gate")
 		
 		
-	var game = get_node_or_null("map_game")
+	var game = get_tree().get_root().get_node("Map/map_game")
 	game.queue_free()
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(true)
 	get_tree().get_root().get_node_or_null("Map/target").block_cam(true)
@@ -159,6 +159,7 @@ func _process(delta):
 func instancia_game(solicitante):
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(false)
 	get_tree().get_root().get_node_or_null("Map/target").block_cam(false)
+	get_tree().get_root().get_node("Map/Player_v4/UI/interact_label").set_visible(false)
 	Gamestate.in_mine_game = true
 	if solicitante != "hack_nija":
 		instancia_objetos()
@@ -214,7 +215,8 @@ func instancia_objetos():
 		mini_game = game3
 		
 	var clone = mini_game.instance()
-	var scene_root = get_tree().root.get_children()[0]
+#	var scene_root = get_tree().root.get_children()[0]
+	var scene_root = get_tree().get_root().get_node("Map")
 	scene_root.add_child(clone)
 	#clone.translation = novo_lugar
 	

@@ -812,7 +812,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 490.713, 91.6573, 243.603 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 371.024, 91.6573, 686.792 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -919,9 +919,9 @@ __meta__ = {
 }
 layer_index = 0
 texture = ExtResource( 24 )
-view_distance = 150.0
+view_distance = 100.0
 custom_shader = null
-density = 5.0
+density = 1.0
 instance_mesh = null
 shader_params/u_globalmap_tint_bottom = 0.0
 shader_params/u_globalmap_tint_top = 0.0
@@ -1452,6 +1452,7 @@ transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 62
 
 [node name="Area_checkpoint" type="Area" parent="."]
 transform = Transform( 1.12822, 0, -1.27069, 0, 0.523126, 0, 1.20433, 0, 1.19039, 650.408, 12.2971, 148.753 )
+visible = false
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
@@ -1468,6 +1469,7 @@ anims/move = SubResource( 48 )
 
 [node name="Area_checkpoint2" type="Area" parent="."]
 transform = Transform( -2.68858e-07, 0, -1.74118, 0, 0.523126, 0, 1.65024, 0, -2.83674e-07, 391.507, 0.359922, 715.212 )
+visible = false
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
