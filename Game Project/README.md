@@ -9,4 +9,5 @@ O ano é 3400, o planeta terra sofreu durante anos com conflitos por poder. Apro
 <li> <a href="https://github.com/brendonlucas/Project-Game" target="_blank"> GitHub </a> </li>
 <li> <a href="https://trello.com/b/sFT1jbER/game-project" target="_blank"> Trello </a> </li>
 <li> <a href="https://julianamarques.dev/bdgames" target="_blank">Front page </a> </li>
+<li> <a href="https://brendonlucas.itch.io/project-genesis" target="_blank">Itch.io</a> </li>
 </ul>
