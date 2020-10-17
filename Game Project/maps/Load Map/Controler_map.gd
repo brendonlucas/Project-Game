@@ -28,8 +28,6 @@ var part7 = {'1':{'text':'Droga... mais uma sentinela.', "duracao": 2,"audio":"r
 var part8 = {'1':{'text':'Pronto acho q agora não irão mais aparecer.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
 var part9 = {'1':{'text':'Vamos la.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
 
-
-
 var player
 
 func _ready():
@@ -40,12 +38,12 @@ func _ready():
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
 func _process(delta):
-	if Input.is_action_just_pressed("lanterna"):
-		PlayerStatus.add_exp(200)
-	if Input.is_action_just_pressed("jump"):
-		Gamestate.set_checkpoint()
-	if Input.is_action_just_pressed("load"):
-		Gamestate.load_checkpoint()
+#	if Input.is_action_just_pressed("lanterna"):
+#		PlayerStatus.add_exp(200)
+#	if Input.is_action_just_pressed("jump"):
+#		Gamestate.set_checkpoint()
+#	if Input.is_action_just_pressed("load"):
+#		Gamestate.load_checkpoint()
 		
 	if executando_legenda:
 		aplly_text()
@@ -129,12 +127,10 @@ func start_legenda4():
 func start_legenda5():
 	set_dados_legenda(5, 5, true)
 
-
-
 	
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "fade_out":
-		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")
+#func _on_AnimationPlayer_animation_finished(anim_name):
+#	if anim_name == "fade_out":
+#		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")
 
 func change_map():
 	BackgroundLoad.load_scene("res://maps/base/base.tscn")

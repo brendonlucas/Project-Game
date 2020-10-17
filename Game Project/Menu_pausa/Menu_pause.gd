@@ -26,7 +26,7 @@ func set_options_grafcs():
 	if grass_map != null:
 		grass_map.view_distance = Gamestate.view_distance
 		grass_map.density = Gamestate.grass_dencidade
-		
+	
 func _ready():
 	set_options_grafcs()
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
@@ -125,14 +125,18 @@ func update_options():
 	$Menu_2/Sensibilidade/Label_sensi.set_text(str(Gamestate.camera_sensibilidade))
 	$Menu_2/grass_distance/HSlider_v_distance.value = Gamestate.view_distance
 	$Menu_2/grass_distance/Label_v_distance.set_text(str(Gamestate.view_distance))
+	$Menu_2/grass_dencidade/HSlider_v_densidade.value = Gamestate.grass_dencidade
+	$Menu_2/grass_dencidade/Label_v_densidade.set_text(str(Gamestate.grass_dencidade))
 	
 func _on_Button_aplicar_pressed():
 	var sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	var terrain_grass = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")
 	var option_sombra = get_node("Menu_2/sombra/OptionButton").selected
+	var d_grass = get_node_or_null("Menu_2/grass_dencidade/HSlider_v_densidade")
 	Gamestate.type_shadow_mode = option_sombra
 	Gamestate.camera_sensibilidade = sensibilidade.value
 	Gamestate.view_distance = v_distance.value
+	Gamestate.grass_dencidade = d_grass.value
 	
 	sun.set_shadow_mode(option_sombra)
 	if option_sombra == 0:
@@ -142,10 +146,15 @@ func _on_Button_aplicar_pressed():
 	
 	if terrain_grass != null:
 		terrain_grass.view_distance = Gamestate.view_distance
-
+		terrain_grass.view_distance = Gamestate.view_distance
+		terrain_grass.density = Gamestate.grass_dencidade
 
 func _on_HSlider_value_changed(value):
 	$Menu_2/Sensibilidade/Label_sensi.set_text(str($Menu_2/Sensibilidade/HSlider.value)) 
 
 func _on_HSlider_v_distance_value_changed(value):
 	$Menu_2/grass_distance/Label_v_distance.set_text(str($Menu_2/grass_distance/HSlider_v_distance.value))
+
+
+func _on_HSlider_v_dencidade_value_changed(value):
+	$Menu_2/grass_dencidade/Label_v_densidade.set_text(str($Menu_2/grass_dencidade/HSlider_v_densidade.value))
