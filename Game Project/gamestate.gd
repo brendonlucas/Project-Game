@@ -78,6 +78,8 @@ func reset_all_enemys():
 		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
 	if sentinela:
 		get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA").reset()
+		get_tree().get_root().get_node_or_null("Map/bloqueio_combate").reset()
+	
 	var nija = get_tree().get_root().get_node_or_null("Map/nija")
 	if nija:
 		get_tree().get_root().get_node_or_null("Map/nija").reset()

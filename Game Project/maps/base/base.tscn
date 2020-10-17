@@ -80,6 +80,7 @@
 [sub_resource type="Environment" id=1]
 background_energy = 0.0
 ambient_light_color = Color( 0.67451, 0.67451, 0.67451, 1 )
+ambient_light_energy = 0.01
 fog_enabled = true
 tonemap_exposure = 1.5
 glow_enabled = true
@@ -425,7 +426,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 2.65793, 0.498441, -19.1674 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 85.5228, 0.498441, -2.1246 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.6372, 2.8286, -14.6292 )
@@ -3169,7 +3170,6 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="finalizacao/fim_2/fade"]
-autoplay = "fade"
 anims/fade = SubResource( 39 )
 
 [node name="Label_1" type="Label" parent="finalizacao/fim_2"]

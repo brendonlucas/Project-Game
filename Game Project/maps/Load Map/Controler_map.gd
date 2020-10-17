@@ -38,13 +38,6 @@ func _ready():
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
 func _process(delta):
-#	if Input.is_action_just_pressed("lanterna"):
-#		PlayerStatus.add_exp(200)
-#	if Input.is_action_just_pressed("jump"):
-#		Gamestate.set_checkpoint()
-#	if Input.is_action_just_pressed("load"):
-#		Gamestate.load_checkpoint()
-		
 	if executando_legenda:
 		aplly_text()
 		

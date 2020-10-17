@@ -1,0 +1,202 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://textures/loading.png" type="Texture" id=1]
+[ext_resource path="res://textures/loading_black.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://player/UI/hp_enemy.gd" type="Script" id=4]
+[ext_resource path="res://player/UI/pilar_hp.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="hp_enemy" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_vida" type="TextureProgress" parent="."]
+anchor_left = 0.235
+anchor_top = 0.816
+anchor_right = 0.765
+anchor_bottom = 0.831
+margin_left = -0.140015
+margin_top = -0.100037
+margin_right = 0.139954
+margin_bottom = -0.100006
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.517647, 0.517647, 0.517647, 1 )
+tint_progress = Color( 0.498039, 0.14902, 0.14902, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="enemy_name" type="Label" parent="bar_vida"]
+anchor_left = 0.003
+anchor_top = -3.0
+anchor_right = 0.502
+margin_left = -0.129
+margin_top = 1.90735e-06
+margin_right = -0.0860291
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pilar_hp" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_pilar" type="TextureProgress" parent="pilar_hp"]
+anchor_left = 0.751
+anchor_top = 0.496
+anchor_right = 0.972
+anchor_bottom = 0.511
+margin_left = -0.0240479
+margin_top = -0.100006
+margin_right = -0.328064
+margin_bottom = -0.100037
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.517647, 0.517647, 0.517647, 1 )
+tint_progress = Color( 0.498039, 0.14902, 0.14902, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_name" type="Label" parent="pilar_hp/bar_pilar"]
+anchor_top = -1.944
+anchor_right = 0.35
+margin_top = -0.00399971
+margin_right = -0.100006
+margin_bottom = -0.5
+custom_fonts/font = SubResource( 2 )
+text = "Pilar 1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_pilar2" type="TextureProgress" parent="pilar_hp"]
+anchor_left = 0.751
+anchor_top = 0.542
+anchor_right = 0.972
+anchor_bottom = 0.557
+margin_left = -0.0240479
+margin_top = 0.299957
+margin_right = -0.328064
+margin_bottom = 0.299988
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.517647, 0.517647, 0.517647, 1 )
+tint_progress = Color( 0.498039, 0.14902, 0.14902, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_name" type="Label" parent="pilar_hp/bar_pilar2"]
+anchor_top = -1.944
+anchor_right = 0.35
+anchor_bottom = -0.056
+margin_top = -0.00399971
+margin_right = -0.100006
+margin_bottom = 0.00400001
+custom_fonts/font = SubResource( 2 )
+text = "Pilar 2"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_pilar3" type="TextureProgress" parent="pilar_hp"]
+anchor_left = 0.751
+anchor_top = 0.587
+anchor_right = 0.972
+anchor_bottom = 0.602
+margin_left = -0.0240479
+margin_top = 0.299988
+margin_right = -0.328064
+margin_bottom = 0.299957
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.517647, 0.517647, 0.517647, 1 )
+tint_progress = Color( 0.498039, 0.14902, 0.14902, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_name" type="Label" parent="pilar_hp/bar_pilar3"]
+anchor_top = -1.944
+anchor_right = 0.35
+anchor_bottom = -0.056
+margin_top = -0.00399971
+margin_right = -0.100006
+margin_bottom = 0.00400001
+custom_fonts/font = SubResource( 2 )
+text = "Pilar 3"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bar_pilar4" type="TextureProgress" parent="pilar_hp"]
+anchor_left = 0.751
+anchor_top = 0.632
+anchor_right = 0.972
+anchor_bottom = 0.647
+margin_left = -0.0240479
+margin_top = 0.299988
+margin_right = -0.328064
+margin_bottom = 0.299988
+max_value = 1000.0
+value = 1000.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_under = Color( 0.517647, 0.517647, 0.517647, 1 )
+tint_progress = Color( 0.498039, 0.14902, 0.14902, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="enemy_name" type="Label" parent="pilar_hp/bar_pilar4"]
+anchor_top = -1.944
+anchor_right = 0.35
+anchor_bottom = -0.056
+margin_top = -0.00399971
+margin_right = -0.100006
+margin_bottom = 0.00400001
+custom_fonts/font = SubResource( 2 )
+text = "Pilar 4"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

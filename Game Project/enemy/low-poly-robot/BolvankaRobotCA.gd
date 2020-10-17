@@ -13,6 +13,7 @@ var timer_attack
 var target_attack
 
 var vida = 5000
+var vida_maxima = 5000
 var defesa = 70
 
 func _ready():
@@ -21,8 +22,8 @@ func _ready():
 	
 func hit_damage(damage):
 	if vida > 0 and PlayerStatus.vida_atual > 0:
-		print(vida)
 		vida -= damage
+		get_tree().get_root().get_node("Map/hp_enemy").set_values(vida, vida_maxima)
 		if vida <= 0:
 			get_tree().get_root().get_node("Map/Controler_map").kill_sentinela()
 			$AnimationPlayer.play("kill")
@@ -34,8 +35,8 @@ func hit_damage(damage):
 	
 	
 func _process(delta):
-	if Input.is_action_just_pressed("lanterna"):
-		hit_damage(20000)
+#	if Input.is_action_just_pressed("lanterna"):
+#		hit_damage(20000)
 	if target_attack and timer_attack.time_left == 0 and !caido:
 		if target_attack.is_in_group("Player_v4"):
 			$AnimationPlayer.play("Bolvanka|Shoot")
@@ -75,6 +76,8 @@ func _on_Area_target_body_entered(body):
 	if body.is_in_group("Player_v4"):
 		target = body
 		Gamestate.set_music_battle()
+		get_tree().get_root().get_node("Map/hp_enemy").show()
+		get_tree().get_root().get_node("Map/hp_enemy").set_values(vida, vida_maxima)
 		#print(body.name + " entered")
 
 
@@ -82,6 +85,7 @@ func _on_Area_target_body_exited(body):
 	if body.is_in_group("Player_v4"):
 		target = null
 		Gamestate.set_music_map()
+		get_tree().get_root().get_node("Map/hp_enemy").hide()
 		#print(body.name + " exited")
 
 func move_to_target(delta):

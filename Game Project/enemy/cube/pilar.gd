@@ -1,7 +1,8 @@
 extends Spatial
 
 
-var vida = 10
+var vida = 1000
+var vida_maxima = 1000
 var defesa = 10
 
 var timer_bullet
@@ -15,7 +16,10 @@ func _ready():
 	gun_refresh = $Timer_reload
 	
 func hit_damage(damage):
-	vida -= damage
+	if vida > 0:
+		vida -= damage
+		get_tree().get_root().get_node("Map/hp_enemy/pilar_hp").set_values()
+	
 	
 func _process(delta):
 	if vida <= 0 and !desativado:
@@ -36,9 +40,10 @@ func _process(delta):
 		gun_refresh.start()
 
 func reset():
-	vida = 10
+	vida = 1000
 	desativado = false
 	ativo = false
 	$esfera.show()
+	get_tree().get_root().get_node("Map/hp_enemy/pilar_hp").set_values()
 	
 

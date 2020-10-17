@@ -214,7 +214,7 @@ func ativar_moves():
 var morreu = false
 
 func hit_damage(damage):
-	if PlayerStatus.vida_atual > 0:
+	if PlayerStatus.vida_atual > 0 :
 		if damage >= PlayerStatus.vida_atual:
 			PlayerStatus.vida_atual -= PlayerStatus.vida_atual
 		else:
