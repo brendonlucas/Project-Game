@@ -44,6 +44,7 @@ PlayerStatus="*res://player/PlayerStatus.gd"
 
 [display]
 
+window/size/fullscreen=true
 window/vsync/use_vsync=false
 
 [editor_plugins]

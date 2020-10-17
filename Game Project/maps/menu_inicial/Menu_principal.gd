@@ -50,8 +50,9 @@ func _on_Button_opcoes_pressed():
 		$Menu_2.show()
 
 func _on_Button_start_pressed():
+	hide()
 	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
-
+	
 func set_options_grafcs():
 	var sun_map = get_tree().get_root().get_node_or_null("Map/Sol")
 	var grass_map = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")

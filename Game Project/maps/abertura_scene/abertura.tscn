@@ -1,0 +1,241 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://textures/logo_name.png" type="Texture" id=2]
+[ext_resource path="res://maps/abertura_scene/abertura.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 27
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "open"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("texts:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 11.3, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Developed:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 12.6, 13.1, 14.6, 15.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("logo_image:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 16, 17.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0, 0.211765, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("logo_image:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 16, 17.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 17.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_scene"
+} ]
+}
+
+[node name="abertura" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="texts" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.206
+anchor_top = 0.165
+anchor_right = 0.794
+anchor_bottom = 0.835
+margin_left = 0.0559845
+margin_top = -7.62939e-06
+margin_right = -0.0560303
+margin_bottom = -3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="texts"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.184314, 0.184314, 0.184314, 0.745098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="texts"]
+anchor_top = 0.155
+anchor_right = 1.0
+anchor_bottom = 0.155
+margin_top = -25.31
+margin_bottom = 25.69
+custom_fonts/font = SubResource( 1 )
+text = "Aviso"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="texts"]
+anchor_top = 0.289
+anchor_right = 1.0
+anchor_bottom = 0.759
+margin_left = 40.0
+margin_top = -0.178001
+margin_right = -40.0
+margin_bottom = -0.118011
+custom_fonts/font = SubResource( 2 )
+text = "Devido a um bug no plugin de criação 
+ de terreno, há locais onde a colisão
+com o terreno possibilita a câmera
+ atravessar o chão, mas nada que
+ atrapalhe a gameplay"
+align = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="texts"]
+anchor_top = 0.771
+anchor_right = 1.0
+anchor_bottom = 0.898
+margin_top = 0.0579834
+margin_bottom = 0.00396729
+custom_fonts/font = SubResource( 1 )
+text = "Bom jogo"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Developed" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.294
+anchor_top = 0.357
+anchor_right = 0.706
+anchor_bottom = 0.643
+margin_left = -0.0559998
+margin_top = -0.200012
+margin_right = 0.0559692
+margin_bottom = 0.199982
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo" type="Label" parent="Developed"]
+anchor_top = 0.23
+anchor_right = 1.0
+anchor_bottom = 0.456
+margin_top = -0.0600014
+margin_bottom = 0.0679932
+custom_fonts/font = SubResource( 3 )
+text = "Developed by"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="logo2" type="Label" parent="Developed"]
+anchor_left = -0.02
+anchor_top = 0.5
+anchor_right = 1.02
+anchor_bottom = 0.715
+margin_left = -0.0599995
+margin_top = -3.0
+margin_right = 0.059967
+margin_bottom = 0.0199966
+custom_fonts/font = SubResource( 4 )
+text = "BDGAMES"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "open"
+anims/open = SubResource( 5 )
+
+[node name="logo_image" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -340.5
+margin_top = -111.5
+margin_right = 340.5
+margin_bottom = 111.5
+texture = ExtResource( 2 )
+expand = true
