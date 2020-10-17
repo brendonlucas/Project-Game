@@ -12,7 +12,7 @@ var y_velocity : float
 var velocity = Vector3()
 
 var cam
-var player
+#var player
 var animation
 
 # var controles
@@ -35,17 +35,18 @@ var resetado = true
 var ultimo_atake
 
 var atacando
-var luz 
+#var luz 
 
 var jumped = false
+var target
 
 func _ready():
-	luz = get_parent().get_node("Sol")
+#	luz = get_parent().get_node("Sol")
 	timer_1 = get_node("Timer")
 	timer_reset_atak = get_node("Timer fim")
-	player = get_node(".")
+	#player = get_node(".")
 	animation = get_node("AnimationPlayer")
-	player.rotation_degrees.y = 180
+	#player.rotation_degrees.y = 180
 	moviments_active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -57,7 +58,8 @@ var lanterna = false
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
-	
+	if Input.is_action_just_pressed("lanterna") and false:
+		hit_damage(1300)
 	if Input.is_action_just_pressed("lanterna"):
 		if lanterna:
 			$lanterna.light_energy = 0
@@ -141,12 +143,14 @@ func movimentos(delta):
 		pass
 		
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
-		#MOVE_SPEED = 100
-		#dir += global_transform.basis[2]
-		pass
-		#var olhar = get_parent().get_node("nija").global_transform.origin
-		#look_at_from_position(global_transform.origin, olhar, Vector3.UP)
-		#self.rotate_object_local(Vector3(0,1,0), 3.14)
+		if target:
+			look_at(target.global_transform.origin, Vector3.UP)
+			
+			self.rotate_object_local(Vector3(0,1,0), 3.14)
+			rotation_degrees.x = 0
+#
+#		MOVE_SPEED = 100
+#		dir += global_transform.basis[2]
 	
 	if is_moving and !correndo and resetado and !caminhando:
 		$AnimationPlayer.play("run1", 0.1)
@@ -183,12 +187,9 @@ func movimentos(delta):
 		
 	if is_moving:
 		var angle = atan2(hv.x, hv.z)
-		var character_rot = player.get_rotation()
+		var character_rot = get_rotation()
 		character_rot.y = angle
-		player.set_rotation(character_rot)
-	
-	
-	
+		set_rotation(character_rot)
 
 	
 func block_moviments(option):
@@ -210,13 +211,35 @@ func desativar_moves():
 func ativar_moves():
 	moviments_active = true
 	
+var morreu = false
+
 func hit_damage(damage):
-	PlayerStatus.vida_atual -= damage
-	get_parent().get_node("HUD_UI").update_values()
-	get_parent().get_node("Status_UI").update_values()
+	if PlayerStatus.vida_atual > 0:
+		if damage >= PlayerStatus.vida_atual:
+			PlayerStatus.vida_atual -= PlayerStatus.vida_atual
+		else:
+			PlayerStatus.vida_atual -= damage
+		get_parent().get_node("HUD_UI").update_values()
+		get_parent().get_node("Status_UI").update_values()
+		if PlayerStatus.vida_atual <= 0 and !morreu:
+			desativar_moves()
+			$AnimationPlayer.play("died")
+			morreu = true
+		
 func change_ataque(option):
 	pass
 			
-		
+func call_screen_kill():
+	morreu = false
+	
+	get_tree().get_root().get_node("Map/tela_Kill").show_menu()
+	ativar_moves()
 
 
+func _on_Area_target_body_entered(body):
+	if body.is_in_group("enemy"):
+		target = body
+
+func _on_Area_target_body_exited(body):
+	if body.is_in_group("enemy"):
+		target = null

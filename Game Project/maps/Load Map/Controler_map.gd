@@ -33,15 +33,25 @@ var part9 = {'1':{'text':'Vamos la.', "duracao": 4,"audio":"res://audio/falas/p1
 var player
 
 func _ready():
+	get_tree().paused = false
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	legenda = get_tree().get_root().get_node_or_null("Map/legendas")
 	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
 	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
 func _process(delta):
+	if Input.is_action_just_pressed("lanterna"):
+		PlayerStatus.add_exp(200)
+	if Input.is_action_just_pressed("jump"):
+		Gamestate.set_checkpoint()
+	if Input.is_action_just_pressed("load"):
+		Gamestate.load_checkpoint()
+		
 	if executando_legenda:
 		aplly_text()
-
+		
+func set_music_map():
+	get_parent().get_node("bg_map").stream = load("res://audio/gb_2.ogg")
 
 func set_dados_legenda(execution_text, text_info, audio):
 	executando_legenda = true
@@ -115,6 +125,9 @@ func start_legenda3():
 	
 func start_legenda4():
 	set_dados_legenda(4, 4, true)
+	
+func start_legenda5():
+	set_dados_legenda(5, 5, true)
 
 
 
@@ -125,3 +138,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func change_map():
 	BackgroundLoad.load_scene("res://maps/base/base.tscn")
+
+func kill_sentinela():
+	get_parent().get_node("ST_Tower2/escudo/AnimationRemove").play("drop")

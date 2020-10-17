@@ -7,6 +7,7 @@ var enemys_kill = 0
 var door_close = true
 
 func _ready():
+	
 	timer = $Timer_reset
 
 func _process(delta):

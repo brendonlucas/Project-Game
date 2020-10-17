@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://maps/creditos/creditos.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "fade"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "change_menu"
+} ]
+}
+
+[node name="creditos" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Posicoes" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p1" type="Control" parent="Posicoes"]
+anchor_left = 0.15
+anchor_top = 0.304
+anchor_right = 0.15
+anchor_bottom = 0.304
+margin_left = -19.7815
+margin_top = -20.2633
+margin_right = 20.2185
+margin_bottom = 19.7367
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p2" type="Control" parent="Posicoes"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p3" type="Control" parent="Posicoes"]
+anchor_left = 0.221
+anchor_top = 0.698
+anchor_right = 0.221
+anchor_bottom = 0.698
+margin_left = -19.9022
+margin_top = -19.8794
+margin_right = 20.0978
+margin_bottom = 20.1206
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="p4" type="Control" parent="Posicoes"]
+anchor_left = 0.743
+anchor_top = 0.224
+anchor_right = 0.743
+anchor_bottom = 0.224
+margin_left = -20.4769
+margin_top = -20.2667
+margin_right = 19.5231
+margin_bottom = 19.7333
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="p5" type="Control" parent="Posicoes"]
+anchor_left = 0.723
+anchor_top = 0.701
+anchor_right = 0.723
+anchor_bottom = 0.701
+margin_left = -20.0945
+margin_top = -19.8399
+margin_right = 19.9055
+margin_bottom = 20.1601
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer_text" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="Final_tipo" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -45.0
+margin_right = 128.0
+margin_bottom = 45.0
+custom_fonts/font = SubResource( 1 )
+text = "Final"
+align = 1
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Final_tipo"]
+anims/fade = SubResource( 2 )

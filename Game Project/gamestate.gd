@@ -11,24 +11,7 @@ var type_shadow_mode = 0
 var view_distance = 100
 var grass_dencidade = 1
 
-# exp variaveis
-var nivel : int
-var exp_total : int
-var exp_atual : int
-var a = {'1': 1000,'2': 1500, '3': 2500,
- '4':3000,'5': 3500,'6': 4000,'7':5000,
-'8':6000,'9':7000,'10':0}
-var exp_active
-
-var text_atual = 1
-var executando_legenda = false
-var legenda_executando = 0
-
-
-var legenda
-var text_in_execution
-var timer
-var legenda_label
+var ativar_menu = true
 
 var game1 = preload("res://maps/mine_games/game_map_1.tscn")
 var game2 = preload("res://maps/mine_games/game_map_2.tscn")
@@ -41,14 +24,12 @@ var cam_normal = preload("res://player/nave/target.tscn")
 
 var plane_agua = preload("res://props/agua/agua.tscn")
 
-
 var drop_game_test = 0
 
 var cam
 var player
 var player_nave
 var fade_final
-
 
 var elevador_1 = false
 var elevador_2 = false
@@ -57,12 +38,63 @@ var gerador_2 = false
 var solicitante_minigame = ""
 
 var map_loading = ""
+var final_game
+
+var checkpoint_local
+
+func reset_dados_game():
+	elevador_1 = false
+	elevador_2 = false
+	gerador_1 = false
+	gerador_2 = false
+	final_game = null
+	checkpoint_local = null
+	PlayerStatus.reset_dados()
+	solicitante_minigame = ""
+	drop_game_test = 0
+	in_mine_game = false
+	
+func set_checkpoint():
+	PlayerStatus.set_point()
+	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
+	if player:
+		checkpoint_local = player.translation
+		
+func load_checkpoint():
+	PlayerStatus.load_points()
+	var player = get_tree().get_root().get_node_or_null("Map/Player_v4")
+	if player:
+		get_tree().get_root().get_node_or_null("Map/Player_v4/AnimationPlayer").play("idle")
+		player.translation = checkpoint_local
+	reset_all_enemys()
+	get_tree().get_root().get_node("Map/HUD_UI").update_values()
+
+
+	
+func reset_all_enemys():
+	var pilar = get_tree().get_root().get_node_or_null("Map/pilar_enemys/cube_enemy")
+	var sentinela = get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA")
+	if pilar:
+		get_tree().get_root().get_node_or_null("Map/pilar_enemys").reset()
+	if sentinela:
+		get_tree().get_root().get_node_or_null("Map/BolvankaRobotCA").reset()
+	var nija = get_tree().get_root().get_node_or_null("Map/nija")
+	if nija:
+		get_tree().get_root().get_node_or_null("Map/nija").reset()
 
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
 	
-	
+func set_music_battle():
+	get_tree().get_root().get_node("Map/bg_map").stream = load("res://audio/bg_battle.ogg")
+	get_tree().get_root().get_node("Map/bg_map").play()
+
+func set_music_map():
+	get_tree().get_root().get_node("Map/Controler_map").set_music_map()
+	get_tree().get_root().get_node("Map/bg_map").play()
+	pass
+
 func done_game():
 	if solicitante_minigame == "gerador_1":
 		gerador_1 = true
@@ -89,17 +121,23 @@ func done_game():
 		get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda_base_alerta()
 		get_tree().get_root().get_node("Map/Area_legenda6").active = true
-	
+		PlayerStatus.add_exp(7000)
+		Gamestate.ativar_menu = true
+		get_tree().get_root().get_node("Map/HUD_UI").show()
+		
 	elif solicitante_minigame == "torre_1":
 		get_tree().get_root().get_node("Map/bloqueio").queue_free()
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda5()
+		get_tree().get_root().get_node("Map/bloqueio_combate/AnimationDrop").play("drop")
+		 
 	elif solicitante_minigame == "torre_2":
 		get_tree().get_root().get_node("Map/SM_Console_Fellming/MeshInstance").queue_free()
 		
 	elif solicitante_minigame == "elevador_base":
 		get_tree().get_root().get_node("Map/animations/Animation_open_gate").play("open_gate")
-		pass
 		
-	var game = get_node_or_null("map_game")
+		
+	var game = get_tree().get_root().get_node("Map/map_game")
 	game.queue_free()
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(true)
 	get_tree().get_root().get_node_or_null("Map/target").block_cam(true)
@@ -112,21 +150,16 @@ func _ready():
 	player = get_tree().get_root().get_node_or_null("Map/Player_v4")
 	player_nave = get_tree().get_root().get_node_or_null("Map/Player_nave")
 	cam = get_tree().get_root().get_node_or_null("Map/target")
-	#var nodess = get_tree().get_root().get_node_or_null("cena 1")
-	legenda = get_tree().get_root().get_node_or_null("Map/legendas")
-	timer = get_tree().get_root().get_node_or_null("Map/legendas/Timer")
-	legenda_label = get_tree().get_root().get_node_or_null("Map/legendas/text/Label")
 
 var cam_atual = 1
 
 func _process(delta):
 	pass
-
-	
 		
 func instancia_game(solicitante):
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(false)
 	get_tree().get_root().get_node_or_null("Map/target").block_cam(false)
+	get_tree().get_root().get_node("Map/Player_v4/UI/interact_label").set_visible(false)
 	Gamestate.in_mine_game = true
 	if solicitante != "hack_nija":
 		instancia_objetos()
@@ -182,31 +215,27 @@ func instancia_objetos():
 		mini_game = game3
 		
 	var clone = mini_game.instance()
-	var scene_root = get_tree().root.get_children()[0]
+#	var scene_root = get_tree().root.get_children()[0]
+	var scene_root = get_tree().get_root().get_node("Map")
 	scene_root.add_child(clone)
 	#clone.translation = novo_lugar
 	
-var localizacao_prox_agua = 0
-var delete_agua = 1
-
-# instanciar agua
-func instanciar_agua():
-	var clone = plane_agua.instance()
-	var scene_root = get_tree().root.get_children()[1]
-	scene_root.add_child(clone)
-	localizacao_prox_agua += -13000
-	clone.translation = Vector3(0,0,localizacao_prox_agua)
-	if delete_agua == 1:
-		clone.name = "agua1"
-		delete_agua = 2
-		return
-	elif delete_agua == 2:
-		clone.name = "agua"
-		delete_agua = 1
-		return
-		
-		
-	
-	
-	
-	
+#var localizacao_prox_agua = 0
+#var delete_agua = 1
+#
+## instanciar agua
+#func instanciar_agua():
+#	var clone = plane_agua.instance()
+#	var scene_root = get_tree().root.get_children()[1]
+#	scene_root.add_child(clone)
+#	localizacao_prox_agua += -13000
+#	clone.translation = Vector3(0,0,localizacao_prox_agua)
+#	if delete_agua == 1:
+#		clone.name = "agua1"
+#		delete_agua = 2
+#		return
+#	elif delete_agua == 2:
+#		clone.name = "agua"
+#		delete_agua = 1
+#		return
+#

@@ -21,7 +21,10 @@ func _process(delta):
 	elif current_colider:
 		current_colider = null
 		interact_label.set_text("")
-
+#	elif !is_colliding():
+#		current_colider = null
+#		interact_label.set_text("")
+#
 func set_interact_text(text):
 	if !text:
 		interact_label.set_text("")

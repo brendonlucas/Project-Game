@@ -16,7 +16,6 @@ func _ready():
 	
 func hit_damage(damage):
 	vida -= damage
-	print($".".name + " - " + str(vida))
 	
 func _process(delta):
 	if vida <= 0 and !desativado:
@@ -27,6 +26,7 @@ func _process(delta):
 	if timer_bullet.time_left == 0 and ativo and estado_gun and !desativado:
 		$esfera/gun.fire_weapon()
 		timer_bullet.start()
+		
 	if gun_refresh.time_left == 0 and !desativado:
 		estado_gun = !estado_gun
 		if estado_gun == true:
@@ -34,3 +34,11 @@ func _process(delta):
 		else:
 			gun_refresh.wait_time = 7
 		gun_refresh.start()
+
+func reset():
+	vida = 10
+	desativado = false
+	ativo = false
+	$esfera.show()
+	
+

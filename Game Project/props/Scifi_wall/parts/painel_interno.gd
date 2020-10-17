@@ -23,6 +23,7 @@ func _process(delta):
 func interact():
 	if open:
 		dor.play("close")
+		get_parent().get_node("dor").play()
 		timer.start()
 		descer = true
 		open = false

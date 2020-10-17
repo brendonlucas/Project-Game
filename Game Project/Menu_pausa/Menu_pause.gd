@@ -13,9 +13,22 @@ var sensibilidade
 var v_distance
 
 
-
-
+func set_options_grafcs():
+	var sun_map = get_tree().get_root().get_node_or_null("Map/Sol")
+	var grass_map = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")
+	
+	sun_map.set_shadow_mode(Gamestate.type_shadow_mode)
+	if Gamestate.type_shadow_mode == 0:
+		sun_map.directional_shadow_normal_bias = 3
+	else:
+		sun_map.directional_shadow_normal_bias = 0.8
+	
+	if grass_map != null:
+		grass_map.view_distance = Gamestate.view_distance
+		grass_map.density = Gamestate.grass_dencidade
+		
 func _ready():
+	set_options_grafcs()
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	option_sombra = get_node_or_null("Menu_2/sombra/OptionButton")
 	sensibilidade = get_node_or_null("Menu_2/Sensibilidade/HSlider")
@@ -36,7 +49,7 @@ func _process(delta):
 
 
 func _input(event):
-	if Input.is_action_just_pressed("menu_pause"):
+	if Input.is_action_just_pressed("menu_pause") and Gamestate.ativar_menu:
 		if menu_pause_active:
 			if Gamestate.in_mine_game:
 				Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -115,13 +128,11 @@ func update_options():
 	
 func _on_Button_aplicar_pressed():
 	var sun = get_tree().get_root().get_node_or_null("Map/Sol")
-	# var env = get_tree().get_root().get_node_or_null("Map/WorldEnvironment")
 	var terrain_grass = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")
 	var option_sombra = get_node("Menu_2/sombra/OptionButton").selected
 	Gamestate.type_shadow_mode = option_sombra
 	Gamestate.camera_sensibilidade = sensibilidade.value
 	Gamestate.view_distance = v_distance.value
-	print(v_distance.value)
 	
 	sun.set_shadow_mode(option_sombra)
 	if option_sombra == 0:

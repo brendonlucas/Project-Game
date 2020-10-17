@@ -12,7 +12,7 @@ func update_values():
 
 var mostrando = false
 func _process(delta):
-	if Input.is_action_just_pressed("info"):
+	if Input.is_action_just_pressed("info") and Gamestate.ativar_menu:
 		if mostrando:
 			hide()
 			mostrando = false

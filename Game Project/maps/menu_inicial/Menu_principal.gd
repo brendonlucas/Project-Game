@@ -14,9 +14,11 @@ var v_distance
 var d_grass
 
 
-
 func _ready():
+	Gamestate.ativar_menu = true
 	get_tree().paused = false
+	set_options_grafcs()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	option_sombra = get_node_or_null("Menu_2/ColorRect/Sombra/OptionButton")
 	sensibilidade = get_node_or_null("Menu_2/ColorRect/Sensibilidade/HSlider")
@@ -24,19 +26,15 @@ func _ready():
 	d_grass = get_node_or_null("Menu_2/ColorRect/Densidade_grama/HSlider_d_grass")
 	
 	var option_sombra = get_node_or_null("Menu_2/ColorRect/sombra/OptionButton")
-	#for button in $Menu_1/buttons.get_children():
-		#button.connect("pressed", self, "_on_Button_pressed", "res://Menu_pausa/teste.tscn")
+	
 func _process(delta):
 	pass
 		
-
-func _input(event):
-	pass
-		
 func _on_Button_sair_pressed():
-	scene_change = "res://Menu_pausa/teste.tscn"
-	$FadeIn.show()
-	$FadeIn.fade_in()
+	get_tree().quit()
+#	scene_change = "res://Menu_pausa/teste.tscn"
+#	$FadeIn.show()
+#	$FadeIn.fade_in()
 	
 func _on_FadeIn_fade_finished():
 	get_tree().change_scene(scene_change)
@@ -51,15 +49,24 @@ func _on_Button_opcoes_pressed():
 		update_options()
 		$Menu_2.show()
 
-
 func _on_Button_start_pressed():
 	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
 
-
-
+func set_options_grafcs():
+	var sun_map = get_tree().get_root().get_node_or_null("Map/Sol")
+	var grass_map = get_tree().get_root().get_node_or_null("Map/HTerrain/HTerrainDetailLayer")
+	
+	sun_map.set_shadow_mode(Gamestate.type_shadow_mode)
+	if Gamestate.type_shadow_mode == 0:
+		sun_map.directional_shadow_normal_bias = 3
+	else:
+		sun_map.directional_shadow_normal_bias = 0.8
+	
+	if grass_map != null:
+		grass_map.view_distance = Gamestate.view_distance
+		grass_map.density = Gamestate.grass_dencidade
 
 func update_options():
-	pass
 	option_sombra.select(Gamestate.type_shadow_mode)
 	$Menu_2/ColorRect/Sensibilidade/HSlider.value = Gamestate.camera_sensibilidade
 	$Menu_2/ColorRect/Sensibilidade/Label_sensi.set_text(str(Gamestate.camera_sensibilidade))
@@ -81,7 +88,6 @@ func _on_Button_aplicar_pressed():
 	if terrain_grass != null:
 		terrain_grass.view_distance = Gamestate.view_distance
 		terrain_grass.density = Gamestate.grass_dencidade
-
 
 func _on_HSlider_value_changed(value):
 	$Menu_2/ColorRect/Sensibilidade/Label_sensi.set_text(str($Menu_2/ColorRect/Sensibilidade/HSlider.value)) 

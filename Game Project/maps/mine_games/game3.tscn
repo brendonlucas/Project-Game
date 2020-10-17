@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://player/Player_hack/Player_hack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player_hack/target.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://props/blocks/block_gray.tscn" type="PackedScene" id=5]
 [ext_resource path="res://enemy/enemy_hack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy/enemy_hack_stop.tscn" type="PackedScene" id=7]
+[ext_resource path="res://maps/mine_games/game3.gd" type="Script" id=8]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 51.0815, 0.00113748, 51.2902 )
@@ -31,6 +32,7 @@ glow_bloom = 0.43
 glow_blend_mode = 1
 
 [node name="game" type="Spatial"]
+script = ExtResource( 8 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 
@@ -70,28 +72,28 @@ transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 1.0701, -0.361343, -4.40
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 3.04478, -0.361343, -4.40001 )
 
 [node name="block_gray7" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.85705, 2.27593, 30.0916 )
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 2.85705, 0.457935, 28.4297 )
 
 [node name="block_gray8" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.83173, 2.27593, 30.0916 )
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.83173, 0.664065, 29.2243 )
 
 [node name="block_gray3" parent="blocks_gray" instance=ExtResource( 5 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.05546, -0.361343, -4.40001 )
 
 [node name="block_gray6" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.84241, 2.27593, 30.0887 )
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 7.51194, 0.745179, 29.5495 )
 
 [node name="block_gray4" parent="blocks_gray" instance=ExtResource( 5 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 7.04396, -0.361343, -4.40001 )
 
 [node name="block_gray5" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 8.83091, 2.27593, 30.0801 )
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 9.5979, 0.869831, 30.0801 )
 
 [node name="block_gray9" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( -0.00936564, 0.897216, -0.0701173, -0.0379783, 0.0696647, 0.896496, 0.899149, 0.012288, 0.0371359, 0.58226, 2.3753, -8.57528 )
+transform = Transform( -0.00936564, 0.897216, -0.0701173, -0.0379783, 0.0696647, 0.896496, 0.899149, 0.012288, 0.0371359, 0.909586, -0.552783, -9.69628 )
 
 [node name="block_gray11" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( -0.00936564, 0.897216, -0.0701173, -0.0379783, 0.0696647, 0.896496, 0.899149, 0.012288, 0.0371359, 0.561386, 2.29753, -6.57728 )
+transform = Transform( -0.00936564, 0.897216, -0.0701173, -0.0379783, 0.0696647, 0.896496, 0.899149, 0.012288, 0.0371359, 0.927624, -0.46786, -7.06583 )
 
 [node name="block_gray10" parent="blocks_gray" instance=ExtResource( 5 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.99427, 1.00455, 12.9846 )
@@ -100,10 +102,10 @@ transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.99427, 1.00455, 12.984
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.98277, 1.00455, 12.976 )
 
 [node name="block_gray13" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( -0.0242189, 0, -0.899674, 0, 0.9, 0, 0.899674, 0, -0.0242189, 2.94652, 3.3155, 32.5881 )
+transform = Transform( -0.0242189, 0, -0.899674, 0, 0.9, 0, 0.899674, 0, -0.0242189, 3.26477, 0.746436, 31.0699 )
 
 [node name="block_gray14" parent="blocks_gray" instance=ExtResource( 5 )]
-transform = Transform( -0.0242189, 0, -0.899674, 0, 0.9, 0, 0.899674, 0, -0.0242189, 2.9016, 3.3155, 34.5762 )
+transform = Transform( -0.0242189, 0, -0.899674, 0, 0.9, 0, 0.899674, 0, -0.0242189, 3.09394, 0.430447, 33.3749 )
 
 [node name="block_gray15" parent="blocks_gray" instance=ExtResource( 5 )]
 transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 4.99427, 1.00455, 14.997 )
@@ -173,4 +175,4 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61186, 0.328881, 43.6331 )
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.73525, 0.428848, -7.084 )
 
 [node name="enemy_hack_stop2" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.66659, 2.70957, 33.5191 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.57966, 0.281214, 31.8125 )
