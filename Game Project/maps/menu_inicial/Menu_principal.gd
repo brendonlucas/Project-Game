@@ -18,6 +18,7 @@ func _ready():
 	Gamestate.ativar_menu = true
 	get_tree().paused = false
 	set_options_grafcs()
+	Gamestate.reset_dados_game()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	sun = get_tree().get_root().get_node_or_null("Map/Sol")
 	option_sombra = get_node_or_null("Menu_2/ColorRect/Sombra/OptionButton")
@@ -51,7 +52,7 @@ func _on_Button_opcoes_pressed():
 
 func _on_Button_start_pressed():
 	hide()
-	BackgroundLoad.load_scene("res://maps/Map_limpo.tscn")
+	BackgroundLoad.load_scene("res://maps/map_inicial/Map.tscn")
 	
 func set_options_grafcs():
 	var sun_map = get_tree().get_root().get_node_or_null("Map/Sol")
