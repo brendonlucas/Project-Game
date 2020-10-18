@@ -172,7 +172,7 @@ func instancia_game(solicitante):
 	
 func instance_hack_nija():
 	var clone = hack_nija.instance()
-	var scene_root = get_tree().root.get_children()[0]
+	var scene_root = get_tree().get_root().get_node("Map")
 	scene_root.add_child(clone)
 	
 func drop_game():

@@ -7,6 +7,8 @@ func _ready():
 
 
 func pause():
+	if get_parent().get_node_or_null("map_game"):
+		get_parent().get_node_or_null("map_game").queue_free()
 	get_tree().paused = true
 	
 func creditos():
@@ -17,3 +19,4 @@ func set_end(value):
 
 func bloque_menu():
 	Gamestate.ativar_menu = false
+

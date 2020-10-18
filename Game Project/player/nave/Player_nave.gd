@@ -27,8 +27,11 @@ func _ready():
 	#rotation_degrees.y = -180
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func hit_damage(damage):
-	PlayerStatus.vida_atual -= damage
-	get_parent().get_node("HUD_UI").update_values()
+	if PlayerStatus.vida_atual > 0:
+		PlayerStatus.vida_atual -= damage
+		get_parent().get_node("HUD_UI").update_values()
+		if PlayerStatus.vida_atual <= 0:
+			get_parent().get_node("finalizacao/fade/AnimationPlayer").play("fade")
 	
 func change_moves(option):
 	move_atual = option

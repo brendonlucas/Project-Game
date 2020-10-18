@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://enemy/drones/drone.material" type="Material" id=1]
 [ext_resource path="res://audio/effect_jet.wav" type="AudioStream" id=2]
 [ext_resource path="res://maps/map_inicial/gun_1.gd" type="Script" id=3]
+[ext_resource path="res://player/nave/control_method.gd" type="Script" id=4]
 
 [sub_resource type="ArrayMesh" id=1]
 lightmap_size_hint = Vector2( 188, 184 )
@@ -39,8 +40,36 @@ gravity = Vector3( 0, 0, 1 )
 [sub_resource type="CubeMesh" id=5]
 size = Vector3( 0.1, 0.1, 0.1 )
 
+[sub_resource type="Animation" id=6]
+resource_name = "kill"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, -5, 3 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -20 ), Vector3( 0, 0, 12.708 ), Vector3( 0, 0, -12.708 ) ]
+}
+
 [node name="Player_nave" type="KinematicBody"]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 10, 0, 0, 0 )
+transform = Transform( 1.95101, 0.439965, 0, -0.439965, 1.95101, 0, 0, 0, 2, 0, -5, 3 )
 
 [node name="jet_audio" type="AudioStreamPlayer3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121736, 0.722502 )
@@ -154,3 +183,9 @@ speed_scale = 5.0
 visibility_aabb = AABB( -0.0824213, -0.0875321, -0.542712, 0.164843, 0.175064, 1.08542 )
 process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/kill = SubResource( 6 )
+
+[node name="control_method" type="Node" parent="."]
+script = ExtResource( 4 )

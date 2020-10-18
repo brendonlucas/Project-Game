@@ -44,8 +44,7 @@ func look_at_cursor():
 
 func _physics_process(delta):
 	if life <= 0:
-		pass
-		#queue_free()
+		queue_free()
 		
 	look_at_cursor()
 	cam = get_parent().get_node("target").global_transform
@@ -88,3 +87,9 @@ func _physics_process(delta):
 
 func hit_damage(damage):
 	life -= 1
+	if life == 2:
+		$ball3.hide()
+	elif life == 1:
+		$ball2.hide()
+	elif life == 0:
+		$ball1.hide()

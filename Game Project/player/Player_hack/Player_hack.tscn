@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://player/Player_hack/gun.gd" type="Script" id=1]
 
@@ -28,17 +28,9 @@ emission_energy = 1.0
 emission_operator = 0
 emission_on_uv2 = false
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.945098, 1, 0, 1 )
-emission_enabled = true
-emission = Color( 0.945098, 1, 0, 1 )
-emission_energy = 1.0
-emission_operator = 0
-emission_on_uv2 = false
+[sub_resource type="SphereMesh" id=7]
 
-[sub_resource type="SphereMesh" id=8]
-
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=8]
 flags_no_depth_test = true
 albedo_color = Color( 1, 0, 0, 1 )
 emission_enabled = true
@@ -61,20 +53,20 @@ transform = Transform( 0.551221, 0, 0, 0, -4.37114e-08, 0.208161, 0, -1, -9.0990
 mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
-transform = Transform( -0.199882, 0, -0.00686823, 0, 0.2, 0, 0.00686823, 0, -0.199882, -0.738431, 0, 0.420497 )
+[node name="ball1" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.48, 0, 0.42 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 5 )
 
-[node name="MeshInstance4" type="MeshInstance" parent="."]
-transform = Transform( -0.199882, 0, -0.00686823, 0, 0.2, 0, 0.00686823, 0, -0.199882, 0.711136, 0, 0.336484 )
+[node name="ball2" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.48, 0, 0.42 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="ball3" type="MeshInstance" parent="."]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.00413768, 0, 1.06439 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 6 )
-
-[node name="MeshInstance3" type="MeshInstance" parent="."]
-transform = Transform( -0.199882, 0, -0.00686823, 0, 0.2, 0, 0.00686823, 0, -0.199882, 0.0476052, 0, 1.53861 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 7 )
 
 [node name="gun" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.3293 )
@@ -87,5 +79,5 @@ one_shot = true
 [node name="Cursor" type="MeshInstance" parent="."]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 visible = false
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 7 )
+material/0 = SubResource( 8 )

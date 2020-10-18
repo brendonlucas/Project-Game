@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Camerat.tscn" type="PackedScene" id=2]
@@ -76,11 +76,12 @@
 [ext_resource path="res://props/sci-fi-props-pack/cadeira2.tscn" type="PackedScene" id=74]
 [ext_resource path="res://maps/base/finalizacao.gd" type="Script" id=75]
 [ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=76]
+[ext_resource path="res://player/UI/hp_enemy.tscn" type="PackedScene" id=77]
+[ext_resource path="res://maps/base/Area_final_game.gd" type="Script" id=78]
 
 [sub_resource type="Environment" id=1]
 background_energy = 0.0
 ambient_light_color = Color( 0.67451, 0.67451, 0.67451, 1 )
-ambient_light_energy = 0.01
 fog_enabled = true
 tonemap_exposure = 1.5
 glow_enabled = true
@@ -210,6 +211,7 @@ extents = Vector3( 23.2934, 9.48707, 49.5993 )
 [sub_resource type="CubeMesh" id=28]
 
 [sub_resource type="SpatialMaterial" id=29]
+params_cull_mode = 2
 emission_enabled = true
 emission = Color( 0.435294, 0.94902, 1, 1 )
 emission_energy = 1.5
@@ -235,6 +237,9 @@ extents = Vector3( 0.134187, 1, 24.3037 )
 extents = Vector3( 0.330471, 1, 3.09269 )
 
 [sub_resource type="BoxShape" id=36]
+
+[sub_resource type="BoxShape" id=40]
+extents = Vector3( 0.0826666, 1, 2.02099 )
 
 [sub_resource type="Animation" id=37]
 resource_name = "fade"
@@ -426,7 +431,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 85.5228, 0.498441, -2.1246 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -85.319, -26.7258, 49.9147 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.6372, 2.8286, -14.6292 )
@@ -2845,13 +2850,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.11, 22.347, -87.134 )
 [node name="Tunnel Variant30" parent="saida" instance=ExtResource( 19 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 40.83, 22.347, -87.134 )
 
-[node name="Tunnel Variant8" parent="saida" instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.775, 2.405, -15.338 )
+[node name="Tunnel Variant31" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.579, 22.347, -87.134 )
 
-[node name="MeshInstance" type="MeshInstance" parent="saida/Tunnel Variant8"]
-transform = Transform( 0.144789, 0, 0, 0, 2.12789, 0, 0, 0, 2.03891, 37.0237, 19.5991, -71.796 )
+[node name="Tunnel Variant32" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 54.33, 22.347, -87.134 )
+
+[node name="MeshInstance" type="MeshInstance" parent="saida/Tunnel Variant32"]
+transform = Transform( 3.27757, 0, 0, 0, 2.12789, 0, 0, 0, 2.03891, 6.27966, -0.342901, 7.62939e-06 )
 mesh = SubResource( 28 )
 material/0 = SubResource( 29 )
+
+[node name="Tunnel Variant8" parent="saida" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.775, 2.405, -15.338 )
 
 [node name="curva" parent="saida" instance=ExtResource( 35 )]
 transform = Transform( -1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0.235, 2.405, -9.959 )
@@ -3051,6 +3062,16 @@ script = ExtResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint4"]
 shape = SubResource( 36 )
+
+[node name="Area_final_game" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1756, -14.6162, -111.9 )
+script = ExtResource( 78 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Area_final_game"]
+shape = SubResource( 40 )
+
+[node name="hp_enemy" parent="." instance=ExtResource( 77 )]
+visible = false
 
 [node name="HUD_UI" parent="." instance=ExtResource( 45 )]
 script = ExtResource( 48 )
@@ -3290,3 +3311,4 @@ __meta__ = {
 [connection signal="body_entered" from="Area_checkpoint2" to="Area_checkpoint2" method="_on_Area_checkpoint_body_entered"]
 [connection signal="body_entered" from="Area_checkpoint3" to="Area_checkpoint3" method="_on_Area_checkpoint_body_entered"]
 [connection signal="body_entered" from="Area_checkpoint4" to="Area_checkpoint4" method="_on_Area_checkpoint_body_entered"]
+[connection signal="body_entered" from="Area_final_game" to="Area_final_game" method="_on_Area_final_game_body_entered"]

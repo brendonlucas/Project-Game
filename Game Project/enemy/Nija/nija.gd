@@ -26,9 +26,13 @@ func block_moviments(option):
 		active_moves = option
 		$AnimationPlayer.play("hack")
 		
+var finalizou = false
 func hit_damage(damage):
 	life -= damage
-	
+	if life <= 5000 and !finalizou:
+		get_tree().get_root().get_node("Map/Animation_hack").active_animate()
+		finalizou = true
+		
 func _ready():
 	animation = $AnimationPlayer.current_animation
 	space_state = get_world().direct_space_state
@@ -37,8 +41,8 @@ func _ready():
 	
 func _process(delta):
 	
-	if Input.is_action_just_pressed("lanterna"):
-		hit_damage(20000)
+#	if Input.is_action_just_pressed("lanterna"):
+#		hit_damage(20000)
 		
 	if target_attack and timer_attack.time_left == 0 and active_moves :
 		if target_attack.is_in_group("Player_v4"):

@@ -13,9 +13,9 @@ func _process(delta):
 		timer.start()
 		timer_iniciado = true
 	elif !player and timer.time_left == 0:
-		pass
-		#Gamestate.drop_game()
-
+		get_tree().get_root().get_node("Map/finalizacao/fim_2/fade/AnimationPlayer").play("fade")
+		Gamestate.in_mine_game = false
+		Gamestate.drop_game_test = 0
 
 func done_game():
 	get_tree()
