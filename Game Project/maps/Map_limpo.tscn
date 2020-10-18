@@ -149,12 +149,12 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, -1, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 0.275565, 0.340976, 0.167299 )
 
-[sub_resource type="CylinderMesh" id=13]
+[sub_resource type="CylinderMesh" id=10]
 
-[sub_resource type="SpatialMaterial" id=14]
+[sub_resource type="SpatialMaterial" id=11]
 flags_transparent = true
 albedo_color = Color( 0, 0.811765, 1, 0.317647 )
 albedo_texture = ExtResource( 18 )
@@ -170,11 +170,11 @@ uv1_triplanar_sharpness = 4.75683
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="CylinderShape" id=15]
+[sub_resource type="CylinderShape" id=12]
 radius = 1.16278
 height = 3.3792
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -190,7 +190,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 length = 1.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("MeshInstance2:material/0:albedo_color")
@@ -243,10 +243,10 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=18]
+[sub_resource type="BoxShape" id=15]
 extents = Vector3( 0.298416, 0.458296, 0.118076 )
 
-[sub_resource type="SpatialMaterial" id=19]
+[sub_resource type="SpatialMaterial" id=16]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.352941 )
 albedo_texture = ExtResource( 18 )
@@ -261,7 +261,7 @@ uv1_offset = Vector3( 0, 0.821815, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=17]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -277,7 +277,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=18]
 length = 1.3
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -330,13 +330,13 @@ tracks/3/keys = {
 "values": [ 3.0, 16.0 ]
 }
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=19]
 extents = Vector3( 12.338, 1, 0.15485 )
 
-[sub_resource type="CylinderShape" id=10]
+[sub_resource type="CylinderShape" id=20]
 radius = 99.8211
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=21]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -815,7 +815,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 412.782, 91.6573, 669 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 397.828, 4.21145, 826.833 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -992,7 +992,7 @@ script = ExtResource( 50 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming2/Area_active_torre"]
 transform = Transform( 1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0.000167847, 0.842599, -0.279144 )
-shape = SubResource( 12 )
+shape = SubResource( 9 )
 
 [node name="ST_Tower2" parent="." instance=ExtResource( 34 )]
 transform = Transform( 0.798909, 0, -0.601452, 0, 1, 0, 0.601452, 0, 0.798909, 681.008, 11.969, 118.428 )
@@ -1002,19 +1002,19 @@ transform = Transform( 4, 0, 1.19209e-07, 0, 8, 0, -1.19209e-07, 0, 4, 0, 11.217
 
 [node name="MeshInstance2" type="MeshInstance" parent="ST_Tower2/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1.42371, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 14 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 11 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ST_Tower2/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, -0.0172842, 0 )
-shape = SubResource( 15 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower2/escudo"]
 autoplay = "move"
-anims/move = SubResource( 16 )
+anims/move = SubResource( 13 )
 
 [node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower2/escudo"]
-anims/drop = SubResource( 17 )
+anims/drop = SubResource( 14 )
 
 [node name="SM_Console_Fellming3" parent="." instance=ExtResource( 45 )]
 transform = Transform( 1.5, 0, 1.07288e-06, 0, 1.5, 0, -1.07288e-06, 0, 1.5, 391.788, -0.106715, 838.135 )
@@ -1026,7 +1026,7 @@ script = ExtResource( 49 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming3/Area_active_painel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790092, -0.302368 )
-shape = SubResource( 18 )
+shape = SubResource( 15 )
 
 [node name="ST_Tower" parent="." instance=ExtResource( 34 )]
 transform = Transform( -1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 391.788, -0.128805, 840.32 )
@@ -1036,18 +1036,18 @@ transform = Transform( -3.19564, 0, 2.40581, 0, 8, 0, -2.40581, 0, -3.19564, 0, 
 
 [node name="MeshInstance2" type="MeshInstance" parent="ST_Tower/escudo"]
 transform = Transform( 1, 0, 2.98023e-08, 0, 2.00151, 0, -2.98023e-08, 0, 1, 0, 0.951156, 0 )
-mesh = SubResource( 13 )
-material/0 = SubResource( 19 )
+mesh = SubResource( 10 )
+material/0 = SubResource( 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ST_Tower/escudo"]
-shape = SubResource( 15 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ST_Tower/escudo"]
 autoplay = "move"
-anims/move = SubResource( 20 )
+anims/move = SubResource( 17 )
 
 [node name="AnimationRemove" type="AnimationPlayer" parent="ST_Tower/escudo"]
-anims/drop = SubResource( 21 )
+anims/drop = SubResource( 18 )
 
 [node name="colisions" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 377.141, 1.21111, 812.246 )
@@ -1055,30 +1055,30 @@ collision_layer = 16384
 collision_mask = 16384
 
 [node name="CollisionShape" type="CollisionShape" parent="colisions"]
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="colisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 29.0782, 0, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, -9.36749, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="colisions"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1.34247, 0, -2.18716e-07, 38.735, 0, 16.167 )
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="colisions"]
 transform = Transform( 2.20197, 0, 0, 0, 1, 0, 0, 0, 1, 15.1951, 0, 32.1223 )
-shape = SubResource( 9 )
+shape = SubResource( 19 )
 
 [node name="Area_teleporte" type="Area" parent="colisions"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.4516, -29.3421, -4.59589 )
 script = ExtResource( 28 )
 
 [node name="CollisionShape" type="CollisionShape" parent="colisions/Area_teleporte"]
-shape = SubResource( 10 )
+shape = SubResource( 20 )
 
 [node name="fade" type="ColorRect" parent="colisions/Area_teleporte"]
 anchor_right = 1.0
@@ -1089,7 +1089,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="colisions/Area_teleporte/fade"]
-anims/fade = SubResource( 11 )
+anims/fade = SubResource( 21 )
 
 [node name="plataformas" type="Spatial" parent="."]
 
@@ -1392,7 +1392,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 391.27, 0, 828.45 )
 script = ExtResource( 56 )
 
 [node name="Area_target" type="Area" parent="pilar_enemys"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.994504, -0.29364 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02145, -0.29364 )
 script = ExtResource( 55 )
 
 [node name="CollisionShape" type="CollisionShape" parent="pilar_enemys/Area_target"]

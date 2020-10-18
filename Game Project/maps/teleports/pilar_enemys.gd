@@ -3,9 +3,10 @@ extends Spatial
 var pilares_destruidos = 0
 var escudo_destruido = false
 var nucleo_destruido = false
+
 func _ready():
 	pass
-
+	
 func _process(delta):
 	if pilares_destruidos == 4 and !escudo_destruido:
 		drop_escudo()

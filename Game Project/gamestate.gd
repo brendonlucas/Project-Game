@@ -176,7 +176,7 @@ func instance_hack_nija():
 	scene_root.add_child(clone)
 	
 func drop_game():
-	var game_teste = get_node_or_null("map_game")
+	var game_teste = get_tree().get_root().get_node_or_null("Map/map_game")
 	game_teste.queue_free()
 	get_tree().get_root().get_node_or_null("Map/Player_v4").block_moviments(true)
 	get_tree().get_root().get_node_or_null("Map/target").block_cam(true)

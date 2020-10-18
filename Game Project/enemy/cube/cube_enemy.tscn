@@ -120,3 +120,7 @@ shape = SubResource( 8 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="nucleo/escudo"]
 autoplay = "move"
 anims/move = SubResource( 9 )
+
+[node name="Timer_laser" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
