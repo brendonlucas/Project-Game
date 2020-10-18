@@ -11,28 +11,28 @@ var executando_legenda = false
 var text_in_execution
 var text_atual = 1
 var legenda_executando = 0
-var part1 = {'1':{"text":"O lugar parece estar vazio e não encontrou sinais de vida.", "duracao":5,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part2 = {'1':{'text':'O elevador está bloqueado... Talvez encontre alguma forma de destravar-lo.','duracao': 7, 'audio':"res://audio/falas/p1/p1a7.wav"}}
-var part3 = {'1':{'text':'humm.. sala de controle. talvez encontre algo aqui.','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"}}
-var part4 = {'1':{'text':'Ela? Quem?', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'O que será que eles faziam aqui.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part5 = {'1':{'text':'Consegui !!! O elevador deve funcionar agora.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part6 = {'1':{'text':'Mais um elevador bloqueado.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part7 = {'1':{'text':'Eles a trancaram nessa base... mas porque?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part8 = {'1':{'text':'Humm... geradores talvez se ligar-los destrave aquela porta.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part9 = {'1':{'text':'Algo me diz que não era para ter feito isso.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part1 = {'1':{"text":"O lugar parece estar vazio e não encontrou sinais de vida.", "duracao":5,"audio":"res://audio/falas/p3/a13.wav"}}
+var part2 = {'1':{'text':'O elevador está bloqueado... Talvez encontre alguma forma de destravar-lo.','duracao': 6, 'audio':"res://audio/falas/p3/a14.wav"}}
+var part3 = {'1':{'text':'humm.. sala de controle. talvez encontre algo aqui.','duracao': 4, 'audio':"res://audio/falas/p3/a15.wav"}}
+var part4 = {'1':{'text':'Ela? Quem?', "duracao": 2,"audio":"res://audio/falas/p3/a16.wav"},
+'2':{'text':'O que será que eles faziam aqui?', "duracao": 4,"audio":"res://audio/falas/p3/a17.wav"}}
+var part5 = {'1':{'text':'Consegui !!! O elevador deve funcionar agora.', "duracao": 4,"audio":"res://audio/falas/p3/a18.wav"}}
+var part6 = {'1':{'text':'Mais um elevador bloqueado.', "duracao": 3,"audio":"res://audio/falas/p3/a19.wav"}}
+var part7 = {'1':{'text':'Eles a trancaram nessa base... mas por quê?', "duracao": 4,"audio":"res://audio/falas/p3/a20.wav"}}
+var part8 = {'1':{'text':'Humm... geradores talvez se ligar-los destrave aquela porta.', "duracao": 5,"audio":"res://audio/falas/p3/a21.wav"}}
+var part9 = {'1':{'text':'Algo me diz que não era para ter feito isso.', "duracao": 4,"audio":"res://audio/falas/p3/a22.wav"}}
 var part10 = {'1':{'text':'Vieram me matar de vez agora?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},
 '2':{'text':'Irei matar todos que fizeram isso comigo.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
 var part11 = {'1':{'text':'Terei minha vingança.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
 '2':{'text':'Obrigada por deixar a porta aberta.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part12 = {'1':{'text':'A base está entrando em autodestruição devido a fuga da nija.', "duracao": 6,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Tenho que sair daqui.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part13 = {'1':{'text':'Droga ela trancou a porta...', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Mas a outra porta se abriu....', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part12 = {'1':{'text':'A base está entrando em autodestruição devido a fuga da nija.', "duracao": 6,"audio":"res://audio/falas/p3/a23.wav"},
+'2':{'text':'Tenho que sair daqui.', "duracao": 4,"audio":"res://audio/falas/p3/a24.wav"}}
+var part13 = {'1':{'text':'Droga... ela trancou a porta...', "duracao": 4,"audio":"res://audio/falas/p3/a25.wav"},
+'2':{'text':'Mas a outra porta se abriu....', "duracao": 4,"audio":"res://audio/falas/p3/a26.wav"}}
 var part14 = {'1':{'text':'Por aqui', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
 '2':{'text':'Espere...', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
 '3':{'text':'Por aqui.', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
-'4':{'text':'Ei espere... quem é você?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+'4':{'text':'Ei espere... quem é você?', "duracao": 4,"audio":"res://audio/falas/p3/a27.wav"}}
 var part15 = {'1':{'text':'Sinal obtido, iniciando upload de dados.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"}}
 var part16 = {'1':{'text':'Dados enviados para a base, chance de fuga de 0%...', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
 '2':{'text':'Backup concluído.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"}}

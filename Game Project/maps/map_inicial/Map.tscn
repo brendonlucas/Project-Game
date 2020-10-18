@@ -670,6 +670,7 @@ __meta__ = {
 [node name="fade" type="ColorRect" parent="finalizacao"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -678,7 +679,7 @@ __meta__ = {
 anims/fade = SubResource( 8 )
 
 [node name="Label_1" type="Label" parent="finalizacao"]
-modulate = Color( 1, 1, 1, 0.428571 )
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

@@ -16,5 +16,7 @@ func set_active(option):
 
 func interact():
 	if !ativo :
+		$CollisionShape.disabled = true
+		get_tree().get_root().get_node("Map/notas").nota_ativa = "015"
 		get_tree().get_root().get_node("Map/notas").mostrar("res://Images/notas/note015.png")
 		#ativo = true

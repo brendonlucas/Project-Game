@@ -31,6 +31,8 @@ func hit_damage(damage):
 		PlayerStatus.vida_atual -= damage
 		get_parent().get_node("HUD_UI").update_values()
 		if PlayerStatus.vida_atual <= 0:
+			queue_free()
+#			$AnimationPlayer.play("kill")
 			get_parent().get_node("finalizacao/fade/AnimationPlayer").play("fade")
 	
 func change_moves(option):

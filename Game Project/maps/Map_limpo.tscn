@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=2]
+[gd_scene load_steps=121 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -368,14 +368,11 @@ tracks/1/keys = {
 extents = Vector3( 0.192112, 31.6924, 193.212 )
 
 [sub_resource type="BoxShape" id=23]
-extents = Vector3( 0.18232, 6.8759, 101.373 )
-
-[sub_resource type="BoxShape" id=24]
 extents = Vector3( 0.393475, 6.26869, 33.5392 )
 
-[sub_resource type="CubeMesh" id=25]
+[sub_resource type="CubeMesh" id=24]
 
-[sub_resource type="SpatialMaterial" id=26]
+[sub_resource type="SpatialMaterial" id=25]
 flags_transparent = true
 albedo_color = Color( 1, 0, 0.74902, 0.101961 )
 albedo_texture = ExtResource( 18 )
@@ -388,9 +385,9 @@ emission_texture = ExtResource( 18 )
 uv1_scale = Vector3( 5, 2, 1 )
 uv1_offset = Vector3( 0, 0.736813, 0 )
 
-[sub_resource type="BoxShape" id=27]
+[sub_resource type="BoxShape" id=26]
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -406,15 +403,15 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=29]
+[sub_resource type="BoxShape" id=28]
 extents = Vector3( 4.04161, 0.175922, 0.165284 )
 
-[sub_resource type="BoxShape" id=30]
+[sub_resource type="BoxShape" id=29]
 extents = Vector3( 0.267248, 0.29173, 0.220224 )
 
-[sub_resource type="SphereMesh" id=31]
+[sub_resource type="SphereMesh" id=30]
 
-[sub_resource type="SpatialMaterial" id=32]
+[sub_resource type="SpatialMaterial" id=31]
 flags_transparent = true
 albedo_color = Color( 0.945098, 1, 0, 0.0627451 )
 albedo_texture = ExtResource( 18 )
@@ -427,7 +424,7 @@ emission_texture = ExtResource( 18 )
 uv1_scale = Vector3( 2, 2, 2 )
 uv1_offset = Vector3( 0, 0.0394181, 0 )
 
-[sub_resource type="Animation" id=33]
+[sub_resource type="Animation" id=32]
 length = 5.0
 loop = true
 tracks/0/type = "value"
@@ -443,10 +440,10 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="SphereShape" id=34]
+[sub_resource type="SphereShape" id=33]
 radius = 1.11978
 
-[sub_resource type="Animation" id=35]
+[sub_resource type="Animation" id=34]
 length = 10.0
 tracks/0/type = "animation"
 tracks/0/path = NodePath("../Fade/AnimationPlayer")
@@ -513,7 +510,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=35]
 length = 20.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("../base")
@@ -569,7 +566,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 6.8 )
 }
 
-[sub_resource type="Animation" id=37]
+[sub_resource type="Animation" id=36]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -627,12 +624,12 @@ tracks/3/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=38]
+[sub_resource type="BoxShape" id=37]
 extents = Vector3( 25.0838, 1, 15.902 )
 
-[sub_resource type="CubeMesh" id=39]
+[sub_resource type="CubeMesh" id=38]
 
-[sub_resource type="SpatialMaterial" id=40]
+[sub_resource type="SpatialMaterial" id=39]
 flags_transparent = true
 albedo_color = Color( 0, 0.788235, 1, 0.137255 )
 albedo_texture = ExtResource( 18 )
@@ -647,9 +644,9 @@ uv1_offset = Vector3( 0, 0.920074, 0 )
 proximity_fade_enable = true
 proximity_fade_distance = 2.0
 
-[sub_resource type="BoxShape" id=41]
+[sub_resource type="BoxShape" id=40]
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=41]
 length = 10.0
 loop = true
 tracks/0/type = "value"
@@ -665,7 +662,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=42]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:visible")
@@ -730,14 +727,14 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="BoxShape" id=44]
+[sub_resource type="BoxShape" id=43]
 extents = Vector3( 0.582425, 0.177475, 1 )
 
-[sub_resource type="BoxShape" id=45]
+[sub_resource type="BoxShape" id=44]
 
-[sub_resource type="CubeMesh" id=46]
+[sub_resource type="CubeMesh" id=45]
 
-[sub_resource type="SpatialMaterial" id=47]
+[sub_resource type="SpatialMaterial" id=46]
 flags_transparent = true
 albedo_color = Color( 1, 1, 1, 0.180392 )
 albedo_texture = ExtResource( 18 )
@@ -751,7 +748,7 @@ uv1_scale = Vector3( 10, 1, 1 )
 proximity_fade_enable = true
 proximity_fade_distance = 1.0
 
-[sub_resource type="Animation" id=48]
+[sub_resource type="Animation" id=47]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -767,7 +764,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=49]
+[sub_resource type="Animation" id=48]
 resource_name = "move"
 length = 3.0
 loop = true
@@ -784,25 +781,25 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1, 0 ) ]
 }
 
-[sub_resource type="BoxShape" id=50]
+[sub_resource type="BoxShape" id=49]
 extents = Vector3( 58.5064, 1, 0.30498 )
 
-[sub_resource type="BoxShape" id=51]
+[sub_resource type="BoxShape" id=50]
 extents = Vector3( 22.9482, 1, 0.23951 )
 
-[sub_resource type="BoxShape" id=52]
+[sub_resource type="BoxShape" id=51]
 extents = Vector3( 0.196766, 1, 5.97398 )
 
-[sub_resource type="BoxShape" id=53]
+[sub_resource type="BoxShape" id=52]
 extents = Vector3( 0.265879, 1, 4.83721 )
 
-[sub_resource type="BoxShape" id=54]
+[sub_resource type="BoxShape" id=53]
 extents = Vector3( 11.8433, 3.50217, 0.110203 )
 
-[sub_resource type="BoxShape" id=55]
+[sub_resource type="BoxShape" id=54]
 extents = Vector3( 18.1491, 1, 0.123641 )
 
-[sub_resource type="BoxShape" id=56]
+[sub_resource type="BoxShape" id=55]
 extents = Vector3( 0.191956, 1, 3.38041 )
 
 [node name="Map" type="Spatial"]
@@ -815,7 +812,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 397.828, 4.21145, 826.833 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 393.503, 4.21145, 704.261 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -1286,27 +1283,23 @@ shape = SubResource( 22 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 242.24, 15.8083, 346.449 )
 script = ExtResource( 23 )
 
-[node name="CollisionShape" type="CollisionShape" parent="Area_legenda_2"]
-transform = Transform( 0.996091, 0, -0.088338, 0, 1, 0, 0.088338, 0, 0.996091, -4.55185, 15.6374, 0.901428 )
-shape = SubResource( 23 )
-
 [node name="CollisionShape2" type="CollisionShape" parent="Area_legenda_2"]
 transform = Transform( 0.739232, 0, -0.673451, 0, 1, 0, 0.673451, 0, 0.739232, 106.848, -8.59477, -140.297 )
-shape = SubResource( 24 )
+shape = SubResource( 23 )
 
 [node name="bloqueio" type="MeshInstance" parent="."]
 transform = Transform( 15.5033, 0, -0.0426939, 0, 17.4313, 0, 3.06693, 0, 0.215818, 409.707, 14.7291, 545.603 )
-mesh = SubResource( 25 )
-material/0 = SubResource( 26 )
+mesh = SubResource( 24 )
+material/0 = SubResource( 25 )
 
 [node name="StaticBody" type="StaticBody" parent="bloqueio"]
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio/StaticBody"]
-shape = SubResource( 27 )
+shape = SubResource( 26 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio"]
 autoplay = "effect"
-anims/effect = SubResource( 28 )
+anims/effect = SubResource( 27 )
 
 [node name="rock5" parent="." instance=ExtResource( 26 )]
 transform = Transform( 0.210679, 5.72582, -1.78061, -5.62382, -0.429497, -2.04651, -2.08045, 1.74083, 5.35175, 403.843, 41.7974, 554.675 )
@@ -1317,7 +1310,7 @@ script = ExtResource( 46 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_3"]
 transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, -2.84217e-13, 0, 1, -0.143028, 0, 2.3584 )
-shape = SubResource( 29 )
+shape = SubResource( 28 )
 
 [node name="SM_Console_Fellming" parent="." instance=ExtResource( 45 )]
 transform = Transform( -2.44381e-07, 0, -1.5, 0, 1.5, 0, 1.5, 0, -2.44381e-07, 414.519, 11.764, 289.881 )
@@ -1329,30 +1322,30 @@ script = ExtResource( 47 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/Area_painel"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.760402, -0.0795135 )
-shape = SubResource( 30 )
+shape = SubResource( 29 )
 
 [node name="MeshInstance" type="MeshInstance" parent="SM_Console_Fellming"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339465, 0 )
-mesh = SubResource( 31 )
-material/0 = SubResource( 32 )
+mesh = SubResource( 30 )
+material/0 = SubResource( 31 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SM_Console_Fellming/MeshInstance"]
 autoplay = "move"
-anims/move = SubResource( 33 )
+anims/move = SubResource( 32 )
 
 [node name="StaticBody" type="StaticBody" parent="SM_Console_Fellming/MeshInstance"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182425, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/MeshInstance/StaticBody"]
-shape = SubResource( 34 )
+shape = SubResource( 33 )
 disabled = true
 
 [node name="animations" type="Node" parent="."]
 script = ExtResource( 52 )
 
 [node name="Animation_open_gate" type="AnimationPlayer" parent="animations"]
-anims/close_gate = SubResource( 35 )
-anims/open_gate = SubResource( 36 )
+anims/close_gate = SubResource( 34 )
+anims/open_gate = SubResource( 35 )
 
 [node name="Camera_gate" type="Camera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.894279, 0.447509, 0, -0.447509, 0.894279, 432.8, 23.299, 310.649 )
@@ -1377,7 +1370,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Fade_inicio"]
 autoplay = "fade"
-anims/fade = SubResource( 37 )
+anims/fade = SubResource( 36 )
 
 [node name="Fade" parent="." instance=ExtResource( 64 )]
 
@@ -1396,7 +1389,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02145, -0.29364 )
 script = ExtResource( 55 )
 
 [node name="CollisionShape" type="CollisionShape" parent="pilar_enemys/Area_target"]
-shape = SubResource( 38 )
+shape = SubResource( 37 )
 
 [node name="cube_enemy" parent="pilar_enemys" instance=ExtResource( 48 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.425598, 1.22685, -0.0315552 )
@@ -1422,28 +1415,28 @@ transform = Transform( 0.410491, 0, 0.437603, 0, 0.6, 0, -0.437603, 0, 0.410491,
 [node name="bloqueio_combate" type="MeshInstance" parent="."]
 transform = Transform( 33.3582, 0, -0.65186, 0, 11.1235, 0, 28.6743, 0, 0.758339, 672.338, 19.6962, 141.801 )
 visible = false
-mesh = SubResource( 39 )
-material/0 = SubResource( 40 )
+mesh = SubResource( 38 )
+material/0 = SubResource( 39 )
 script = ExtResource( 59 )
 
 [node name="colisao" type="StaticBody" parent="bloqueio_combate"]
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/colisao"]
-shape = SubResource( 41 )
+shape = SubResource( 40 )
 disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="bloqueio_combate"]
 autoplay = "move"
-anims/move = SubResource( 42 )
+anims/move = SubResource( 41 )
 
 [node name="AnimationDrop" type="AnimationPlayer" parent="bloqueio_combate"]
-anims/drop = SubResource( 43 )
+anims/drop = SubResource( 42 )
 
 [node name="Area_bloqueio" type="Area" parent="bloqueio_combate"]
 transform = Transform( 1, 0, 6.51926e-09, 0, 1, 0, 1.33514e-05, 0, 1, -0.196115, -0.529726, -2.85727 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bloqueio_combate/Area_bloqueio"]
-shape = SubResource( 44 )
+shape = SubResource( 43 )
 
 [node name="treelarge3" parent="." instance=ExtResource( 60 )]
 transform = Transform( 10, 0, 0, 0, 9.96195, 0.871557, 0, -0.871557, 9.96195, 470.144, 0.675159, 356.18 )
@@ -1460,16 +1453,16 @@ visible = false
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
-shape = SubResource( 45 )
+shape = SubResource( 44 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 46 )
-material/0 = SubResource( 47 )
+mesh = SubResource( 45 )
+material/0 = SubResource( 46 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint"]
 autoplay = "move"
-anims/move = SubResource( 48 )
+anims/move = SubResource( 47 )
 
 [node name="Area_checkpoint2" type="Area" parent="."]
 transform = Transform( -2.68858e-07, 0, -1.74118, 0, 0.523126, 0, 1.65024, 0, -2.83674e-07, 391.507, 0.359922, 715.212 )
@@ -1477,16 +1470,16 @@ visible = false
 script = ExtResource( 62 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
-shape = SubResource( 45 )
+shape = SubResource( 44 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Area_checkpoint2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-mesh = SubResource( 46 )
-material/0 = SubResource( 47 )
+mesh = SubResource( 45 )
+material/0 = SubResource( 46 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area_checkpoint2"]
 autoplay = "move"
-anims/move = SubResource( 49 )
+anims/move = SubResource( 48 )
 
 [node name="barreira" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 582.258, 23.1179, 246.452 )
@@ -1496,75 +1489,75 @@ collision_mask = 16384
 
 [node name="CollisionShape" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.886882, 0, 0.461996, 0, 1, 0, -0.461996, 0, 0.886882, -41.815, 2.417, 34.606 )
-shape = SubResource( 50 )
+shape = SubResource( 49 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="barreira"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 32.879, 2.374, 7.545 )
-shape = SubResource( 51 )
+shape = SubResource( 50 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.68838, 0, -0.72535, 0, 1, 0, 0.72535, 0, 0.68838, 71.459, 2.374, 24.118 )
-shape = SubResource( 51 )
+shape = SubResource( 50 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.88319, 0, -0.766044, 0, 1, 0, 1.05255, 0, 0.642788, 68.4835, 2.68466, -15.5071 )
-shape = SubResource( 51 )
+shape = SubResource( 50 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.359388, 0, -0.749661, 0, 4.9777, 0, 0.407087, 0, 0.661822, 23.3361, 6.39615, -66.7928 )
-shape = SubResource( 51 )
+shape = SubResource( 50 )
 
 [node name="CollisionShape6" type="CollisionShape" parent="barreira"]
 transform = Transform( -0.0143636, 0, 0.386255, 0, 2.16541, 0, -0.999897, 0, -0.00554856, -106.636, 2.37662, 42.0221 )
-shape = SubResource( 52 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape10" type="CollisionShape" parent="barreira"]
 transform = Transform( 1, 0, 0, 0, 2.16541, 0, 0, 0, 0.386294, -104.466, 2.37662, 44.0287 )
-shape = SubResource( 52 )
+shape = SubResource( 51 )
 
 [node name="CollisionShape7" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.946091, 0, 0.323901, 0, 1, 0, -0.323901, 0, 0.946091, -108.829, 1.83293, 23.3527 )
-shape = SubResource( 53 )
+shape = SubResource( 52 )
 
 [node name="CollisionShape8" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.692433, 0, -0.721482, 0, 1, 0, 0.721482, 0, 0.692433, 66.645, -10.425, -114.61 )
-shape = SubResource( 54 )
+shape = SubResource( 53 )
 
 [node name="CollisionShape9" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.890872, 0, -0.454255, 0, 1, 0, 0.454255, 0, 0.890872, 87.159, -9.58845, -97.483 )
-shape = SubResource( 54 )
+shape = SubResource( 53 )
 
 [node name="CollisionShape11" type="CollisionShape" parent="barreira"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -151.912, -10.2951, 25.8123 )
-shape = SubResource( 55 )
+shape = SubResource( 54 )
 
 [node name="CollisionShape12" type="CollisionShape" parent="barreira"]
 transform = Transform( -1.32617e-07, 0, 1, 0, 1, 0, -0.814, 0, -1.62921e-07, -134.272, -10.2955, 40.691 )
-shape = SubResource( 55 )
+shape = SubResource( 54 )
 
 [node name="CollisionShape13" type="CollisionShape" parent="barreira"]
 transform = Transform( -0.0110856, 0, 0.999715, 0, 1, 0, -0.463868, 0, -0.0238914, -169.855, -10.2955, 42.655 )
-shape = SubResource( 55 )
+shape = SubResource( 54 )
 
 [node name="CollisionShape14" type="CollisionShape" parent="barreira"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -169.734, -10.0035, 58.0153 )
-shape = SubResource( 56 )
+shape = SubResource( 55 )
 
 [node name="CollisionShape15" type="CollisionShape" parent="barreira"]
 transform = Transform( -1.62921e-07, 0, 2.24258, 0, 1, 0, -1, 0, -3.65363e-07, -161.932, -10.0035, 61.533 )
-shape = SubResource( 56 )
+shape = SubResource( 55 )
 
 [node name="CollisionShape16" type="CollisionShape" parent="barreira"]
 transform = Transform( -1.62921e-07, 0, 2.581, 0, 1, 0, -1, 0, -4.20498e-07, -141.652, -10.0035, 61.533 )
-shape = SubResource( 56 )
+shape = SubResource( 55 )
 
 [node name="CollisionShape17" type="CollisionShape" parent="barreira"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.395, -134.283, -10.0035, 60.3819 )
-shape = SubResource( 56 )
+shape = SubResource( 55 )
 
 [node name="CollisionShape18" type="CollisionShape" parent="barreira"]
 transform = Transform( 0.996189, 0, -0.0597493, 0, 1, 0, 0.0872253, 0, 0.682389, -169.782, -10.0035, 28.135 )
-shape = SubResource( 56 )
+shape = SubResource( 55 )
 [connection signal="body_entered" from="colisions/Area_teleporte" to="colisions/Area_teleporte" method="_on_Area_teleporte_body_entered"]
 [connection signal="body_entered" from="Area_legenda_1" to="Area_legenda_1" method="_on_Area_legenda_1_body_entered"]
 [connection signal="body_entered" from="Area_legenda_2" to="Area_legenda_2" method="_on_Area_legenda_2_body_entered"]

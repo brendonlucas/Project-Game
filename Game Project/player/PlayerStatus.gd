@@ -3,8 +3,8 @@ extends Node
 var dano_personagem = 135
 var dano_arma = 48
 var def_personagem = 30
-var vida_atual = 1000
-var vida_maxima = 1000
+var vida_atual = 2000
+var vida_maxima = 2000
 
 var nivel : int = 1
 var exp_total : int
@@ -57,8 +57,8 @@ func reset_dados():
 	dano_personagem = 135
 	dano_arma = 48
 	def_personagem = 30
-	vida_atual = 5000
-	vida_maxima = 5000
+	vida_atual = 2000
+	vida_maxima = 2000
 	nivel = 1
 	exp_total = 0
 	exp_atual = 0
@@ -74,7 +74,7 @@ func healer(value):
 func upgrade_level_up_status():
 	dano_personagem += 20
 	def_personagem += 10
-	vida_maxima += 100
+	vida_maxima += 150
 	vida_atual = vida_maxima
 	
 # controle de experiencia optida

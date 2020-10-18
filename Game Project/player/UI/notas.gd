@@ -1,8 +1,9 @@
 extends Control
 
+var nota_ativa
 
 func _ready():
-	pass # Replace with function body.
+	pass
 
 func mostrar(imagem):
 	Gamestate.ativar_menu = false
@@ -22,7 +23,13 @@ func _on_Button_fechar_pressed():
 
 	
 func fechar():
+	print(nota_ativa)
 	hide()
 	get_tree().paused = false
+	if nota_ativa == "015":
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda_sala_2()
+	elif nota_ativa == "021":
+		get_tree().get_root().get_node("Map/Controler_map").start_legenda_sala_3()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Gamestate.ativar_menu = true
+	

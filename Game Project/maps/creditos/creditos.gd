@@ -26,6 +26,8 @@ var text_atual = 1
 var finalizou = false
 
 func _ready():
+	if Gamestate.final_game != "C":
+		$Timer_text.wait_time = 1
 	get_tree().paused = false
 
 func _process(delta):
@@ -40,6 +42,8 @@ func _process(delta):
 func instance():
 	var clone = text.instance()
 	clone.set_values(textos_creditos[str(text_atual)])
+	if Gamestate.final_game != "C":
+		clone.set_speed()
 	var scene_root
 	
 	var local = randomNumber()

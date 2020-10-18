@@ -35,4 +35,5 @@ func instance_laser():
 
 func reset():
 	if vida > 0:
+		ativo = false
 		vida = 10000

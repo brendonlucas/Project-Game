@@ -11,22 +11,22 @@ var executando_legenda = false
 var text_in_execution
 var text_atual = 1
 var legenda_executando = 0
-var part1 = {'1':{"text":"Maldito virus.", "duracao":2,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{"text":"Sempre atrapalhando nas missôes.", "duracao":3,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part2 = {'1':{'text':'Talvez este seja o local de da missão.','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"},
-'2':{"text":"É melhor dá uma olhada na ilha em busca de algo.", "duracao":4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part3 = {'1':{'text':'Que estruturas estranhas. Talvez encontre algo.','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"}}
-var part4 = {'1':{'text':'Que interessante. Um painel de controle.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Se eu conseguisse invadir-lo, talvez descobriria para que serve.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
-'3':{'text':'Mas estou captando alguns sinais bloqueando o painel.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
-'4':{'text':'Tenho que procurar-los.', "duracao": 1,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part1 = {'1':{"text":"Maldito virus.", "duracao":2,"audio":"res://audio/falas/p2/a1.wav"},
+'2':{"text":"Sempre atrapalhando nas missôes.", "duracao":3,"audio":"res://audio/falas/p2/a2.wav"}}
+var part2 = {'1':{'text':'Talvez este seja o local de da missão.','duracao': 4, 'audio':"res://audio/falas/p2/a3.wav"},
+'2':{"text":"É melhor dá uma olhada na ilha em busca de algo.", "duracao":4,"audio":"res://audio/falas/p2/a4.wav"}}
+var part3 = {'1':{'text':'Que estruturas estranhas. Talvez encontre algo.','duracao': 4, 'audio':"res://audio/falas/p2/a5.wav"}}
+var part4 = {'1':{'text':'Que interessante. Um painel de controle.', "duracao": 2,"audio":"res://audio/falas/p2/a6.wav"},
+'2':{'text':'Se eu conseguisse invadir-lo, talvez descobriria para que serve.', "duracao": 3,"audio":"res://audio/falas/p2/a7.wav"},
+'3':{'text':'Mas estou captando alguns sinais bloqueando o painel.', "duracao": 3,"audio":"res://audio/falas/p2/a8.wav"},
+'4':{'text':'Tenho que procurar-los.', "duracao": 1,"audio":"res://audio/falas/p2/a9.wav"}}
 
-var part5 = {'1':{'text':'Um já foi, falta mais um.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part6 = {'1':{'text':'Os dois já foram. Agora devo conseguir conectar ao painel.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part5 = {'1':{'text':'Um já foi, falta mais um.', "duracao": 2,"audio":"res://audio/falas/p2/a10.wav"}}
+var part6 = {'1':{'text':'Os dois já foram. Agora devo conseguir conectar ao painel.', "duracao": 4,"audio":"res://audio/falas/p2/a11.wav"}}
 
-var part7 = {'1':{'text':'Droga... mais uma sentinela.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part8 = {'1':{'text':'Pronto acho q agora não irão mais aparecer.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part9 = {'1':{'text':'Vamos la.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+#var part7 = {'1':{'text':'Droga... mais uma sentinela.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"}}
+#var part8 = {'1':{'text':'Pronto acho q agora não irão mais aparecer.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part9 = {'1':{'text':'Vamos la.', "duracao": 4,"audio":"res://audio/falas/p2/a12.wav"}}
 
 var player
 
@@ -67,12 +67,12 @@ func set_dados_legenda(execution_text, text_info, audio):
 	elif text_info == 6:
 		legenda_executando = 6
 		text_in_execution = part6
-	elif text_info == 7:
-		legenda_executando = 7
-		text_in_execution = part7
-	elif text_info == 8:
-		legenda_executando = 8
-		text_in_execution = part8
+#	elif text_info == 7:
+#		legenda_executando = 7
+#		text_in_execution = part7
+#	elif text_info == 8:
+#		legenda_executando = 8
+#		text_in_execution = part8
 	elif text_info == 9:
 		legenda_executando = 9
 		text_in_execution = part9
@@ -120,6 +120,11 @@ func start_legenda4():
 func start_legenda5():
 	set_dados_legenda(5, 5, true)
 
+func start_legenda6():
+	set_dados_legenda(6, 6, true)
+
+func start_legenda9():
+	set_dados_legenda(9, 9, true)
 	
 #func _on_AnimationPlayer_animation_finished(anim_name):
 #	if anim_name == "fade_out":
