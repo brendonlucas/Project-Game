@@ -24,15 +24,12 @@ func _ready():
 	player = get_node(".")
 	timer_gun_bullet = get_node("gun_1/Timer")
 	
-	#rotation_degrees.y = -180
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 func hit_damage(damage):
 	if PlayerStatus.vida_atual > 0:
 		PlayerStatus.vida_atual -= damage
 		get_parent().get_node("HUD_UI").update_values()
 		if PlayerStatus.vida_atual <= 0:
 			queue_free()
-#			$AnimationPlayer.play("kill")
 			get_parent().get_node("finalizacao/fade/AnimationPlayer").play("fade")
 	
 func change_moves(option):
@@ -57,14 +54,10 @@ func _physics_process(delta):
 		movements_topdown(delta)
 	
 func moves_normal(delta):
-	#cam = get_node("Camera").global_transform
 	var dir = Vector3()
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-	
-	#if play_som_jet and !$jet_audio.playing and ativado:
-		#$jet_audio.play()
 		
 	if Input.is_action_pressed("frente") and ativado :
 		dir.y += 1
@@ -106,7 +99,6 @@ func movements_topdown(delta):
 	var is_moving = false
 	parando = false
 	rotation_degrees.z = 0
-	
 		
 	if Input.is_action_pressed("frente") and ativado :
 		dir.z -= 1
@@ -130,8 +122,6 @@ func movements_topdown(delta):
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
-		
-	
 		
 	dir = dir.normalized()
 	var hv = velocity

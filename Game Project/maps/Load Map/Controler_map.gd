@@ -67,16 +67,9 @@ func set_dados_legenda(execution_text, text_info, audio):
 	elif text_info == 6:
 		legenda_executando = 6
 		text_in_execution = part6
-#	elif text_info == 7:
-#		legenda_executando = 7
-#		text_in_execution = part7
-#	elif text_info == 8:
-#		legenda_executando = 8
-#		text_in_execution = part8
 	elif text_info == 9:
 		legenda_executando = 9
 		text_in_execution = part9
-	
 	
 		
 func aplly_text():
@@ -125,10 +118,6 @@ func start_legenda6():
 
 func start_legenda9():
 	set_dados_legenda(9, 9, true)
-	
-#func _on_AnimationPlayer_animation_finished(anim_name):
-#	if anim_name == "fade_out":
-#		BackgroundLoad.load_scene("res://maps/map_sistema/Map_sistema.tscn")
 
 func change_map():
 	BackgroundLoad.load_scene("res://maps/base/base.tscn")

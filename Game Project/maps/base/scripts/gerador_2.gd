@@ -6,7 +6,6 @@ var status_porta
 
 func _ready():
 	pass
-	#dor = get_parent().get_node("AnimationPlayer")
 
 func get_interactable_text():
 	return "Ativar gerador"

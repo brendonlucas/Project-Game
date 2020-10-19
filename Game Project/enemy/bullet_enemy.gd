@@ -28,7 +28,6 @@ func collided(body):
 	hit_something = true
 	if body.is_in_group("Player_v4") or body.is_in_group("Player_hack"):
 		body.hit_damage(BULLET_DAMAGE)
-		print("bateu doido")
 		queue_free()
 		
 	elif !body.is_in_group("enemy"):

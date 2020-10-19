@@ -41,12 +41,9 @@ var jumped = false
 var target
 
 func _ready():
-#	luz = get_parent().get_node("Sol")
 	timer_1 = get_node("Timer")
 	timer_reset_atak = get_node("Timer fim")
-	#player = get_node(".")
 	animation = get_node("AnimationPlayer")
-	#player.rotation_degrees.y = 180
 	moviments_active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
@@ -108,7 +105,6 @@ func ataque(delta):
 	
 	
 func movimentos(delta):
-	
 	cam = get_parent().get_node("target").global_transform
 	var dir = Vector3()
 	var is_moving = false
@@ -117,7 +113,6 @@ func movimentos(delta):
 	GRAVITY = 9.8
 	MOVE_SPEED = 5
 	var grounded = is_on_floor()
-	
 		
 	if Input.is_action_pressed("frente") and moviments_active and !atacando:
 		dir += -cam.basis[2]
@@ -139,18 +134,15 @@ func movimentos(delta):
 		caminhando = true
 		MOVE_SPEED = 2
 		atacando = false
-	if Input.is_action_just_pressed("jump") and Input.is_action_pressed("frente"):
-		pass
 		
 	if Input.is_action_just_pressed("atacar") and timer_1.time_left == 0 and moviments_active:
 		if target:
 			look_at(target.global_transform.origin, Vector3.UP)
-			
 			self.rotate_object_local(Vector3(0,1,0), 3.14)
 			rotation_degrees.x = 0
 #
-#		MOVE_SPEED = 100
-#		dir += global_transform.basis[2]
+#			MOVE_SPEED = 100
+#			dir += global_transform.basis[2]
 	
 	if is_moving and !correndo and resetado and !caminhando:
 		$AnimationPlayer.play("run1", 0.1)
@@ -162,7 +154,6 @@ func movimentos(delta):
 	elif correndo and resetado and is_moving:
 		animation.play("run2", 0.1)
 		parando = false
-	
 	
 	dir.y = 0
 	dir = dir.normalized()
@@ -232,10 +223,8 @@ func change_ataque(option):
 			
 func call_screen_kill():
 	morreu = false
-	
 	get_tree().get_root().get_node("Map/tela_Kill").show_menu()
 	ativar_moves()
-
 
 func _on_Area_target_body_entered(body):
 	if body.is_in_group("enemy"):

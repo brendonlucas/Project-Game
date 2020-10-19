@@ -97,7 +97,6 @@ func set_music_battle(music = "res://audio/bg_battle.ogg"):
 func set_music_map():
 	get_tree().get_root().get_node("Map/Controler_map").set_music_map()
 	get_tree().get_root().get_node("Map/bg_map").play()
-	pass
 
 func done_game():
 	if solicitante_minigame == "gerador_1":
@@ -220,27 +219,5 @@ func instancia_objetos():
 		mini_game = game3
 		
 	var clone = mini_game.instance()
-#	var scene_root = get_tree().root.get_children()[0]
 	var scene_root = get_tree().get_root().get_node("Map")
 	scene_root.add_child(clone)
-	#clone.translation = novo_lugar
-	
-#var localizacao_prox_agua = 0
-#var delete_agua = 1
-#
-## instanciar agua
-#func instanciar_agua():
-#	var clone = plane_agua.instance()
-#	var scene_root = get_tree().root.get_children()[1]
-#	scene_root.add_child(clone)
-#	localizacao_prox_agua += -13000
-#	clone.translation = Vector3(0,0,localizacao_prox_agua)
-#	if delete_agua == 1:
-#		clone.name = "agua1"
-#		delete_agua = 2
-#		return
-#	elif delete_agua == 2:
-#		clone.name = "agua"
-#		delete_agua = 1
-#		return
-#

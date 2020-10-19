@@ -42,7 +42,6 @@ var fade_change
 var timer_last_kill
 
 func _ready():
-	print(!false, !true)
 	timer_last_kill = get_parent().get_node("Timer_last_kill")
 	fade_change = get_parent().get_node("fade/AnimationPlayer")
 	fade_final = get_tree().get_root().get_node_or_null("Map/fade_final/AnimationPlayer")
