@@ -21,21 +21,21 @@ var part6 = {'1':{'text':'Mais um elevador bloqueado.', "duracao": 3,"audio":"re
 var part7 = {'1':{'text':'Eles a trancaram nessa base... mas por quê?', "duracao": 4,"audio":"res://audio/falas/p3/a20.wav"}}
 var part8 = {'1':{'text':'Humm... geradores talvez se ligar-los destrave aquela porta.', "duracao": 5,"audio":"res://audio/falas/p3/a21.wav"}}
 var part9 = {'1':{'text':'Algo me diz que não era para ter feito isso.', "duracao": 4,"audio":"res://audio/falas/p3/a22.wav"}}
-var part10 = {'1':{'text':'Vieram me matar de vez agora?', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Irei matar todos que fizeram isso comigo.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part11 = {'1':{'text':'Terei minha vingança.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Obrigada por deixar a porta aberta.', "duracao": 4,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part10 = {'1':{'text':'Vieram me matar de vez agora?', "duracao": 4,"audio":"null"},
+'2':{'text':'Irei matar todos que fizeram isso comigo.', "duracao": 4,"audio":"null"}}
+var part11 = {'1':{'text':'Terei minha vingança.', "duracao": 3,"audio":"null"},
+'2':{'text':'Obrigada por deixar a porta aberta.', "duracao": 4,"audio":"null"}}
 var part12 = {'1':{'text':'A base está entrando em autodestruição devido a fuga da nija.', "duracao": 6,"audio":"res://audio/falas/p3/a23.wav"},
 '2':{'text':'Tenho que sair daqui.', "duracao": 4,"audio":"res://audio/falas/p3/a24.wav"}}
-var part13 = {'1':{'text':'Droga... ela trancou a porta...', "duracao": 4,"audio":"res://audio/falas/p3/a25.wav"},
-'2':{'text':'Mas a outra porta se abriu....', "duracao": 4,"audio":"res://audio/falas/p3/a26.wav"}}
-var part14 = {'1':{'text':'Por aqui', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Espere...', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
-'3':{'text':'Por aqui.', "duracao": 1.5,"audio":"res://audio/falas/p1/p1a7.wav"},
-'4':{'text':'Ei espere... quem é você?', "duracao": 4,"audio":"res://audio/falas/p3/a27.wav"}}
-var part15 = {'1':{'text':'Sinal obtido, iniciando upload de dados.', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"}}
-var part16 = {'1':{'text':'Dados enviados para a base, chance de fuga de 0%...', "duracao": 3,"audio":"res://audio/falas/p1/p1a7.wav"},
-'2':{'text':'Backup concluído.', "duracao": 2,"audio":"res://audio/falas/p1/p1a7.wav"}}
+var part13 = {'1':{'text':'Droga... ela trancou a porta...', "duracao": 3,"audio":"res://audio/falas/p3/a25.wav"},
+'2':{'text':'Mas a outra porta se abriu....', "duracao": 3,"audio":"res://audio/falas/p3/a26.wav"}}
+var part14 = {'1':{'text':'Por aqui', "duracao": 0.8,"audio":"null"},
+'2':{'text':'Espere...', "duracao": 0.8,"audio":"null"},
+'3':{'text':'Por aqui.', "duracao": 0.8,"audio":"null"},
+'4':{'text':'Ei espere... quem é você?', "duracao": 3,"audio":"res://audio/falas/p3/a27.wav"}}
+var part15 = {'1':{'text':'Sinal obtido, iniciando upload de dados.', "duracao": 3,"audio":"null"}}
+var part16 = {'1':{'text':'Dados enviados para a base, chance de fuga de 0%...', "duracao": 3,"audio":"null"},
+'2':{'text':'Backup concluído.', "duracao": 2,"audio":"null"}}
 
 var player
 
@@ -119,9 +119,10 @@ func aplly_text():
 	if timer.time_left == 0:
 		timer.wait_time = 5
 		var audio = get_tree().get_root().get_node_or_null("Map/som_vozes")
-		audio.stream = load(text_in_execution[str(text_atual)]['audio'])
-		timer.wait_time = text_in_execution[str(text_atual)]['duracao']
-		audio.play()
+		if text_in_execution[str(text_atual)]['audio'] != "null":
+			audio.stream = load(text_in_execution[str(text_atual)]['audio'])
+			timer.wait_time = text_in_execution[str(text_atual)]['duracao']
+			audio.play()
 		if legenda_executando == 1 and text_atual == 1:
 			pass
 

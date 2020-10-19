@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://maps/creditos/creditos.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://audio/gb_2.ogg" type="AudioStream" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 60
@@ -150,3 +151,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Final_tipo"]
 anims/fade = SubResource( 2 )
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

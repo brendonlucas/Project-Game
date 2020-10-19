@@ -102,21 +102,21 @@ func set_music_map():
 func done_game():
 	if solicitante_minigame == "gerador_1":
 		gerador_1 = true
-		get_tree().get_root().get_node("Map/galpao/Generator/Area").queue_free()
+		get_tree().get_root().get_node("Map/galpao/Generator/Area/CollisionShape").disabled = true
 		get_tree().get_root().get_node("Map/galpao/Light_refletor").show()
 	if solicitante_minigame == "gerador_2":
 		gerador_2 = true
-		get_tree().get_root().get_node("Map/galpao/Generator2/Area").queue_free()
+		get_tree().get_root().get_node("Map/galpao/Generator2/Area/CollisionShape").disabled = true
 		get_tree().get_root().get_node("Map/galpao/Light_refletor2").show()
 	if solicitante_minigame == "elevador_1":
 		elevador_1 = true
 		get_tree().get_root().get_node("Map/Controler_map").start_legenda_elevador_1()
-		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador").queue_free()
+		get_tree().get_root().get_node("Map/builds_2/central_1/Area_active_elevador/CollisionShape").disabled = true
 		get_tree().get_root().get_node("Map/builds_2/elevador/capsula/door_elevator").set_active(true)
 		
 	if solicitante_minigame == "elevador_2":
 		elevador_2 = true
-		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador").queue_free()
+		get_tree().get_root().get_node("Map/builds_3/Central_2/Area_active_elevador/CollisionShape").disabled = true
 		get_tree().get_root().get_node("Map/builds_3/elevador2/capsula/door_elevator").set_active(true)
 	
 	elif solicitante_minigame == "hack_nija":

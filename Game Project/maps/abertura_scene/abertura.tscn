@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fonts/A Love of Thunder.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://textures/logo_name.png" type="Texture" id=2]
@@ -20,9 +20,12 @@ font_data = ExtResource( 1 )
 size = 28
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "open"
-length = 20.0
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+length = 30.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("texts:modulate")
 tracks/0/interp = 1
@@ -42,7 +45,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 13.7, 14.2, 15.7, 16.2 ),
+"times": PoolRealArray( 23.5, 24, 25.5, 26 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -54,7 +57,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 17.1, 18.8 ),
+"times": PoolRealArray( 26.9, 28.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 0, 0.211765, 1 ) ]
@@ -66,7 +69,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 17.1, 18.8 ),
+"times": PoolRealArray( 26.9, 28.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
@@ -78,12 +81,35 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 19 ),
+"times": PoolRealArray( 28.8 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "change_scene"
 } ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Label4")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Label4:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 12.9, 13.6, 21.6, 22.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="abertura" type="Control"]
@@ -103,7 +129,7 @@ __meta__ = {
 }
 
 [node name="texts" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.0121851 )
 anchor_left = 0.206
 anchor_top = 0.165
 anchor_right = 0.794
@@ -176,7 +202,7 @@ __meta__ = {
 }
 
 [node name="Developed" type="Control" parent="."]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 0.00116348 )
 anchor_left = 0.294
 anchor_top = 0.357
 anchor_right = 0.706
@@ -222,13 +248,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label4" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0.00271388 )
+anchor_left = 0.239
+anchor_top = 0.272
+anchor_right = 0.761
+anchor_bottom = 0.728
+margin_left = -0.236008
+margin_top = -0.200027
+margin_right = 0.235962
+margin_bottom = 0.199982
+custom_fonts/font = SubResource( 5 )
+text = "Por ainda ser um Protótipo e curto, o jogo não grava os dados, caso você saia do game todos os dados serão perdidos"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "open"
-anims/open = SubResource( 5 )
+anims/open = SubResource( 6 )
 
 [node name="logo_image" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-self_modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 0.998619, 0.998911, 0.00138114 )
+self_modulate = Color( 1, 1, 1, 0.00138114 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -239,3 +285,6 @@ margin_right = 340.5
 margin_bottom = 111.5
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

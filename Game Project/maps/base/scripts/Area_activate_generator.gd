@@ -9,7 +9,7 @@ func _ready():
 	#dor = get_parent().get_node("AnimationPlayer")
 
 func get_interactable_text():
-	return "Ativar gerador" + str(ativo)
+	return "Ativar gerador"
 		
 func set_active(option):
 	ativo = option

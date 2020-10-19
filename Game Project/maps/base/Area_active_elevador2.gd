@@ -9,7 +9,7 @@ func _ready():
 	#dor = get_parent().get_node("AnimationPlayer")
 
 func get_interactable_text():
-	return "Hack painel" + str(ativo)
+	return "Hack painel"
 		
 func set_active(option):
 	ativo = option

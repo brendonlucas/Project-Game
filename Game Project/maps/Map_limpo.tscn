@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=2]
+[gd_scene load_steps=122 format=2]
 
 [ext_resource path="res://maps/map_HT/data.hterrain" type="Resource" id=1]
 [ext_resource path="res://props/agua/agua_2.tres" type="Material" id=2]
@@ -65,6 +65,7 @@
 [ext_resource path="res://player/UI/tela_Kill.tscn" type="PackedScene" id=63]
 [ext_resource path="res://maps/fades/Fade.tscn" type="PackedScene" id=64]
 [ext_resource path="res://player/UI/hp_enemy.tscn" type="PackedScene" id=65]
+[ext_resource path="res://audio/lake.ogg" type="AudioStream" id=66]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -812,7 +813,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 658.657, 23.2513, 142.534 )
+transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 156.326, -1.95378, 621.711 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -859,6 +860,13 @@ transform = Transform( 0.509102, 0, 0.860707, 0, 1, 0, -0.860707, 0, 0.509102, 1
 transform = Transform( 149.687, 0, 9.67983, 0, 0.01, 0, -9.67983, 0, 149.687, 14.6654, -5.60262, -10.1017 )
 mesh = SubResource( 5 )
 material/0 = ExtResource( 2 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="agua/MeshInstance"]
+transform = Transform( 0.00666627, 7.38086e-05, -8.028e-07, -1.10713, 99.9701, -2.18189, -8.08155e-07, 0.00014546, 0.00666509, -0.0554667, 271.477, 0.0862181 )
+stream = ExtResource( 66 )
+unit_db = 19.0
+unit_size = 7.0
+autoplay = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="agua"]
 autoplay = "move"
@@ -1325,7 +1333,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.760402, -0.0795135 )
 shape = SubResource( 29 )
 
 [node name="MeshInstance" type="MeshInstance" parent="SM_Console_Fellming"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.339465, 0 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0.339465, 0 )
 mesh = SubResource( 30 )
 material/0 = SubResource( 31 )
 
@@ -1334,11 +1342,10 @@ autoplay = "move"
 anims/move = SubResource( 32 )
 
 [node name="StaticBody" type="StaticBody" parent="SM_Console_Fellming/MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182425, 0 )
+transform = Transform( 1, 0, -1.42109e-14, 0, 1, 0, 1.42109e-14, 0, 1, 0, 0.182425, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SM_Console_Fellming/MeshInstance/StaticBody"]
 shape = SubResource( 33 )
-disabled = true
 
 [node name="animations" type="Node" parent="."]
 script = ExtResource( 52 )

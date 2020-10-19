@@ -12,15 +12,16 @@ var textos_creditos = {'1':{"referente":"Programadores","nome":"Brendon Lucas \n
 '9':{"referente":"Modelos 3D","nome":"oussamaazz12h"},
 '10':{"referente":"Modelos 3D","nome":"igor.tesV"},
 
-'11':{"referente":"Musica","nome":"ugonna Onyekwe"},
-'12':{"referente":"Musica","nome":"sextile"},
-'13':{"referente":"Musica","nome":"Yung Logos"},
+'11':{"referente":"Level Designer","nome":"Brendon Lucas \nRodrigo Rodrigues"},
 
-'14':{"referente":"Animações","nome":"Mixamo"},
-'15':{"referente":"Modelos","nome":"Sketchfab"},
+'12':{"referente":"Musica","nome":"ugonna Onyekwe"},
+'13':{"referente":"Musica","nome":"sextile"},
+'14':{"referente":"Musica","nome":"Yung Logos"},
 
+'15':{"referente":"Animações","nome":"Mixamo"},
+'16':{"referente":"Modelos","nome":"Sketchfab"},
+'17':{"referente":"Game Engine","nome":"Godot Engine"},
 }
-
 
 var text_atual = 1
 var finalizou = false
@@ -31,7 +32,7 @@ func _ready():
 	get_tree().paused = false
 
 func _process(delta):
-	if $Timer_text.time_left == 0 and text_atual <= 15:
+	if $Timer_text.time_left == 0 and text_atual <= 17:
 		instance()
 		$Timer_text.start()
 	if text_atual and !finalizou and $Timer_text.time_left == 0:

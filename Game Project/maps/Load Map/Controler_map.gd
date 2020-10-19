@@ -42,7 +42,7 @@ func _process(delta):
 		aplly_text()
 		
 func set_music_map():
-	get_parent().get_node("bg_map").stream = load("res://audio/gb_2.ogg")
+	get_parent().get_node("bg_map").stream = load("res://audio/bg_mapa2.ogg")
 
 func set_dados_legenda(execution_text, text_info, audio):
 	executando_legenda = true

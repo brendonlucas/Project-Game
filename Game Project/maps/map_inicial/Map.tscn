@@ -654,10 +654,6 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_final"]
 anims/fade_out = SubResource( 7 )
 
-[node name="Menu_pause" parent="." instance=ExtResource( 10 )]
-pause_mode = 2
-visible = false
-
 [node name="finalizacao" type="Control" parent="."]
 pause_mode = 2
 anchor_right = 1.0
@@ -718,6 +714,10 @@ clip_text = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Menu_pause" parent="." instance=ExtResource( 10 )]
+pause_mode = 2
+visible = false
 
 [node name="som_vozes" type="AudioStreamPlayer" parent="."]
 

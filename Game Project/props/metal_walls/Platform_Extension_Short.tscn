@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://props/metal_walls/top-down-scifi-industrial-platforms/source/Unity2Skfb/Set1.material" type="Material" id=1]
 
@@ -17,10 +17,17 @@ surfaces/0 = {
 "vertex_count": 32
 }
 
-[node name="Platform_Extension_Short" type="Spatial"]
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 2.30432, 0.871544, 1.97969 )
+
+[node name="Platform_Extension_Short" type="StaticBody"]
 transform = Transform( 0, 0, -1, 0, 1, 0, 1, 0, 0, 0, 0, 0 )
 
 [node name="Mesh 23" type="MeshInstance" parent="."]
 transform = Transform( 100, 0, 0, 0, -1.19209e-05, -99.9999, 0, 99.9999, -1.19209e-05, 0, 0, 0 )
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0927415, -0.168449, 0 )
+shape = SubResource( 2 )
