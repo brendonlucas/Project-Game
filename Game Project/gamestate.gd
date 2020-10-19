@@ -83,7 +83,9 @@ func reset_all_enemys():
 	var nija = get_tree().get_root().get_node_or_null("Map/nija")
 	if nija:
 		get_tree().get_root().get_node_or_null("Map/nija").reset()
-
+		get_tree().get_root().get_node_or_null("Map/limite_plane/Parede_bloqueio").disabled = true
+		get_tree().get_root().get_node_or_null("Map/Area_legenda9/CollisionShape").disabled = false
+		
 func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)

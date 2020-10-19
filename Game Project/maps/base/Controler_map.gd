@@ -182,9 +182,6 @@ func start_legenda_sinal_obtido():
 	
 func start_legenda_upload():
 	set_dados_legenda(16, 16, true)
-
-
-
 	
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_out":

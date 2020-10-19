@@ -66,11 +66,9 @@ func _physics_process(delta):
 		else:
 			$lanterna.light_energy = 1
 			lanterna = true
-	if Input.is_action_just_pressed("helaer") and PlayerStatus.energy >= 300:
+	if Input.is_action_just_pressed("helaer") and PlayerStatus.energy >= 300 and PlayerStatus.vida_atual > 0:
 		PlayerStatus.healer(300)
-		print("heller")
 		
-	
 func ataque(delta):
 	if timer_reset_atak.time_left == 0 and !resetado:
 			resetado = true

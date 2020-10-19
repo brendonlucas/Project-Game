@@ -431,7 +431,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -148.503, -32.9475, 65.4583 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -89.4967, -26.3617, 62.7074 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.6372, 2.8286, -14.6292 )
@@ -3084,11 +3084,13 @@ visible = false
 
 [node name="legendas" parent="." instance=ExtResource( 63 )]
 
-[node name="tela_Kill" parent="." instance=ExtResource( 68 )]
-visible = false
-
 [node name="Fade" parent="." instance=ExtResource( 69 )]
 visible = false
+
+[node name="bg_map" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 79 )
+volume_db = -10.0
+autoplay = true
 
 [node name="finalizacao" type="Control" parent="."]
 pause_mode = 2
@@ -3292,13 +3294,11 @@ __meta__ = {
 pause_mode = 2
 visible = false
 
-[node name="notas" parent="." instance=ExtResource( 65 )]
+[node name="tela_Kill" parent="." instance=ExtResource( 68 )]
 visible = false
 
-[node name="bg_map" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 79 )
-volume_db = -10.0
-autoplay = true
+[node name="notas" parent="." instance=ExtResource( 65 )]
+visible = false
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="body_entered" from="limbo/curva/Area_close_door" to="limbo/curva/Area_close_door" method="_on_Area_close_door_body_entered"]
