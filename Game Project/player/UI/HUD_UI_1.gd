@@ -1,15 +1,9 @@
 extends Control
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sinal/No_sinal.show()
 	update_values()
+	update_energy_bar()
 	
 	
 func update_values():
@@ -23,3 +17,7 @@ func set_active_sinal():
 func set_desative_sinal():
 	$Sinal/No_sinal.show()
 	$Sinal/on_sinal.show()
+
+func update_energy_bar():
+	$Status/energy_bar.max_value = 1200
+	$Status/energy_bar.value = PlayerStatus.energy

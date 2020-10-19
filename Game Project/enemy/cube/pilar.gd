@@ -18,6 +18,7 @@ func _ready():
 func hit_damage(damage):
 	if vida > 0:
 		vida -= damage
+		PlayerStatus.energy_generator()
 		get_tree().get_root().get_node("Map/hp_enemy/pilar_hp").set_values()
 	
 	

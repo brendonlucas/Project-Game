@@ -50,6 +50,7 @@ func _ready():
 	moviments_active = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
+	
 func add_atake():
 	atacks += 1
 	
@@ -58,8 +59,6 @@ var lanterna = false
 func _physics_process(delta):
 	movimentos(delta)
 	ataque(delta)
-	if Input.is_action_just_pressed("lanterna") and false:
-		hit_damage(1300)
 	if Input.is_action_just_pressed("lanterna"):
 		if lanterna:
 			$lanterna.light_energy = 0
@@ -67,7 +66,10 @@ func _physics_process(delta):
 		else:
 			$lanterna.light_energy = 1
 			lanterna = true
-	
+	if Input.is_action_just_pressed("helaer") and PlayerStatus.energy >= 300:
+		PlayerStatus.healer(300)
+		print("heller")
+		
 	
 func ataque(delta):
 	if timer_reset_atak.time_left == 0 and !resetado:
@@ -197,6 +199,7 @@ func block_moviments(option):
 		moviments_active = option
 	elif option == false:
 		moviments_active = option
+	$AnimationPlayer.play("idle")
 		
 func active_moves_ataque(option):
 	if option == true:

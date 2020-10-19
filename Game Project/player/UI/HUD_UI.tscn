@@ -36,6 +36,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="energy_bar" type="TextureProgress" parent="Status"]
+margin_left = 8.0
+margin_top = 21.0
+margin_right = 176.0
+margin_bottom = 25.0
+max_value = 1200.0
+step = 300.0
+value = 600.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 1 )
+tint_progress = Color( 0.580392, 0.894118, 0.976471, 1 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sinal" type="Control" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0

@@ -5,6 +5,7 @@ var dano_arma = 48
 var def_personagem = 30
 var vida_atual = 2000
 var vida_maxima = 2000
+var energy = 1200
 
 var nivel : int = 1
 var exp_total : int
@@ -21,6 +22,7 @@ var point_dano_arma
 var point_def_personagem
 var point_vida_atual
 var point_vida_maxima
+var point_energy
 
 var point_nivel
 var point_exp_total
@@ -34,6 +36,7 @@ func set_point():
 	point_def_personagem = def_personagem
 	point_vida_atual = vida_atual
 	point_vida_maxima = vida_maxima
+	point_energy = energy
 	
 	point_nivel = nivel
 	point_exp_total = exp_total
@@ -47,6 +50,7 @@ func load_points():
 	def_personagem = point_def_personagem
 	vida_atual = point_vida_atual
 	vida_maxima = point_vida_maxima
+	energy = point_energy
 	
 	nivel = point_nivel
 	exp_total = point_exp_total
@@ -63,14 +67,26 @@ func reset_dados():
 	exp_total = 0
 	exp_atual = 0
 	exp_active = true
+	energy = 1200
 	 
+func energy_generator():
+	var chance_energy = critico_gen(0)
+	if chance_energy <= 10:
+		if energy <= 900:
+			energy += 300
+			get_tree().get_root().get_node("Map/HUD_UI").update_energy_bar()
+			
 func healer(value):
-	var nova_vida = vida_atual + value
-	if nova_vida > vida_maxima:
-		vida_atual = vida_maxima
-	else:
-		vida_atual = nova_vida
-
+	if energy >= 300 and vida_atual < vida_maxima:
+		var nova_vida = vida_atual + value
+		if nova_vida > vida_maxima:
+			vida_atual = vida_maxima
+			energy -= 300
+		else:
+			vida_atual = nova_vida
+			energy -= 300
+		get_tree().get_root().get_node("Map/HUD_UI").update_energy_bar()
+		get_tree().get_root().get_node("Map/HUD_UI").update_values()
 func upgrade_level_up_status():
 	dano_personagem += 20
 	def_personagem += 10
@@ -104,10 +120,7 @@ func add_exp(xp_value):
 		get_tree().get_root().get_node("Map/Status_UI").update_values()
 
 func _process(delta):
-	if Input.is_action_just_pressed("jump") and false:
-		healer(400)
-		get_tree().get_root().get_node("Map/HUD_UI").update_values()
-		get_tree().get_root().get_node("Map/Status_UI").update_values()
+	pass
 
 func calculo_dano(def, dano_base, dano_arma):
 	var def_inimigo = def

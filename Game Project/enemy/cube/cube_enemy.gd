@@ -18,6 +18,7 @@ func _process(delta):
 func hit_damage(damage):
 	if ativo:
 		vida -= damage
+		PlayerStatus.energy_generator()
 		get_tree().get_root().get_node_or_null("Map/hp_enemy").set_values(vida, vida_maxima)
 		if vida <= 0:
 			Gamestate.set_checkpoint()

@@ -3297,7 +3297,7 @@ visible = false
 
 [node name="bg_map" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 79 )
-volume_db = -15.0
+volume_db = -10.0
 autoplay = true
 [connection signal="animation_finished" from="builds_2/elevador/AnimationPlayer" to="builds_2/elevador/capsula" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="builds_3/elevador2/AnimationPlayer" to="builds_3/elevador2/capsula" method="_on_AnimationPlayer_animation_finished"]

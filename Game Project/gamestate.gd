@@ -68,7 +68,7 @@ func load_checkpoint():
 		player.translation = checkpoint_local
 	reset_all_enemys()
 	get_tree().get_root().get_node("Map/HUD_UI").update_values()
-
+	get_tree().get_root().get_node("Map/HUD_UI").update_energy_bar()
 
 	
 func reset_all_enemys():

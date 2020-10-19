@@ -28,8 +28,10 @@ func block_moviments(option):
 		$AnimationPlayer.play("hack")
 		
 var finalizou = false
+
 func hit_damage(damage):
 	life -= damage
+	PlayerStatus.energy_generator()
 	get_tree().get_root().get_node("Map/hp_enemy").set_values(life, life_maxima)
 	if life <= 2000 and !finalizou:
 		get_tree().get_root().get_node("Map/Animation_hack").active_animate()
@@ -42,10 +44,6 @@ func _ready():
 	print(space_state)
 	
 func _process(delta):
-	
-#	if Input.is_action_just_pressed("lanterna"):
-#		hit_damage(20000)
-		
 	if target_attack and timer_attack.time_left == 0 and active_moves :
 		if target_attack.is_in_group("Player_v4"):
 			atacar()
@@ -111,8 +109,7 @@ func _on_Area_target_body_exited(body):
 		target = null
 		get_tree().get_root().get_node("Map/hp_enemy").hide()
 		#print(body.name + " exited")
-#res://audio/bg_battle_2.ogg
-#res://audio/bg_base.ogg
+
 func randomNumber():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
