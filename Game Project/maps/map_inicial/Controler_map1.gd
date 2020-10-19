@@ -1,15 +1,5 @@
 extends Node
 
-#audios
-var audio_1 = preload("res://audio/falas/p1/p1a1.wav")
-var audio_2 = preload("res://audio/falas/p1/p1a2.wav")
-var audio_3 = preload("res://audio/falas/p1/p1a3.wav")
-var audio_4 = preload("res://audio/falas/p1/p1a4.wav")
-var audio_5 = preload("res://audio/falas/p1/p1a5.wav")
-var audio_6 = preload("res://audio/falas/p1/p1a6.wav")
-var audio_7 = preload("res://audio/falas/p1/p1a7.wav")
-var audio_8 = preload("res://audio/falas/p1/p1a8.wav")
-
 var legenda
 var timer
 var legenda_label
@@ -34,14 +24,14 @@ var part1 = {'1':{"text":"Ano de 3400, este planeta conhecido como Terra, sofreu
 	'8':{"text":"Alerta! inimigos próximos, preparar para o combate.","duracao":4,"audio":"res://audio/falas/p1/p1a8.wav"},
 }
 
-var part2 = {'1':{'text':'Alerta!, inimigo forte está se aproximando','duracao': 4, 'audio':"res://audio/falas/p1/p1a7.wav"}
+var part2 = {'1':{'text':'Alerta!, inimigo forte está se aproximando','duracao': 4, 'audio':"res://audio/falas/p1/p1a8.wav"}
 }
 
 var part3 = {'1':{'text':'Alerta! vírus detectado no sistema da nave.',
-	"duracao":5,"audio":"res://audio/falas/p1/p1a7.wav"},
-	'2':{'text':'Funções de navegação indisponível','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"},
-	'3':{'text':'Perdendo altitude.','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"},
-	'4':{'text':'Preparar para impacto.','duracao':3,'audio':"res://audio/falas/p1/p1a7.wav"}
+	"duracao":5,"audio":"null"},
+	'2':{'text':'Funções de navegação indisponível','duracao':3,'audio':"null"},
+	'3':{'text':'Perdendo altitude.','duracao':3,'audio':"null"},
+	'4':{'text':'Preparar para impacto.','duracao':3,'audio':"null"}
 }
 
 
@@ -91,7 +81,7 @@ func add_turrent():
 	scene_root.add_child(clone)
 	clone.global_transform = pos_cam_turrent.global_transform
 	target_cam_back.queue_free()
-	#cam_atual = 2
+
 		
 var wave1
 func _process(delta):
@@ -99,7 +89,6 @@ func _process(delta):
 		get_parent().get_node("wave1").active_wave()
 		get_parent().get_node("wave1").show()
 		wave1 = false
-		
 	if executando_legenda:
 		aplly_text()
 	
@@ -160,16 +149,15 @@ func aplly_text():
 		elif legenda_executando == 3:
 			fade_final.play("fade_out")
 			player_nave.ativar_moves(false)
-			
-			
 		return
 		
 	if timer.time_left == 0:
 		timer.wait_time = 5
 		var audio = get_tree().get_root().get_node_or_null("Map/som_vozes")
-		audio.stream = load(text_in_execution[str(text_atual)]['audio'])
-		timer.wait_time = text_in_execution[str(text_atual)]['duracao']
-		audio.play()
+		if text_in_execution[str(text_atual)]['audio'] != "null":
+			audio.stream = load(text_in_execution[str(text_atual)]['audio'])
+			timer.wait_time = text_in_execution[str(text_atual)]['duracao']
+			audio.play()
 		if legenda_executando == 1 and text_atual == 1:
 			pass
 
@@ -185,10 +173,6 @@ func start_legenda2():
 	
 func start_legenda3():
 	set_dados_legenda(3, 3, true)
-
-func InstanceWaves():
-	print()
-	
 	
 var current_wave = 1
 func active_new_wave():
@@ -211,12 +195,6 @@ func active_new_wave():
 		set_enemys_kill()
 	if current_wave == 6:
 		set_enemys_kill()
-	
-	
-	
-	
-	
-
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "fade_out":

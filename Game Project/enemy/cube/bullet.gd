@@ -1,7 +1,7 @@
 extends Spatial
 
-var BULLET_SPEED = 10
-var BULLET_DAMAGE = 70
+var BULLET_SPEED = 15
+var BULLET_DAMAGE = 150
 
 const KILL_TIMER = 6
 var timer = 0

@@ -1,6 +1,6 @@
 extends Area
 
-var damage = 50
+var damage = 250
 
 func _ready():
 	pass 

@@ -11,7 +11,7 @@
 [ext_resource path="res://player/Meya/Meya saRha.tscn" type="PackedScene" id=9]
 [ext_resource path="res://props/ancient-columns/textures/ground_normal_2K.png" type="Texture" id=10]
 [ext_resource path="res://props/ancient-columns/textures/tiles_texture_DefaultMaterial_BaseColor_2K.png" type="Texture" id=11]
-[ext_resource path="res://audio/gb_2.ogg" type="AudioStream" id=12]
+[ext_resource path="res://audio/bg_mapa2.ogg" type="AudioStream" id=12]
 [ext_resource path="res://props/ancient-columns/colun.tscn" type="PackedScene" id=13]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=14]
 [ext_resource path="res://textures/Ground037_2K-JPG/Ground037_2K_Normal.jpg" type="Texture" id=15]
@@ -813,7 +813,7 @@ script = ExtResource( 43 )
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 9 )]
-transform = Transform( 0.245205, 0, 0.969471, 0, 1, 0, -0.969471, 0, 0.245205, 156.326, -1.95378, 621.711 )
+transform = Transform( 0.245102, -0.0290208, 0.969063, 0.00711603, 0.999579, 0.0281348, -0.969471, 0, 0.245205, 86.1556, 0.193539, 261.552 )
 
 [node name="drone_R" parent="." instance=ExtResource( 36 )]
 transform = Transform( -3.29368, -2.69429, -9.04945, -3.25445, 9.32087, -1.59059, 8.86342, 2.42121, -3.94684, 75.2, 2.14849, 269.484 )
@@ -827,7 +827,7 @@ process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 3 )
 
 [node name="target" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 84.8345, 3.1385, 262.015 )
+transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 84.8345, 2.07989, 262.015 )
 script = ExtResource( 5 )
 
 [node name="legendas" parent="." instance=ExtResource( 25 )]
