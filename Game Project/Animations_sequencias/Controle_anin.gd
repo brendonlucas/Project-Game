@@ -25,6 +25,7 @@ func active_animate():
 		Gamestate.ativar_menu = false
 		get_tree().get_root().get_node("Map/Status_UI").hide()
 		get_tree().get_root().get_node("Map/HUD_UI").hide()
+		get_tree().get_root().get_node("Map/hp_enemy").hide()
 		
 		
 func change_position():

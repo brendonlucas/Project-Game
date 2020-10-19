@@ -431,7 +431,7 @@ visible = false
 [node name="Player_v4" parent="." groups=[
 "Player_v4",
 ] instance=ExtResource( 1 )]
-transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, 5.07341, 2.90291, -21.2166 )
+transform = Transform( -0.0202535, 0, -1.09981, 0, 1.1, 0, 1.09981, 0, -0.0202535, -148.503, -32.9475, 65.4583 )
 
 [node name="target" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 2.6372, 2.8286, -14.6292 )
@@ -3084,10 +3084,6 @@ visible = false
 
 [node name="legendas" parent="." instance=ExtResource( 63 )]
 
-[node name="Menu_pause" parent="." instance=ExtResource( 32 )]
-pause_mode = 2
-visible = false
-
 [node name="tela_Kill" parent="." instance=ExtResource( 68 )]
 visible = false
 
@@ -3292,10 +3288,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Menu_pause" parent="." instance=ExtResource( 32 )]
+pause_mode = 2
+visible = false
+
 [node name="notas" parent="." instance=ExtResource( 65 )]
 visible = false
 
-[node name="bg_audio" type="AudioStreamPlayer" parent="."]
+[node name="bg_map" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 79 )
 volume_db = -15.0
 autoplay = true

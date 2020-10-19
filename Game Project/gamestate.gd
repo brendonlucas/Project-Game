@@ -88,8 +88,8 @@ func boss_kill():
 	get_tree().get_root().get_node("Map/target/AnimationPlayer").play("tremer")
 	get_tree().get_root().get_node("Map/limbo/curva/Area_close_door").set_active(false)
 	
-func set_music_battle():
-	get_tree().get_root().get_node("Map/bg_map").stream = load("res://audio/bg_battle.ogg")
+func set_music_battle(music = "res://audio/bg_battle.ogg"):
+	get_tree().get_root().get_node("Map/bg_map").stream = load(music)
 	get_tree().get_root().get_node("Map/bg_map").play()
 
 func set_music_map():

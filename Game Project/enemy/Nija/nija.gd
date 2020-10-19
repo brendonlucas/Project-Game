@@ -10,6 +10,7 @@ var target_attack
 var animation
 
 var life = 8000
+var life_maxima = 8000
 var defesa = 50
 var dano_arma = 70
 var dano_base = 170
@@ -29,7 +30,8 @@ func block_moviments(option):
 var finalizou = false
 func hit_damage(damage):
 	life -= damage
-	if life <= 5000 and !finalizou:
+	get_tree().get_root().get_node("Map/hp_enemy").set_values(life, life_maxima)
+	if life <= 2000 and !finalizou:
 		get_tree().get_root().get_node("Map/Animation_hack").active_animate()
 		finalizou = true
 		
@@ -99,13 +101,18 @@ func set_pos_target(alvo):
 func _on_Area_target_body_entered(body):
 	if body.is_in_group("Player_v4") and target_movel:
 		target = body
+		Gamestate.set_music_battle("res://audio/bg_battle_2.ogg")
+		get_tree().get_root().get_node("Map/hp_enemy").set_values(life, life_maxima)
+		get_tree().get_root().get_node("Map/hp_enemy").show()
 		#print(body.name + " entered")
 
 func _on_Area_target_body_exited(body):
 	if body.is_in_group("Player_v4") and target_movel:
 		target = null
+		get_tree().get_root().get_node("Map/hp_enemy").hide()
 		#print(body.name + " exited")
-
+#res://audio/bg_battle_2.ogg
+#res://audio/bg_base.ogg
 func randomNumber():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
