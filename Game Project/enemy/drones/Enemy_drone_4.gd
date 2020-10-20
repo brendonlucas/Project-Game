@@ -1,5 +1,5 @@
 extends KinematicBody
-var life = 100000
+var life = 60000
 var morreu = false
 
 var exp_value = 400

@@ -138,7 +138,7 @@ func aplly_text():
 			$Timer_start_waves.start()
 			wave1 = true
 			player_nave.active_gun(true)
-			
+			get_parent().get_node("Label_ajuda/AnimationPlayer").play("show")
 		elif legenda_executando == 2:
 			fade_change.play("fade_in")
 			player_nave.ativar_moves(false)

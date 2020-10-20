@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://props/agua/agua.tscn" type="PackedScene" id=1]
 [ext_resource path="res://enemy/drones/Enemy_drone_3.tscn" type="PackedScene" id=2]
@@ -30,12 +30,46 @@ extents = Vector3( 0.381219, 21.2058, 46.4236 )
 extents = Vector3( 42.118, 0.492576, 54.0237 )
 
 [sub_resource type="DynamicFont" id=3]
+size = 23
+font_data = ExtResource( 21 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "show"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 3.6, 4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="DynamicFont" id=4]
 size = 20
 outline_size = 1
 outline_color = Color( 0.101961, 0.607843, 0.0705882, 1 )
 font_data = ExtResource( 11 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 35.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -64,7 +98,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -79,7 +113,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 0.2
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -94,7 +128,7 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -119,8 +153,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "fade"
+[sub_resource type="Animation" id=9]
 length = 15.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -194,11 +227,11 @@ tracks/4/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=10]
 size = 28
 font_data = ExtResource( 21 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
 tracks/0/interp = 1
@@ -235,7 +268,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 20.0313, 8.15383, -35.8732, 0, 0, 0, 1, 2, 2, 2, 1, 1, 20.0313, 8.15383, -7.29709, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
 tracks/0/interp = 1
@@ -272,7 +305,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 57.3754, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2, 1, 1, 24.1805, 0, 4.58527, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 length = 3.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
@@ -310,7 +343,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 2.1, 1, -1.317, 69.222, -10.481, 0, 0, 0, 1, 2, 2, 2, 3, 1, -1.317, 0, -10.481, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 length = 3.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
@@ -348,7 +381,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 0.142351, 0, -32.4422, 0, 0, 0, 1, 2, 2, 2, 3, 1, 0.142351, 0, 1.66735, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 8.0
 loop = true
 tracks/0/type = "transform"
@@ -387,9 +420,9 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray(  )
 
-[sub_resource type="Animation" id=15]
-
 [sub_resource type="Animation" id=16]
+
+[sub_resource type="Animation" id=17]
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_L1")
 tracks/0/interp = 1
@@ -426,7 +459,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 52.4968, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 1, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 4.0
 loop = true
 tracks/0/type = "transform"
@@ -465,7 +498,7 @@ tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = PoolRealArray( 0, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 2, 1, 8.27678, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2, 4, 1, 29.9808, 0, 5.25339, 0, 0, 0, 1, 2, 2, 2 )
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 4.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_H")
@@ -489,7 +522,7 @@ tracks/1/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 length = 3.0
 tracks/0/type = "transform"
 tracks/0/path = NodePath("drone_H")
@@ -589,6 +622,32 @@ shape = SubResource( 2 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.916, 32.6579, 38.2459 )
 shape = SubResource( 2 )
 
+[node name="Label_ajuda" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.679
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.296021
+margin_top = 36.0
+margin_right = -18.0
+margin_bottom = -57.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Movimentação:
+W-A-S-D
+
+ Segure Shift para disparar"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label_ajuda"]
+anims/show = SubResource( 21 )
+
 [node name="HUD" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -605,7 +664,7 @@ margin_left = -20.0
 margin_top = -9.5
 margin_right = 20.0
 margin_bottom = 9.5
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "+"
 align = 1
 valign = 1
@@ -622,7 +681,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_inicio"]
 autoplay = "fade_out"
-anims/fade_out = SubResource( 4 )
+anims/fade_out = SubResource( 5 )
 
 [node name="legendas" parent="." instance=ExtResource( 7 )]
 
@@ -635,8 +694,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade"]
-anims/fade_in = SubResource( 5 )
-anims/fade_out = SubResource( 6 )
+anims/fade_in = SubResource( 6 )
+anims/fade_out = SubResource( 7 )
 next/fade_in = "fade_out"
 
 [node name="fade_final" type="ColorRect" parent="."]
@@ -648,7 +707,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade_final"]
-anims/fade_out = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
 
 [node name="finalizacao" type="Control" parent="."]
 pause_mode = 2
@@ -668,7 +727,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="finalizacao/fade"]
-anims/fade = SubResource( 8 )
+anims/fade = SubResource( 9 )
 
 [node name="Label_1" type="Label" parent="finalizacao"]
 modulate = Color( 1, 1, 1, 0 )
@@ -680,7 +739,7 @@ margin_left = -304.0
 margin_top = -41.5
 margin_right = 304.0
 margin_bottom = 41.5
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Seus esforçoes não foram o suficiente
  para derrotar as hordas de inimigos"
@@ -701,7 +760,7 @@ margin_left = -304.0
 margin_top = -41.3
 margin_right = 304.0
 margin_bottom = 41.7
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 10 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Sua missão termina aqui"
 align = 1
@@ -727,7 +786,7 @@ visible = false
 script = ExtResource( 9 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave1"]
-anims/wave = SubResource( 10 )
+anims/wave = SubResource( 11 )
 
 [node name="drone_L1" parent="wave1" instance=ExtResource( 2 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 8.154, -35.873 )
@@ -765,7 +824,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4709, 0, 0 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 57.3754, 0, 4.58527 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave2"]
-anims/wave = SubResource( 11 )
+anims/wave = SubResource( 12 )
 
 [node name="wave3" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.169, 8.154, 0 )
@@ -788,7 +847,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -44.7973, 0, -33.4229 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -1.317, 69.222, -10.481 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave3"]
-anims/wave = SubResource( 12 )
+anims/wave = SubResource( 13 )
 
 [node name="wave4" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.079, 8.154, -12.409 )
@@ -811,9 +870,9 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 58.7819, 0, 5.65891 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0.142351, 0, -32.4422 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave4"]
-anims/wave = SubResource( 13 )
-"anims/wave (copy)" = SubResource( 14 )
-anims/wave-2 = SubResource( 15 )
+anims/wave = SubResource( 14 )
+"anims/wave (copy)" = SubResource( 15 )
+anims/wave-2 = SubResource( 16 )
 next/wave = "wave (copy)"
 
 [node name="wave5" type="Spatial" parent="."]
@@ -837,8 +896,8 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -53.5429, 0, 5.66319 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 52.4968, 0, 5.25339 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="wave5"]
-anims/wave = SubResource( 16 )
-"anims/wave (copy)" = SubResource( 17 )
+anims/wave = SubResource( 17 )
+"anims/wave (copy)" = SubResource( 18 )
 next/wave = "wave (copy)"
 
 [node name="boss" type="Spatial" parent="."]
@@ -849,8 +908,8 @@ transform = Transform( 20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0 )
 script = ExtResource( 18 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="boss"]
-anims/kill = SubResource( 18 )
-anims/move_frente = SubResource( 19 )
+anims/kill = SubResource( 19 )
+anims/move_frente = SubResource( 20 )
 [connection signal="animation_finished" from="fade_final/AnimationPlayer" to="Controler_map1" method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="target"]
