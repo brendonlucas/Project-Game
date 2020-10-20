@@ -77,9 +77,9 @@ func _on_Area_target_body_entered(body):
 	if body.is_in_group("Player_v4"):
 		target = body
 		Gamestate.set_music_battle()
-		get_tree().get_root().get_node("Map/hp_enemy").show()
+		get_tree().get_root().get_node("Map/hp_enemy").set_name("Sentinela")
 		get_tree().get_root().get_node("Map/hp_enemy").set_values(vida, vida_maxima)
-		#print(body.name + " entered")
+		get_tree().get_root().get_node("Map/hp_enemy").show()
 
 
 func _on_Area_target_body_exited(body):

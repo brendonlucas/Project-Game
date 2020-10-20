@@ -234,21 +234,21 @@ extents = Vector3( 0.0730144, 1, 2.44346 )
 [sub_resource type="BoxShape" id=33]
 extents = Vector3( 0.251181, 1, 24.2607 )
 
-[sub_resource type="BoxShape" id=41]
+[sub_resource type="BoxShape" id=34]
 extents = Vector3( 0.355494, 0.38481, 2.89624 )
 
-[sub_resource type="BoxShape" id=34]
+[sub_resource type="BoxShape" id=35]
 extents = Vector3( 0.134187, 1, 24.3037 )
 
-[sub_resource type="BoxShape" id=35]
+[sub_resource type="BoxShape" id=36]
 extents = Vector3( 0.330471, 1, 3.09269 )
 
-[sub_resource type="BoxShape" id=36]
-
 [sub_resource type="BoxShape" id=37]
+
+[sub_resource type="BoxShape" id=38]
 extents = Vector3( 0.0826666, 1, 2.02099 )
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=39]
 length = 15.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -322,12 +322,12 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=39]
+[sub_resource type="DynamicFont" id=40]
 size = 25
 use_filter = true
 font_data = ExtResource( 76 )
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=41]
 length = 24.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -3002,14 +3002,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0326, 1.10813, -21.8445 )
 script = ExtResource( 81 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_sala1"]
-shape = SubResource( 41 )
+shape = SubResource( 34 )
 
 [node name="Area_legenda_sala2" type="Area" parent="."]
 transform = Transform( -1.62921e-07, 0, -1, 0, 1, 0, 1, 0, -1.62921e-07, 33.8531, -13.2248, 31.4329 )
 script = ExtResource( 80 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_legenda_sala2"]
-shape = SubResource( 41 )
+shape = SubResource( 34 )
 
 [node name="Area_legenda8" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8717, -14.7201, -112.152 )
@@ -3025,27 +3025,27 @@ collision_mask = 16384
 
 [node name="CollisionShape" type="CollisionShape" parent="limite_plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.0723, 0.925606, 0 )
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="limite_plane"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.49644, 0.925606, 23.5435 )
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="limite_plane"]
 transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, -1.49646, 0.925606, -24.0974 )
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="limite_plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.446342, 22.467, 0.926, -13.578 )
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="limite_plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.446342, 22.467, 0.926, 12.865 )
-shape = SubResource( 34 )
+shape = SubResource( 35 )
 
 [node name="Parede_bloqueio" type="CollisionShape" parent="limite_plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.6623, 0.886555, -0.24099 )
-shape = SubResource( 35 )
+shape = SubResource( 36 )
 disabled = true
 
 [node name="nota" parent="." instance=ExtResource( 4 )]
@@ -3060,35 +3060,35 @@ transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 67.9596, 1.12572,
 script = ExtResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint"]
-shape = SubResource( 36 )
+shape = SubResource( 37 )
 
 [node name="Area_checkpoint2" type="Area" parent="."]
 transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 18.4693, -12.8463, -3.74972 )
 script = ExtResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint2"]
-shape = SubResource( 36 )
+shape = SubResource( 37 )
 
 [node name="Area_checkpoint3" type="Area" parent="."]
 transform = Transform( 0.197067, 0, 0, 0, 1, 0, 0, 0, 2.02219, 36.9607, -26.8555, -3.73089 )
 script = ExtResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint3"]
-shape = SubResource( 36 )
+shape = SubResource( 37 )
 
 [node name="Area_checkpoint4" type="Area" parent="."]
 transform = Transform( 0.197021, 0, -0.0440433, 0, 1, 0, 0.00429212, 0, 2.02171, -96.4807, -26.8555, 64.7885 )
 script = ExtResource( 67 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_checkpoint4"]
-shape = SubResource( 36 )
+shape = SubResource( 37 )
 
 [node name="Area_final_game" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 34.1756, -14.6162, -111.9 )
 script = ExtResource( 78 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Area_final_game"]
-shape = SubResource( 37 )
+shape = SubResource( 38 )
 
 [node name="hp_enemy" parent="." instance=ExtResource( 77 )]
 visible = false
@@ -3133,7 +3133,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="finalizacao/fim_1/fade"]
-anims/fade = SubResource( 38 )
+anims/fade = SubResource( 39 )
 
 [node name="Label_1" type="Label" parent="finalizacao/fim_1"]
 modulate = Color( 1, 1, 1, 0 )
@@ -3145,7 +3145,7 @@ margin_left = -368.5
 margin_top = -16.0
 margin_right = 368.5
 margin_bottom = 16.0
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "A Base explodiu por causa da fuga de Nija"
 align = 1
@@ -3165,7 +3165,7 @@ margin_left = -367.165
 margin_top = -33.7369
 margin_right = 368.811
 margin_bottom = 33.2631
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mas seus dados foram
  enviados para a base central"
@@ -3186,7 +3186,7 @@ margin_left = -368.5
 margin_top = -33.4
 margin_right = 368.5
 margin_bottom = 33.6
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Acabando aqui o seu objetivo."
 align = 1
@@ -3207,7 +3207,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="finalizacao/fim_2/fade"]
-anims/fade = SubResource( 40 )
+anims/fade = SubResource( 41 )
 
 [node name="Label_1" type="Label" parent="finalizacao/fim_2"]
 modulate = Color( 1, 1, 1, 0 )
@@ -3219,7 +3219,7 @@ margin_left = -368.5
 margin_top = -36.5
 margin_right = 368.5
 margin_bottom = 36.5
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Seus esforçõs não foram o
  suficeinte para deter o vírus"
@@ -3240,7 +3240,7 @@ margin_left = -368.5
 margin_top = -36.2
 margin_right = 368.5
 margin_bottom = 36.8
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Meya teve seu sistema consumido pelo virus"
 align = 1
@@ -3260,7 +3260,7 @@ margin_left = -368.5
 margin_top = -36.5
 margin_right = 368.5
 margin_bottom = 36.5
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Impossibilitando sua fuga"
 align = 1
@@ -3280,7 +3280,7 @@ margin_left = -368.5
 margin_top = -36.5
 margin_right = 368.5
 margin_bottom = 36.5
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Gênesis nunca soube o que aconteceu com meya"
 align = 1
@@ -3300,7 +3300,7 @@ margin_left = -368.5
 margin_top = -36.3
 margin_right = 368.5
 margin_bottom = 36.7
-custom_fonts/font = SubResource( 39 )
+custom_fonts/font = SubResource( 40 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Terminando aqui sua missâo"
 align = 1

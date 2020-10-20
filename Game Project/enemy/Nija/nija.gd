@@ -13,7 +13,7 @@ var life = 8000
 var life_maxima = 8000
 var defesa = 50
 var dano_arma = 70
-var dano_base = 170
+var dano_base = 200
 
 var active_moves = true
 var target_movel = true
@@ -96,6 +96,7 @@ func _on_Area_target_body_entered(body):
 		target = body
 		Gamestate.set_music_battle("res://audio/bg_battle_2.ogg")
 		get_tree().get_root().get_node("Map/hp_enemy").set_values(life, life_maxima)
+		get_tree().get_root().get_node("Map/hp_enemy").set_name("Nija")
 		get_tree().get_root().get_node("Map/hp_enemy").show()
 
 func _on_Area_target_body_exited(body):

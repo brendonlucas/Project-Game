@@ -8,6 +8,7 @@ func _on_Area_target_body_entered(body):
 		
 		var nucleo = get_tree().get_root().get_node("Map/pilar_enemys/cube_enemy/nucleo/MeshInstance/colision_nucleo")
 		get_tree().get_root().get_node_or_null("Map/hp_enemy").set_values(nucleo.vida, nucleo.vida_maxima)
+		get_tree().get_root().get_node_or_null("Map/hp_enemy").set_name("Núcleo")
 		get_tree().get_root().get_node_or_null("Map/hp_enemy").show()
 		get_tree().get_root().get_node_or_null("Map/hp_enemy/pilar_hp").show()
 		
