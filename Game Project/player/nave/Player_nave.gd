@@ -77,7 +77,7 @@ func moves_normal(delta):
 		is_moving = true
 		rotation_degrees.z = 20
 		
-	if Input.is_action_pressed("atacar") and timer_gun_bullet.time_left == 0 and active_gun:
+	if Input.is_action_pressed("sprint") and timer_gun_bullet.time_left == 0 and active_gun:
 		timer_gun_bullet.start()
 		weapon_gun.fire_weapon()
 		$gun_2.fire_weapon()
