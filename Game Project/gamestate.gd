@@ -16,6 +16,7 @@ var ativar_menu = true
 var game1 = preload("res://maps/mine_games/game_map_1.tscn")
 var game2 = preload("res://maps/mine_games/game_map_2.tscn")
 var game3 = preload("res://maps/mine_games/game_map_3.tscn")
+var game4 = preload("res://maps/mine_games/game_map_4.tscn")
 
 var hack_nija = preload("res://maps/mine_games/game_map_hack.tscn")
 
@@ -204,12 +205,12 @@ func drop_game():
 func randomNumber():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var my_random_number = rng.randi_range(1, 3)
+	var my_random_number = rng.randi_range(1, 4)
 	return my_random_number
 
 #teste instanciar mine game hacker
 func instancia_objetos():
-	var nun = 1 #randomNumber()
+	var nun = randomNumber()
 	var mini_game
 	if nun == 1:
 		mini_game = game1
@@ -217,6 +218,8 @@ func instancia_objetos():
 		mini_game = game2
 	elif nun == 3:
 		mini_game = game3
+	elif nun == 4:
+		mini_game = game4
 		
 	var clone = mini_game.instance()
 	var scene_root = get_tree().get_root().get_node("Map")

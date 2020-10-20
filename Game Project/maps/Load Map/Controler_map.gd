@@ -16,10 +16,10 @@ var part1 = {'1':{"text":"Maldito virus.", "duracao":2,"audio":"res://audio/fala
 var part2 = {'1':{'text':'Talvez este seja o local de da missão.','duracao': 4, 'audio':"res://audio/falas/p2/a3.wav"},
 '2':{"text":"É melhor dá uma olhada na ilha em busca de algo.", "duracao":4,"audio":"res://audio/falas/p2/a4.wav"}}
 var part3 = {'1':{'text':'Que estruturas estranhas. Talvez encontre algo.','duracao': 4, 'audio':"res://audio/falas/p2/a5.wav"}}
-var part4 = {'1':{'text':'Que interessante. Um painel de controle.', "duracao": 2,"audio":"res://audio/falas/p2/a6.wav"},
-'2':{'text':'Se eu conseguisse invadir-lo, talvez descobriria para que serve.', "duracao": 3,"audio":"res://audio/falas/p2/a7.wav"},
-'3':{'text':'Mas estou captando alguns sinais bloqueando o painel.', "duracao": 3,"audio":"res://audio/falas/p2/a8.wav"},
-'4':{'text':'Tenho que procurar-los.', "duracao": 1,"audio":"res://audio/falas/p2/a9.wav"}}
+var part4 = {'1':{'text':'Que interessante. Um painel de controle.', "duracao": 3,"audio":"res://audio/falas/p2/a6.wav"},
+'2':{'text':'Se eu conseguisse invadir-lo, talvez descobriria para que serve.', "duracao": 4,"audio":"res://audio/falas/p2/a7.wav"},
+'3':{'text':'Mas estou captando alguns sinais bloqueando o painel.', "duracao": 4,"audio":"res://audio/falas/p2/a8.wav"},
+'4':{'text':'Tenho que procurar-los.', "duracao": 1.5,"audio":"res://audio/falas/p2/a9.wav"}}
 
 var part5 = {'1':{'text':'Um já foi, falta mais um.', "duracao": 2,"audio":"res://audio/falas/p2/a10.wav"}}
 var part6 = {'1':{'text':'Os dois já foram. Agora devo conseguir conectar ao painel.', "duracao": 4,"audio":"res://audio/falas/p2/a11.wav"}}

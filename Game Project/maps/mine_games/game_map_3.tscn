@@ -1,13 +1,22 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Teste 3d in 2d in 3d/map 2.gd" type="Script" id=1]
+[ext_resource path="res://maps/mine_games/map 2.gd" type="Script" id=1]
 [ext_resource path="res://maps/mine_games/game3.tscn" type="PackedScene" id=2]
+
 
 [node name="map_game" type="Control"]
 light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

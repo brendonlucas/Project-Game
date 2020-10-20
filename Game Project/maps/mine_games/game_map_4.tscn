@@ -1,7 +1,8 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Teste 3d in 2d in 3d/map 2.gd" type="Script" id=1]
+[ext_resource path="res://maps/mine_games/map 2.gd" type="Script" id=1]
 [ext_resource path="res://maps/mine_games/game4.tscn" type="PackedScene" id=2]
+
 
 [node name="map_game" type="Control"]
 light_mask = 2

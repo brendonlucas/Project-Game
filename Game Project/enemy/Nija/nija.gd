@@ -18,8 +18,6 @@ var dano_base = 170
 var active_moves = true
 var target_movel = true
 
-
-
 func block_moviments(option):
 	if option == true:
 		active_moves = option
@@ -41,7 +39,6 @@ func _ready():
 	animation = $AnimationPlayer.current_animation
 	space_state = get_world().direct_space_state
 	timer_attack = get_node("Area_attack/Timer_attack")
-	print(space_state)
 	
 func _process(delta):
 	if target_attack and timer_attack.time_left == 0 and active_moves :
@@ -82,11 +79,9 @@ func _on_Area_attack_body_entered(body):
 	if body.is_in_group("Player_v4") and target_movel:
 		target_attack = body
 
-
 func _on_Area_attack_body_exited(body):
 	if body.is_in_group("Player_v4") and target_movel:
 		target_attack = null
-		#print("saiu da area de ataque")
 
 func move_to_target(delta):
 	var direction = (target.transform.origin - transform.origin).normalized()
@@ -102,13 +97,11 @@ func _on_Area_target_body_entered(body):
 		Gamestate.set_music_battle("res://audio/bg_battle_2.ogg")
 		get_tree().get_root().get_node("Map/hp_enemy").set_values(life, life_maxima)
 		get_tree().get_root().get_node("Map/hp_enemy").show()
-		#print(body.name + " entered")
 
 func _on_Area_target_body_exited(body):
 	if body.is_in_group("Player_v4") and target_movel:
 		target = null
 		get_tree().get_root().get_node("Map/hp_enemy").hide()
-		#print(body.name + " exited")
 
 func randomNumber():
 	var rng = RandomNumberGenerator.new()
