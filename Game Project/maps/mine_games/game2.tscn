@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player_hack/Player_hack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player_hack/target.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://enemy/enemy_hack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy/enemy_hack_stop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://maps/mine_games/game2.gd" type="Script" id=8]
+[ext_resource path="res://player/UI/complete_game.tscn" type="PackedScene" id=9]
+[ext_resource path="res://maps/mine_games/complete_game1.gd" type="Script" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 51.0815, 0.00113748, 51.2902 )
@@ -30,6 +32,62 @@ glow_enabled = true
 glow_strength = 0.87
 glow_bloom = 0.43
 glow_blend_mode = 1
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:emission_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 16.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 1, 1 ), Vector3( 3, 1, 1 ), Vector3( 3, 0.01, 0.01 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="game" type="Spatial"]
 script = ExtResource( 8 )
@@ -148,7 +206,7 @@ transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 23.0018, 1.00455, 29.003
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 4 )
 data = {
-"cells": PoolIntArray( 8, 7, 0, 10, 7, 0, 12, 7, 0, 14, 7, 0, 16, 7, 0, 65518, 7, 0, 65520, 7, 0, 65522, 7, 0, 65524, 7, 0, 65526, 7, 0, 8, 9, 0, 65526, 9, 0, 8, 11, 0, 65526, 11, 0, 8, 13, 0, 65526, 13, 0, 8, 15, 0, 65526, 15, 0, 8, 65524, 0, 8, 65526, 0, 65526, 65526, 0, 8, 65528, 0, 65526, 65528, 0, 8, 65530, 0, 65526, 65530, 0, 8, 65532, 0, 10, 65532, 0, 12, 65532, 0, 14, 65532, 0, 16, 65532, 0, 65526, 65532, 0, 65518, 65534, 0, 65520, 65534, 0, 65522, 65534, 0, 65524, 65534, 0, 65526, 65534, 0 )
+"cells": PoolIntArray( 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 13, 1, 0, 13, 2, 0, 10, 3, 0, 11, 3, 0, 12, 3, 0, 13, 3, 0, 8, 7, 0, 10, 7, 0, 12, 7, 0, 14, 7, 0, 16, 7, 0, 65518, 7, 0, 65520, 7, 0, 65522, 7, 0, 65524, 7, 0, 65526, 7, 0, 8, 9, 0, 65526, 9, 0, 8, 11, 0, 65526, 11, 0, 8, 13, 0, 65526, 13, 0, 8, 15, 0, 65526, 15, 0, 8, 65524, 0, 8, 65526, 0, 65526, 65526, 0, 8, 65528, 0, 65526, 65528, 0, 8, 65530, 0, 65526, 65530, 0, 8, 65532, 0, 10, 65532, 0, 12, 65532, 0, 14, 65532, 0, 16, 65532, 0, 65526, 65532, 0, 65518, 65534, 0, 65520, 65534, 0, 65522, 65534, 0, 65524, 65534, 0, 65526, 65534, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -159,19 +217,40 @@ __meta__ = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.7927, 0.32888, 21.9942 )
 
 [node name="enemy_hack2" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7886, 0.32888, 26.7442 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4689, 0.278057, -20.6183 )
 
 [node name="enemy_hack6" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.37067, 0.32888, -4.17298 )
 
 [node name="enemy_hack3" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.3555, 0.32888, 38.0647 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.3636, 0.652801, -13.858 )
 
 [node name="enemy_hack4" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5604, 0.328881, 43.6331 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.31274, 0.412804, -18.757 )
 
 [node name="enemy_hack5" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61186, 0.328881, 43.6331 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4731, 0.474995, 36.4152 )
 
 [node name="enemy_hack_stop" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.89118, 2.98567, 4.20986 )
+transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -2.89118, 0.763444, 4.20986 )
+
+[node name="done_game" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.3132, 0, 3.9285 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Area" type="Area" parent="done_game"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.316017, 0, 0 )
+script = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="done_game/Area"]
+shape = SubResource( 7 )
+
+[node name="Porta" type="CSGBox" parent="."]
+transform = Transform( 0.00907253, -0.073696, 0.997276, -0.0273552, 0.997237, 0.0737208, -2.99986, -0.0093165, 0.00234383, 19.2897, 0.658408, 4.01052 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Porta"]
+anims/drop = SubResource( 8 )
+
+[node name="complete_game" parent="." instance=ExtResource( 9 )]
+[connection signal="body_entered" from="done_game/Area" to="done_game/Area" method="_on_Area_body_entered"]

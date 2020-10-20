@@ -27,6 +27,7 @@ func done_game():
 
 func up_speed_ataque():
 	enemys_kill += 1
+	print(enemys_kill)
 	if get_node_or_null("enemy_hack2"):
 		$enemy_hack2.up_bullet_speed()
 	if get_node_or_null("enemy_hack3"):

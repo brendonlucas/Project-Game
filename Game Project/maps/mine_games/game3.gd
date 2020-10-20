@@ -43,3 +43,4 @@ func up_speed_ataque():
 		$enemy_hack_stop.up_bullet_speed()
 	if get_node_or_null("enemy_hack_stop2"):
 		$enemy_hack_stop2.up_bullet_speed()
+

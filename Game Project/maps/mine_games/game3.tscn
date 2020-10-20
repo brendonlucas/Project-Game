@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://player/Player_hack/Player_hack.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player/Player_hack/target.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://enemy/enemy_hack.tscn" type="PackedScene" id=6]
 [ext_resource path="res://enemy/enemy_hack_stop.tscn" type="PackedScene" id=7]
 [ext_resource path="res://maps/mine_games/game3.gd" type="Script" id=8]
+[ext_resource path="res://player/UI/complete_game.tscn" type="PackedScene" id=9]
+[ext_resource path="res://maps/mine_games/complete_game1.gd" type="Script" id=10]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 51.0815, 0.00113748, 51.2902 )
@@ -30,6 +32,62 @@ glow_enabled = true
 glow_strength = 0.87
 glow_bloom = 0.43
 glow_blend_mode = 1
+
+[sub_resource type="CubeMesh" id=6]
+
+[sub_resource type="BoxShape" id=7]
+
+[sub_resource type="Animation" id=8]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:material:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:material:emission_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 16.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 3, 1, 1 ), Vector3( 3, 1, 1 ), Vector3( 3, 0.01, 0.01 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
 [node name="game" type="Spatial"]
 script = ExtResource( 8 )
@@ -146,7 +204,7 @@ transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 23.0018, 1.00455, 29.003
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 4 )
 data = {
-"cells": PoolIntArray( 16, 0, 0, 65527, 0, 0, 16, 1, 0, 65527, 1, 0, 16, 2, 0, 65527, 2, 0, 16, 3, 0, 65527, 3, 0, 16, 4, 0, 65527, 4, 0, 16, 5, 0, 65527, 5, 0, 16, 6, 0, 65527, 6, 0, 16, 7, 0, 65527, 7, 0, 16, 8, 0, 65527, 8, 0, 16, 9, 0, 65527, 9, 0, 16, 10, 0, 65527, 10, 0, 16, 11, 0, 65527, 11, 0, 16, 12, 0, 65527, 12, 0, 16, 13, 0, 65527, 13, 0, 16, 14, 0, 65527, 14, 0, 16, 15, 0, 65527, 15, 0, 16, 16, 0, 65527, 16, 0, 16, 17, 0, 65527, 17, 0, 16, 18, 0, 65527, 18, 0, 16, 19, 0, 65527, 19, 0, 16, 20, 0, 65527, 20, 0, 16, 21, 0, 65527, 21, 0, 16, 22, 0, 65527, 22, 0, 0, 23, 0, 1, 23, 0, 2, 23, 0, 3, 23, 0, 4, 23, 0, 5, 23, 0, 6, 23, 0, 7, 23, 0, 8, 23, 0, 9, 23, 0, 10, 23, 0, 11, 23, 0, 12, 23, 0, 13, 23, 0, 14, 23, 0, 15, 23, 0, 16, 23, 0, 65527, 23, 0, 65528, 23, 0, 65529, 23, 0, 65530, 23, 0, 65531, 23, 0, 65532, 23, 0, 65533, 23, 0, 65534, 23, 0, 65535, 23, 0, 0, 65525, 0, 1, 65525, 0, 2, 65525, 0, 3, 65525, 0, 4, 65525, 0, 5, 65525, 0, 6, 65525, 0, 7, 65525, 0, 8, 65525, 0, 9, 65525, 0, 10, 65525, 0, 11, 65525, 0, 12, 65525, 0, 13, 65525, 0, 14, 65525, 0, 15, 65525, 0, 16, 65525, 0, 65527, 65525, 0, 65528, 65525, 0, 65529, 65525, 0, 65530, 65525, 0, 65531, 65525, 0, 65532, 65525, 0, 65533, 65525, 0, 65534, 65525, 0, 65535, 65525, 0, 16, 65526, 0, 65527, 65526, 0, 16, 65527, 0, 65527, 65527, 0, 16, 65528, 0, 65527, 65528, 0, 16, 65529, 0, 65527, 65529, 0, 16, 65530, 0, 65527, 65530, 0, 16, 65531, 0, 65527, 65531, 0, 16, 65532, 0, 65527, 65532, 0, 16, 65533, 0, 65527, 65533, 0, 16, 65534, 0, 65527, 65534, 0, 16, 65535, 0, 65527, 65535, 0 )
+"cells": PoolIntArray( 16, 0, 0, 65527, 0, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 16, 1, 0, 65527, 1, 0, 11, 2, 0, 16, 2, 0, 65527, 2, 0, 11, 3, 0, 16, 3, 0, 65527, 3, 0, 11, 4, 0, 16, 4, 0, 65527, 4, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 16, 5, 0, 65527, 5, 0, 16, 6, 0, 65527, 6, 0, 16, 7, 0, 65527, 7, 0, 16, 8, 0, 65527, 8, 0, 16, 9, 0, 65527, 9, 0, 16, 10, 0, 65527, 10, 0, 16, 11, 0, 65527, 11, 0, 16, 12, 0, 65527, 12, 0, 16, 13, 0, 65527, 13, 0, 16, 14, 0, 65527, 14, 0, 16, 15, 0, 65527, 15, 0, 16, 16, 0, 65527, 16, 0, 16, 17, 0, 65527, 17, 0, 16, 18, 0, 65527, 18, 0, 16, 19, 0, 65527, 19, 0, 16, 20, 0, 65527, 20, 0, 16, 21, 0, 65527, 21, 0, 16, 22, 0, 65527, 22, 0, 0, 23, 0, 1, 23, 0, 2, 23, 0, 3, 23, 0, 4, 23, 0, 5, 23, 0, 6, 23, 0, 7, 23, 0, 8, 23, 0, 9, 23, 0, 10, 23, 0, 11, 23, 0, 12, 23, 0, 13, 23, 0, 14, 23, 0, 15, 23, 0, 16, 23, 0, 65527, 23, 0, 65528, 23, 0, 65529, 23, 0, 65530, 23, 0, 65531, 23, 0, 65532, 23, 0, 65533, 23, 0, 65534, 23, 0, 65535, 23, 0, 0, 65525, 0, 1, 65525, 0, 2, 65525, 0, 3, 65525, 0, 4, 65525, 0, 5, 65525, 0, 6, 65525, 0, 7, 65525, 0, 8, 65525, 0, 9, 65525, 0, 10, 65525, 0, 11, 65525, 0, 12, 65525, 0, 13, 65525, 0, 14, 65525, 0, 15, 65525, 0, 16, 65525, 0, 65527, 65525, 0, 65528, 65525, 0, 65529, 65525, 0, 65530, 65525, 0, 65531, 65525, 0, 65532, 65525, 0, 65533, 65525, 0, 65534, 65525, 0, 65535, 65525, 0, 16, 65526, 0, 65527, 65526, 0, 16, 65527, 0, 65527, 65527, 0, 16, 65528, 0, 65527, 65528, 0, 16, 65529, 0, 65527, 65529, 0, 16, 65530, 0, 65527, 65530, 0, 16, 65531, 0, 65527, 65531, 0, 16, 65532, 0, 65527, 65532, 0, 16, 65533, 0, 65527, 65533, 0, 16, 65534, 0, 65527, 65534, 0, 16, 65535, 0, 65527, 65535, 0 )
 }
 __meta__ = {
 "_editor_clip_": 0,
@@ -176,3 +234,23 @@ transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.73525, 0.428848, -7.08
 
 [node name="enemy_hack_stop2" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 7.57966, 0.281214, 31.8125 )
+
+[node name="done_game" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9049, 0, 6.85935 )
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="Area" type="Area" parent="done_game"]
+script = ExtResource( 10 )
+
+[node name="CollisionShape" type="CollisionShape" parent="done_game/Area"]
+shape = SubResource( 7 )
+
+[node name="Porta" type="CSGBox" parent="."]
+transform = Transform( 0.0598308, -0.000579464, -0.999801, 0.0970779, 0.999476, 6.62183e-05, 2.99783, -0.0323542, 0.0199521, 15.1425, 1.01847, 7.05883 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Porta"]
+anims/drop = SubResource( 8 )
+
+[node name="complete_game" parent="." instance=ExtResource( 9 )]
+[connection signal="body_entered" from="done_game/Area" to="done_game/Area" method="_on_Area_body_entered"]
